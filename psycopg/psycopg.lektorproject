@@ -4,3 +4,4 @@ url = http://psycopg.org/
 
 [packages]
 lektor-feed = 20191006.1
+lektor-rst = 0.2.0
