@@ -37,6 +37,10 @@ header nav ul li {
     padding: 0;
 }
 
+header nav ul li.active {
+    font-weight: bold;
+}
+
 div.page {
     background: #f1fbfe;
 }
