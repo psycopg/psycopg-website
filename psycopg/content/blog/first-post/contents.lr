@@ -6,4 +6,9 @@ author: Daniele Varrazzo
 ---
 body:
 
-This is an example blog post.  Not much here but that's not the point :)
+This is an *example* **blog** post_.  Not much here but that's not the point :)
+
+The bug was :ticket:`#1`
+
+
+.. _post: http://example.org
