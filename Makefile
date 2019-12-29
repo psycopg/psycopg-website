@@ -1,7 +1,15 @@
-.PHONY: build serve setup
+.PHONY: build serve setup docs publish
 
-build:
-	env/bin/lektor build -O ../build
+PYTHON=$(CURDIR)/env/bin/python
+LEKTOR=$(CURDIR)/env/bin/lektor
+
+build: docs
+	$(LEKTOR) build -O build
+
+docs:
+	test -d psycopg2/doc/env || $(MAKE) PYTHON=$(PYTHON) -C psycopg2/doc env
+	$(MAKE) PYTHON=$(PYTHON) -C psycopg2
+	$(MAKE) PYTHON=$(PYTHON) -C psycopg2/doc html
 
 publish:
 	(cd build && git add -A && git commit -m "updated on $$(date -Iseconds)")
@@ -11,8 +19,8 @@ publish:
 	(cd build && git push)
 
 serve:
-	env/bin/lektor serve
+	$(LEKTOR) serve
 
 setup:
-	test -d env || virtualenv -p python3 env
-	test -x env/bin/lektor || env/bin/pip install -r requirements.txt
+	test -x $(PYTHON) || virtualenv -p python3 env
+	test -x $(LEKTOR) || env/bin/pip install -r requirements.txt

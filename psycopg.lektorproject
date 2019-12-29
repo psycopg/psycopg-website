@@ -1,6 +1,8 @@
 [project]
 name = Psycopg
 url = http://psycopg.org/
+# For Sphynx docs
+included_assets = _static,_sources
 
 [packages]
 lektor-feed = 20191006.1

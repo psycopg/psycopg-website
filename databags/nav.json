@@ -6,15 +6,15 @@
         },
         {
             "title": "Install",
-            "url": "/docs/install"
+            "url": "/docs/install.html"
         },
         {
             "title": "Documentation",
-            "url": "/docs"
+            "url": "/docs/"
         },
         {
             "title": "Articles",
-            "url": "/articles"
+            "url": "/articles/"
         }
     ]
 }
