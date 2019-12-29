@@ -1,25 +1,49 @@
 <!doctype html>
-<meta charset="utf-8">
-<link rel="stylesheet" href="{{ '/static/style.css'|url }}">
-<title>{% block title %}Welcome{% endblock %} — psycopg</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-language" content="en-us" />
+  <meta name="description" content="Python adapter for PostgreSQL" />
+  <meta name="keywords" content="python, postgresql, adapter, driver, psycopg, psycopg2, database" />
+  <link rel="stylesheet" href="{{ '/static/css/psycopg.css'|url }}">
+  <link rel="stylesheet" href="{{ '/static/css/syntax.css'|url }}">
+  <title>{% block title %}Welcome{% endblock %} — Psycopg</title>
+</head>
 <body>
   <header>
-    <h1>psycopg</h1>
-    <nav>
-      <ul class="nav navbar-nav">
-        <li{% if this._path == '/' %} class="active"{% endif
-          %}><a href="{{ '/'|url }}">Welcome</a></li>
-        {% for href, title in bag('nav').items() %}
-          <li{% if this.is_child_of(href) %} class="active"{% endif
-            %}><a href="{{ href|url }}">{{ title }}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>
+    <div id="logoContainer">
+      <div id="logo"><h1><a href="{{ '/'|url }}">psycopg</a></h1></div>
+      <div class="clearLeft"></div>
+    </div>
+    <div id="menu">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tbody>
+          <tr>
+            <td>
+              <nav>
+                <ul>
+                  <li{% if this._path == '/' %} class="active"{% endif
+                    %}><a href="{{ '/'|url }}">Home</a></li>
+                  {% for link in bag('nav.links') %}
+                    <li{% if this.is_child_of(link['url']) %} class="active"{% endif
+                      %}><a href="{{ link['url'] }}">{{ link['title'] }}</a></li>
+                  {% endfor %}
+                </ul>
+              </nav>
+              <div class="clearLeft"></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </header>
-  <div class="page">
-    {% block body %}{% endblock %}
+
+  <div id="site">
+    <div id="content">
+      {% block body %}{% endblock %}
+    </div>
   </div>
+
   <footer>
-    &copy; Copyright 2019 by Daniele Varrazzo.
+    &copy; Copyright 2010&mdash;2019 by Daniele Varrazzo (at gmail).
   </footer>
 </body>

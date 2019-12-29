@@ -1,8 +1,28 @@
-title: Welcome to psycopg!
+_model: homepage
+---
+title: PostgreSQL driver for Python
+---
+teaser:
+
+**Psycopg** is the most popular PostgreSQL_ adapter for the `Python programming language`_. 
+At its core it is a complete implementation of the `Python DB API 2.0`_ specifications. Several extensions allow access to many of the features offered by PostgreSQL.
+
+.. _PostgreSQL: http://www.postgresql.org/
+.. _Python programming language: http://www.python.org/
+.. _Python DB API 2.0: http://www.python.org/dev/peps/pep-0249/
+
 ---
 body:
 
-This is a basic demo website that shows how to use Lektor for a basic
-website with some pages and a blog.
+Psycopg is released under the terms of the `GNU Lesser General Public License`_, allowing use from both free and proprietary software.
 
-Testing a change - 3
+.. _GNU Lesser General Public License: /psycopg/license/
+
+- Check the `features list`__ to see what Psycopg offers
+- Read the `Psycopg documentation`__. Be sure to check the `Frequently Asked Questions`__
+- `Download Psycopg`__!
+
+.. __: /psycopg/features/
+.. __: /psycopg/docs/
+.. __: /psycopg/docs/faq.html
+.. __: /psycopg/download/

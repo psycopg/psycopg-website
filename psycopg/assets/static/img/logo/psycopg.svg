@@ -1,0 +1,4039 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+   xmlns:ns1="http://ns.adobe.com/Flows/1.0/"
+   xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/"
+   xmlns:x="http://ns.adobe.com/Extensibility/1.0/"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448"
+   height="1052.3622"
+   id="svg4802"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="psycopg.svg"
+   style="display:inline"
+   inkscape:export-filename="/home/piro/dev/psycoweb/media/img/logo/psycopg-100-2.png"
+   inkscape:export-xdpi="10.096759"
+   inkscape:export-ydpi="10.096759">
+  <defs
+     id="defs4804">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective4810" />
+    <inkscape:perspective
+       id="perspective4924"
+       inkscape:persp3d-origin="270.04437 : 185.57625 : 1"
+       inkscape:vp_z="540.08875 : 278.36438 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 278.36438 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <foreignObject
+       id="foreignObject1922"
+       height="1"
+       width="1"
+       y="0"
+       x="0"
+       requiredExtensions="http://ns.adobe.com/AdobeIllustrator/10.0/">
+      <i:pgfRef
+         xlink:href="#adobe_illustrator_pgf" />
+    </foreignObject>
+    <foreignObject
+       requiredExtensions="http://ns.adobe.com/AdobeIllustrator/10.0/"
+       x="0"
+       y="0"
+       width="1"
+       height="1"
+       id="foreignObject10">
+      <i:pgfRef
+         xlink:href="#adobe_illustrator_pgf" />
+    </foreignObject>
+    <linearGradient
+       id="linearGradient3236">
+      <stop
+         style="stop-color: rgb(244, 244, 244); stop-opacity: 1;"
+         offset="0"
+         id="stop3244" />
+      <stop
+         id="stop3240"
+         offset="1"
+         style="stop-color: rgb(255, 255, 255); stop-opacity: 1;" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4671">
+      <stop
+         id="stop4673"
+         offset="0"
+         style="stop-color: rgb(255, 200, 54); stop-opacity: 1;" />
+      <stop
+         style="stop-color:#ffd854;stop-opacity:1;"
+         offset="0.5"
+         id="stop8009" />
+      <stop
+         id="stop4675"
+         offset="1"
+         style="stop-color: rgb(255, 232, 115); stop-opacity: 1;" />
+    </linearGradient>
+    <inkscape:perspective
+       id="perspective5772"
+       inkscape:persp3d-origin="350 : 93.333333 : 1"
+       inkscape:vp_z="700 : 140 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 140 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective7034"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4671"
+       id="linearGradient7935"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.6818111,0,0,1.6818111,171.44213,322.238)"
+       x1="224.23996"
+       y1="144.75717"
+       x2="-65.308502"
+       y2="144.75717" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4671"
+       id="linearGradient8001"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.6818111,0,0,1.6818111,171.44213,322.238)"
+       x1="224.23996"
+       y1="144.75717"
+       x2="-65.308502"
+       y2="144.75717" />
+    <radialGradient
+       gradientTransform="matrix(2.382716e-8,-0.296405,1.43676,4.683673e-7,-128.544,150.5202)"
+       gradientUnits="userSpaceOnUse"
+       xlink:href="#linearGradient2795"
+       id="radialGradient1480"
+       fy="132.28575"
+       fx="61.518883"
+       r="29.036913"
+       cy="132.28575"
+       cx="61.518883" />
+    <linearGradient
+       gradientTransform="matrix(0.562541,0,0,0.567972,-9.399749,-5.305317)"
+       gradientUnits="userSpaceOnUse"
+       xlink:href="#linearGradient4689"
+       id="linearGradient1478"
+       y2="114.39767"
+       x2="135.66525"
+       y1="20.603781"
+       x1="26.648937" />
+    <linearGradient
+       gradientTransform="matrix(0.562541,0,0,0.567972,-9.399749,-5.305317)"
+       gradientUnits="userSpaceOnUse"
+       xlink:href="#linearGradient4671-5"
+       id="linearGradient1475"
+       y2="137.27299"
+       x2="112.03144"
+       y1="192.35176"
+       x1="150.96111" />
+    <radialGradient
+       gradientTransform="matrix(1,0,0,0.177966,0,108.7434)"
+       gradientUnits="userSpaceOnUse"
+       xlink:href="#linearGradient2795"
+       id="radialGradient2801"
+       fy="132.28575"
+       fx="61.518883"
+       r="29.036913"
+       cy="132.28575"
+       cx="61.518883" />
+    <linearGradient
+       gradientTransform="matrix(0.562541,0,0,0.567972,-11.5974,-7.60954)"
+       gradientUnits="userSpaceOnUse"
+       xlink:href="#linearGradient4689"
+       id="linearGradient2258"
+       y2="76.313133"
+       x2="26.670298"
+       y1="76.176224"
+       x1="172.94208" />
+    <linearGradient
+       gradientTransform="matrix(0.562541,0,0,0.567972,-11.5974,-7.60954)"
+       gradientUnits="userSpaceOnUse"
+       xlink:href="#linearGradient4671-5"
+       id="linearGradient2255"
+       y2="144.75717"
+       x2="-65.308502"
+       y1="144.75717"
+       x1="224.23996" />
+    <linearGradient
+       gradientTransform="translate(100.2702,99.61116)"
+       gradientUnits="userSpaceOnUse"
+       xlink:href="#linearGradient4671-5"
+       id="linearGradient2250"
+       y2="144.75717"
+       x2="-65.308502"
+       y1="144.75717"
+       x1="224.23996" />
+    <linearGradient
+       gradientTransform="translate(100.2702,99.61116)"
+       gradientUnits="userSpaceOnUse"
+       xlink:href="#linearGradient4689"
+       id="linearGradient2248"
+       y2="76.313133"
+       x2="26.670298"
+       y1="77.475983"
+       x1="172.94208" />
+    <linearGradient
+       gradientTransform="translate(100.2702,99.61116)"
+       gradientUnits="userSpaceOnUse"
+       xlink:href="#linearGradient4671-5"
+       id="linearGradient2589"
+       y2="144.75717"
+       x2="-65.308502"
+       y1="144.75717"
+       x1="224.23996" />
+    <linearGradient
+       gradientTransform="translate(100.2702,99.61116)"
+       gradientUnits="userSpaceOnUse"
+       xlink:href="#linearGradient4689"
+       id="linearGradient2587"
+       y2="76.313133"
+       x2="26.670298"
+       y1="77.475983"
+       x1="172.94208" />
+    <linearGradient
+       gradientTransform="translate(100.2702,99.61116)"
+       gradientUnits="userSpaceOnUse"
+       xlink:href="#linearGradient4689"
+       id="linearGradient2990"
+       y2="76.313133"
+       x2="26.670298"
+       y1="77.475983"
+       x1="172.94208" />
+    <linearGradient
+       gradientTransform="translate(100.2702,99.61116)"
+       gradientUnits="userSpaceOnUse"
+       xlink:href="#linearGradient4671-5"
+       id="linearGradient2987"
+       y2="144.75717"
+       x2="-65.308502"
+       y1="144.75717"
+       x1="224.23996" />
+    <linearGradient
+       id="linearGradient4689">
+      <stop
+         id="stop4691"
+         offset="0"
+         style="stop-color:#5a9fd4;stop-opacity:1" />
+      <stop
+         id="stop4693"
+         offset="1"
+         style="stop-color:#306998;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4671-5">
+      <stop
+         id="stop4673-0"
+         offset="0"
+         style="stop-color:#ffd43b;stop-opacity:1" />
+      <stop
+         id="stop4675-0"
+         offset="1"
+         style="stop-color:#ffe873;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3236-5">
+      <stop
+         id="stop3244-2"
+         offset="0"
+         style="stop-color:#f4f4f4;stop-opacity:1" />
+      <stop
+         id="stop3240-3"
+         offset="1"
+         style="stop-color:#ffffff;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3676">
+      <stop
+         id="stop3678"
+         offset="0"
+         style="stop-color:#b2b2b2;stop-opacity:0.5" />
+      <stop
+         id="stop3680"
+         offset="1"
+         style="stop-color:#b3b3b3;stop-opacity:0" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient2787">
+      <stop
+         id="stop2789"
+         offset="0"
+         style="stop-color:#7f7f7f;stop-opacity:0.5" />
+      <stop
+         id="stop2791"
+         offset="1"
+         style="stop-color:#7f7f7f;stop-opacity:0" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient2795">
+      <stop
+         id="stop2797"
+         offset="0"
+         style="stop-color:#b8b8b8;stop-opacity:0.49803922" />
+      <stop
+         id="stop2799"
+         offset="1"
+         style="stop-color:#7f7f7f;stop-opacity:0" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2795"
+       id="radialGradient3963"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(4.6590118e-8,-0.63915357,2.8093494,1.0099649e-6,-1193.7272,340.93687)"
+       cx="61.518883"
+       cy="132.28575"
+       fx="61.518883"
+       fy="132.28575"
+       r="29.036913" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4671-5"
+       id="linearGradient3967"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.4984566,0,0,1.5129233,-1010.7033,-69.715195)"
+       x1="150.96111"
+       y1="192.35176"
+       x2="112.03144"
+       y2="137.27299" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4689"
+       id="linearGradient3970"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.4984566,0,0,1.5129233,-1010.7033,-69.715195)"
+       x1="26.648937"
+       y1="20.603781"
+       x2="135.66525"
+       y2="114.39767" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4689"
+       id="linearGradient3982"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.4984566,0,0,1.5129233,-1010.7033,-69.715195)"
+       x1="26.648937"
+       y1="20.603781"
+       x2="135.66525"
+       y2="114.39767" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4671-5"
+       id="linearGradient3984"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.4984566,0,0,1.5129233,-1010.7033,-69.715195)"
+       x1="150.96111"
+       y1="192.35176"
+       x2="112.03144"
+       y2="137.27299" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4689"
+       id="linearGradient4793"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.4984566,0,0,1.5129233,-1010.7033,-69.715195)"
+       x1="26.648937"
+       y1="20.603781"
+       x2="135.66525"
+       y2="114.39767" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4671-5"
+       id="linearGradient4795"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.4984566,0,0,1.5129233,-1010.7033,-69.715195)"
+       x1="150.96111"
+       y1="192.35176"
+       x2="112.03144"
+       y2="137.27299" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4689"
+       id="linearGradient4899"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.4984566,0,0,1.5129233,-1010.7033,-69.715195)"
+       x1="26.648937"
+       y1="20.603781"
+       x2="135.66525"
+       y2="114.39767" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4671-5"
+       id="linearGradient4901"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.4984566,0,0,1.5129233,-1010.7033,-69.715195)"
+       x1="150.96111"
+       y1="192.35176"
+       x2="112.03144"
+       y2="137.27299" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4689"
+       id="linearGradient4919"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.4984566,0,0,1.5129233,-1010.7033,-69.715195)"
+       x1="26.648937"
+       y1="20.603781"
+       x2="135.66525"
+       y2="114.39767" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4671-5"
+       id="linearGradient4921"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.4984566,0,0,1.5129233,-1010.7033,-69.715195)"
+       x1="150.96111"
+       y1="192.35176"
+       x2="112.03144"
+       y2="137.27299" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4689"
+       id="linearGradient4927"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.4984566,0,0,1.5129233,-1010.7033,-69.715195)"
+       x1="26.648937"
+       y1="20.603781"
+       x2="135.66525"
+       y2="114.39767" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4671-5"
+       id="linearGradient4929"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.4984566,0,0,1.5129233,-1010.7033,-69.715195)"
+       x1="150.96111"
+       y1="192.35176"
+       x2="112.03144"
+       y2="137.27299" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="269.51949"
+     inkscape:cy="622.56562"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer4"
+     showgrid="false"
+     inkscape:window-width="1438"
+     inkscape:window-height="879"
+     inkscape:window-x="0"
+     inkscape:window-y="19"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata4807">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Shadow"
+     style="display:inline">
+    <path
+       style="fill:#336791;fill-opacity:1;stroke:#ffffff;stroke-width:3.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4"
+       d="M 607.88142,885.43915"
+       id="path7659" />
+    <g
+       style="fill:#336791;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-miterlimit:4"
+       id="g7633"
+       transform="matrix(-1.25,0,0,-1.25,607.88142,960.72915)" />
+    <g
+       id="g7663"
+       style="fill:#ffc836;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-miterlimit:4"
+       transform="matrix(1.25,0,0,1.25,160.69007,75.42375)" />
+    <path
+       id="path7667"
+       d="m 554.69632,480.7075 c 3.54125,-29.50125 2.48,-33.8275 24.45375,-29.04875 l 5.57875,0.49 c 16.89625,0.76875 38.99875,-2.7175 51.98375,-8.75 27.9525,-12.97 44.5275,-34.625 16.965,-28.935 -62.87125,12.97 -67.19375,-8.31875 -67.19375,-8.31875 C 652.87257,307.64125 680.62507,182.6 656.67007,151.9925 591.33257,68.50625 478.23507,107.985 476.34257,109.01 l -0.6025,0.11125 c -12.4225,-2.5775 -26.325,-4.1175 -41.9425,-4.37 -28.45125,-0.4675 -50.04,7.45875 -66.41625,19.88 0,0 -201.76,-83.1225 -192.37375,104.535 1.99625,39.92 57.22125,302.06875 123.0875,222.8875 24.07375,-28.95375 47.33875,-53.435 47.33875,-53.435 11.5525,7.675 25.38375,11.59 39.89,10.18375 l 1.12125,-0.95625 c -0.35125,3.595 -0.19625,7.11125 0.44875,11.27375 -16.965,18.95875 -11.98,22.2875 -45.90375,29.27 -34.32125,7.07375 -14.1575,19.6675 -0.99625,22.95875 15.96,3.99125 52.88125,9.645 77.835,-25.28 l -0.99375,3.985 c 6.65625,5.325 6.20625,38.27375 7.15,61.815 0.945,23.5425 2.52125,45.51125 7.32,58.46375 4.79875,12.95 10.46125,46.3125 55.045,36.7575 37.26125,-7.985 65.75,-19.4775 68.34625,-126.38375"
+       style="fill:#ffc836;fill-opacity:1;stroke:#000000;stroke-width:46.74412537;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4"
+       inkscape:connector-curvature="0" />
+    <path
+       id="path7695"
+       d="m 322.10135,396.38224 c 0,-8.36906 6.70712,-15.13554 15.01684,-15.13554 8.28003,0 15.01683,6.76648 15.01683,15.13554 0,8.3394 -6.7368,15.10588 -15.01683,15.10588 -8.30972,0 -15.01684,-6.76648 -15.01684,-15.10588 z"
+       i:knockout="Off"
+       style="fill:#ffff00" />
+  </g>
+  <g
+     inkscape:label="Blue"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline">
+    <g
+       id="g8138">
+      <path
+         style="fill:#336791;fill-opacity:1;stroke:#000000;stroke-width:46.74412537;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4"
+         d="m 197.81425,561.50632 c -3.54125,29.50125 -2.48,33.8275 -24.45375,29.04875 l -5.57875,-0.49 c -16.89625,-0.76875 -38.99875,2.7175 -51.98375,8.75 -27.952495,12.97 -44.527495,34.625 -16.964995,28.935 62.871245,-12.97 67.193745,8.31875 67.193745,8.31875 -66.388745,98.50375 -94.141245,223.545 -70.186245,254.1525 65.337495,83.48625 178.434995,44.0075 180.327495,42.9825 l 0.6025,-0.11125 c 12.4225,2.5775 26.325,4.1175 41.9425,4.37 28.45125,0.4675 50.04,-7.45875 66.41625,-19.88 0,0 201.76,83.12253 192.37375,-104.535 -1.99625,-39.92 -57.22125,-302.06875 -123.0875,-222.8875 -24.07375,28.95375 -47.33875,53.435 -47.33875,53.435 -11.5525,-7.675 -25.38375,-11.59 -39.89,-10.18375 l -1.12125,0.95625 c 0.35125,-3.595 0.19625,-7.11125 -0.44875,-11.27375 16.965,-18.95875 11.98,-22.2875 45.90375,-29.27 34.32125,-7.07375 14.1575,-19.6675 0.99625,-22.95875 -15.96,-3.99125 -52.88125,-9.645 -77.835,25.28 l 0.99375,-3.985 c -6.65625,-5.325 -6.20625,-38.27375 -7.15,-61.815 -0.945,-23.5425 -2.52125,-45.51125 -7.32,-58.46375 -4.79875,-12.95 -10.46125,-46.3125 -55.045,-36.7575 -37.26125,7.985 -65.75,19.4775 -68.34625,126.38375"
+         id="path4894" />
+      <path
+         style="fill:#336791;fill-opacity:1;stroke:none"
+         d="m 98.826755,627.75257 c 62.877495,-12.97 67.199995,8.31875 67.199995,8.31875 -66.388745,98.51 -94.141245,223.55375 -70.191245,254.1575 65.337495,83.48125 178.439995,44 180.327495,42.975 l 0.6075,-0.10875 c 12.4225,2.57875 26.325,4.115 41.95,4.37 28.45125,0.46625 50.0325,-7.45875 66.40875,-19.8775 0,0 201.76375,83.11873 192.38,-104.5375 -1.99625,-39.9225 -57.22,-302.07125 -123.08875,-222.89 -24.075,28.95375 -47.33625,53.435 -47.33625,53.435 -11.55375,-7.675 -25.385,-11.59 -39.885,-10.18375 l -1.12625,0.95625 c 0.35,-3.595 0.19,-7.11125 -0.45125,-11.27375 16.96875,-18.95875 11.9825,-22.2875 45.90375,-29.27 34.32375,-7.07375 14.16,-19.6675 0.995,-22.95875 -15.96,-3.99125 -52.88375,-9.645 -77.8325,25.28 l 0.995,-3.985 c -6.64875,-5.325 -11.3175,-34.63875 -10.535,-61.21125 0.7825,-26.57375 1.305,-44.8175 -3.93375,-59.0675 -5.23875,-14.25 -10.46,-46.3125 -55.0525,-36.7575 -37.26125,7.985 -56.57,28.6775 -59.25625,63.19375 -1.90625,24.53875 -6.22,20.91125 -6.4925,42.85 l -3.46,10.38625 c -3.99,33.26375 -0.63375,43.995 -23.59,39.00375 l -5.57875,-0.49 c -16.89625,-0.76875 -39.01,2.7175 -51.98875,8.75 -27.947495,12.97 -44.522495,34.625 -16.966245,28.935 z"
+         id="path4896" />
+      <path
+         style="fill:#336791;fill-opacity:1;stroke:#ffc836;stroke-width:15.58137512;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1"
+         d="m 331.988,608.68507 c 1.73125,-61.895 -0.435,-124.22125 -6.49125,-139.36875 -6.06,-15.1475 -19.02875,-44.61 -63.625,-35.05625 -37.2575,7.9875 -50.81375,23.445 -56.69625,57.56375 -4.3325,25.1025 -12.685,94.8175 -13.75625,109.10125"
+         id="path4898" />
+      <path
+         style="fill:#336791;fill-opacity:1;stroke:#ffc836;stroke-width:15.58137512;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1"
+         d="m 385.4405,918.97007 c 0,0 201.90125,82.52003 192.515,-105.13625 -1.99625,-39.9225 -57.22375,-302.08 -123.09125,-222.895 -24.07,28.9575 -45.83875,51.66875 -45.83875,51.66875"
+         id="path4900" />
+      <path
+         style="fill:#336791;fill-opacity:1;stroke:#ffc836;stroke-width:15.58137512;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1"
+         d="m 276.38425,934.03132 c 6.98875,-2.19125 -112.31,43.61125 -180.108745,-43.02125 -23.94875,-30.605 3.803745,-155.64875 70.191245,-254.16125"
+         id="path4902" />
+      <path
+         style="fill:#336791;fill-opacity:1;stroke:#ffc836;stroke-width:15.58137512;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1"
+         d="m 166.468,636.84882 c 0,0 -4.32625,-21.295 -67.204995,-8.31625 -27.55,5.69 -10.97,-15.9675 16.971245,-28.94375 22.93125,-10.6425 74.3425,-13.37 75.1825,1.33625 2.16125,37.94375 -27.05875,26.41625 -24.95,35.92375 1.90625,8.5625 14.97375,16.96625 23.6175,37.9225 7.54625,18.29125 103.495,158.56125 -26.60875,137.72875 -4.76625,0.98625 33.9325,123.7525 155.69125,125.74875 121.73125,1.99625 117.7375,-149.7025 117.7375,-149.7025"
+         id="path4904" />
+      <path
+         style="fill:#336791;fill-opacity:1;stroke:#ffc836;stroke-width:15.58137512;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1"
+         d="m 366.0655,623.87257 c 16.97125,-18.9575 11.98,-22.28625 45.90375,-29.27125 34.32375,-7.075 14.1575,-19.66625 0.99625,-22.95625 -15.96,-3.99375 -52.88375,-9.6475 -77.8325,25.28625 -7.5975,10.63625 0.045,27.6075 10.48125,31.93375 5.0425,2.08875 11.785,4.70625 20.45125,-4.9925 z"
+         id="path4906" />
+      <path
+         style="fill:#336791;fill-opacity:1;stroke:#ffc836;stroke-width:15.58137512;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1"
+         d="m 367.17675,624.20382 c 1.71,11.14625 -3.6625,24.41 -9.42,39.9275 -8.6525,23.2825 -28.61625,46.56875 -12.64625,120.42375 11.90375,55.03625 91.745,11.45375 91.795,3.99125 0.0487,-7.46 -3.61125,-37.825 1.33375,-73.185 6.4525,-46.14125 -29.36,-85.165 -70.59875,-81.1725"
+         id="path4908" />
+      <path
+         style="fill:#ffc836;fill-opacity:1;stroke:#ffc836;stroke-width:5.19375038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1"
+         d="m 386.17425,789.66507 c 0.36,-2.54875 -4.66625,-9.35 -11.22,-10.25875 -6.5425,-0.9125 -12.1425,4.4025 -12.4975,6.94875 -0.355,2.54875 4.665,5.35625 11.22125,6.26875 6.54625,0.91375 12.14875,-0.41625 12.495,-2.95875 z"
+         id="path4910" />
+      <path
+         style="fill:#ffc836;fill-opacity:1;stroke:#ffc836;stroke-width:2.59687519;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1"
+         d="m 186.89425,794.86132 c -0.355,-2.54875 4.665,-9.35 11.22,-10.25875 6.5475,-0.9125 12.1475,4.4025 12.50625,6.94875 0.34625,2.54875 -4.675,5.35625 -11.22375,6.26875 -6.54875,0.9125 -12.1475,-0.41625 -12.5025,-2.96 z"
+         id="path4912" />
+      <path
+         style="fill:#336791;fill-opacity:1;stroke:#ffc836;stroke-width:15.58137512;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1"
+         d="m 163.4755,812.50007 c -1.07875,-19.9925 4.30625,-33.61 4.985,-54.8925 1.005,-30.935 -14.74875,-66.3425 8.98875,-101.79375"
+         id="path4914" />
+      <path
+         style="fill:#336791;fill-opacity:1;stroke:#ffffff;stroke-width:3.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4"
+         d="M 601.8205,891.50007"
+         id="path4916" />
+    </g>
+    <g
+       style="fill:#ffc836;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-miterlimit:4"
+       id="g4945"
+       transform="matrix(1.25,0,0,1.25,160.69007,75.42375)" />
+    <g
+       style="display:none"
+       display="none"
+       i:rgbTrio="#4F008000FFFF"
+       i:dimmedPercent="100"
+       i:visible="no"
+       i:layer="yes"
+       id="Layer_2"
+       transform="matrix(1.190122,0,0,1.190122,-552.58724,509.50504)">
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line59"
+         y2="83.620003"
+         x2="205.58"
+         y1="144.77"
+         x1="205.58"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line61"
+         y2="83.620003"
+         x2="201.53"
+         y1="83.620003"
+         x1="205.58"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line63"
+         y2="88.07"
+         x2="537.95001"
+         y1="88.07"
+         x1="178.44"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line65"
+         y2="144.77"
+         x2="537.95001"
+         y1="144.77"
+         x1="178.44"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line67"
+         y2="56.889999"
+         x2="107.96"
+         y1="79.57"
+         x1="85.269997"
+         display="inline"
+         i:knockout="Off" />
+      <path
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="path69"
+         d="m 92.76,79.77 c 0,-1.77 0.06,-2.78 -2.43,-5.26"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line71"
+         y2="79.57"
+         x2="109.17"
+         y1="51.630001"
+         x1="109.17"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line73"
+         y2="65.800003"
+         x2="111.2"
+         y1="65.800003"
+         x1="97.830002"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line75"
+         y2="58.919998"
+         x2="110.39"
+         y1="61.349998"
+         x1="107.96"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line77"
+         y2="69.040001"
+         x2="110.39"
+         y1="71.470001"
+         x1="107.96"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line79"
+         y2="60.130001"
+         x2="110.79"
+         y1="62.560001"
+         x1="108.36"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line81"
+         y2="70.260002"
+         x2="110.79"
+         y1="72.690002"
+         x1="108.36"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line83"
+         y2="187.69"
+         x2="135.5"
+         y1="160.96001"
+         x1="135.5"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:square;stroke-linejoin:round;display:inline"
+         id="line85"
+         y2="26.93"
+         x2="52.459999"
+         y1="89.690002"
+         x1="52.459999"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:square;stroke-linejoin:round;display:inline"
+         id="line87"
+         y2="26.93"
+         x2="182.49001"
+         y1="89.690002"
+         x1="182.49001"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:square;stroke-linejoin:round;display:inline"
+         id="line89"
+         y2="113.99"
+         x2="46.380001"
+         y1="113.99"
+         x1="109.58"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:square;stroke-linejoin:round;display:inline"
+         id="line91"
+         y2="118.44"
+         x2="46.380001"
+         y1="118.44"
+         x1="109.98"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line93"
+         y2="106.3"
+         x2="47.189999"
+         y1="113.99"
+         x1="47.189999"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line95"
+         y2="124.92"
+         x2="47.189999"
+         y1="118.44"
+         x1="47.189999"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line97"
+         y2="111.16"
+         x2="46.790001"
+         y1="113.99"
+         x1="47.189999"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line99"
+         y2="113.99"
+         x2="47.189999"
+         y1="111.16"
+         x1="47.599998"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line101"
+         y2="121.28"
+         x2="46.790001"
+         y1="118.44"
+         x1="47.189999"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line103"
+         y2="118.44"
+         x2="47.189999"
+         y1="121.28"
+         x1="47.599998"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line105"
+         y2="163.8"
+         x2="135.10001"
+         y1="160.96001"
+         x1="135.5"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line107"
+         y2="160.96001"
+         x2="135.5"
+         y1="163.8"
+         x1="135.91"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line109"
+         y2="169.87"
+         x2="135.10001"
+         y1="172.71001"
+         x1="135.5"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line111"
+         y2="172.71001"
+         x2="135.5"
+         y1="169.87"
+         x1="135.91"
+         display="inline"
+         i:knockout="Off" />
+      <switch
+         style="display:inline"
+         id="switch113"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/">
+        <foreignObject
+           id="foreignObject115"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.938 0 0 1 0 0">
+              <ns1:path
+                 d="M28.49,118.65h17.28v16.28H28.49V118.65z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">10</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_1_" />
+        </foreignObject>
+        <g
+           id="g117">
+          <rect
+             style="fill:none"
+             id="rect119"
+             height="16.280001"
+             width="17.280001"
+             i:knockout="Off"
+             y="118.65"
+             x="28.49" />
+          <text
+             transform="matrix(0.938,0,0,1,28.49,124.053)"
+             id="XMLID_1_">
+            <tspan
+               style="font-size:5px;fill:#446785;font-family:Verdana"
+               id="tspan122"
+               font-size="5"
+               y="0"
+               x="0">10</tspan>
+          </text>
+        </g>
+      </switch>
+      <switch
+         style="display:inline"
+         id="switch124"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/">
+        <foreignObject
+           id="foreignObject126"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.938 0 0 1 0 0">
+              <ns1:path
+                 d="M56.85,147.4h17.28v16.28H56.85V147.4z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">10</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_2_" />
+        </foreignObject>
+        <g
+           id="g128">
+          <rect
+             style="fill:none"
+             id="rect130"
+             height="16.280001"
+             width="17.280001"
+             i:knockout="Off"
+             y="147.39999"
+             x="56.849998" />
+          <text
+             transform="matrix(0.938,0,0,1,56.8501,152.803)"
+             id="XMLID_2_">
+            <tspan
+               style="font-size:5px;fill:#446785;font-family:Verdana"
+               id="tspan133"
+               font-size="5"
+               y="0"
+               x="0">10</tspan>
+          </text>
+        </g>
+      </switch>
+      <switch
+         style="display:inline"
+         id="switch135"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/">
+        <foreignObject
+           id="foreignObject137"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.938 0 0 1 0 0">
+              <ns1:path
+                 d="M140.7,181.41h17.28v16.28H140.7V181.41z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">30</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_3_" />
+        </foreignObject>
+        <g
+           id="g139">
+          <rect
+             style="fill:none"
+             id="rect141"
+             height="16.280001"
+             width="17.280001"
+             i:knockout="Off"
+             y="181.41"
+             x="140.7" />
+          <text
+             transform="matrix(0.938,0,0,1,140.7,186.813)"
+             id="XMLID_3_">
+            <tspan
+               style="font-size:5px;fill:#446785;font-family:Verdana"
+               id="tspan144"
+               font-size="5"
+               y="0"
+               x="0">30</tspan>
+          </text>
+        </g>
+      </switch>
+      <switch
+         style="display:inline"
+         id="switch146"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/">
+        <foreignObject
+           id="foreignObject148"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.938 0 0 1 0 0">
+              <ns1:path
+                 d="M68.19,174.53h17.28v16.28H68.19V174.53z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">40</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_4_" />
+        </foreignObject>
+        <g
+           id="g150">
+          <rect
+             style="fill:none"
+             id="rect152"
+             height="16.280001"
+             width="17.280001"
+             i:knockout="Off"
+             y="174.53"
+             x="68.190002" />
+          <text
+             transform="matrix(0.938,0,0,1,68.1899,179.933)"
+             id="XMLID_4_">
+            <tspan
+               style="font-size:5px;fill:#446785;font-family:Verdana"
+               id="tspan155"
+               font-size="5"
+               y="0"
+               x="0">40</tspan>
+          </text>
+        </g>
+      </switch>
+      <switch
+         style="display:inline"
+         id="switch157"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/">
+        <foreignObject
+           id="foreignObject159"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.938 0 0 1 0 0">
+              <ns1:path
+                 d="M63.73,42.11h17.29v16.28H63.73V42.11z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">40</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_5_" />
+        </foreignObject>
+        <g
+           id="g161">
+          <rect
+             style="fill:none"
+             id="rect163"
+             height="16.280001"
+             width="17.290001"
+             i:knockout="Off"
+             y="42.110001"
+             x="63.73" />
+          <text
+             transform="matrix(0.938,0,0,1,63.73,47.5132)"
+             id="XMLID_5_">
+            <tspan
+               style="font-size:5px;fill:#446785;font-family:Verdana"
+               id="tspan166"
+               font-size="5"
+               y="0"
+               x="0">40</tspan>
+          </text>
+        </g>
+      </switch>
+      <switch
+         style="display:inline"
+         id="switch168"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/">
+        <foreignObject
+           id="foreignObject170"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.797 0 0 1 0 0">
+              <ns1:path
+                 d="M89.79,69.24h15.13v14.82H89.79V69.24z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="4"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#CCCCCC">45</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_6_" />
+        </foreignObject>
+        <g
+           id="g172">
+          <rect
+             style="fill:none"
+             id="rect174"
+             height="14.82"
+             width="15.13"
+             i:knockout="Off"
+             y="69.239998"
+             x="89.790001" />
+          <text
+             transform="matrix(0.797,0,0,1,89.79,73.4424)"
+             id="XMLID_6_">
+            <tspan
+               style="font-size:4px;fill:#cccccc;font-family:Verdana"
+               id="tspan177"
+               font-size="4"
+               y="0"
+               x="0">45</tspan>
+          </text>
+        </g>
+      </switch>
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line179"
+         y2="124.52"
+         x2="40.709999"
+         y1="124.52"
+         x1="46.790001"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:square;stroke-linejoin:round;display:inline"
+         id="line181"
+         y2="148.41"
+         x2="117.68"
+         y1="148.41"
+         x1="193.42999"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:square;stroke-linejoin:round;display:inline"
+         id="line183"
+         y2="152.86"
+         x2="117.68"
+         y1="152.86"
+         x1="193.42999"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line185"
+         y2="159.34"
+         x2="187.35001"
+         y1="148.41"
+         x1="187.35001"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line187"
+         y2="141.92999"
+         x2="205.17999"
+         y1="144.77"
+         x1="205.58"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line189"
+         y2="144.77"
+         x2="205.58"
+         y1="141.92999"
+         x1="205.99001"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line191"
+         y2="155.7"
+         x2="186.95"
+         y1="152.86"
+         x1="187.35001"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line193"
+         y2="152.86"
+         x2="187.35001"
+         y1="155.7"
+         x1="187.75999"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line195"
+         y2="90.5"
+         x2="205.17999"
+         y1="87.669998"
+         x1="205.58"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line197"
+         y2="87.669998"
+         x2="205.58"
+         y1="90.5"
+         x1="205.99001"
+         display="inline"
+         i:knockout="Off" />
+      <switch
+         style="display:inline"
+         id="switch199"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/">
+        <foreignObject
+           id="foreignObject201"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.938 0 0 1 0 0">
+              <ns1:path
+                 d="M167.44,152.66h17.28v16.28h-17.28V152.66z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">10</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_7_" />
+        </foreignObject>
+        <g
+           id="g203">
+          <rect
+             style="fill:none"
+             id="rect205"
+             height="16.280001"
+             width="17.280001"
+             i:knockout="Off"
+             y="152.66"
+             x="167.44" />
+          <text
+             transform="matrix(0.938,0,0,1,167.44,158.063)"
+             id="XMLID_7_">
+            <tspan
+               style="font-size:5px;fill:#446785;font-family:Verdana"
+               id="tspan208"
+               font-size="5"
+               y="0"
+               x="0">10</tspan>
+          </text>
+        </g>
+      </switch>
+      <switch
+         style="display:inline"
+         id="switch210"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/">
+        <foreignObject
+           id="foreignObject212"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.938 0 0 1 0 0">
+              <ns1:path
+                 d="M186.07,77.34h20.52v16.28h-20.52V77.34z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">140</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_8_" />
+        </foreignObject>
+        <g
+           id="g214">
+          <rect
+             style="fill:none"
+             id="rect216"
+             height="16.280001"
+             width="20.52"
+             i:knockout="Off"
+             y="77.339996"
+             x="186.07001" />
+          <text
+             transform="matrix(0.938,0,0,1,186.07,82.7432)"
+             id="XMLID_8_">
+            <tspan
+               style="font-size:5px;fill:#446785;font-family:Verdana"
+               id="tspan219"
+               font-size="5"
+               y="0"
+               x="0">140</tspan>
+          </text>
+        </g>
+      </switch>
+      <switch
+         style="display:inline"
+         id="switch221"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/">
+        <foreignObject
+           id="foreignObject223"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.938 0 0 1 0 0">
+              <ns1:path
+                 d="M182.83,186.27h20.52v16.28h-20.52V186.27z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">754</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_9_" />
+        </foreignObject>
+        <g
+           id="g225">
+          <rect
+             style="fill:none"
+             id="rect227"
+             height="16.280001"
+             width="20.52"
+             i:knockout="Off"
+             y="186.27"
+             x="182.83" />
+          <text
+             transform="matrix(0.938,0,0,1,182.83,191.673)"
+             id="XMLID_9_">
+            <tspan
+               style="font-size:5px;fill:#446785;font-family:Verdana"
+               id="tspan230"
+               font-size="5"
+               y="0"
+               x="0">754</tspan>
+          </text>
+        </g>
+      </switch>
+      <switch
+         style="display:inline"
+         id="switch232"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/">
+        <foreignObject
+           id="foreignObject234"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="1.014 0 0 1 0 0">
+              <ns1:path
+                 d="M478.68,74.91h43.48v16.28h-43.48V74.91z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">Flux Regular</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_10_" />
+        </foreignObject>
+        <g
+           id="g236">
+          <rect
+             style="fill:none"
+             id="rect238"
+             height="16.280001"
+             width="43.48"
+             i:knockout="Off"
+             y="74.910004"
+             x="478.67999" />
+          <text
+             transform="matrix(1.014,0,0,1,478.68,80.313)"
+             id="XMLID_10_">
+            <tspan
+               style="font-size:5px;fill:#446785;font-family:Verdana"
+               id="tspan241"
+               font-size="5"
+               y="0"
+               x="0">Flux Regular</tspan>
+          </text>
+        </g>
+      </switch>
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line243"
+         y2="158.94"
+         x2="180.87"
+         y1="158.94"
+         x1="186.95"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line245"
+         y2="48.389999"
+         x2="84.870003"
+         y1="47.98"
+         x1="87.300003"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line247"
+         y2="48.389999"
+         x2="84.870003"
+         y1="48.790001"
+         x1="87.300003"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line249"
+         y2="192.95"
+         x2="214.49001"
+         y1="192.55"
+         x1="216.92"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line251"
+         y2="192.95"
+         x2="214.49001"
+         y1="193.36"
+         x1="216.92"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line253"
+         y2="192.95"
+         x2="524.38"
+         y1="192.55"
+         x1="521.95001"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line255"
+         y2="192.95"
+         x2="524.38"
+         y1="193.36"
+         x1="521.95001"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line257"
+         y2="153.67"
+         x2="80.410004"
+         y1="153.27"
+         x1="77.980003"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line259"
+         y2="153.67"
+         x2="80.410004"
+         y1="154.08"
+         x1="77.980003"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line261"
+         y2="48.389999"
+         x2="150.08"
+         y1="47.98"
+         x1="147.64999"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line263"
+         y2="48.389999"
+         x2="150.08"
+         y1="48.790001"
+         x1="147.64999"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line265"
+         y2="187.28999"
+         x2="142.39"
+         y1="187.28999"
+         x1="135.5"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line267"
+         y2="37.049999"
+         x2="84.870003"
+         y1="71.07"
+         x1="84.870003"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line269"
+         y2="37.049999"
+         x2="117.27"
+         y1="79.160004"
+         x1="117.27"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line271"
+         y2="45.150002"
+         x2="150.08"
+         y1="71.07"
+         x1="150.08"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line273"
+         y2="181.21001"
+         x2="85.269997"
+         y1="165.00999"
+         x1="101.47"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line275"
+         y2="174.33"
+         x2="90.940002"
+         y1="176.35001"
+         x1="90.129997"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line277"
+         y2="175.53999"
+         x2="92.160004"
+         y1="176.35001"
+         x1="90.129997"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line279"
+         y2="181.21001"
+         x2="80.809998"
+         y1="181.21001"
+         x1="85.269997"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line281"
+         y2="163.39"
+         x2="80.809998"
+         y1="148.41"
+         x1="80.809998"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line283"
+         y2="153.67"
+         x2="69.879997"
+         y1="153.67"
+         x1="80.410004"
+         display="inline"
+         i:knockout="Off" />
+      <g
+         style="display:inline"
+         id="g285"
+         display="inline">
+        <switch
+           id="switch287"
+           i:objectType="areaText"
+           i:objectNS="http://ns.adobe.com/Flows/1.0/">
+          <foreignObject
+             id="foreignObject289"
+             overflow="visible"
+             height="1"
+             width="1"
+             y="0"
+             x="0"
+             requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+            <ns1:flowDef>
+              <ns1:region
+                 textMatrix="0.938 0 0 1 0 0">
+                <ns1:path
+                   d="M123.69,33.61h17.28v16.28h-17.28V33.61z"
+                   fill="none"
+                   i:knockout="Off" />
+              </ns1:region>
+              <ns1:flow
+                 font-size="5"
+                 font-family="'Verdana'">
+                <ns1:p
+                   a:adobe-justification-letter-spacing-max="5.000000e-04"
+                   a:adobe-justification-word-spacing-max="0.02"
+                   a:adobe-justification-word-spacing-desired="0.01"
+                   a:adobe-justification-word-spacing-min="0.01">
+                  <ns1:span
+                     fill="#446785">80</ns1:span>
+                </ns1:p>
+              </ns1:flow>
+            </ns1:flowDef>
+            <x:targetRef
+               xlink:href="#XMLID_11_" />
+          </foreignObject>
+          <g
+             id="g291">
+            <rect
+               style="fill:none"
+               id="rect293"
+               height="16.280001"
+               width="17.280001"
+               i:knockout="Off"
+               y="33.610001"
+               x="123.69" />
+            <text
+               transform="matrix(0.938,0,0,1,123.69,39.0132)"
+               id="XMLID_11_">
+              <tspan
+                 style="font-size:5px;fill:#446785;font-family:Verdana"
+                 id="tspan296"
+                 font-size="5"
+                 y="0"
+                 x="0">80</tspan>
+            </text>
+          </g>
+        </switch>
+        <line
+           style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round"
+           id="line298"
+           y2="39.880001"
+           x2="118.08"
+           y1="39.48"
+           x1="115.65"
+           i:knockout="Off" />
+        <line
+           style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round"
+           id="line300"
+           y2="39.880001"
+           x2="118.08"
+           y1="40.290001"
+           x1="115.65"
+           i:knockout="Off" />
+        <line
+           style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round"
+           id="line302"
+           y2="39.880001"
+           x2="85.68"
+           y1="39.48"
+           x1="88.110001"
+           i:knockout="Off" />
+        <line
+           style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round"
+           id="line304"
+           y2="39.880001"
+           x2="85.68"
+           y1="40.290001"
+           x1="88.110001"
+           i:knockout="Off" />
+        <line
+           style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round"
+           id="line306"
+           y2="39.880001"
+           x2="84.870003"
+           y1="39.880001"
+           x1="126.08"
+           i:knockout="Off" />
+      </g>
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line308"
+         y2="192.95"
+         x2="523.97998"
+         y1="192.95"
+         x1="199.91"
+         display="inline"
+         i:knockout="Off" />
+      <rect
+         style="fill:#446785;display:inline"
+         id="rect310"
+         height="16.200001"
+         width="16.200001"
+         display="inline"
+         i:knockout="Off"
+         y="34.419998"
+         x="281.94" />
+      <rect
+         style="fill:#d5ad42;display:inline"
+         id="rect312"
+         height="16.200001"
+         width="16.200001"
+         display="inline"
+         i:knockout="Off"
+         y="34.419998"
+         x="356.88" />
+      <switch
+         style="display:inline"
+         id="switch314"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/">
+        <foreignObject
+           id="foreignObject316"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.998 0 0 1 0 0">
+              <ns1:path
+                 d="M299.49,30.78h56.17v28.18h-56.17V30.78z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'CourierNew-Bold'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">HEX #446785</ns1:span>
+              </ns1:p>
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">RGB 68,103,133</ns1:span>
+              </ns1:p>
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">PANTONE 548</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_12_" />
+        </foreignObject>
+        <g
+           id="g318">
+          <rect
+             style="fill:none"
+             id="rect320"
+             height="28.18"
+             width="56.169998"
+             i:knockout="Off"
+             y="30.780001"
+             x="299.48999" />
+          <text
+             transform="matrix(0.998,0,0,1,299.49,36.875)"
+             id="XMLID_12_">
+            <tspan
+               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold"
+               id="tspan323"
+               font-size="5"
+               y="0"
+               x="0">HEX #446785</tspan>
+            <tspan
+               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold"
+               id="tspan325"
+               font-size="5"
+               y="6.0840001"
+               x="0">RGB 68,103,133</tspan>
+            <tspan
+               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold"
+               id="tspan327"
+               font-size="5"
+               y="12.168"
+               x="0">PANTONE 548</tspan>
+          </text>
+        </g>
+      </switch>
+      <switch
+         style="display:inline"
+         id="switch329"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/">
+        <foreignObject
+           id="foreignObject331"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.998 0 0 1 0 0">
+              <ns1:path
+                 d="M374.84,30.37h56.17v28.18h-56.17V30.37z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'CourierNew-Bold'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">HEX #D5AD42</ns1:span>
+              </ns1:p>
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">RGB 213,173,66</ns1:span>
+              </ns1:p>
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">PANTONE 7405 </ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_13_" />
+        </foreignObject>
+        <g
+           id="g333">
+          <rect
+             style="fill:none"
+             id="rect335"
+             height="28.18"
+             width="56.169998"
+             i:knockout="Off"
+             y="30.370001"
+             x="374.84" />
+          <text
+             transform="matrix(0.998,0,0,1,374.84,36.4648)"
+             id="XMLID_13_">
+            <tspan
+               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold"
+               id="tspan338"
+               font-size="5"
+               y="0"
+               x="0">HEX #D5AD42</tspan>
+            <tspan
+               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold"
+               id="tspan340"
+               font-size="5"
+               y="6.0840001"
+               x="0">RGB 213,173,66</tspan>
+            <tspan
+               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold"
+               id="tspan342"
+               font-size="5"
+               y="12.168"
+               x="0">PANTONE 7405</tspan>
+          </text>
+        </g>
+      </switch>
+      <rect
+         style="fill:#646464;display:inline"
+         id="rect344"
+         height="16.200001"
+         width="16.200001"
+         display="inline"
+         i:knockout="Off"
+         y="34.419998"
+         x="437.89999" />
+      <switch
+         style="display:inline"
+         id="switch346"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/">
+        <foreignObject
+           id="foreignObject348"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.998 0 0 1 0 0">
+              <ns1:path
+                 d="M455.86,30.37h59.41v28.18h-59.41V30.37z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'CourierNew-Bold'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">HEX #646464</ns1:span>
+              </ns1:p>
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">RGB 100,100,100</ns1:span>
+              </ns1:p>
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">PANTONE 446 </ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_14_" />
+        </foreignObject>
+        <g
+           id="g350">
+          <rect
+             style="fill:none"
+             id="rect352"
+             height="28.18"
+             width="59.41"
+             i:knockout="Off"
+             y="30.370001"
+             x="455.85999" />
+          <text
+             transform="matrix(0.998,0,0,1,455.86,36.4648)"
+             id="XMLID_14_">
+            <tspan
+               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold"
+               id="tspan355"
+               font-size="5"
+               y="0"
+               x="0">HEX #646464</tspan>
+            <tspan
+               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold"
+               id="tspan357"
+               font-size="5"
+               y="6.0840001"
+               x="0">RGB 100,100,100</tspan>
+            <tspan
+               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold"
+               id="tspan359"
+               font-size="5"
+               y="12.168"
+               x="0">PANTONE 446</tspan>
+          </text>
+        </g>
+      </switch>
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line361"
+         y2="199.42999"
+         x2="520.33002"
+         y1="139.91"
+         x1="520.33002"
+         display="inline"
+         i:knockout="Off" />
+      <switch
+         style="display:inline"
+         id="switch363"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/">
+        <foreignObject
+           id="foreignObject365"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.999 0 0 1 0 0">
+              <ns1:path
+                 d="M454.43,213.41h106.93v16.27H454.43V213.41z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#B4B4B4">designed by Pollenation Internet Ltd</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_15_" />
+        </foreignObject>
+        <g
+           id="g367">
+          <rect
+             style="fill:none"
+             id="rect369"
+             height="16.27"
+             width="106.93"
+             i:knockout="Off"
+             y="213.41"
+             x="454.42999" />
+          <text
+             transform="matrix(0.999,0,0,1,454.43,218.813)"
+             id="XMLID_15_">
+            <tspan
+               style="font-size:5px;fill:#b4b4b4;font-family:Verdana"
+               id="tspan372"
+               font-size="5"
+               y="0"
+               x="0">designed by Pollenation Internet Ltd</tspan>
+          </text>
+        </g>
+      </switch>
+      <line
+         style="fill:none;stroke:#ffffff;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line374"
+         y2="49.200001"
+         x2="117.27"
+         y1="47.98"
+         x1="117.27"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line376"
+         y2="48.389999"
+         x2="150.08"
+         y1="48.389999"
+         x1="77.57"
+         display="inline"
+         i:knockout="Off" />
+      <line
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline"
+         id="line378"
+         y2="198.62"
+         x2="214.89999"
+         y1="166.23"
+         x1="214.89999"
+         display="inline"
+         i:knockout="Off" />
+    </g>
+    <g
+       display="none"
+       i:rgbTrio="#4F008000FFFF"
+       i:dimmedPercent="100"
+       i:visible="no"
+       i:layer="yes"
+       id="g2323"
+       style="display:none"
+       transform="matrix(1.190122,0,0,1.190122,-799.4602,199.50444)">
+      <line
+         id="line1971"
+         y2="83.620003"
+         x2="205.58"
+         y1="144.77"
+         x1="205.58"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line1973"
+         y2="83.620003"
+         x2="201.53"
+         y1="83.620003"
+         x1="205.58"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line1975"
+         y2="88.07"
+         x2="537.95001"
+         y1="88.07"
+         x1="178.44"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line1977"
+         y2="144.77"
+         x2="537.95001"
+         y1="144.77"
+         x1="178.44"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line1979"
+         y2="56.889999"
+         x2="107.96"
+         y1="79.57"
+         x1="85.269997"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <path
+         id="path1981"
+         d="m 92.76,79.77 c 0,-1.77 0.06,-2.78 -2.43,-5.26"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line1983"
+         y2="79.57"
+         x2="109.17"
+         y1="51.630001"
+         x1="109.17"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line1985"
+         y2="65.800003"
+         x2="111.2"
+         y1="65.800003"
+         x1="97.830002"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line1987"
+         y2="58.919998"
+         x2="110.39"
+         y1="61.349998"
+         x1="107.96"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line1989"
+         y2="69.040001"
+         x2="110.39"
+         y1="71.470001"
+         x1="107.96"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line1991"
+         y2="60.130001"
+         x2="110.79"
+         y1="62.560001"
+         x1="108.36"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line1993"
+         y2="70.260002"
+         x2="110.79"
+         y1="72.690002"
+         x1="108.36"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line1995"
+         y2="187.69"
+         x2="135.5"
+         y1="160.96001"
+         x1="135.5"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line1997"
+         y2="26.93"
+         x2="52.459999"
+         y1="89.690002"
+         x1="52.459999"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:square;stroke-linejoin:round;display:inline" />
+      <line
+         id="line1999"
+         y2="26.93"
+         x2="182.49001"
+         y1="89.690002"
+         x1="182.49001"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:square;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2001"
+         y2="113.99"
+         x2="46.380001"
+         y1="113.99"
+         x1="109.58"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:square;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2003"
+         y2="118.44"
+         x2="46.380001"
+         y1="118.44"
+         x1="109.98"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:square;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2005"
+         y2="106.3"
+         x2="47.189999"
+         y1="113.99"
+         x1="47.189999"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2007"
+         y2="124.92"
+         x2="47.189999"
+         y1="118.44"
+         x1="47.189999"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2009"
+         y2="111.16"
+         x2="46.790001"
+         y1="113.99"
+         x1="47.189999"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2011"
+         y2="113.99"
+         x2="47.189999"
+         y1="111.16"
+         x1="47.599998"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2013"
+         y2="121.28"
+         x2="46.790001"
+         y1="118.44"
+         x1="47.189999"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2015"
+         y2="118.44"
+         x2="47.189999"
+         y1="121.28"
+         x1="47.599998"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2017"
+         y2="163.8"
+         x2="135.10001"
+         y1="160.96001"
+         x1="135.5"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2019"
+         y2="160.96001"
+         x2="135.5"
+         y1="163.8"
+         x1="135.91"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2021"
+         y2="169.87"
+         x2="135.10001"
+         y1="172.71001"
+         x1="135.5"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2023"
+         y2="172.71001"
+         x2="135.5"
+         y1="169.87"
+         x1="135.91"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <switch
+         id="switch2025"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/"
+         style="display:inline">
+        <foreignObject
+           id="foreignObject2027"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.938 0 0 1 0 0">
+              <ns1:path
+                 d="M28.49,118.65h17.28v16.28H28.49V118.65z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">10</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_1_" />
+        </foreignObject>
+        <g
+           id="g2029">
+          <rect
+             id="rect2031"
+             height="16.280001"
+             width="17.280001"
+             i:knockout="Off"
+             y="118.65"
+             x="28.49"
+             style="fill:none" />
+          <text
+             transform="matrix(0.938,0,0,1,28.49,124.053)"
+             id="text2356">
+            <tspan
+               id="tspan2034"
+               font-size="5"
+               y="0"
+               x="0"
+               style="font-size:5px;fill:#446785;font-family:Verdana">10</tspan>
+          </text>
+        </g>
+      </switch>
+      <switch
+         id="switch2036"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/"
+         style="display:inline">
+        <foreignObject
+           id="foreignObject2038"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.938 0 0 1 0 0">
+              <ns1:path
+                 d="M56.85,147.4h17.28v16.28H56.85V147.4z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">10</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_2_" />
+        </foreignObject>
+        <g
+           id="g2040">
+          <rect
+             id="rect2042"
+             height="16.280001"
+             width="17.280001"
+             i:knockout="Off"
+             y="147.39999"
+             x="56.849998"
+             style="fill:none" />
+          <text
+             transform="matrix(0.938,0,0,1,56.8501,152.803)"
+             id="text2363">
+            <tspan
+               id="tspan2045"
+               font-size="5"
+               y="0"
+               x="0"
+               style="font-size:5px;fill:#446785;font-family:Verdana">10</tspan>
+          </text>
+        </g>
+      </switch>
+      <switch
+         id="switch2047"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/"
+         style="display:inline">
+        <foreignObject
+           id="foreignObject2049"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.938 0 0 1 0 0">
+              <ns1:path
+                 d="M140.7,181.41h17.28v16.28H140.7V181.41z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">30</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_3_" />
+        </foreignObject>
+        <g
+           id="g2051">
+          <rect
+             id="rect2053"
+             height="16.280001"
+             width="17.280001"
+             i:knockout="Off"
+             y="181.41"
+             x="140.7"
+             style="fill:none" />
+          <text
+             transform="matrix(0.938,0,0,1,140.7,186.813)"
+             id="text2370">
+            <tspan
+               id="tspan2056"
+               font-size="5"
+               y="0"
+               x="0"
+               style="font-size:5px;fill:#446785;font-family:Verdana">30</tspan>
+          </text>
+        </g>
+      </switch>
+      <switch
+         id="switch2058"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/"
+         style="display:inline">
+        <foreignObject
+           id="foreignObject2060"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.938 0 0 1 0 0">
+              <ns1:path
+                 d="M68.19,174.53h17.28v16.28H68.19V174.53z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">40</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_4_" />
+        </foreignObject>
+        <g
+           id="g2062">
+          <rect
+             id="rect2064"
+             height="16.280001"
+             width="17.280001"
+             i:knockout="Off"
+             y="174.53"
+             x="68.190002"
+             style="fill:none" />
+          <text
+             transform="matrix(0.938,0,0,1,68.1899,179.933)"
+             id="text2377">
+            <tspan
+               id="tspan2067"
+               font-size="5"
+               y="0"
+               x="0"
+               style="font-size:5px;fill:#446785;font-family:Verdana">40</tspan>
+          </text>
+        </g>
+      </switch>
+      <switch
+         id="switch2069"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/"
+         style="display:inline">
+        <foreignObject
+           id="foreignObject2071"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.938 0 0 1 0 0">
+              <ns1:path
+                 d="M63.73,42.11h17.29v16.28H63.73V42.11z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">40</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_5_" />
+        </foreignObject>
+        <g
+           id="g2073">
+          <rect
+             id="rect2075"
+             height="16.280001"
+             width="17.290001"
+             i:knockout="Off"
+             y="42.110001"
+             x="63.73"
+             style="fill:none" />
+          <text
+             transform="matrix(0.938,0,0,1,63.73,47.5132)"
+             id="text2384">
+            <tspan
+               id="tspan2078"
+               font-size="5"
+               y="0"
+               x="0"
+               style="font-size:5px;fill:#446785;font-family:Verdana">40</tspan>
+          </text>
+        </g>
+      </switch>
+      <switch
+         id="switch2080"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/"
+         style="display:inline">
+        <foreignObject
+           id="foreignObject2082"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.797 0 0 1 0 0">
+              <ns1:path
+                 d="M89.79,69.24h15.13v14.82H89.79V69.24z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="4"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#CCCCCC">45</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_6_" />
+        </foreignObject>
+        <g
+           id="g2084">
+          <rect
+             id="rect2086"
+             height="14.82"
+             width="15.13"
+             i:knockout="Off"
+             y="69.239998"
+             x="89.790001"
+             style="fill:none" />
+          <text
+             transform="matrix(0.797,0,0,1,89.79,73.4424)"
+             id="text2391">
+            <tspan
+               id="tspan2089"
+               font-size="4"
+               y="0"
+               x="0"
+               style="font-size:4px;fill:#cccccc;font-family:Verdana">45</tspan>
+          </text>
+        </g>
+      </switch>
+      <line
+         id="line2091"
+         y2="124.52"
+         x2="40.709999"
+         y1="124.52"
+         x1="46.790001"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2093"
+         y2="148.41"
+         x2="117.68"
+         y1="148.41"
+         x1="193.42999"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:square;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2095"
+         y2="152.86"
+         x2="117.68"
+         y1="152.86"
+         x1="193.42999"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:square;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2097"
+         y2="159.34"
+         x2="187.35001"
+         y1="148.41"
+         x1="187.35001"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2099"
+         y2="141.92999"
+         x2="205.17999"
+         y1="144.77"
+         x1="205.58"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2101"
+         y2="144.77"
+         x2="205.58"
+         y1="141.92999"
+         x1="205.99001"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2103"
+         y2="155.7"
+         x2="186.95"
+         y1="152.86"
+         x1="187.35001"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2105"
+         y2="152.86"
+         x2="187.35001"
+         y1="155.7"
+         x1="187.75999"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2107"
+         y2="90.5"
+         x2="205.17999"
+         y1="87.669998"
+         x1="205.58"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2109"
+         y2="87.669998"
+         x2="205.58"
+         y1="90.5"
+         x1="205.99001"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <switch
+         id="switch2111"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/"
+         style="display:inline">
+        <foreignObject
+           id="foreignObject2113"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.938 0 0 1 0 0">
+              <ns1:path
+                 d="M167.44,152.66h17.28v16.28h-17.28V152.66z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">10</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_7_" />
+        </foreignObject>
+        <g
+           id="g2115">
+          <rect
+             id="rect2117"
+             height="16.280001"
+             width="17.280001"
+             i:knockout="Off"
+             y="152.66"
+             x="167.44"
+             style="fill:none" />
+          <text
+             transform="matrix(0.938,0,0,1,167.44,158.063)"
+             id="text2408">
+            <tspan
+               id="tspan2120"
+               font-size="5"
+               y="0"
+               x="0"
+               style="font-size:5px;fill:#446785;font-family:Verdana">10</tspan>
+          </text>
+        </g>
+      </switch>
+      <switch
+         id="switch2122"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/"
+         style="display:inline">
+        <foreignObject
+           id="foreignObject2124"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.938 0 0 1 0 0">
+              <ns1:path
+                 d="M186.07,77.34h20.52v16.28h-20.52V77.34z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">140</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_8_" />
+        </foreignObject>
+        <g
+           id="g2126">
+          <rect
+             id="rect2128"
+             height="16.280001"
+             width="20.52"
+             i:knockout="Off"
+             y="77.339996"
+             x="186.07001"
+             style="fill:none" />
+          <text
+             transform="matrix(0.938,0,0,1,186.07,82.7432)"
+             id="text2415">
+            <tspan
+               id="tspan2131"
+               font-size="5"
+               y="0"
+               x="0"
+               style="font-size:5px;fill:#446785;font-family:Verdana">140</tspan>
+          </text>
+        </g>
+      </switch>
+      <switch
+         id="switch2133"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/"
+         style="display:inline">
+        <foreignObject
+           id="foreignObject2135"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.938 0 0 1 0 0">
+              <ns1:path
+                 d="M182.83,186.27h20.52v16.28h-20.52V186.27z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">754</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_9_" />
+        </foreignObject>
+        <g
+           id="g2137">
+          <rect
+             id="rect2139"
+             height="16.280001"
+             width="20.52"
+             i:knockout="Off"
+             y="186.27"
+             x="182.83"
+             style="fill:none" />
+          <text
+             transform="matrix(0.938,0,0,1,182.83,191.673)"
+             id="text2422">
+            <tspan
+               id="tspan2142"
+               font-size="5"
+               y="0"
+               x="0"
+               style="font-size:5px;fill:#446785;font-family:Verdana">754</tspan>
+          </text>
+        </g>
+      </switch>
+      <switch
+         id="switch2144"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/"
+         style="display:inline">
+        <foreignObject
+           id="foreignObject2146"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="1.014 0 0 1 0 0">
+              <ns1:path
+                 d="M478.68,74.91h43.48v16.28h-43.48V74.91z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">Flux Regular</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_10_" />
+        </foreignObject>
+        <g
+           id="g2148">
+          <rect
+             id="rect2150"
+             height="16.280001"
+             width="43.48"
+             i:knockout="Off"
+             y="74.910004"
+             x="478.67999"
+             style="fill:none" />
+          <text
+             transform="matrix(1.014,0,0,1,478.68,80.313)"
+             id="text2429">
+            <tspan
+               id="tspan2153"
+               font-size="5"
+               y="0"
+               x="0"
+               style="font-size:5px;fill:#446785;font-family:Verdana">Flux Regular</tspan>
+          </text>
+        </g>
+      </switch>
+      <line
+         id="line2155"
+         y2="158.94"
+         x2="180.87"
+         y1="158.94"
+         x1="186.95"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2157"
+         y2="48.389999"
+         x2="84.870003"
+         y1="47.98"
+         x1="87.300003"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2159"
+         y2="48.389999"
+         x2="84.870003"
+         y1="48.790001"
+         x1="87.300003"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2161"
+         y2="192.95"
+         x2="214.49001"
+         y1="192.55"
+         x1="216.92"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2163"
+         y2="192.95"
+         x2="214.49001"
+         y1="193.36"
+         x1="216.92"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2165"
+         y2="192.95"
+         x2="524.38"
+         y1="192.55"
+         x1="521.95001"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2167"
+         y2="192.95"
+         x2="524.38"
+         y1="193.36"
+         x1="521.95001"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2169"
+         y2="153.67"
+         x2="80.410004"
+         y1="153.27"
+         x1="77.980003"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2171"
+         y2="153.67"
+         x2="80.410004"
+         y1="154.08"
+         x1="77.980003"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2173"
+         y2="48.389999"
+         x2="150.08"
+         y1="47.98"
+         x1="147.64999"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2175"
+         y2="48.389999"
+         x2="150.08"
+         y1="48.790001"
+         x1="147.64999"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2177"
+         y2="187.28999"
+         x2="142.39"
+         y1="187.28999"
+         x1="135.5"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2179"
+         y2="37.049999"
+         x2="84.870003"
+         y1="71.07"
+         x1="84.870003"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2181"
+         y2="37.049999"
+         x2="117.27"
+         y1="79.160004"
+         x1="117.27"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2183"
+         y2="45.150002"
+         x2="150.08"
+         y1="71.07"
+         x1="150.08"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2185"
+         y2="181.21001"
+         x2="85.269997"
+         y1="165.00999"
+         x1="101.47"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2187"
+         y2="174.33"
+         x2="90.940002"
+         y1="176.35001"
+         x1="90.129997"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2189"
+         y2="175.53999"
+         x2="92.160004"
+         y1="176.35001"
+         x1="90.129997"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2191"
+         y2="181.21001"
+         x2="80.809998"
+         y1="181.21001"
+         x1="85.269997"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2193"
+         y2="163.39"
+         x2="80.809998"
+         y1="148.41"
+         x1="80.809998"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2195"
+         y2="153.67"
+         x2="69.879997"
+         y1="153.67"
+         x1="80.410004"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <g
+         id="g2197"
+         display="inline"
+         style="display:inline">
+        <switch
+           id="switch2199"
+           i:objectType="areaText"
+           i:objectNS="http://ns.adobe.com/Flows/1.0/">
+          <foreignObject
+             id="foreignObject2201"
+             overflow="visible"
+             height="1"
+             width="1"
+             y="0"
+             x="0"
+             requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+            <ns1:flowDef>
+              <ns1:region
+                 textMatrix="0.938 0 0 1 0 0">
+                <ns1:path
+                   d="M123.69,33.61h17.28v16.28h-17.28V33.61z"
+                   fill="none"
+                   i:knockout="Off" />
+              </ns1:region>
+              <ns1:flow
+                 font-size="5"
+                 font-family="'Verdana'">
+                <ns1:p
+                   a:adobe-justification-letter-spacing-max="5.000000e-04"
+                   a:adobe-justification-word-spacing-max="0.02"
+                   a:adobe-justification-word-spacing-desired="0.01"
+                   a:adobe-justification-word-spacing-min="0.01">
+                  <ns1:span
+                     fill="#446785">80</ns1:span>
+                </ns1:p>
+              </ns1:flow>
+            </ns1:flowDef>
+            <x:targetRef
+               xlink:href="#XMLID_11_" />
+          </foreignObject>
+          <g
+             id="g2203">
+            <rect
+               id="rect2205"
+               height="16.280001"
+               width="17.280001"
+               i:knockout="Off"
+               y="33.610001"
+               x="123.69"
+               style="fill:none" />
+            <text
+               transform="matrix(0.938,0,0,1,123.69,39.0132)"
+               id="text2458">
+              <tspan
+                 id="tspan2208"
+                 font-size="5"
+                 y="0"
+                 x="0"
+                 style="font-size:5px;fill:#446785;font-family:Verdana">80</tspan>
+            </text>
+          </g>
+        </switch>
+        <line
+           id="line2210"
+           y2="39.880001"
+           x2="118.08"
+           y1="39.48"
+           x1="115.65"
+           i:knockout="Off"
+           style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round" />
+        <line
+           id="line2212"
+           y2="39.880001"
+           x2="118.08"
+           y1="40.290001"
+           x1="115.65"
+           i:knockout="Off"
+           style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round" />
+        <line
+           id="line2214"
+           y2="39.880001"
+           x2="85.68"
+           y1="39.48"
+           x1="88.110001"
+           i:knockout="Off"
+           style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round" />
+        <line
+           id="line2216"
+           y2="39.880001"
+           x2="85.68"
+           y1="40.290001"
+           x1="88.110001"
+           i:knockout="Off"
+           style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round" />
+        <line
+           id="line2218"
+           y2="39.880001"
+           x2="84.870003"
+           y1="39.880001"
+           x1="126.08"
+           i:knockout="Off"
+           style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round" />
+      </g>
+      <line
+         id="line2220"
+         y2="192.95"
+         x2="523.97998"
+         y1="192.95"
+         x1="199.91"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <rect
+         id="rect2222"
+         height="16.200001"
+         width="16.200001"
+         display="inline"
+         i:knockout="Off"
+         y="34.419998"
+         x="281.94"
+         style="fill:#446785;display:inline" />
+      <rect
+         id="rect2224"
+         height="16.200001"
+         width="16.200001"
+         display="inline"
+         i:knockout="Off"
+         y="34.419998"
+         x="356.88"
+         style="fill:#d5ad42;display:inline" />
+      <switch
+         id="switch2226"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/"
+         style="display:inline">
+        <foreignObject
+           id="foreignObject2228"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.998 0 0 1 0 0">
+              <ns1:path
+                 d="M299.49,30.78h56.17v28.18h-56.17V30.78z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'CourierNew-Bold'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">HEX #446785</ns1:span>
+              </ns1:p>
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">RGB 68,103,133</ns1:span>
+              </ns1:p>
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">PANTONE 548</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_12_" />
+        </foreignObject>
+        <g
+           id="g2230">
+          <rect
+             id="rect2232"
+             height="28.18"
+             width="56.169998"
+             i:knockout="Off"
+             y="30.780001"
+             x="299.48999"
+             style="fill:none" />
+          <text
+             transform="matrix(0.998,0,0,1,299.49,36.875)"
+             id="text2473">
+            <tspan
+               id="tspan2235"
+               font-size="5"
+               y="0"
+               x="0"
+               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold">HEX #446785</tspan>
+            <tspan
+               id="tspan2237"
+               font-size="5"
+               y="6.0840001"
+               x="0"
+               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold">RGB 68,103,133</tspan>
+            <tspan
+               id="tspan2239"
+               font-size="5"
+               y="12.168"
+               x="0"
+               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold">PANTONE 548</tspan>
+          </text>
+        </g>
+      </switch>
+      <switch
+         id="switch2241"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/"
+         style="display:inline">
+        <foreignObject
+           id="foreignObject2243"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.998 0 0 1 0 0">
+              <ns1:path
+                 d="M374.84,30.37h56.17v28.18h-56.17V30.37z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'CourierNew-Bold'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">HEX #D5AD42</ns1:span>
+              </ns1:p>
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">RGB 213,173,66</ns1:span>
+              </ns1:p>
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">PANTONE 7405 </ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_13_" />
+        </foreignObject>
+        <g
+           id="g2245">
+          <rect
+             id="rect2247"
+             height="28.18"
+             width="56.169998"
+             i:knockout="Off"
+             y="30.370001"
+             x="374.84"
+             style="fill:none" />
+          <text
+             transform="matrix(0.998,0,0,1,374.84,36.4648)"
+             id="text2482">
+            <tspan
+               id="tspan2250"
+               font-size="5"
+               y="0"
+               x="0"
+               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold">HEX #D5AD42</tspan>
+            <tspan
+               id="tspan2252"
+               font-size="5"
+               y="6.0840001"
+               x="0"
+               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold">RGB 213,173,66</tspan>
+            <tspan
+               id="tspan2254"
+               font-size="5"
+               y="12.168"
+               x="0"
+               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold">PANTONE 7405</tspan>
+          </text>
+        </g>
+      </switch>
+      <rect
+         id="rect2256"
+         height="16.200001"
+         width="16.200001"
+         display="inline"
+         i:knockout="Off"
+         y="34.419998"
+         x="437.89999"
+         style="fill:#646464;display:inline" />
+      <switch
+         id="switch2258"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/"
+         style="display:inline">
+        <foreignObject
+           id="foreignObject2260"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.998 0 0 1 0 0">
+              <ns1:path
+                 d="M455.86,30.37h59.41v28.18h-59.41V30.37z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'CourierNew-Bold'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">HEX #646464</ns1:span>
+              </ns1:p>
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">RGB 100,100,100</ns1:span>
+              </ns1:p>
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#446785">PANTONE 446 </ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_14_" />
+        </foreignObject>
+        <g
+           id="g2262">
+          <rect
+             id="rect2264"
+             height="28.18"
+             width="59.41"
+             i:knockout="Off"
+             y="30.370001"
+             x="455.85999"
+             style="fill:none" />
+          <text
+             transform="matrix(0.998,0,0,1,455.86,36.4648)"
+             id="text2492">
+            <tspan
+               id="tspan2267"
+               font-size="5"
+               y="0"
+               x="0"
+               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold">HEX #646464</tspan>
+            <tspan
+               id="tspan2269"
+               font-size="5"
+               y="6.0840001"
+               x="0"
+               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold">RGB 100,100,100</tspan>
+            <tspan
+               id="tspan2271"
+               font-size="5"
+               y="12.168"
+               x="0"
+               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold">PANTONE 446</tspan>
+          </text>
+        </g>
+      </switch>
+      <line
+         id="line2273"
+         y2="199.42999"
+         x2="520.33002"
+         y1="139.91"
+         x1="520.33002"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <switch
+         id="switch2275"
+         display="inline"
+         i:objectType="areaText"
+         i:objectNS="http://ns.adobe.com/Flows/1.0/"
+         style="display:inline">
+        <foreignObject
+           id="foreignObject2277"
+           overflow="visible"
+           height="1"
+           width="1"
+           y="0"
+           x="0"
+           requiredExtensions="http://ns.adobe.com/Flows/1.0/">
+          <ns1:flowDef>
+            <ns1:region
+               textMatrix="0.999 0 0 1 0 0">
+              <ns1:path
+                 d="M454.43,213.41h106.93v16.27H454.43V213.41z"
+                 fill="none"
+                 i:knockout="Off" />
+            </ns1:region>
+            <ns1:flow
+               font-size="5"
+               font-family="'Verdana'">
+              <ns1:p
+                 a:adobe-justification-letter-spacing-max="5.000000e-04"
+                 a:adobe-justification-word-spacing-max="0.02"
+                 a:adobe-justification-word-spacing-desired="0.01"
+                 a:adobe-justification-word-spacing-min="0.01">
+                <ns1:span
+                   fill="#B4B4B4">designed by Pollenation Internet Ltd</ns1:span>
+              </ns1:p>
+            </ns1:flow>
+          </ns1:flowDef>
+          <x:targetRef
+             xlink:href="#XMLID_15_" />
+        </foreignObject>
+        <g
+           id="g2279">
+          <rect
+             id="rect2281"
+             height="16.27"
+             width="106.93"
+             i:knockout="Off"
+             y="213.41"
+             x="454.42999"
+             style="fill:none" />
+          <text
+             transform="matrix(0.999,0,0,1,454.43,218.813)"
+             id="text2502">
+            <tspan
+               id="tspan2284"
+               font-size="5"
+               y="0"
+               x="0"
+               style="font-size:5px;fill:#b4b4b4;font-family:Verdana">designed by Pollenation Internet Ltd</tspan>
+          </text>
+        </g>
+      </switch>
+      <line
+         id="line2286"
+         y2="49.200001"
+         x2="117.27"
+         y1="47.98"
+         x1="117.27"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#ffffff;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2288"
+         y2="48.389999"
+         x2="150.08"
+         y1="48.389999"
+         x1="77.57"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+      <line
+         id="line2290"
+         y2="198.62"
+         x2="214.89999"
+         y1="166.23"
+         x1="214.89999"
+         display="inline"
+         i:knockout="Off"
+         style="fill:none;stroke:#cccccc;stroke-width:1.01240003;stroke-linecap:round;stroke-linejoin:round;display:inline" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="Yellow"
+     style="display:inline">
+    <g
+       id="g8284"
+       transform="translate(-9.9999999,0)">
+      <path
+         id="path4951"
+         d="m 663.68382,414.46125 c -62.8775,12.97 -67.2,-8.31875 -67.2,-8.31875 66.38875,-98.51 94.14125,-223.55375 70.19125,-254.1575 -65.3375,-83.48125 -178.44,-44 -180.3275,-42.975 l -0.6075,0.10875 c -12.4225,-2.57875 -26.325,-4.115 -41.95,-4.37 -28.45125,-0.46625 -50.0325,7.45875 -66.40875,19.8775 0,0 -201.76375,-83.11875 -192.38,104.5375 1.99625,39.9225 57.22,302.07125 123.08875,222.89 24.075,-28.95375 47.33625,-53.435 47.33625,-53.435 11.55375,7.675 25.385,11.59 39.885,10.18375 l 1.12625,-0.95625 c -0.35,3.595 -0.19,7.11125 0.45125,11.27375 -16.96875,18.95875 -11.9825,22.2875 -45.90375,29.27 -34.32375,7.07375 -14.16,19.6675 -0.995,22.95875 15.96,3.99125 52.88375,9.645 77.8325,-25.28 l -0.995,3.985 c 6.64875,5.325 11.3175,34.63875 10.535,61.21125 -0.7825,26.57375 -1.305,44.8175 3.93375,59.0675 5.23875,14.25 10.46,46.3125 55.0525,36.7575 37.26125,-7.985 56.57,-28.6775 59.25625,-63.19375 1.90625,-24.53875 6.22,-20.91125 6.4925,-42.85 l 3.46,-10.38625 c 3.99,-33.26375 0.63375,-43.995 23.59,-39.00375 l 5.57875,0.49 c 16.89625,0.76875 39.01,-2.7175 51.98875,-8.75 27.9475,-12.97 44.5225,-34.625 16.96625,-28.935 z"
+         style="fill:#ffc836;fill-opacity:1;stroke:none;display:inline"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path4949"
+         d="m 564.69632,480.7075 c 3.54125,-29.50125 2.48,-33.8275 24.45375,-29.04875 l 5.57875,0.49 c 16.89625,0.76875 38.99875,-2.7175 51.98375,-8.75 27.9525,-12.97 44.5275,-34.625 16.965,-28.935 -62.87125,12.97 -67.19375,-8.31875 -67.19375,-8.31875 C 662.87257,307.64125 690.62507,182.6 666.67007,151.9925 601.33257,68.50625 488.23507,107.985 486.34257,109.01 l -0.6025,0.11125 c -12.4225,-2.5775 -26.325,-4.1175 -41.9425,-4.37 -28.45125,-0.4675 -50.04,7.45875 -66.41625,19.88 0,0 -201.76,-83.1225 -192.37375,104.535 1.99625,39.92 57.22125,302.06875 123.0875,222.8875 24.07375,-28.95375 47.33875,-53.435 47.33875,-53.435 11.5525,7.675 25.38375,11.59 39.89,10.18375 l 1.12125,-0.95625 c -0.35125,3.595 -0.19625,7.11125 0.44875,11.27375 -16.965,18.95875 -11.98,22.2875 -45.90375,29.27 -34.32125,7.07375 -14.1575,19.6675 -0.99625,22.95875 15.96,3.99125 52.88125,9.645 77.835,-25.28 l -0.99375,3.985 c 6.65625,5.325 6.20625,38.27375 7.15,61.815 0.945,23.5425 2.52125,45.51125 7.32,58.46375 4.79875,12.95 10.46125,46.3125 55.045,36.7575 37.26125,-7.985 65.75,-19.4775 68.34625,-126.38375"
+         style="fill:#ffc836;fill-opacity:1;stroke:none"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:#ffc836;fill-opacity:1;stroke:#336791;stroke-width:15.58137512;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;display:inline"
+         id="path4955"
+         d="m 377.07007,123.24375 c 0,0 -201.90125,-82.52 -192.515,105.13625 1.99625,39.9225 57.22375,302.08 123.09125,222.895 24.07,-28.9575 45.83875,-51.66875 45.83875,-51.66875"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:#ffc836;fill-opacity:1;stroke:#336791;stroke-width:15.58137512;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1"
+         id="path4953"
+         d="m 430.52257,433.52875 c -1.73125,61.895 0.435,124.22125 6.49125,139.36875 6.06,15.1475 19.02875,44.61 63.625,35.05625 37.2575,-7.9875 50.81375,-23.445 56.69625,-57.56375 4.3325,-25.1025 12.685,-94.8175 13.75625,-109.10125"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:#ffc836;fill-opacity:1;stroke:#336791;stroke-width:15.58137512;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1"
+         id="path4957"
+         d="m 486.12632,108.1825 c -6.98875,2.19125 112.31,-43.61125 180.10875,43.02125 23.94875,30.605 -3.80375,155.64875 -70.19125,254.16125"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path4959"
+         d="m 596.04257,405.365 c 0,0 4.32625,21.295 67.205,8.31625 27.55,-5.69 10.97,15.9675 -16.97125,28.94375 -22.93125,10.6425 -74.3425,13.37 -75.1825,-1.33625 -2.16125,-37.94375 27.05875,-26.41625 24.95,-35.92375 -1.90625,-8.5625 -14.97375,-16.96625 -23.6175,-37.9225 -7.54625,-18.29125 -103.495,-158.56125 26.60875,-137.72875 4.76625,-0.98625 -33.9325,-123.7525 -155.69125,-125.74875 -121.73125,-1.99625 -117.7375,149.7025 -117.7375,149.7025"
+         style="fill:#ffc836;fill-opacity:1;stroke:#336791;stroke-width:15.58137512;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:#ffc836;fill-opacity:1;stroke:#336791;stroke-width:15.58137512;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1"
+         id="path4961"
+         d="m 396.44507,418.34125 c -16.97125,18.9575 -11.98,22.28625 -45.90375,29.27125 -34.32375,7.075 -14.1575,19.66625 -0.99625,22.95625 15.96,3.99375 52.88375,9.6475 77.8325,-25.28625 7.5975,-10.63625 -0.045,-27.6075 -10.48125,-31.93375 -5.0425,-2.08875 -11.785,-4.70625 -20.45125,4.9925 z"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:#ffc836;fill-opacity:1;stroke:#336791;stroke-width:15.58137512;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1"
+         id="path4963"
+         d="m 395.33382,418.01 c -1.71,-11.14625 3.6625,-24.41 9.42,-39.9275 8.6525,-23.2825 28.61625,-46.56875 12.64625,-120.42375 -11.90375,-55.03625 -91.745,-11.45375 -91.795,-3.99125 -0.0487,7.46 3.61125,37.825 -1.33375,73.185 -6.4525,46.14125 29.36,85.165 70.59875,81.1725"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path4965"
+         d="m 376.33632,252.54875 c -0.36,2.54875 4.66625,9.35 11.22,10.25875 6.5425,0.9125 12.1425,-4.4025 12.4975,-6.94875 0.355,-2.54875 -4.665,-5.35625 -11.22125,-6.26875 -6.54625,-0.91375 -12.14875,0.41625 -12.495,2.95875 z"
+         style="fill:#336791;fill-opacity:1;stroke:#336791;stroke-width:5.19375038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path4967"
+         d="m 575.61632,247.3525 c 0.355,2.54875 -4.665,9.35 -11.22,10.25875 -6.5475,0.9125 -12.1475,-4.4025 -12.50625,-6.94875 -0.34625,-2.54875 4.675,-5.35625 11.22375,-6.26875 6.54875,-0.9125 12.1475,0.41625 12.5025,2.96 z"
+         style="fill:#336791;fill-opacity:1;stroke:#336791;stroke-width:2.59687519;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:#ffc836;fill-opacity:1;stroke:#336791;stroke-width:15.58137512;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1"
+         id="path4969"
+         d="m 599.03507,229.71375 c 1.07875,19.9925 -4.30625,33.61 -4.985,54.8925 -1.005,30.935 14.74875,66.3425 -8.98875,101.79375"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path4971"
+         d="M 160.69007,150.71375"
+         style="fill:#ffc836;fill-opacity:1;stroke:#ffffff;stroke-width:3.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4"
+         inkscape:connector-curvature="0" />
+    </g>
+    <rect
+       style="color:#000000;fill:#ffc836;fill-opacity:1;fill-rule:nonzero;stroke:#336791;stroke-width:3.75000000000000000;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect5046"
+       width="41.42857"
+       height="40.714287"
+       x="312.14285"
+       y="375.93362" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer7"
+     inkscape:label="Blue2"
+     style="display:inline">
+    <path
+       style="fill:#336791;fill-opacity:1;stroke:#ffc836;stroke-width:15.58137512;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1"
+       d="m 331.988,608.68507 c 1.73125,-61.895 -0.435,-124.22125 -6.49125,-139.36875 -6.06,-15.1475 -19.02875,-44.61 -63.625,-35.05625 -37.2575,7.9875 -50.81375,23.445 -56.69625,57.56375 -4.3325,25.1025 -12.685,94.8175 -13.75625,109.10125"
+       id="path8158" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer9"
+     inkscape:label="Patches"
+     style="display:inline">
+    <rect
+       style="color:#000000;fill:#336791;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.60617828;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect8246"
+       width="139.28572"
+       height="90.714287"
+       x="361.78571"
+       y="577.00507" />
+    <rect
+       style="color:#000000;fill:#ffc836;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.60617828;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect8248"
+       width="126.78571"
+       height="58.214287"
+       x="261.42856"
+       y="407.36218" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer8"
+     inkscape:label="Python2"
+     style="display:inline" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Python"
+     style="display:inline">
+    <path
+       d="m 374.13528,355.04467 c -13.45918,0.0625 -26.31242,1.21042 -37.62194,3.21163 -33.31642,5.88592 -39.36539,18.20565 -39.36539,40.92533 l 0,30.0058 78.73079,0 0,10.00193 -78.73079,0 -29.54699,0 c -22.88136,0 -42.91694,13.75301 -49.1838,39.91596 -7.22877,29.98881 -7.54939,48.70231 0,80.01544 5.59646,23.30828 18.96158,39.91596 41.84294,39.91596 l 27.06944,0 0,-35.97024 c 0,-25.98638 22.48403,-48.90852 49.1838,-48.90852 l 78.63903,0 c 21.89033,0 39.36541,-18.02378 39.3654,-40.00773 l 0,-74.9686 c 0,-21.33649 -17.99974,-37.36435 -39.3654,-40.92533 -13.52477,-2.25137 -27.55789,-3.27416 -41.01709,-3.21163 z"
+       style="fill:none;stroke:#ffc836;stroke-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path4937"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="scsccccsccscssssscs" />
+    <path
+       sodipodi:nodetypes="csssssccsccccsccsc"
+       inkscape:connector-curvature="0"
+       id="path5048"
+       style="fill:none;stroke:#336791;stroke-width:15;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 464.33619,439.18936 0,34.96087 c 0,27.1047 -22.97954,49.91789 -49.18382,49.91789 l -78.63903,0 c -21.54055,0 -39.36539,18.43581 -39.36539,40.00772 l 0,74.9686 c 0,21.33648 18.55356,33.88638 39.36539,40.00772 24.92175,7.32798 48.8204,8.65232 78.63903,0 19.8208,-5.73877 39.36541,-17.28807 39.3654,-40.00772 l 0,-30.00578 -78.63903,0 0,-10.00194 78.63903,0 39.36542,0 c 22.88135,0 31.40789,-15.96024 39.36536,-39.91596 8.21981,-24.66204 7.87005,-48.37858 0,-80.01544 -5.65475,-22.77854 -16.45491,-39.91596 -39.36536,-39.91596 z" />
+    <path
+       sodipodi:nodetypes="scsccccsccscssssscs"
+       inkscape:connector-curvature="0"
+       id="path5050"
+       style="fill:none;stroke:#ffc836;stroke-opacity:1;stroke-width:15;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 374.13528,355.04467 c -13.45918,0.0625 -26.31242,1.21042 -37.62194,3.21163 -33.31642,5.88592 -39.36539,18.20565 -39.36539,40.92533 l 0,30.0058 78.73079,0 0,10.00193 -78.73079,0 -29.54699,0 c -22.88136,0 -42.91694,13.75301 -49.1838,39.91596 -7.22877,29.98881 -7.54939,48.70231 0,80.01544 5.59646,23.30828 18.96158,39.91596 41.84294,39.91596 l 27.06944,0 0,-35.97024 c 0,-25.98638 22.48403,-48.90852 49.1838,-48.90852 l 78.63903,0 c 21.89033,0 39.36541,-18.02378 39.3654,-40.00773 l 0,-74.9686 c 0,-21.33649 -17.99974,-37.36435 -39.3654,-40.92533 -13.52477,-2.25137 -27.55789,-3.27416 -41.01709,-3.21163 z" />
+    <path
+       d="m 464.33619,439.18936 0,34.96087 c 0,27.1047 -22.97954,49.91789 -49.18382,49.91789 l -78.63903,0 c -21.54055,0 -39.36539,18.43581 -39.36539,40.00772 l 0,74.9686 c 0,21.33648 18.55356,33.88638 39.36539,40.00772 24.92175,7.32798 48.8204,8.65232 78.63903,0 19.8208,-5.73877 39.36541,-17.28807 39.3654,-40.00772 l 0,-30.00578 -78.63903,0 0,-10.00194 78.63903,0 39.36542,0 c 22.88135,0 31.40789,-15.96024 39.36536,-39.91596 8.21981,-24.66204 7.87005,-48.37858 0,-80.01544 -5.65475,-22.77854 -16.45491,-39.91596 -39.36536,-39.91596 z"
+       style="fill:none;stroke:#336791;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path4939"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csssssccsccccsccsc" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path1948-5"
+       style="fill:#336791;fill-opacity:1"
+       d="m 374.13528,355.04467 c -13.45918,0.0625 -26.31242,1.21042 -37.62194,3.21163 -33.31642,5.88592 -39.36539,18.20565 -39.36539,40.92533 l 0,30.0058 78.73079,0 0,10.00193 -78.73079,0 -29.54699,0 c -22.88136,0 -42.91694,13.75301 -49.1838,39.91596 -7.22877,29.98881 -7.54939,48.70231 0,80.01544 5.59646,23.30828 18.96158,39.91596 41.84294,39.91596 l 27.06944,0 0,-35.97024 c 0,-25.98638 22.48403,-48.90852 49.1838,-48.90852 l 78.63903,0 c 21.89033,0 39.36541,-18.02378 39.3654,-40.00773 l 0,-74.9686 c 0,-21.33649 -17.99974,-37.36435 -39.3654,-40.92533 -13.52477,-2.25137 -27.55789,-3.27416 -41.01709,-3.21163 z m -42.57702,24.1331 c 8.13235,0 14.77349,6.74962 14.77349,15.04878 0,8.26974 -6.64114,14.95701 -14.77349,14.95701 -8.1615,0 -14.7735,-6.68728 -14.7735,-14.95701 0,-8.29915 6.612,-15.04878 14.7735,-15.04878 z" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path1950-2"
+       style="fill:#ffc836;fill-opacity:1;color:#000000;fill-rule:nonzero;stroke:none;stroke-width:3.75000000000000000;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 464.33619,439.18936 0,34.96087 c 0,27.1047 -22.97954,49.91789 -49.18382,49.91789 l -78.63903,0 c -21.54055,0 -39.36539,18.43581 -39.36539,40.00772 l 0,74.9686 c 0,21.33648 18.55356,33.88638 39.36539,40.00772 24.92175,7.32798 48.8204,8.65232 78.63903,0 19.8208,-5.73877 39.36541,-17.28807 39.3654,-40.00772 l 0,-30.00578 -78.63903,0 0,-10.00194 78.63903,0 39.36542,0 c 22.88135,0 31.40789,-15.96024 39.36536,-39.91596 8.21981,-24.66204 7.87005,-48.37858 0,-80.01544 -5.65475,-22.77854 -16.45491,-39.91596 -39.36536,-39.91596 l -29.547,0 z m -44.22873,189.85316 c 8.16151,1e-5 14.7735,6.68728 14.7735,14.957 -1e-5,8.29915 -6.612,15.04878 -14.7735,15.04878 -8.13236,0 -14.77349,-6.74963 -14.77349,-15.04878 0,-8.26972 6.64113,-14.957 14.77349,-14.957 z" />
+    <rect
+       style="color:#000000;fill:#336791;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:15;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect5054"
+       width="4.4983354"
+       height="3.6144521"
+       x="459.30374"
+       y="431.655" />
+  </g>
+  <style
+     id="style4"
+     type="text/css">
+	
+@font-face{font-family:'Verdana';src:url(&quot;data:;base64,\
+T1RUTwADACAAAQAQQ0ZGIKSLMaMAAADoAAAM1UdQT1OyE8GIAAANwAAAAP5jbWFwA1UEMQAAADwA\
+AACsAAAAAQAAAAMAAAAMAAQAoAAAACQAIAAEAAQAIAAxADUAOABGAEkATABQAFIAYgBlAGcAaQBs\
+AG8AdQB5//8AAAAgADAAMwA3AEYASQBMAFAAUgBhAGQAZwBpAGwAbgByAHj////h/9L/0f/Q/8P/\
+wf+//7z/u/+t/6z/q/+q/6j/p/+l/6MAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\
+AAAAAAEABAIAAQEBCFZlcmRhbmEAAQEBOfgbAfgYBPgcDBUl/DscC5McCAEFHqAASIKBJf+Lix6g\
+AEiCgSX/i4sMB/clD/dZEPdbEZMcDM0SAAIBATA9VmVyZGFuYSBpcyBhIHRyYWRlbWFyayBvZiBN\
+aWNyb3NvZnQgQ29ycG9yYXRpb24vRlNUeXBlIDAgZGVmAAABAAEAABEBABQCABgBACcAACoAAC0A\
+ADEAADMAAEIBAEUBAEgAAEoAAE0AAE8BAFMDAFkBAAAAHQIAAQAhACQA3QEPAggCMwLhAv8D/QQa\
+BDkETATPBU0GIgazB0EH0AijCL8IzQkjCaIJ6wq4CxkLcAuiC8j5tfeUFhwGABwGABz6AAcc+oD3\
+FBUcBQAcBQAc+wAGDvyjDhwEj/l9FfufYftYOPsRHvsRN/sWTPtEG/tH+xbK9xM5Hzj3E2L3Vveb\
+GvedtfdX3vcTHvcS3vcWyvdFG/dH9xZL+xTeH937FbT7VvuXGvub/FoVosGby5TUCJPUj+LyGvCH\
+44PWHoLWe8pzv3S+a7JjpQilYleYTBtMWH5xYh9icWpkc1Z0WnxKgzwIgjyHNCwaI480kkUekkWb\
+TKNUoVeqY7RwCHCzwH3OG8q/mKW0H7Slq7KiwAgO+tAW/br3LPfK+nr7yvccBrW4j5K7H7uSr5Wk\
+mKqco6CdpZykla6Otgj3Lxz6wvfEBg76ovlhFatupWegYAigYJVTRhpHf01yUh5yUmlaXmFZXFBp\
+SHUIdEdBgDobODqVnzsfO55JoViiCPdlmgfEZs1s2HIIctjVf9IbtbiSmbofupmyoKimqqiirJqu\
+CJqukrjBGsCDuHquHnquc6Ztn22gZ5lgkwiSYF2PWhsx9zrRBvDcoLbIH8e1qcncGq+Dq3ymHnym\
+daFwnG6cbZdqkgiSamaOYhtMR4B0RB9EdEdrTGIIgfdlBrqiy6Hanwie2teV1RvUy4R+wh/Cfr11\
+uG67a69kpF4IpF6XVk4aOG5DUU4eUE1GZDx7CH0Hq4awgLR6tHqudahyCA4cBLP4NxX7cfw3+1T4\
+N/1d93oG+WX53AX3TP4i93EG/DEW+TQH/NX9NAUOHASF+G0VRn5IckweckxoVV9gW1xSaElyCHJI\
+Pn40Gzo8lJxAH0CcS59Xowj3Z5kHwmjLbtRzCHLU03/SG7q5kpi4H7eYsqOurKiooq2aswias5K5\
+wBq+grd6rh55rnKobKBopGGdWpYIlVlTkE4bUFOHg1UfVINcg2SDCPmT+hT7Q/1T/CAHqI6ojamM\
+CIyppYyhG9zRhH7IH8h9wnO+aMBmtVyoUQioUZpCNBoOHASVHATyFf02HPsOBftqBvlhHAUiBf3k\
+90P6jwYOHASc+DMV+xVZICc2HjYm+xJg+ywb+zX7FbXeLB8r3lv29xYa3qPWu84eu87PwOKyCJEH\
+O7ZQuWW+CGS+eMrXGvcEuejn1h7W5/cJsPciG/cp9wpnROQf5ES3MPsCGkh2SWFKHmFKTVg6ZgiF\
+B+hj01q8UAi8UKRBMBr7gflrFdJwxFS2HrVURKA2GzdGd2NWH1VjcFVHGluZYqZoHqZos2vCcKR/\
+rnu6eLl4uHu3fs23ubmkugikupjCyRqq/X4VyH69cLAecLBWsDywbJpomGaYZphZnE2iT2pbX2dT\
+CGZTeUxEGjGqQclQHlDJ2m7qG+zZpL3GH8W9qNDiGg5FHAR/HAUhFf2F/Dj5G/tE/Rv9YftaHAXR\
++ksGDvwV+WkW/OD3LPdXHASh+1f3LPjg+yz7Vxz7X/dXBg4gHAR2Fv5CHAXR91oc+t/5fAYOfxwE\
+lvqjFUmATnRTHnRSalpiYlhYTmRFcghxRTN+IBv7Wvy/+1ocBdH4KAbk14R8yR/JfMJzu2vEZbdc\
+qlIIqlKaRDQa+2KGFb6CuHmxHnmxcKpmo2ugZ5pilAiUYlePTBv7WPzn9zsG28ySmr0fvZm0oqqq\
+qquirZiuCJiukbO3Gg73RRwFmBb7lQb8hvjkBfur/OT7WhwF0fg1BuXWhYDHH8d/wXa7bcFptWCq\
+WAipV5pJPBogcDFVQx5VQkFVLGYI7Pg3FbaEsXysHnyscqZoom6eaZlkkwiSZFyPVhv7ffzG91wG\
+ysGRlrofupayn6ypqaehq5qwCJmvkrnDGg56+rEW+0/3CwZ6gHV7b3dudnB7cH9sfGd+YoEIgGJc\
+hlQbJjaszkUfRc5o4PIa4J3PsMAer7+/tM6pz6ndn+qW6pbyk/cBkAioB7aErnynHnyndaFvm3Ca\
+a5ZmkAiQZmSOYhtaVIV+Th9Ofk14SnIIgfdTBrCVwJbQlwiX0NCRzhvaz4V+xh/Ffr10tmy1bKtk\
+oVoIoVqWT0Ma+0/8dxX3ywdSiEeGPoQ9hE2CXn5VfF9zamsIamp6X1IaS55bsmsearLGe9obzceY\
+pcIfwqS9qrqvCA6oHASQ+MsVLn43cUAecEBoTV5YXFZXZFJxCHBSTX5HG0xTk5pcH1yaXJ9dpH9X\
+GPtEHAYU91D8wAbAtsOvxqcIpsbOmdUb9xjzWCbYH9cmsfsj+00a+1aGFfcZdfFf0B7QX0StKRtU\
+VH90Ux9Tc1dsW2YI/RQHwHO5erKCCIKxtoa8G/PdrdDGH8bPqPb3JhoOqPrXFvtQ9wkGVVxTZ1Bx\
+CHFQTH5GG/sZIb7yPR888mT3IvdKGuqZ36bVHqbVr8q5v7i+wLHIpgimx8mYzBvGv4V/uB+4frt4\
+vXEI+Hj3UAf7UBz6/xX5FQdYol6aY5QIlGNfj1wbIjlmQlAfUEJuI/sbGvsZoie4Rh5GuNRo7xvA\
+wZejwh/Cor6qurAIDnD69PivFf3LBkaVUKBYHqBYp2Gvaq5rtHO7ewh7usCDxBvX2Jqq2B/YqcGp\
+rKgIlfthBkxwSnVJeQh5SUaCQhv7TfslvfAjHyPvV/ci900a90u99yXv9h727vcXwfc3G/cr9whf\
+M90f3DO0+xH7Nhr7S7UViu5z11rBCMFaQKYnGyY7bVBQH09QaUGDMwgOqPrX9xMV+1Fg+x81Mh4y\
+NfsYX/tHG1BRj5RTH1KTVJdUmgj3VJUHqn+7fM56CHnOzYLOG8vAk5q1H7WarKGipqKlnKqVsAiV\
+sJC0uBrxB1JeVWlYdQh0V0mAOxv7GSG77D0fPOtk9xz3Qxrrmd6m0R6m0K/Hur62usCwyaYIpcnJ\
+mMgbzMGFfrcftn65d7xwl7sY90QG+1D9vhX49QdZol2bYJUIlGBgkGAbJDloRlAfUEZtJvsYGvsR\
+oSy3Sh5Kt9Rr8RvCwpagwh/CoL2nua4IDv1B+BccBRgV+2j3V/doBn8c+iUV+1D68fdQBg79QfgL\
+FvtQHAYU91AGDrz68xb7UPkQBr6IvIW4HoW4gK57pHqnc6BsmQiYbGKSWRtYVX5yUx9TclVqWGQI\
+/db7UPrx91D7EAfGvMexyqYIpsrLmc0b9w3nZ0LKH8pCqyP7HRoOhxwEcfjCFftKXPskLiIeIi77\
+EVb7MRv7MvsRwPQuHy70XPck90oa90q69yTo9R706PcRwPcyG/cx9xFWIugf6CG6+yT7Shr7Vhb3\
+JW/2UtIe0VI9riYbJTxoRVMfUkRvIPslGvsgpyHEQx5CxNpn8Bvv2q/TxB/E0qf29yEaDvwJ+gb6\
+JBWBBm+ScJBxjgiOcGyMZxtRU35yVR9VcVdqWWII/a37UPrx91D7OQfWx822xKQIpMTFl8YbrKKK\
+ipofmomhiKiGCA77SPpr99YVJWE3N0oeSjb7B2r7Jhs4QJWfRh9GnlGhXKII92eVB8ZezWjUcQhw\
+1NB+zhvey5imuh+6pqK1xBq3fqxyoh5yolqeQ5twkWmSYJNgk2OUaJQppUaxYr4IYr12ydQauZW2\
+nrQenrSnr7KrsKq7pMWeCJ3EzJTSG87Og3vQH896xHe4dAj7XYEHW65RqUakCKNGSJdJG0ZRfnFc\
+H1xwc2RXGl2ZaKh0Hqd0uHjKfK6DsoO2g7aDroSohOJ3z2m6Wgi6WqNJOhoO/Ez5kZUVaIJkg2KF\
+CIVhZohqG/sGNKrIUB9QyG3u9xsa+Ob7E/cy9xP31fdQ+9X4GPsy/Bj8kQdQjF6Oah6OapRsm26a\
+cJ94pX8IfqSyhcAbqquQlKwfrJSjkpqRCJUGDrz66xb7UPcQBkxZTmVRcAhwUUt+RRv7CS+v00of\
+StJq9PcfGvlp91D9EAdSjluQYx6QYpdpnG6dbqJ1qH4Ifqi0hMIbvMCYpMUfxKTBrL2yCPnW91AH\
+DmgcBIAW+4EG+9H4QfvT/EEF+28G+Ej4wfxE+MQF94EG98/8OvfQ+DoF93AG/Ev8ugUOaBwEf/rx\
+Ff0gHPoHBftdBvdk+Gb8Ufq7BfdgBvfr/dD37vnQBQ4cBRYUHATfFQAAAAABAAAACgAeACwAAURG\
+TFQACAAEAAAAAP//AAEAAAABa2VybgAIAAAAAQAAAAEABAACAAAAAQAIAAEAqgAEAAAADAAiADAA\
+NgBEAFoAYABmAGwAdgB8AIIAlAADAA7/nAAR/84AFv/OAAEAHP+SAAMADv/OABH/zgAW/84ABQAO\
+/9gAEf/OABb/zgAa/+wAHP/JAAEAHP/wAAEAHP/7AAEAHP/sAAIAG//sABz/8QABAA7/3AABABz/\
+9gAEABD/9gAR/+gAEv/2ABb/6AAFAA7/2AAQ//YAEf/uABL/9gAW/+4AAQAMAAkACwAMAA0ADgAP\
+ABUAFgAXABkAGwAcAAA=&quot;)}
+	
+	</style>
+</svg>
