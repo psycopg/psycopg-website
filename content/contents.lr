@@ -16,7 +16,7 @@ body:
 
 Psycopg is released under the terms of the `GNU Lesser General Public License`_, allowing use from both free and proprietary software.
 
-.. _GNU Lesser General Public License: /psycopg/license/
+.. _GNU Lesser General Public License: /license/
 
 - Check the `features list`__ to see what Psycopg offers
 - Read the `Psycopg documentation`__. Be sure to check the `Frequently Asked Questions`__

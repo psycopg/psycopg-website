@@ -1,0 +1,43 @@
+title: Psycopg features
+---
+body:
+
+Psycopg is written mostly in C and wraps the `libpq`_ library with the result of being both fast and secure.
+
+..
+  Please keep consistent with install.rst and setup.py
+
+- Supports Python versions from 2.6 to 2.7 and from Python 3.2 to 3.7 (check the `change log`__ to find versions supporting older Python versions)
+- Supports PostgreSQL versions from 7.4 to 12
+- Fully compliant implementation of the Python `DB API specification`_ for database adapters
+- Thread-safe: threads can use different connections or share the same connection
+- `Asynchronous nonblocking I/O`__, also integrated with `coroutine-based libraries`__ (gevent_, Eventlet_, uGreen_)
+- Adaptation__ of many Python objects to database type: tuples to records, lists to array, dictionaries to hstore, flexible JSON support
+- Extendible with `new adapters`__ to convert Python objects to SQL syntax and typecasters__ to convert PostgreSQL types back into Python objects
+- `Server-side cursors`__
+- |COPY|__ support
+- `Large objects`__ support
+- Can send and receive `asynchronous notification`__
+- Support for `two-phase commit`__
+
+.. |COPY| replace:: ``COPY``
+
+.. _DB API specification: https://www.python.org/dev/peps/pep-0249/
+.. _libpq: https://www.postgresql.org/docs/current/libpq.html
+.. _uGreen: http://projects.unbit.it/uwsgi/wiki/uGreen
+.. _gevent: http://www.gevent.org/
+.. _Eventlet: http://eventlet.net/
+.. _Zope: http://www.zope.org/
+
+.. __: /docs/news.html
+.. __: /docs/advanced.html#asynchronous-support
+.. __: /docs/advanced.html#support-to-coroutine-libraries
+.. __: /docs/usage.html#adaptation-of-python-values-to-sql-types
+.. __: /docs/advanced.html#adapting-new-python-types-to-sql-syntax
+.. __: /docs/advanced.html#type-casting-of-sql-types-into-python-objects
+.. __: /docs/usage.html#server-side-cursors
+.. __: /docs/usage.html#using-copy-to-and-copy-from
+.. __: /docs/usage.html#access-to-postgresql-large-objects
+.. __: /docs/advanced.html#asynchronous-notifications
+.. __: /docs/usage.html#two-phase-commit-protocol-support
+
