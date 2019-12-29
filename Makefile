@@ -3,6 +3,9 @@
 build:
 	cd psycopg && ../env/bin/lektor build -O ../build
 
+publish:
+	cd build && git add -A && git commit -m "updated on $$(date -Iseconds)" && git push
+
 serve:
 	cd psycopg && ../env/bin/lektor serve
 
