@@ -20,7 +20,7 @@ we have released psycopg2 version 2.7 beta 2. This version comes two years after
 - speedups in multiple execution and Unicode decoding
 - better transactions characteristics support
 
-A more complete list of changes is available at http://initd.org/psycopg/docs/news.html#what-s-new-in-psycopg-2-7
+A more complete list of changes is available at /docs/news.html#what-s-new-in-psycopg-2-7
 
 On top of the changes in the code we have addressed the deployment problems found my many inexperienced users, especially on Windows and OSX: psycopg is now distributed as a self-contained wheel package on PyPI, so that::
 

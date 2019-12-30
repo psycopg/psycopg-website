@@ -13,7 +13,7 @@ body:
 
 There are several new features being prepared in the upcoming Psycopg version. The `documentation`_ refers to it as release 2.2.3 but it may be ultimately released as 2.3. The main target of the release is to expose some of the new features introduced in `PostgreSQL 9.0`_.
 
-.. _documentation: http://initd.org/psycopg/docs/
+.. _documentation: /docs/
 .. _PostgreSQL 9.0: http://www.postgresql.org/about/news.1235
 
 ..
@@ -31,7 +31,7 @@ There are several new features being prepared in the upcoming Psycopg version. T
 
 .. |hstore| replace:: ``hstore``
 .. _hstore: http://www.postgresql.org/docs/9.0/static/hstore.html
-.. __: http://initd.org/psycopg/docs/extras.html#hstore-data-type
+.. __: /docs/extras.html#hstore-data-type
 .. __: https://www.develer.com/gitweb/pub?p=users/piro/psycopg2.git;a=shortlog;h=refs/heads/adapt-dict
 
 
@@ -41,7 +41,7 @@ Notify payload
 PostgreSQL includes an `asynchronous notification mechanism`__ allowing clients to subscribe to a certain notification channel and receive events from the database, allowing efficient communication between processes connected to the same database. Previously only the channel name could be notified: in PostgreSQL 9.0 a payload string can be attached to an event, allowing more flexible communication: if previously a listening client could have been notified about data changed in a specific value, it is now possible, for instance, to report *which record* has been modified. The mechanism is completely generic and it's up to the client applications to find a good use for it. Here you can find documentation__ and implementation__ for the notification payload in Psycopg.
 
 .. __: http://www.postgresql.org/docs/9.0/static/sql-notify.html
-.. __: http://initd.org/psycopg/docs/advanced.html#asynchronous-notifications
+.. __: /docs/advanced.html#asynchronous-notifications
 .. __: https://www.develer.com/gitweb/pub?p=users/piro/psycopg2.git;a=shortlog;h=refs/heads/notify-payload
 
 
@@ -54,7 +54,7 @@ Two-phase commit
 
 .. _Two-phase commit: :
 .. __: http://www.postgresql.org/docs/9.0/static/sql-prepare-transaction.html
-.. __: http://initd.org/psycopg/docs/usage.html#two-phase-commit-protocol-support
+.. __: /docs/usage.html#two-phase-commit-protocol-support
 .. __: https://www.develer.com/gitweb/pub?p=users/piro/psycopg2.git;a=shortlog;h=refs/heads/tpc
 .. _Python DBAPI 2.0: http://www.python.org/dev/peps/pep-0249/
 .. __: http://www.opengroup.org/bookstore/catalog/c193.htm

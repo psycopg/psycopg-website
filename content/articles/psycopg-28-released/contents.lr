@@ -13,7 +13,7 @@ body:
 
 After about two years from the previous major release, psycopg 2.8 is finally here!
 
-Among the highlights, `PostgreSQL errors are now mapped to Python exceptions <http://initd.org/psycopg/docs/errors.html>`__ for a more idiomatic way to handle them. Several additions allow a better insight of the `connection status <http://initd.org/psycopg/docs/extensions.html#psycopg2.extensions.ConnectionInfo>`__ and `query results <http://initd.org/psycopg/docs/extensions.html#psycopg2.extensions.Column>`__.
+Among the highlights, `PostgreSQL errors are now mapped to Python exceptions </docs/errors.html>`__ for a more idiomatic way to handle them. Several additions allow a better insight of the `connection status </docs/extensions.html#psycopg2.extensions.ConnectionInfo>`__ and `query results </docs/extensions.html#psycopg2.extensions.Column>`__.
 
 Behind the scene, asynchronous communication and concurrency received several improvements, and dropping support for older versions of Python gave the chance to refactor and modernise the codebase (with the especial help from Jon Dufresne who ruthlessly butchered our code into a streamlined pulp).
 

@@ -15,7 +15,7 @@ Psycopg 2.4.2 has been released: it brings a few small but interesting new featu
 
 .. CUT-HERE
 
-Transaction control has been overhauled: a new connection method `set_session() <http://initd.org/psycopg/docs/connection.html#connection.set_session>`__ allows setting all the session properties affecting the transactions behaviour: the `isolation level <http://www.postgresql.org/docs/9.1/static/transaction-iso.html>`__ but it can also be used to have auto-commit, read-only, and deferrable transactions. You can use for example:
+Transaction control has been overhauled: a new connection method `set_session() </docs/connection.html#connection.set_session>`__ allows setting all the session properties affecting the transactions behaviour: the `isolation level <http://www.postgresql.org/docs/9.1/static/transaction-iso.html>`__ but it can also be used to have auto-commit, read-only, and deferrable transactions. You can use for example:
 
 .. code-block:: python
 

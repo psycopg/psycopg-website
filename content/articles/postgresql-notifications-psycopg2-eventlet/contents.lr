@@ -23,12 +23,12 @@ Psycopg2 allows a client program to `receive notifications from the database bac
 
 .. |notifies| replace:: ``notifies``
 .. |poll()| replace:: ``poll()``
-.. _notifies: :http://initd.org/psycopg/docs/connection.html#connection.notifies
-.. _poll(): http://initd.org/psycopg/docs/connection.html#connection.poll
+.. _notifies: :/docs/connection.html#connection.notifies
+.. _poll(): /docs/connection.html#connection.poll
 
 But polling a connection is not the most efficient nor timely way to receive notifications: a better approach is to ask the OS to wake us up when there is something to read on the connection socket. This approach is particularly appealing when using an event-driven framework such as `Twisted <http://twistedmatrix.com/>`__ or `Eventlet <http://eventlet.net/>`__, with which is easy to perform other tasks while there is nothing to read on the connection. In "regular" Python programs it is possible to use ``select()`` to block until a notification arrives (see the documentation for an example): this would block the entire program. If some concurrency is required it is possible to use the blocking syscall in a thread to allow the rest of the program to carry on.
 
-.. __: http://initd.org/psycopg/docs/advanced.html#asynchronous-notifications
+.. __: /docs/advanced.html#asynchronous-notifications
 
 Eventlet example
 -----------------------
@@ -84,7 +84,7 @@ The ``dblisten`` function sets up the listening database connection:
 
 The connection is set in `autocommit mode`__, otherwise the notification would be postponed until the end of the transaction. The *trampoline* is the Eventlet function that schedules a green thread switch: we ask it to return us the control when the file descriptor underlying the connection will have something to read. Once the system wakes up again we use ``poll()`` to parse eventual notifications received, that will be added to the queue and thus passed to the client.
 
-.. __: http://initd.org/psycopg/docs/usage.html#transactions-control
+.. __: /docs/usage.html#transactions-control
 
 The rest of the example is not shown here: it only consists in a static page and the web server setup. You can `download the complete example`__.
 

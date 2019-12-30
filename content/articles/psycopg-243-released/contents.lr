@@ -20,25 +20,25 @@ Mostly a bugfix release, with as usual a couple of small feature added:
 
 Here is what's new in this release:
 
-- `connect() <http://initd.org/psycopg/docs/module.html#psycopg2.connect>`__ supports all the keyword arguments supported by the
+- `connect() </docs/module.html#psycopg2.connect>`__ supports all the keyword arguments supported by the
   database
-- Added `new_array_type() <http://initd.org/psycopg/docs/extensions.html#psycopg2.extensions.new_array_type>`__ function for easy creation of array
+- Added `new_array_type() </docs/extensions.html#psycopg2.extensions.new_array_type>`__ function for easy creation of array
   typecasters.
-- Added support for arrays of `hstores <http://initd.org/psycopg/docs/extras.html#hstore-data-type>`__ and `composite types <http://initd.org/psycopg/docs/extras.html#composite-types-casting>`__ (ticket
+- Added support for arrays of `hstores </docs/extras.html#hstore-data-type>`__ and `composite types </docs/extras.html#composite-types-casting>`__ (ticket
   #66).
 - Fixed segfault in case of transaction started with connection lost
   (and possibly other events).
 - Fixed adaptation of Decimal type in sub-interpreters, such as in
   certain mod_wsgi configurations (ticket #52).
 - Rollback connections in transaction or in error before putting them
-  back into a `pool <http://initd.org/psycopg/docs/pool.html>`__. Also discard broken connections (ticket #62).
+  back into a `pool </docs/pool.html>`__. Also discard broken connections (ticket #62).
 - Lazy import of the slow uuid module, thanks to Marko Kreen.
 - Fixed ``NamedTupleCursor.executemany()`` (ticket #65).
 - Fixed ``--static-libpq`` setup option (ticket #64).
-- Fixed interaction between `RealDictCursor <http://initd.org/psycopg/docs/extras.html#real-dictionary-cursor>`__ and `named cursors <http://initd.org/psycopg/docs/usage.html#server-side-cursors>`__
+- Fixed interaction between `RealDictCursor </docs/extras.html#real-dictionary-cursor>`__ and `named cursors </docs/usage.html#server-side-cursors>`__
   (ticket #67).
-- Dropped limit on the columns length in `COPY <http://initd.org/psycopg/docs/usage.html#using-copy-to-and-copy-from>`__ operations (ticket #68).
+- Dropped limit on the columns length in `COPY </docs/usage.html#using-copy-to-and-copy-from>`__ operations (ticket #68).
 - Fixed reference leak with arguments referenced more than once
   in queries (ticket #81).
 - Fixed typecasting of arrays containing consecutive backslashes.
-- `errorcodes <http://initd.org/psycopg/docs/errorcodes.html>`__ map updated to PostgreSQL 9.1.
+- `errorcodes </docs/errorcodes.html>`__ map updated to PostgreSQL 9.1.

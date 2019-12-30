@@ -25,11 +25,11 @@ As `previously described`__  the 2.3 introduces several new features:
 - `two-phase commit`__ protocol support as per DBAPI specification
 - support for `payload in notifications`__ received from the backend
 
-.. __: http://initd.org/psycopg/articles/2010/11/02/new-features-upcoming-psycopg-release/
+.. __: /articles/2010/11/02/new-features-upcoming-psycopg-release/
 .. |dict to hstore| replace:: ``dict`` to ``hstore``
-.. __: http://initd.org/psycopg/docs/extras.html#hstore-data-type
-.. __: http://initd.org/psycopg/docs/usage.html#two-phase-commit-protocol-support
-.. __: http://initd.org/psycopg/docs/advanced.html#asynchronous-notifications
+.. __: /docs/extras.html#hstore-data-type
+.. __: /docs/usage.html#two-phase-commit-protocol-support
+.. __: /docs/advanced.html#asynchronous-notifications
 
 There are other minor changes and improvements, such as:
 
@@ -37,15 +37,10 @@ There are other minor changes and improvements, such as:
 - more faithful |mogrify|__ results
 - |errorcodes|__ updated with the new symbolic constants introduced in PostgreSQL 9.0
 
-.. __: http://initd.org/psycopg/docs/extras.html#namedtuple-cursor
+.. __: /docs/extras.html#namedtuple-cursor
 .. |mogrify| replace:: ``mogrify()``
-.. __: http://initd.org/psycopg/docs/cursor.html#cursor.mogrify
+.. __: /docs/cursor.html#cursor.mogrify
 .. |errorcodes| replace:: ``errorcodes``
-.. __: http://initd.org/psycopg/docs/errorcodes.html
+.. __: /docs/errorcodes.html
 
 Further details and a list of bug fixes is available in the ``NEWS`` file in the distribution.
-
-We are interested in your feedback as there is still time to improve the new features if needed. If you have anything to report you can use our `ticket submission form`__ and follow the discussion on the `issue tracker`__.
-
-.. __: http://initd.org/psycopg/tracker/
-.. __: http://psycopg.lighthouseapp.com/

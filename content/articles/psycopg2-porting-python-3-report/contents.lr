@@ -128,4 +128,4 @@ This should be pretty much everything about the Py3 porting. Comments
 are welcome, above all on the open points (typecasters and COPY OUT),
 but if there is anything to point out I'd be happy to know. Best option would be to discuss on the `mailing list <http://mail.postgresql.org/mj/mj_wwwusr/domain=postgresql.org?func=lists-long-full&extra=psycopg>`__. See you there!
 
-**Update:** `Psycopg 2.4 beta 1 has been released <http://initd.org/psycopg/articles/2011/02/06/psycopg-24-beta1-released/>`__ with Python 3 support.
+**Update:** `Psycopg 2.4 beta 1 has been released </articles/2011/02/06/psycopg-24-beta1-released/>`__ with Python 3 support.

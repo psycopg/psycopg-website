@@ -56,4 +56,4 @@ An interactive session would look like:
 
 The connection is now in error state, but a ``cnn.rollback()`` would make it working again.
 
-.. __: http://initd.org/psycopg/docs/advanced.html#support-for-coroutine-libraries
+.. __: /docs/advanced.html#support-for-coroutine-libraries

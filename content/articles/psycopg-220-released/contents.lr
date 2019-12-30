@@ -15,7 +15,6 @@ With many thanks to all the contributors here it is, psycopg 2.2.0:
 
 - http://initd.org/pub/software/psycopg/psycopg2-2.2.0.tar.gz
 - http://initd.org/pub/software/psycopg/psycopg2-2.2.0.tar.gz.asc
-- http://initd.org/pub/software/psycopg/ChangeLog-2.2
 
 From this release on I'll also provide "stable" URLs to the last
 available version; so you can download psycopg 2.0 or 2.2 from:
