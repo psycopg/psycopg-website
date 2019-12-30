@@ -1,0 +1,27 @@
+title: Psycopg 2.8.3 released
+---
+pub_date: 2019-06-14
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+release
+---
+body:
+
+We have released Psycopg 2.8.3, which includes a slight change to the logical replication.
+
+Choosing the right frequency to send replication feedback messages from the client to the server was previously the developer's responsibility, with too many feedback messages being a waste of bandwidth and server resources, too few slowing down WAL cleanup and possibly preventing a server graceful shutdown.
+
+.. CUT-HERE 
+
+Psycopg will now make sure that feedback is only sent after a certain period of time from the previous one, so that the client can simply call ``send_feedback()`` at each message without the fear of overwhelming the server.
+
+Further details are available in `the MR <https://github.com/psycopg/psycopg2/pull/913>`__ by `Alexander Kukushkin <https://github.com/CyberDem0n>`__ and `Oleksandr Shulgin <https://github.com/a1exsh>`__. Thank you very much!
+
+For completeness, the changes included in the release are:
+
+- Added *interval_status* parameter to ``start_replication()`` method and other facilities to send automatic replication keepalives at periodic intervals (:ticket:`#913`).
+- Fixed namedtuples caching introduced in 2.8 (:ticket:`#928`).

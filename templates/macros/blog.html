@@ -1,20 +1,28 @@
 {% macro render_blog_post(post, from_index=false) %}
-  <div class="blog-post">
+  <div class="article">
   {% if from_index %}
     <h2><a href="{{ post|url }}">{{ post.title }}</a></h2>
   {% else %}
     <h2>{{ post.title }}</h2>
   {% endif %}
-  <p class="meta">
-    written by
-    {% if post.twitter_handle %}
-      <a href="https://twitter.com/{{ post.twitter_handle
-        }}">{{ post.author or post.twitter_handle }}</a>
-    {% else %}
-      {{ post.author }}
+  <p class="header">
+    Posted by {{ post.author }} on {{ post.pub_date }}
+    {% if post.tags %}
+      <br />
+      Tagged as
+      {% for t in post.tags -%}
+        <a class="tag" href="{{ ('/articles@tag/' ~ t.lower())|url }}"
+          >{{t}}</a>{%- if not loop.last %},{% endif %}
+      {% endfor %}
     {% endif %}
-    on {{ post.pub_date }}
   </p>
-  {{ post.body }}
+  {% if from_index %}
+    {{ post.body|cut_here }}
+    {% if post.body.html.find('CUT-HERE') >= 0 %}
+    <p class="read-more"><a href="{{ post|url }}">Read more...</a></p>
+    {% endif %}
+  {% else %}
+    {{ post.body }}
+  {% endif %}
   </div>
 {% endmacro %}

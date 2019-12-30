@@ -1,0 +1,77 @@
+title: Psycopg 2.3.0 released
+---
+pub_date: 2010-12-01
+---
+author: Federico Di Gregorio
+---
+tags:
+
+news
+release
+---
+body:
+
+Hi \*,
+
+lately my involvment on psycopg has been quite small (work and other
+projects are taking their toll) but thanks to Daniele (with some help
+from Jan) here is a new psycopg2 release. The number of changes is big
+(an excerpt from the NEWS file is at the end, as always) so we decided
+to bump up the version to 2.3.0 and to test, and test... and test. We
+tested this new release on Linux and Windows, with Python 2.4, 2.5, 2.6,
+2.7 and on PostgreSQL from 7.4 to 9.0.
+
+.. CUT-HERE
+
+As always, signed download from:
+
+- http://initd.org/psycopg/tarballs/psycopg2-2.3.0.tar.gz
+- http://initd.org/psycopg/tarballs/psycopg2-2.3.0.tar.gz.asc
+
+Have fun,
+federico
+
+
+And here are the NEWS:
+
+psycopg 2.3 aims to expose some new features introduced in PostgreSQL 9.0.
+
+Main new features
+--------------------------
+
+- ``dict`` to ``hstore`` adapter and ``hstore`` to ``dict`` typecaster, using
+  both 9.0 and pre-9.0 syntax.
+- Two-phase commit protocol support as per DBAPI specification.
+- Support for payload in notifications received from the backed.
+- ``namedtuple``\-returning cursor.
+- Query execution cancel.
+
+Other features and changes
+--------------------------------------
+
+- Dropped support for protocol 2: Psycopg 2.3 can only connect to
+  PostgreSQL servers with version at least 7.4.
+- Don't issue a query at every connection to detect the client
+  encoding and to set the datestyle to ISO if it is already
+  compatible with what expected.
+- ``mogrify()`` now supports unicode queries.
+- Subclasses of a type that can be adapted are adapted as the
+  superclass.
+- ``errorcodes`` knows a couple of new codes introduced in PostgreSQL
+  9.0.
+- Dropped deprecated Psycopg "own quoting".
+- Never issue a ROLLBACK on close/GC. This behaviour was introduced
+  as a bug in release 2.2, but trying to send a command while being
+  destroyed has been considered not safe.
+
+Bug fixes
+--------------
+
+- Fixed use of ``PQfreemem`` instead of ``free`` in binary typecaster.
+- Fixed access to freed memory in ``conn_get_isolation_level()``.
+- Fixed crash during Decimal adaptation with a few 2.5.x Python
+  versions (`ticket #7`_).
+- Fixed notices order (`ticket #9`_).
+
+.. _ticket #7: http://psycopg.lighthouseapp.com/projects/62710/tickets/7
+.. _ticket #9: http://psycopg.lighthouseapp.com/projects/62710/tickets/9

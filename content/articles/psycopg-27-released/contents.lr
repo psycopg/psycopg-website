@@ -1,0 +1,92 @@
+title: Psycopg 2.7 released
+---
+pub_date: 2017-03-01
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+release
+---
+body:
+
+Finally here! Thank you very much for waiting so long: we have finally released Psycopg 2.7!
+
+Buzzwords:
+
+- *Faster!* Helps generating SQL for repeatedly executed statements and faster Unicode decoding.
+- *Safer!* Helps generating dynamic SQL statements with variable table and field names.
+- *Easier!* Use the binary package to avoid the need of C compiler, pg_config, libpq required on the clients.
+- *Replication!* Support for PostgreSQL physical and logical replication.
+- *Plays-better-with-pgbouncer-at-transaction-pooling-level!* This.
+
+.. CUT-HERE
+
+You can download as usual from the canonical urls:
+
+- `source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-7/psycopg2-2.7.tar.gz>`__
+- `signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-7/psycopg2-2.7.tar.gz.asc>`__
+
+Or just use ``pip``::
+
+    pip install psycopg2
+
+
+**What's new in psycopg 2.7**
+
+New features:
+
+- Added `psycopg2.sql <http://initd.org/psycopg/docs/sql.html#module-psycopg2.sql>`__ module to generate SQL dynamically (:ticket:`#308`).
+- Added `replication protocol support <http://initd.org/psycopg/docs/advanced.html#replication-support>`__ (:ticket:`#322`). Main authors are
+  Oleksandr Shulgin and Craig Ringer, who deserve a huge thank you.
+- Added `parse_dsn() <http://initd.org/psycopg/docs/extensions.html#psycopg2.extensions.parse_dsn>`__ and
+  `make_dsn() <http://initd.org/psycopg/docs/extensions.html#psycopg2.extensions.make_dsn>`__ functions (:ticket:`#321`, :ticket:`#363`).
+  `connect() <http://initd.org/psycopg/docs/module.html#psycopg2.connect>`__ now can take both *dsn* and keyword arguments, merging
+  them together.
+- Added `__libpq_version__ <http://initd.org/psycopg/docs/module.html#psycopg2.__libpq_version__>`__ and
+  `libpq_version() <http://initd.org/psycopg/docs/extensions.html#psycopg2.extensions.libpq_version>`__ to inspect the version of the
+  ``libpq`` library the module was compiled/loaded with
+  (:ticket:`#35`, :ticket:`#323`).
+- The attributes `notices <http://initd.org/psycopg/docs/connection.html#connection.notices>`__ and `notifies <http://initd.org/psycopg/docs/connection.html#connection.notifies>`__ can be
+  customized replacing them with any object exposing an ``append()`` method
+  (:ticket:`#326`).
+- Adapt network types to `ipaddress <https://docs.python.org/3/library/ipaddress.html#module-ipaddress>`__ objects when available. When not
+  enabled, convert arrays of network types to lists by default. The old ``Inet``
+  adapter is deprecated (:ticket:`#317`, :ticket:`#343`, :ticket:`#387`).
+- Added `quote_ident() <http://initd.org/psycopg/docs/extensions.html#psycopg2.extensions.quote_ident>`__ function (:ticket:`#359`).
+- Added `get_dsn_parameters() <http://initd.org/psycopg/docs/connection.html#connection.get_dsn_parameters>`__ connection method (:ticket:`#364`).
+- `callproc() <http://initd.org/psycopg/docs/cursor.html#cursor.callproc>`__ now accepts a dictionary of parameters (:ticket:`#381`).
+- Give precedence to ``__conform__()`` over superclasses to choose an object
+  adapter (:ticket:`#456`).
+- Using Python C API decoding functions and codecs caching for faster
+  unicode encoding/decoding (:ticket:`#473`).
+- ``executemany()`` slowness addressed by
+  `execute_batch() <http://initd.org/psycopg/docs/extras.html#psycopg2.extras.execute_batch>`__ and `execute_values() <http://initd.org/psycopg/docs/extras.html#psycopg2.extras.execute_values>`__
+  (:ticket:`#491`).
+- Added ``async_`` as an alias for ``async`` to support Python 3.7 where
+  ``async`` will become a keyword (:ticket:`#495`).
+- Unless in autocommit, do not use ``default_transaction_*`` settings to
+  control the session characteristics as it may create problems with external
+  connection pools such as pgbouncer; use ``BEGIN`` options instead
+  (:ticket:`#503`).
+- `isolation_level <http://initd.org/psycopg/docs/connection.html#connection.isolation_level>`__ is now writable and entirely separated from
+  `autocommit <http://initd.org/psycopg/docs/connection.html#connection.autocommit>`__; added `readonly <http://initd.org/psycopg/docs/connection.html#connection.readonly>`__,
+  `deferrable <http://initd.org/psycopg/docs/connection.html#connection.deferrable>`__ writable attributes.
+
+Bug fixes:
+
+- Fixed error caused by missing decoding `LoggingConnection <http://initd.org/psycopg/docs/extras.html#psycopg2.extras.LoggingConnection>`__
+  (:ticket:`#483`).
+- Fixed integer overflow in ``interval`` seconds (:ticket:`#512`).
+
+Other changes:
+
+- Dropped support for Python 2.5 and 3.1.
+- Dropped support for client library older than PostgreSQL 9.1 (but older
+  server versions are still supported).
+- `isolation_level <http://initd.org/psycopg/docs/connection.html#connection.isolation_level>`__ doesn't read from the database but will return
+  `ISOLATION_LEVEL_DEFAULT <http://initd.org/psycopg/docs/extensions.html#psycopg2.extensions.ISOLATION_LEVEL_DEFAULT>`__ if no value was set on the
+  connection.
+- Empty arrays no more converted into lists if they don't have a type attached
+  (:ticket:`#506`)

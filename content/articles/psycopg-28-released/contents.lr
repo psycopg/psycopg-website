@@ -1,0 +1,68 @@
+title: Psycopg 2.8 released
+---
+pub_date: 2019-04-04
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+release
+---
+body:
+
+After about two years from the previous major release, psycopg 2.8 is finally here!
+
+Among the highlights, `PostgreSQL errors are now mapped to Python exceptions <http://initd.org/psycopg/docs/errors.html>`__ for a more idiomatic way to handle them. Several additions allow a better insight of the `connection status <http://initd.org/psycopg/docs/extensions.html#psycopg2.extensions.ConnectionInfo>`__ and `query results <http://initd.org/psycopg/docs/extensions.html#psycopg2.extensions.Column>`__.
+
+Behind the scene, asynchronous communication and concurrency received several improvements, and dropping support for older versions of Python gave the chance to refactor and modernise the codebase (with the especial help from Jon Dufresne who ruthlessly butchered our code into a streamlined pulp).
+
+Thank you very much to everyone contributing so far. Happy hacking!
+
+.. CUT-HERE
+
+You can download as usual from the canonical urls:
+
+- `source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-8/psycopg2-2.8.tar.gz>`__
+- `signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-8/psycopg2-2.8.tar.gz.asc>`__
+
+Or just use ``pip``::
+
+    pip install psycopg2
+
+New features:
+
+- Added ``errors`` module. Every PostgreSQL error is converted into a specific exception class (:ticket:`#682`).
+- Added ``encrypt_password()`` function (:ticket:`#576`).
+- Added ``BYTES`` adapter to manage databases with mixed encodings on Python 3 (:ticket:`#835`).
+- Added ``table_oid`` and ``table_column`` attributes on ``cursor.description`` items (:ticket:`#661`).
+- Added ``connection.info`` object to retrieve various PostgreSQL connection information (:ticket:`#726`).
+- Added ``get_native_connection()`` to expose the raw ``PGconn`` structure to C extensions via Capsule (:ticket:`#782`).
+- Added ``pgconn_ptr`` and ``pgresult_ptr`` to expose raw C structures to Python and interact with libpq via ctypes (:ticket:`#782`).
+- ``sql.Identifier`` can represent qualified names in SQL composition (:ticket:`#732`).
+- Added ``ReplicationCursor.wal_end`` attribute (:ticket:`#800`).
+- Added *fetch* parameter to ``execute_values()`` function (:ticket:`#813`).
+- ``str()`` on ``Range`` produces a human-readable representation (:ticket:`#773`).
+- ``DictCursor`` and ``RealDictCursor`` rows maintain columns order (:ticket:`#177`).
+- Added ``severity_nonlocalized`` attribute on the ``Diagnostics`` object (:ticket:`#783`).
+- More efficient ``NamedTupleCursor`` (:ticket:`#838`).
+
+Bug fixes:
+
+- Fixed connections occasionally broken by the unrelated use of the multiprocessing module (:ticket:`#829`).
+- Fixed async communication blocking if results are returned in different chunks, e.g. with notices interspersed to the results (:ticket:`#856`).
+- Fixed adaptation of numeric subclasses such as ``IntEnum`` (:ticket:`#591`).
+
+Other changes:
+
+- Dropped support for Python 2.6, 3.2, 3.3.
+- Dropped ``psycopg1`` module.
+- Dropped deprecated ``register_tstz_w_secs()`` (was previously a no-op).
+- Dropped deprecated ``PersistentConnectionPool``. This pool class was mostly
+  designed to interact with Zope. Use ``ZPsycopgDA.pool`` instead.
+- Binary packages no longer installed by default. The ``psycopg2-binary`` package must be used explicitly.
+- Dropped ``PSYCOPG_DISPLAY_SIZE`` build parameter.
+- Dropped support for mxDateTime as the default date and time adapter. mxDatetime support continues to be available as an alternative to Python's builtin datetime.
+- No longer use 2to3 during installation for Python 2 & 3 compatibility. All source files are now compatible with Python 2 & 3 as is.
+- The ``psycopg2.test`` package is no longer installed by ``python setup.py install``.
+- Wheel package compiled against OpenSSL 1.0.2r and PostgreSQL 11.2 libpq.

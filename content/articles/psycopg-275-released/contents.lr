@@ -1,0 +1,33 @@
+title: Psycopg 2.7.5 released
+---
+pub_date: 2018-06-17
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+release
+---
+body:
+
+psycopg2 version 2.7.5 has been released, fixing a few bugs found in the last months:
+
+.. CUT-HERE
+
+Summary of changes:
+
+- Allow non-ascii chars in namedtuple fields (regression introduced fixing :ticket:`#211`).
+- Fixed adaptation of arrays of arrays of nulls (:ticket:`#325`).
+- Fixed building on Solaris 11 and derivatives such as SmartOS and illumos (:ticket:`#677`).
+- Maybe fixed building on MSYS2 (as reported in :ticket:`#658`).
+- Allow string subclasses in connection and other places (:ticket:`#679`).
+- Don't raise an exception closing an unused named cursor (:ticket:`#716`).
+- Wheel package compiled against PostgreSQL 10.4 libpq and OpenSSL 1.0.2o.
+
+You can install psycopg2 `from PyPI <https://pypi.python.org/pypi/psycopg2>`__ or grab the new code from:
+
+- `source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-7/psycopg2-2.7.5.tar.gz>`__
+- `signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-7/psycopg2-2.7.5.tar.gz.asc>`__
+
+Happy hacking!

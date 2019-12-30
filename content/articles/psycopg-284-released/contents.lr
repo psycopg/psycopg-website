@@ -1,0 +1,33 @@
+title: Psycopg 2.8.4 released
+---
+pub_date: 2019-10-20
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+release
+---
+body:
+
+Psycopg 2.8.4 has been released.
+
+The release brings a few assorted bugfixes and adds support for Python 3.8 and PostgreSQL 12. 
+
+.. CUT-HERE 
+
+A more detailed changes list is
+
+- Fixed building with Python 3.8 (:ticket:`#854`).
+- Don't swallow keyboard interrupts on connect when a password is specified
+  in the connection string (:ticket:`#898`).
+- Don't advance replication cursor when the message wasn't confirmed
+  (:ticket:`#940`).
+- Fixed inclusion of ``time.h`` on linux (:ticket:`#951`).
+- Fixed int overflow for large values in ``Column.table_oid``
+  and ``Column.type_code`` (:ticket:`#961`).
+- ``errorcodes`` map and ``errors`` classes updated to
+  PostgreSQL 12.
+- Wheel package compiled against OpenSSL 1.1.1d and PostgreSQL at least 11.4.
+

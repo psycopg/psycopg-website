@@ -1,0 +1,27 @@
+title: Psycopg 2.6.1 released
+---
+pub_date: 2015-06-16
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+release
+---
+body:
+
+Psycopg 2.6.1 has been released. You can get it from:
+
+- `Download source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-6/psycopg2-2.6.1.tar.gz>`__
+- `Signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-6/psycopg2-2.6.1.tar.gz.asc>`__
+
+.. CUT-HERE
+
+The most important bug fixed in this release is the libcrypto
+callbacks conflict between libpq and Python (:ticket:`#290`), fixed by Jan
+Urbański: thank you very much. Other bugs fixed:
+
+- Lists consisting of only ``None`` are escaped correctly (:ticket:`#285`).
+- Correctly unlock the connection after error in flush (:ticket:`#294`).
+- Fixed ``MinTimeLoggingCursor.callproc()`` (:ticket:`#309`).

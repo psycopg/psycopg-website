@@ -1,0 +1,46 @@
+title: Psycopg 2.6 and 2.5.5 released
+---
+pub_date: 2015-02-09
+---
+author: Daniele Varrazzo
+---
+tags:
+
+
+---
+body:
+
+We have just released two Psycopg versions: 2.5.5 containing a few bug fixes and 2.6 introducing some new features.
+
+.. CUT-HERE
+
+The main new feature in Psycopg 2.6 is the support for the large objects 64 bits API, allowing access to large objects of more than 2GB size. Note that the feature is only supported on 64 bits clients and with at least PostgreSQL 9.3 server and client library.
+
+I wish to thank all the people who have contributed to these releases, and especially Blake Rouse and the MAAS Team for the development of the large objects 64 bits API support.
+
+- Psycopg 2.6 `source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-6/psycopg2-2.6.tar.gz>`__, `signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-6/psycopg2-2.6.tar.gz.asc>`__
+- Psycopg 2.5.5 `source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-5/psycopg2-2.5.5.tar.gz>`__,  `signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-5/psycopg2-2.5.5.tar.gz.asc>`__
+
+This is the full list of changes for the new versions:
+
+
+**Psycopg 2.6 new features**
+
+- Added support for large objects larger than 2GB.
+- Python ``time`` objects with a tzinfo specified and PostgreSQL ``timetz``
+  data are converted into each other (:ticket:`#272`).
+
+**Psycopg 2.6 bug fixes**
+
+- Json apapter's ``str()`` returns the adapted content instead of the ``repr()``
+  (:ticket:`#191`).
+
+**Psycopg 2.5.5 bug fixes**
+
+- Named cursors used as context manager don't swallow the exception on exit
+  (:ticket:`#262`).
+- ``cursor.description`` can be pickled (:ticket:`#265`).
+- Propagate read error messages in COPY FROM (:ticket:`#270`).
+- PostgreSQL time 24:00 is converted to Python 00:00 (:ticket:`#278`).
+
+A further note for the packagers: the Psycopg 2.6 source tarball doesn't contain the HTML rendered documentation anymore: you will find Makefile targets to easily build it.

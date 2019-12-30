@@ -1,0 +1,22 @@
+title: Psycopg 2.7.3.1 released
+---
+pub_date: 2017-08-26
+---
+author: Daniele Varrazzo
+---
+tags:
+
+
+---
+body:
+
+We have released psycopg2 release 2.7.3.1 as a new build of psycopg 2.7.3. The new build only affects the wheel packages and contains no change in the code.
+
+The release 2.7.3.1 fixes `psycopg2-wheels bug #2 <https://github.com/psycopg/psycopg2-wheels/issues/2>`__ which was in turn caused by `auditwheel bug #80 <https://github.com/pypa/auditwheel/issues/80>`__, resulting in incompatibility with glibc 2.26. The problem only affects Linux wheels users, it doesn't affect Windows, OSX, or user installing psycopg2 from source.
+
+.. CUT-HERE
+
+You can install psycopg2 `from PyPI <https://pypi.python.org/pypi/psycopg2>`__ or grab the new code from:
+
+- `source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-7/psycopg2-2.7.3.1.tar.gz>`__
+- `signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-7/psycopg2-2.7.3.1.tar.gz.asc>`__

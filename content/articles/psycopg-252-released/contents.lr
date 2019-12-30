@@ -1,0 +1,28 @@
+title: Psycopg 2.5.2 released
+---
+pub_date: 2014-01-07
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+release
+---
+body:
+
+Psycopg 2.5.2 has been released. You can get it from:
+
+- `Download source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-5/psycopg2-2.5.2.tar.gz>`__
+- `Signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-5/psycopg2-2.5.2.tar.gz.asc>`__
+
+This version contains a few bug fixes over the previous release 2.5.1:
+
+- Fixed segfault pickling the exception raised on connection error
+  (:ticket:`#170`).
+- Meaningful connection errors report a meaningful message, thanks to
+  Alexey Borzenkov (:ticket:`#173`).
+- Manually creating ``lobject`` with the wrong parameter doesn't segfault
+  (:ticket:`#187`).
+
+Thank you very much to all the people who helped during the development!

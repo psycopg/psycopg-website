@@ -1,5 +1,14 @@
 {% extends "layout.html" %}
+
 {% block title %}{{ this.title }}{% endblock %}
+
+{% block head %}
+  <link rel="alternate" type="application/atom+xml" title="Psycopg news"
+    href="{{'/news.xml'|url}}" />
+  <link rel="alternate" type="application/atom+xml" title="Psycopg articles"
+    href="{{'/articles.xml'|url}}" />
+{% endblock %}
+
 {% block body %}
   <div class="teaser">
     {{ this.teaser }}

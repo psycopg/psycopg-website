@@ -1,0 +1,41 @@
+title: Psycopg 2.2.2 released
+---
+pub_date: 2010-07-18
+---
+author: Federico Di Gregorio
+---
+tags:
+
+news
+release
+---
+body:
+
+Hi \*,
+
+summer release! Just bugfixes, this time. Get it from:
+
+* http://initd.org/pub/software/psycopg/psycopg2-2.2.2.tar.gz
+* http://initd.org/pub/software/psycopg/psycopg2-2.2.2.tar.gz.asc
+* http://initd.org/pub/software/psycopg/ChangeLog-2.2
+
+..
+    CUT-HERE
+
+What's new in psycopg 2.2.2
+---------------------------
+
+Bux fixes
+^^^^^^^^^^
+
+- the call to ``logging.basicConfig()`` in pool.py has been dropped: it
+  was messing with some projects using logging (and a library should
+  not initialize the logging system anyway.)
+- psycopg now correctly handles time zones with seconds in the UTC
+  offset. The old ``register_tstz_w_secs()`` function is deprecated and
+  will raise a warning if called.
+- Exceptions raised by the column iterator are propagated.
+- Exceptions raised by ``executemany()`` interators are propagated.
+
+| Have fun,
+| federico

@@ -1,0 +1,27 @@
+title: Psycopg 2.7.1 released
+---
+pub_date: 2017-03-13
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+release
+---
+body:
+
+A quick bugfix release to solve some teething problems with some of the changes introduced in 2.7:
+
+- Ignore None arguments passed to ``connect()`` and ``make_dsn()`` (:ticket:`#517`).
+- OpenSSL upgraded from major version 0.9.8 to 1.0.2 in the Linux wheel packages (:ticket:`#518`).
+- Fixed build with libpq versions < 9.3 (:ticket:`#520`).
+
+.. CUT-HERE
+
+Code fresh to grab at:
+
+- `source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-7/psycopg2-2.7.1.tar.gz>`__
+- `signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-7/psycopg2-2.7.1.tar.gz.asc>`__
+
+Enjoy the release!

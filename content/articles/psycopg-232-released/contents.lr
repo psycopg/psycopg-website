@@ -1,0 +1,25 @@
+title: Psycopg 2.3.2 released
+---
+pub_date: 2010-12-20
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+release
+---
+body:
+
+Hello,
+
+just released Psycopg 2.3.2. The release fixes `a bug <http://psycopg.lighthouseapp.com/projects/62710/tickets/24>`__ reported in 2.3.0 and 2.3.1 preventing Psycopg to connect to pgBouncer. Thanks to Marti Raudsepp for the bug report and the patch.
+
+.. CUT-HERE
+
+Download from here:
+
+- `source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-3/psycopg2-2.3.2.tar.gz>`__
+- `signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-3/psycopg2-2.3.2.tar.gz.asc>`__
+
+Cheers!

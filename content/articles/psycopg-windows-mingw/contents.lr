@@ -1,0 +1,28 @@
+title: Building Psycopg on Windows using MinGW
+---
+pub_date: 2011-06-05
+---
+author: Daniele Varrazzo
+---
+tags:
+
+windows
+build
+---
+body:
+
+My goal was to install Psycopg on Windows using MinGW and the PostgreSQL binary package.
+
+I have used the `MinGW GCC binaries <http://www.develer.com/oss/GccWinBinaries>`__ packaged by Giovanni Bajo. The package takes care of a lot of details, for instance registering MinGW as default compiler for Python, plus some magic I don't even want to know, and makes the entire process simple enough.
+
+.. CUT-HERE
+
+The first step is to ensure that ``setup.py`` can find ``pg_config``. There is a bug causing it not to be found if *it is* in the path: it will be fixed in Psycopg 2.4.2. On a few older versions you will have to specify the ``pg_config`` path in the ``setup.cfg`` or by the ``--pg-config`` option, e.g. ::
+
+    python setup.py build_ext --pg-config=C:\path\to\pg_config.exe build
+
+The library built depends on ``libpq.dll``, so at runtime this library should be available, e.g. on the path or it may be copied in the ``psycopg2`` directory. The libpq in turn depends on a few other dlls, all found in the PostgreSQL ``bin`` directory: ``libeay32.dll``, ``ssleay32.dll`` and ``libintl-8.dll``: they should be made available to the client as well. Unfortunately if any of these libraries is missing you will only get an "ImportError: dll load failed". The problem is very easy to debug using a `dependency walker <http://www.dependencywalker.com/>`__.
+
+Another problem you may find is building for Python 2.6 and newer: some MinGW versions ship with a broken msvcr90 lib, and the result is again a rather unhelpful ImportError. the dependency walker is useful in this case too, showing the missing ``localtime`` function in the library. The bug was reported in the `issue 3308 <http://bugs.python.org/issue3308>`__: my solution was to `download a newer MinGW <http://tdm-gcc.tdragon.net/>`__ and use the ``libmsvcr90.a`` from there.
+
+So, overall, it can be done, but the result still depends on many dlls. I'm torn if the solution could be to have all the dependencies copied in the package directory. Of course you can still use `Jason's binary package <http://www.stickpeople.com/projects/python/win-psycopg/>`__: he builds both the libpq and the openssl as static libs and creates a self-contained psycopg, which is probably the handiest result, but can't be obtained only using the PostgreSQL binaries.

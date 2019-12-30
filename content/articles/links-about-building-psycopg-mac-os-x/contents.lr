@@ -1,0 +1,26 @@
+title: Links about building Psycopg on Mac OS X
+---
+pub_date: 2010-11-11
+---
+author: Daniele Varrazzo
+---
+tags:
+
+recipe
+os-x
+---
+body:
+
+Looks like building Psycopg on OS X is tricky: the code needs no tweak, but linking against the right library seems problematic.
+
+..
+  CUT-HERE
+
+Here is a list of articles I've found about the matter or I've been suggested: please take a look at these and leave a comment if you wish to suggest anything else or share your experience.
+
+1. `Installing psycopg2 on OS X <http://blog.jonypawks.net/2008/06/20/installing-psycopg2-on-os-x/>`__
+2. `psycopg2 and 64-bit Apache on Leopard <http://ronny.haryan.to/archives/2008/09/12/psycopg2-and-64-bit-apache-on-leopard/>`__
+3. `psycopg2 OS X – _PQbackendPID <http://blog.timc3.com/2010/08/20/psycopg2-os-x-_pqbackendpid/>`__
+4. `Python, psycopg2, postgresql84 and Mac OS X Snow Leopard <http://blog.serverhorror.com/2010/04/28/python-psycopg2-postgresql>`__
+
+If you know enough to write a comprehensive article you are welcome!

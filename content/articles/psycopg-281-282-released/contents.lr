@@ -1,0 +1,35 @@
+title: Psycopg 2.8.1, 2.8.2 released
+---
+pub_date: 2019-04-14
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+release
+---
+body:
+
+Hello,
+
+We have just released Psycopg 2.8.2; a few days ago Psycopg 2.8.1 was released.
+
+Some of the bugs addressed are ordinary teething problem with the 2.8
+release, but an important change landed with 2.8.2: binary packages
+now ship with OpenSSL 1.1 instead of 1.0. This should fix concurrency
+problems on connection experienced both on Windows and Linux. Many
+thanks to Matthew Brett and Jason Erickson for this improvement!
+
+.. CUT-HERE
+
+The combined list of changes is:
+
+- Fixed "there's no async cursor" error polling a connection with no cursor
+  (:ticket:`#887`).
+- Fixed ``RealDictCursor`` when there are repeated columns (:ticket:`#884`).
+- Fixed ``RealDictRow`` modifiability (:ticket:`#886`).
+- Binary packages built with OpenSSL 1.1.1b. Should fix concurrency problems
+  (:ticket:`#543`, :ticket:`#836`).
+
+Happy hacking!

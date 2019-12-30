@@ -1,0 +1,62 @@
+title: New features in the upcoming Psycopg release
+---
+pub_date: 2010-11-02
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+development
+---
+body:
+
+There are several new features being prepared in the upcoming Psycopg version. The `documentation`_ refers to it as release 2.2.3 but it may be ultimately released as 2.3. The main target of the release is to expose some of the new features introduced in `PostgreSQL 9.0`_.
+
+.. _documentation: http://initd.org/psycopg/docs/
+.. _PostgreSQL 9.0: http://www.postgresql.org/about/news.1235
+
+..
+    CUT-HERE
+
+**Update** The new features `have been released`__ in `Psycopg 2.3.0-beta1`__.
+
+.. __: /psycopg/articles/2010/11/06/psycopg-230-beta1-released/
+.. __: http://initd.org/psycopg/tarballs/psycopg2-2.3.0-beta1.tar.gz
+
+``dict`` to ``hstore`` mapping
+-----------------------------------
+
+|hstore|_ is a very interesting data type available in PostgreSQL: each ``hstore`` value is a set of key/value pairs . In the release 9.0 ``hstore`` received a lot of improvements that made it still more useful. Building an index on an ``hstore`` column will allow fast search for values containing one or more provided keys/values. The new Psycopg release will allow to map Python dictionaries into ``hstore`` and back. String and Unicode keys and values are supported: you can find here documentation__ and implementation__ in the ``adapt-dict`` git branch.
+
+.. |hstore| replace:: ``hstore``
+.. _hstore: http://www.postgresql.org/docs/9.0/static/hstore.html
+.. __: http://initd.org/psycopg/docs/extras.html#hstore-data-type
+.. __: https://www.develer.com/gitweb/pub?p=users/piro/psycopg2.git;a=shortlog;h=refs/heads/adapt-dict
+
+
+Notify payload
+-----------------
+
+PostgreSQL includes an `asynchronous notification mechanism`__ allowing clients to subscribe to a certain notification channel and receive events from the database, allowing efficient communication between processes connected to the same database. Previously only the channel name could be notified: in PostgreSQL 9.0 a payload string can be attached to an event, allowing more flexible communication: if previously a listening client could have been notified about data changed in a specific value, it is now possible, for instance, to report *which record* has been modified. The mechanism is completely generic and it's up to the client applications to find a good use for it. Here you can find documentation__ and implementation__ for the notification payload in Psycopg.
+
+.. __: http://www.postgresql.org/docs/9.0/static/sql-notify.html
+.. __: http://initd.org/psycopg/docs/advanced.html#asynchronous-notifications
+.. __: https://www.develer.com/gitweb/pub?p=users/piro/psycopg2.git;a=shortlog;h=refs/heads/notify-payload
+
+
+Two-phase commit
+------------------------
+
+`Two-phase commit`_ is actually `supported by PostgreSQL`__ since release 8.1: it enables the database to participate in distributed operations with transactional characteristics. You can find here documentation__ and implementation__ in the git ``tpc`` branch.
+
+`Python DBAPI 2.0`_ suggests a specific interface for 2pc-related methods that maps fine enough on PostgreSQL commands. What maps slightly worse is the format chosen for the distributed transactions identifiers: the DBAPI is inspired to the `Open Group XA specification`__ according to which every transaction is identifies by a triple (*format id*, *global transaction id*, *branch qualifier*). PostgreSQL doesn't follow this standard and accepts any string (up to a certain length) as a transaction identifier: this creates the need to map from triples to strings and back. We have currently implemented the same algorithm used in the JDBC driver: it works fine but has the drawback of producing unreadable strings as transaction ids. We may use something different, such as concatenating the elements of a xid with a specific character (e.g. ``:``) and escaping colons provided in the xid components. Would it be more valuable to have readable transaction identifiers or interoperation with Java tools? I don't have much experience about the matter, so any suggestion would be appreciated.
+
+.. _Two-phase commit: :
+.. __: http://www.postgresql.org/docs/9.0/static/sql-prepare-transaction.html
+.. __: http://initd.org/psycopg/docs/usage.html#two-phase-commit-protocol-support
+.. __: https://www.develer.com/gitweb/pub?p=users/piro/psycopg2.git;a=shortlog;h=refs/heads/tpc
+.. _Python DBAPI 2.0: http://www.python.org/dev/peps/pep-0249/
+.. __: http://www.opengroup.org/bookstore/catalog/c193.htm
+
+Please feel free to check the new features details in the documentation, to try the code under development and to leave  your feedback!

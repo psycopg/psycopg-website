@@ -1,0 +1,55 @@
+title: Passing connections to functions using a decorator
+---
+pub_date: 2010-10-22
+---
+author: Daniele Varrazzo
+---
+tags:
+
+recipe
+---
+body:
+
+In many script I write, there are functions requiring database operations. Every time I need them, I try to write such code in functions like:
+
+.. code-block:: python
+
+    @with_connection
+    def do_some_job(cnn, arg1, arg2=None):
+        cur = cnn.cursor()
+        cur.execute(SQL, (arg1, arg2)) # or something else
+
+    do_some_job(42, arg2='hi')
+
+..
+    CUT-HERE
+
+There are many benefits for this pattern:
+
+- the client code doesn't depend on the details of connection creation and disposal
+- the client code doesn't either need to deal with the session management: no more pending transactions...
+- connection management is consistent throughout all the functions.
+
+Implementation of such a decorator is straightforward, but because of the many possible variation it never made its way into a proper library. It goes something like:
+
+.. code-block:: python
+
+    def with_connection(f):
+        def with_connection_(*args, **kwargs):
+            # or use a pool, or a factory function...
+            cnn = psycopg.connect(DSN)
+            try:
+                rv = f(cnn, *args, **kwargs)
+            except Exception, e:
+                cnn.rollback()
+                raise
+            else:
+                cnn.commit() # or maybe not
+            finally:
+                cnn.close()
+
+            return rv
+
+        return with_connection_
+
+There may be many variations: you may use use a connection pooler, you may want a read only or an autocommit connection... Best strategy I've found is just to keep one or a few decorator like this in the project I'm working at and use it for a consistent management of the database communications in the desired scope (the project, a package, a module...)

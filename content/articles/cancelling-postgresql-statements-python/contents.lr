@@ -1,0 +1,56 @@
+title: Cancelling PostgreSQL statements from Python
+---
+pub_date: 2014-07-20
+---
+author: Daniele Varrazzo
+---
+tags:
+
+recipe
+---
+body:
+
+Cancelling a long running query from Python is not something that happens automatically: the libpq doesn't react to Python signals so the only way to stop a query is to run a ``pg_cancel_backend`` from another process. Killing the Python process won't cancel the query: it will run until completion and then rolled back. This makes working wth long-running query from the Python interpreter somewhat frustrating.
+
+Using psycopg in `green mode`__ moves the waiting from the libpq C code to Python: this gives Python some chance of interaction: it is possible for instance to catch a ctrl-c and send a cancel request:
+
+.. code-block:: python
+
+    from select import select
+    from psycopg2.extensions import POLL_OK, POLL_READ, POLL_WRITE
+
+    def wait_select_inter(conn):
+        while 1:
+            try:
+                state = conn.poll()
+                if state == POLL_OK:
+                    break
+                elif state == POLL_READ:
+                    select([conn.fileno()], [], [])
+                elif state == POLL_WRITE:
+                    select([], [conn.fileno()], [])
+                else:
+                    raise conn.OperationalError(
+                        "bad state from poll: %s" % state)
+            except KeyboardInterrupt:
+                conn.cancel()
+                # the loop will be broken by a server error
+                continue
+
+    psycopg2.extensions.set_wait_callback(wait_select_inter)
+
+An interactive session would look like:
+
+.. code-block:: pycon
+
+    >>> cnn = psycopg2.connect('')
+    >>> cur = cnn.cursor()
+    >>> cur.execute("select pg_sleep(10)")
+    ^C
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    QueryCanceledError: canceling statement due to user request
+
+The connection is now in error state, but a ``cnn.rollback()`` would make it working again.
+
+.. __: http://initd.org/psycopg/docs/advanced.html#support-for-coroutine-libraries

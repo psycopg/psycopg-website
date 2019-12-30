@@ -1,0 +1,40 @@
+title: Psycopg 2.7.2 released
+---
+pub_date: 2017-07-22
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+release
+---
+body:
+
+Releasing psycopg2 version 2.7.2: a release fixing a host of bugs found in the last 3-4 months.
+
+.. CUT-HERE
+
+Summary of changes:
+
+- Fixed inconsistent state in externally closed connections (:ticket:`#263`, :ticket:`#311`, :ticket:`#443`). Was fixed in 2.6.2 but not included in 2.7 by mistake.
+- Fixed Python exceptions propagation in green callback (:ticket:`#410`).
+- Don't display the password in ``connection.dsn`` when the connection string is specified as an URI (:ticket:`#528`).
+- Return objects with timezone parsing "infinity" ``timestamptz`` (:ticket:`#536`).
+- Dropped dependency on VC9 runtime on Windows binary packages (:ticket:`#541`).
+- Fixed segfault in ``lobject()`` when *mode*\=\ ``None`` (:ticket:`#544`).
+- Fixed ``lobject()`` keyword argument *lobject_factory* (:ticket:`#545`).
+- Fixed ``ReplicationCursor.consume_stream()`` *keepalive_interval* argument (:ticket:`#547`).
+- Maybe fixed random import error on Python 3.6 in multiprocess environment (:ticket:`#550`).
+- Fixed random ``SystemError`` upon receiving abort signal (:ticket:`#551`).
+- Accept ``sql.Composable`` objects in ``ReplicationCursor.start_replication_expert()`` (:ticket:`554`).
+- Parse intervals returned as microseconds from Redshift (:ticket:`#558`).
+- Added ``Json.prepare()`` method to consider connection params when adapting (:ticket:`#562`).
+- ``errorcodes`` map updated to PostgreSQL 10 beta 1.
+
+You can install psycopg2 `from PyPI <https://pypi.python.org/pypi/psycopg2>`__ or grab the new code from:
+
+- `source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-7/psycopg2-2.7.2.tar.gz>`__
+- `signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-7/psycopg2-2.7.2.tar.gz.asc>`__
+
+Happy hacking!

@@ -7,3 +7,4 @@ included_assets = _static,_sources
 [packages]
 lektor-feed = 20191006.1
 lektor-rst = 0.2.0
+lektor-tags = 0.3

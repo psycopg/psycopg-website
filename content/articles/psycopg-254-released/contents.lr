@@ -1,0 +1,36 @@
+title: Psycopg 2.5.4 released
+---
+pub_date: 2014-08-30
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+release
+---
+body:
+
+Psycopg 2.5.4 has been released. You can get it from:
+
+- `Download source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-5/psycopg2-2.5.4.tar.gz>`__
+- `Signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-5/psycopg2-2.5.4.tar.gz.asc>`__
+
+This version supports the new jsonb PostgreSQL type out-of-the-box. And of course there are a few bug fixed:
+
+.. CUT-HERE
+
+- Added ``jsonb`` support for PostgreSQL 9.4 (:ticket:`#226`).
+- Fixed segfault if COPY statements are passed to ``execute()`` instead
+  of using the proper methods (:ticket:`#219`).
+- Force conversion of pool arguments to integer to avoid potentially unbounded
+  pools (:ticket:`#220`).
+- Cursors ``WITH HOLD`` don't begin a new transaction upon move/fetch/close
+  (:ticket:`#228`).
+- Cursors ``WITH HOLD`` can be used in autocommit (:ticket:`#229`).
+- ``callproc()`` doesn't silently ignore an argument without a length.
+- Fixed memory leak with large objects (:ticket:`#256`).
+- The internal ``_psycopg.so`` module can be imported stand-alone (to
+  allow modules juggling such as the one described in :ticket:`#201`).
+
+Have a good weekend!

@@ -1,0 +1,51 @@
+title: Psycopg 2.3.0-beta1 released
+---
+pub_date: 2010-11-06
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+release
+beta
+---
+body:
+
+We have just released a new testing package: `psycopg 2.3.0-beta1`__!
+
+..
+  CUT-HERE
+
+.. __: http://initd.org/psycopg/tarballs/psycopg2-2.3.0-beta1.tar.gz
+
+As `previously described`__  the 2.3 introduces several new features:
+
+- |dict to hstore|__ adaptation, compatible with both PostgreSQL 9.0 and previous versions
+- `two-phase commit`__ protocol support as per DBAPI specification
+- support for `payload in notifications`__ received from the backend
+
+.. __: http://initd.org/psycopg/articles/2010/11/02/new-features-upcoming-psycopg-release/
+.. |dict to hstore| replace:: ``dict`` to ``hstore``
+.. __: http://initd.org/psycopg/docs/extras.html#hstore-data-type
+.. __: http://initd.org/psycopg/docs/usage.html#two-phase-commit-protocol-support
+.. __: http://initd.org/psycopg/docs/advanced.html#asynchronous-notifications
+
+There are other minor changes and improvements, such as:
+
+- an handy `namedtuples returning cursor`__
+- more faithful |mogrify|__ results
+- |errorcodes|__ updated with the new symbolic constants introduced in PostgreSQL 9.0
+
+.. __: http://initd.org/psycopg/docs/extras.html#namedtuple-cursor
+.. |mogrify| replace:: ``mogrify()``
+.. __: http://initd.org/psycopg/docs/cursor.html#cursor.mogrify
+.. |errorcodes| replace:: ``errorcodes``
+.. __: http://initd.org/psycopg/docs/errorcodes.html
+
+Further details and a list of bug fixes is available in the ``NEWS`` file in the distribution.
+
+We are interested in your feedback as there is still time to improve the new features if needed. If you have anything to report you can use our `ticket submission form`__ and follow the discussion on the `issue tracker`__.
+
+.. __: http://initd.org/psycopg/tracker/
+.. __: http://psycopg.lighthouseapp.com/

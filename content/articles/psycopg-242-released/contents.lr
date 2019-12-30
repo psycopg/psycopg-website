@@ -1,0 +1,86 @@
+title: Psycopg 2.4.2 released
+---
+pub_date: 2011-06-12
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+release
+---
+body:
+
+Psycopg 2.4.2 has been released: it brings a few small but interesting new features, and a lot of bug fixes.
+
+.. CUT-HERE
+
+Transaction control has been overhauled: a new connection method `set_session() <http://initd.org/psycopg/docs/connection.html#connection.set_session>`__ allows setting all the session properties affecting the transactions behaviour: the `isolation level <http://www.postgresql.org/docs/9.1/static/transaction-iso.html>`__ but it can also be used to have auto-commit, read-only, and deferrable transactions. You can use for example:
+
+.. code-block:: python
+
+    conn.set_session('read committed')
+    conn.set_session(readonly=True, autocommit=True)
+    conn.set_session('serializable',
+                     readonly=True, deferrable=True)
+
+There is also a welcome improvement for all the users thinking that
+
+.. code-block:: python
+
+    conn.set_isolation_level(
+        psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT)
+
+was an excessively verbose syntax: a new read/write property allows to set
+
+.. code-block:: python
+
+    conn.autocommit = True
+
+a much handier syntax for an often used connection property.
+
+The improvements to the transactions control are not only at interface level: Psycopg doesn't require any more setup queries when connecting to a database. A sequence of statements:
+
+.. code-block:: python
+
+    import psycopg2
+    conn = psycopg2.connect('')
+    curs = conn.cursor()
+    curs.execute('SELECT 1')
+    curs.execute('SELECT 2')
+    conn.commit()
+
+in older versions of the library would have resulted in the following commands sent to the backend::
+
+    SHOW default_transaction_isolation
+    SET DATESTYLE TO 'ISO'
+    SHOW client_encoding
+    BEGIN; SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+    SELECT 1
+    SELECT 2
+    COMMIT
+
+In Psycopg 2.4.2 the only commands sent are instead the essential::
+
+    BEGIN
+    SELECT 1
+    SELECT 2
+    COMMIT
+
+with the ``BEGIN``/``COMMIT`` obviously omitted in autocommit mode (the datestyle and encoding statements were already dropped in 2.3).
+
+The new release also brings a lot of bug fixes, so we encourage updating soon, particularly if you use Psycopg in multithread programs:
+
+- Fixed bug with multithread code potentially causing loss of sync
+  with the server communication or lock of the client (`ticket #55 <http://psycopg.lighthouseapp.com/projects/62710/tickets/55>`__).
+- Don't fail import if mx.DateTime module can't be found, even if its
+  support was built (`ticket #53 <http://psycopg.lighthouseapp.com/projects/62710/tickets/53>`__): a fix for the "ghost mx.DateTime" issue reported in virtualenv.
+- Fixed escape for negative numbers prefixed by minus operator
+  (`ticket #57 <http://psycopg.lighthouseapp.com/projects/62710/tickets/57>`__).
+- Fixed GC race condition during copy in multithread programs, potentially resulting in refcount errors.  Fixed by Dave
+  Malcolm (`ticket #58 <http://psycopg.lighthouseapp.com/projects/62710/tickets/58>`__, Red Hat `Bug 711095 <https://bugzilla.redhat.com/show_bug.cgi?id=711095>`__).
+- Trying to execute concurrent operations on the same connection
+  through concurrent green thread results in an error instead of a
+  deadlock.
+- Fixed detection of pg_config on Windows. Report and fix, plus some
+  long needed ``setup.py`` cleanup by Steve Lacy: thanks!

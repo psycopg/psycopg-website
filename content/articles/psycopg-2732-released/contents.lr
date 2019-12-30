@@ -1,0 +1,23 @@
+title: Psycopg 2.7.3.2 released
+---
+pub_date: 2017-10-24
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+release
+---
+body:
+
+Following the release of `PostgreSQL 10 <https://www.postgresql.org/about/news/1786/>`__ we have released new binary packages as Psycopg 2.7.3.2. There are no code changes from Psycopg 2.7.3, but the new binary packages ship with the PostgreSQL 10 client library, enabling the use of new features such as `multiple hosts in connection string <http://paquier.xyz/postgresql-2/postgres-10-multi-host-connstr/>`__, `read-only mode <http://paquier.xyz/postgresql-2/postgres-10-libpq-read-write/>`__, `SCRAM-SHA-256 authentication <https://www.postgresql.org/docs/10/static/sasl-authentication.html#sasl-scram-sha256>`__.
+
+.. CUT-HERE
+
+The packages are already `available on PyPI <https://pypi.python.org/pypi/psycopg2/2.7.3.2>`__ and automatically installed by ``pip install psycopg2`` (if your pip is up-to-date). You can grab the source code from:
+
+- `source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-7/psycopg2-2.7.3.2.tar.gz>`__
+- `signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-7/psycopg2-2.7.3.2.tar.gz.asc>`__
+
+Happy hacking!

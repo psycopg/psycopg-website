@@ -1,0 +1,25 @@
+title: New Psycopg Mailing List Online!
+---
+pub_date: 2011-01-08
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+mailing
+list
+---
+body:
+
+After a long while Psycopg has a Mailing List again!
+
+You are welcome to subscribe__, either if you are an user dealing with the first stumbling blocks (albeit a look at the documentation_ or the FAQ_ wouldn't hurt!) or if you want to contribute to the psycopg2 development, about which there are several upcoming news.
+
+.. __: http://mail.postgresql.org/mj/mj_wwwusr/domain=postgresql.org?func=lists-long-full&extra=psycopg
+.. _documentation: http://initd.org/psycopg/docs/
+.. _faq: http://initd.org/psycopg/docs/faq.html
+
+To post, send mail to <psycopg@postgresql.org>. Yes, we are proud to be hosted on the mighty shoulders of the **PostgreSQL Infrastructure team**. I want to thank them and the **PostgreSQL Global Development Group** wholeheartedly for making this happen.
+
+See you there!

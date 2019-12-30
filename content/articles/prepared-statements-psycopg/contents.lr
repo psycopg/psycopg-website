@@ -1,0 +1,66 @@
+title: Prepared statements in Psycopg
+---
+pub_date: 2012-10-01
+---
+author: Daniele Varrazzo
+---
+tags:
+
+
+---
+body:
+
+Although the libpq library supports `prepared statements`__, psycopg2 doesn't offer yet a direct way to access the relevant functions. This will probably change in the future, but in the meantime it is possible to use prepared statements in PostgreSQL using the PREPARE__ SQL command.
+
+.. CUT-HERE
+
+.. __: http://www.postgresql.org/docs/current/static/libpq-exec.html#LIBPQ-PQPREPARE
+.. __: http://www.postgresql.org/docs/current/static/sql-prepare.html
+
+Whenever you have a loop where the same parametrized query or command is executed:
+
+.. code-block:: python
+
+    cur = conn.cursor()
+    for i, j in parameters:
+        cur.execute(
+            "select * from tables where i = %s and j = %s",
+            (i, j))
+        for record in cur:
+            do_something_with(record)
+
+you can actually ask PostgreSQL to prepare the plan in advance and use it, saving time in the inner loop:
+
+.. code-block:: python
+
+    cur = conn.cursor()
+    cur.execute(
+        "prepare myplan as "
+        "select * from tables where i = $1 and j = $2")
+    for i, j in parameters:
+        cur.execute("execute myplan (%s, %s)", (i, j))
+        for record in cur:
+            do_something_with(record)
+
+The time saved could be relevant for complex queries which are fast to execute; for queries that instead take several seconds to complete, the planning time is probably negligible so there wouldn't be much to save. Note that the query passed to ``PREPARE`` uses Postgres-style placeholders (``$1``, ``$2``...) instead of the familiar Python-style ``%s`` or ``%(name)s``.
+
+So is psycopg useless in this case? Is the burden of executing ``PREPARE`` on the poor user? Well, it's actually easy to write a `cursor subclass implementing prepared statements`__. The proposed ``PreparingCursor`` doesn't ``PREPARE`` each statement passed to ``execute()``: this would be harmful as it involves an extra roundtrip to the server and the plan for a prepared statements is sometimes less efficient than one calculated with the knowledge of the real parameters used. So the proposed class exposes an explicit ``prepare()`` method: it takes a query (written with Python-style placeholders, so exactly the one you would have used with ``execute()``), replaces it with Postgres-style placeholders and ``PREPARE``\ s it. In further calls to ``execute()`` the query can be omitted: in this case (or if the query is the one prepared) the prepared statement is executed instead.
+
+.. __: https://gist.github.com/3797445
+
+
+Using the ``PreparingCursor`` the above example could be written as:
+
+.. code-block:: python
+
+    cur = conn.cursor(cursor_factory=PreparingCursor)
+    cur.prepare(
+        "select * from tables where i = %s and j = %s")
+    for i, j in parameters:
+        cur.execute((i, j))
+        for record in cur:
+            do_something_with(record)
+
+The preparing cursor also overrides ``executemany()``: in this case the query is always prepared as it is assumed that it will be executed more than once. Other extensions are a ``prepared`` attribute, returning the prepared statement if any, and a ``deallocate()`` method to release the prepared statement (which would be deleted anyway at the end of the session).
+
+The preparing cursor may find its way into a future psycopg2 release, but its design is not finalized yet and several details, both in the interface and the implementation, could be done in different ways. So please use it and give us feedback: we'll use it to design the optimal implementation for Psycopg!

@@ -1,0 +1,36 @@
+title: Psycopg 2.2.1 released
+---
+pub_date: 2010-05-17
+---
+author: Federico Di Gregorio
+---
+tags:
+
+news
+release
+---
+body:
+
+Hi \*,
+
+repeat with me:
+
+.. code-block:: python
+
+    for x in xrange(1000):
+        print "Always check it build on windows!"
+
+but thank to Jason Erickson here is 2.2.1 that DO build on windows. :)
+No excerpt this time, it's a single liner, but here are the URLs:
+
+- http://initd.org/pub/software/psycopg/psycopg2-2.2.1.tar.gz
+- http://initd.org/pub/software/psycopg/psycopg2-2.2.1.tar.gz.asc
+- http://initd.org/pub/software/psycopg/ChangeLog-2.2
+
+Stable URLs:
+
+- http://initd.org/pub/software/psycopg/psycopg2-2.2-latest.tar.gz
+- http://initd.org/pub/software/psycopg/psycopg2-2.2-latest.tar.gz.asc
+
+| Have fun,
+| federico

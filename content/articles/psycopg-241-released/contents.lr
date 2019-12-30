@@ -1,0 +1,41 @@
+title: Psycopg 2.4.1 released
+---
+pub_date: 2011-05-11
+---
+author: Federico Di Gregorio
+---
+tags:
+
+news
+release
+---
+body:
+
+Hi \*,
+
+Daniele stacked another round of fixes on the devel branch, so it is
+time for another release. So, as always, kudos to Daniele and here are
+the direct download links:
+
+- `Source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-4/psycopg2-2.4.1.tar.gz>`__
+- `Signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-4/psycopg2-2.4.1.tar.gz>`__
+
+Release notes attached, as always. And al always, have fun,
+
+federico
+
+.. CUT-HERE
+
+What's new in psycopg 2.4.1
+---------------------------
+
+- Use own parser for bytea output, not requiring anymore the libpq 9.0
+  to parse the hex format.
+- Don't fail connection if the client encoding is a non-normalized
+  variant. Issue reported by Peter Eisentraut.
+- Correctly detect an empty query sent to the backend (`ticket #46 <http://psycopg.lighthouseapp.com/projects/62710/tickets/46>`__).
+- Fixed a SystemError clobbering libpq errors raised without SQLSTATE.
+  Bug vivisectioned by Eric Snow.
+- Fixed interaction between NamedTuple and server-side cursors.
+- Allow to specify --static-libpq on setup.py command line instead of
+  just in 'setup.cfg'. Patch provided by Matthew Ryan (`ticket #48 <http://psycopg.lighthouseapp.com/projects/62710/tickets/46>`__).

@@ -1,0 +1,131 @@
+title: psycopg2 porting to Python 3: a report
+---
+pub_date: 2011-01-24
+---
+author: Daniele Varrazzo
+---
+tags:
+
+python3
+---
+body:
+
+I've mostly finished the porting of psycopg2 to Python 3. Here is a
+report of what done and what can be improved.
+
+.. CUT-HERE
+
+The code is available in the python3 branch of the repository
+available on <https://github.com/dvarrazzo/psycopg>. The code is
+compatible with both python2 and python3: the Python code is in py2
+syntax: setup.py processes it with 2to3 before installation. The C
+code uses a macros portability layer (in ``psycopg/python.h``) to have py2
+and py3 code unified.
+
+A big chunk of the porting is by Martin von Löwis (who I thank
+wholeheartedly): who provided a big patch back in 2008 (against 2.0.9,
+IIRC). Unfortunately psycopg code diverged without the patch being
+merged or maintained, so I basically used his macros but re-did the
+work from scratch, refactoring the code instead of patching many
+repetitive parts. On the pro side, since then, psycopg gained many
+more tests.
+
+Large part of the porting has been mechanical, nothing to say about
+that. What has required decisions has been instead the string
+processing: Py3 uses extensively Unicode, but the communication with
+the libpq is performed in char*; being psycopg a programmable
+interface the point in which the conversion happens changes how
+adapters and typecasters should be written.
+
+Adapters
+------------
+
+they are objects wrapping any Python object and returning a SQL
+representation to be passed to the libpq. The adapters may have
+returned either a str or an unicode, but a critical step is to pass
+through libpq functions to have string and binary data escaped (e.g.
+PQescapeStringConn). Because these functions are defined char* ->
+char*, what makes sense for me was to force adapters to return bytes:
+having them returning unicode would mean that unicode strings should
+have been:
+
+- converted to bytes
+- escaped by the libpq
+- converted back to unicode to be returned from the adapter (but at this point which encoding to use is not clear)
+- merged to the query
+- converted to bytes again to be sent to the socket
+
+The double encoding seems unnecessary, so I prefer to have adapters to
+return bytes. Having them free to return either bytes or unicode makes
+writing composite adapters trickier and more error prone, so my
+decision is to raise an exception if after adaptation a non-bytes
+object is returned.
+
+Having adapted objects as bytes means that the arguments must be
+merged to the query as bytes: this operation is performed by not much
+more than a ``query % args``. Unfortunately the % operator is not
+available for bytes, so I have ported the ``PyString_Format`` from Python
+2.7 and adapted to work with the bytes (the Python license seems
+allowing mixing derived code with the LGPL without problems).
+
+Typecasters
+----------------
+
+These are function performing the opposite: they take the PostgreSQL
+representation of a value and convert it into a Python object. They
+receive bytes from the libpq of course. What I have currently
+implemented is to convert this string to unicode before passing it to
+the Python functions: because in Python the parsing functions mostly
+take strings as argument (meaning unicode in py3), passing bytes to the typecasters would have meant that each of them
+should have implemented about the same boilerplate, something like::
+
+   def caster(value, curs):
+       value = value.decode(
+           psycopg.encodings[curs.connection.encoding])
+
+but only in Py3, not in Py2. The current approach (passing an already decoded object) makes writing the typecasters easier, but has the drawback of making
+impossible to write a Python typecaster for a binary type (but I don't
+think there is really the need for such caster) and it is kinda
+inconsistent with the adapters (dealing with bytes). What option would be better?
+
+COPY
+--------
+
+Copy operations deal with Python files or file-like objects. In input
+(COPY IN) both unicode and bytes files are accepted; unicode is
+converted in the connection encoding. In output (COPY OUT)... oops:
+reviewing now I see I've overlooked this part: as it is now the data
+(bytes) from the libpq are passed to ``file.write()`` using
+``PyObject_CallFunction(func, "s#", buffer, len)``. But this implies that
+buffer is decoded from utf8 in Py3, so it would break if the
+connection encoding was different. I've done a quick check and in Py3
+a file open in text mode doesn't accept bytes, while one open in
+binary mode doesn't accept unicode. Uhm... what could we pass this
+file? Is there an interface in Python 3 to know if a file is binary or
+text? Added ticket `#36 <http://psycopg.lighthouseapp.com/projects/62710/tickets/36>`__.
+
+Large Objects
+------------------
+
+These are open using a mode string such as "r", "w", "rw". I have
+added a format letter pretty much as the open() function in Py3: it
+can be "b" or "t". In binary mode the file always returns bytes (str
+in py2, bytes [edit: not unicode] in py3). In text mode it always returns unicode
+(unicode in py2, str in py3). The default is "b" in py2, "t" in py3.
+writing to the file accepts both str and unicode. This means that in
+Py2 everything is compatible, but there are a few features added
+(unicode communication) and it's easy to write portable code by
+specifying the mode "b" or "t".
+
+Other random details
+--------------------------
+
+- in py2 psycopg uses basic string as default, and unicode must be chosen specifically (e.g. registering the adapter, passing a unicode=True to certain functions etc.) In py3 there is no such choice and unicode is returned where there used to be a choice.
+- bytea fields are returned as MemoryView, from which is easy to get bytes.
+- "secondary strings" (notices, notifications, errors...) are decoded in the connection encoding, but I'm not be 100% sure that this will be always right, so the decoding is forgiving: decode(x, 'replace') for them.
+
+This should be pretty much everything about the Py3 porting. Comments
+are welcome, above all on the open points (typecasters and COPY OUT),
+but if there is anything to point out I'd be happy to know. Best option would be to discuss on the `mailing list <http://mail.postgresql.org/mj/mj_wwwusr/domain=postgresql.org?func=lists-long-full&extra=psycopg>`__. See you there!
+
+**Update:** `Psycopg 2.4 beta 1 has been released <http://initd.org/psycopg/articles/2011/02/06/psycopg-24-beta1-released/>`__ with Python 3 support.

@@ -1,0 +1,117 @@
+title: Psycopg 2.5 released
+---
+pub_date: 2013-04-07
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+release
+---
+body:
+
+We are happy to introduce the release 2.5 of Psycopg, packed with several juicy new features!
+
+- `Download source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-5/psycopg2-2.5.tar.gz>`__
+- `Signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-5/psycopg2-2.5.tar.gz.asc>`__
+
+Here are a few highlights of the release:
+
+.. CUT-HERE
+
+
+JSON adapter
+------------
+
+The JSON adapter allows easy exchange of unstructured data with the database:
+
+.. code-block:: python
+
+    >>> cur.execute(
+    ...     """select '{"a":[1,2,3],"b":[4,5,6]}'::json""")
+    >>> cur.fetchone()[0]
+    {u'a': [1, 2, 3], u'b': [4, 5, 6]}
+
+It works with PostgreSQL 9.2 native `JSON data type <http://www.postgresql.org/docs/current/static/datatype-json.html>`__, with previous versions' `extension modules <http://people.planetpostgresql.org/andrew/index.php?/archives/255-JSON-for-PG-9.2-...-and-now-for-9.1!.html>`__ and, in a pinch, with regular text too. You can feed JSON data to PostgreSQL using `a specific adapter </psycopg/docs/extras.html#psycopg2.extras.Json>`__:
+
+.. code-block:: python
+
+    curs.execute("insert into mytable (jsondata) values (%s)",
+        [Json({'a': 100})])
+
+or you can be more aggressive and ask for automatic JSON serialization for every type you want to support, dictionaries for instance:
+
+.. code-block:: python
+
+    psycopg2.extensions.register_adapter(dict, Json)
+    curs.execute("insert into mytable (jsondata) values (%s)",
+        [{'a': 100}])
+
+
+
+Range adapters
+---------------
+
+Other handy adapters for PostgreSQL 9.2 are the `Range data type <http://www.postgresql.org/docs/current/static/rangetypes.html>`__ adapters family: ranges are returned as `an object </psycopg/docs/extras.html#psycopg2.extras.Range>`__ allowing access to their properties:
+
+.. code-block:: python
+
+    >>> cur.execute("""select '[10,20)'::int4range""")
+    >>> r = cur.fetchone()[0]
+    >>> r.lower
+    10
+    >>> r.upper_inc
+    False
+
+Of course the Python object can be used as arguments in query parameters:
+
+.. code-block:: python
+
+    r = DateRange(date(2013,1,1), date(2013,2,1), '[)')
+    cur.execute("select * from events where %s @> date", [r])
+
+Built-in range types are supported out-of-the-box, while the function `register_range() </psycopg/docs/extras.html#psycopg2.extras.register_range>`__ allows handling user-defined range types.
+
+Connections and cursors as context managers
+----------------------------------------------------
+
+A recent DBAPI extension has standardized the use of connections and cursors as context managers: it is now possible to use an idiom such as:
+
+.. code-block:: python
+
+    with psycopg2.connect(DSN) as conn:
+        with conn.cursor() as curs:
+           curs.execute(SQL)
+
+with the intuitive behaviour: when the cursor block exits the cursor is closed; when the connection block exits normally the current transaction is committed, if it exits with an exception instead the transaction is rolled back, in either case the connection is ready to be used again (**FIXED:** the connection is NOT closed as originally stated).
+
+
+Other new features in Psycopg 2.5
+---------------------------------------
+
+- Added `Diagnostics </psycopg/docs/extensions.html#psycopg2.extensions.Diagnostics>`__ object to get extended info from a database error.  Many thanks to Matthew Woodcraft for the
+  implementation (:ticket:`#149`).
+- Added ``connection.cursor_factory`` attribute to customize the default object returned by ``cursor()``.
+- Added support for backward scrollable cursors. Thanks to Jon Nelson
+  for the initial patch (:ticket:`#108`).
+- Added a simple way to `customize casting of composite types
+  </psycopg/docs/extras.html#adapt-composite>`__ into Python objects other than namedtuples.
+  Many thanks to Ronan Dunklau and Tobias Oberstein for the feature
+  development.
+- `connection.reset() </psycopg/docs/connection.html#connection.reset>`__ implemented using ``DISCARD ALL`` on server
+  versions supporting it.
+
+Bug fixes:
+
+- Properly cleanup memory of broken connections (:ticket:`#148`).
+- Fixed bad interaction of ``setup.py`` with other dependencies in
+  Distribute projects on Python 3 (:ticket:`#153`).
+
+Other changes:
+
+- Added support for Python 3.3.
+- Dropped support for Python 2.4. Please use Psycopg 2.4.x if you need it.
+- `errorcodes </psycopg/docs/errorcodes.html#module-psycopg2.errorcodes>`__ map updated to PostgreSQL 9.2.
+- Dropped Zope adapter from source repository. ZPsycopgDA has now its own
+  project at <http://github.com/psycopg/ZPsycopgDA>.
