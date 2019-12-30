@@ -1,6 +1,6 @@
 [submodule "build"]
 	path = build
-	url = git@github.com:psycopg-test/psycopg-test.github.io.git
+	url = git@github.com:psycopg/psycopg.github.io.git
 	branch = master
 [submodule "psycopg2"]
 	path = psycopg2

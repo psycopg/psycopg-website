@@ -1,5 +1,5 @@
-A website for psycopg.org
-=========================
+A website for http://psycopg.org
+================================
 
 To be published as github page.
 
