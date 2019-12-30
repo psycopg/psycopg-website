@@ -2,7 +2,7 @@
 name = Psycopg
 url = http://psycopg.org/
 # For Sphynx docs
-included_assets = _static,_sources
+included_assets = _static,_sources,.nojekyll
 
 [packages]
 lektor-feed = 20191006.1
