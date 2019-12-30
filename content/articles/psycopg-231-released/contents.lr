@@ -19,7 +19,7 @@ just released Psycopg 2.3.1. No new feature since `release 2.3.0 </psycopg/artic
 
 Download URLs:
 
-- `Psycopg 2.3.1 source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-3/psycopg2-2.3.1.tar.gz>`__
-- `Psycopg 2.3.1 signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-3/psycopg2-2.3.1.tar.gz.asc>`__
+- `Psycopg 2.3.1 source package <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.3.1.tar.gz>`__
+- `Psycopg 2.3.1 signature <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.3.1.tar.gz.asc>`__
 
 Cheers!

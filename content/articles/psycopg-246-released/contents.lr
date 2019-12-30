@@ -15,8 +15,8 @@ I'm happy to announce the release of Psycopg 2.4.6: a huge thank you to the many
 
 This is a bugfix release, introducing no new feature. There are several small corrections in different areas (copy, adaptation, use of extra cursors, stability). The biggest improvements are with the Zope adapter: Zope users using previous 2.4.x versions are encouraged to update to version 2.4.6 soon.
 
-- `Download source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-4/psycopg2-2.4.6.tar.gz>`__
-- `Signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-4/psycopg2-2.4.6.tar.gz.asc>`__
+- `Download source package <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.4.6.tar.gz>`__
+- `Signature <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.4.6.tar.gz.asc>`__
 
 
 .. CUT-HERE

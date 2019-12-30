@@ -15,8 +15,8 @@ Hi \*,
 
 summer release! Just bugfixes, this time. Get it from:
 
-* http://initd.org/pub/software/psycopg/psycopg2-2.2.2.tar.gz
-* http://initd.org/pub/software/psycopg/psycopg2-2.2.2.tar.gz.asc
+* https://pypi.org/packages/source/p/psycopg2/psycopg2-2.2.2.tar.gz
+* https://pypi.org/packages/source/p/psycopg2/psycopg2-2.2.2.tar.gz.asc
 
 ..
     CUT-HERE

@@ -34,7 +34,7 @@ Summary of changes:
 
 You can install psycopg2 `from PyPI <https://pypi.python.org/pypi/psycopg2>`__ or grab the new code from:
 
-- `source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-7/psycopg2-2.7.2.tar.gz>`__
-- `signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-7/psycopg2-2.7.2.tar.gz.asc>`__
+- `source package <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.7.2.tar.gz>`__
+- `signature <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.7.2.tar.gz.asc>`__
 
 Happy hacking!

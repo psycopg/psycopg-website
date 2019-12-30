@@ -13,8 +13,8 @@ body:
 
 Psycopg 2.5.3 has been released. You can get it from:
 
-- `Download source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-5/psycopg2-2.5.3.tar.gz>`__
-- `Signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-5/psycopg2-2.5.3.tar.gz.asc>`__
+- `Download source package <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.5.3.tar.gz>`__
+- `Signature <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.5.3.tar.gz.asc>`__
 
 This version contains several bug fixes over the previous release 2.5.2:
 

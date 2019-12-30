@@ -17,8 +17,8 @@ Daniele stacked another round of fixes on the devel branch, so it is
 time for another release. So, as always, kudos to Daniele and here are
 the direct download links:
 
-- `Source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-4/psycopg2-2.4.1.tar.gz>`__
-- `Signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-4/psycopg2-2.4.1.tar.gz>`__
+- `Source package <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.4.1.tar.gz>`__
+- `Signature <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.4.1.tar.gz>`__
 
 Release notes attached, as always. And al always, have fun,
 

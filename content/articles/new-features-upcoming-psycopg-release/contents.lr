@@ -22,7 +22,7 @@ There are several new features being prepared in the upcoming Psycopg version. T
 **Update** The new features `have been released`__ in `Psycopg 2.3.0-beta1`__.
 
 .. __: /psycopg/articles/2010/11/06/psycopg-230-beta1-released/
-.. __: http://initd.org/psycopg/tarballs/psycopg2-2.3.0-beta1.tar.gz
+.. __: https://pypi.org/packages/source/p/psycopg2/psycopg2-2.3.0-beta1.tar.gz
 
 ``dict`` to ``hstore`` mapping
 -----------------------------------

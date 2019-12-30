@@ -19,7 +19,7 @@ just released Psycopg 2.3.2. The release fixes `a bug <http://psycopg.lighthouse
 
 Download from here:
 
-- `source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-3/psycopg2-2.3.2.tar.gz>`__
-- `signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-3/psycopg2-2.3.2.tar.gz.asc>`__
+- `source package <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.3.2.tar.gz>`__
+- `signature <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.3.2.tar.gz.asc>`__
 
 Cheers!

@@ -21,7 +21,7 @@ A quick release to fix a regression found in `psycopg 2.7.2 </psycopg/articles/2
 
 You can install psycopg2 `from PyPI <https://pypi.python.org/pypi/psycopg2>`__ or grab the new code from:
 
-- `source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-7/psycopg2-2.7.3.tar.gz>`__
-- `signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-7/psycopg2-2.7.3.tar.gz.asc>`__
+- `source package <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.7.3.tar.gz>`__
+- `signature <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.7.3.tar.gz.asc>`__
 
 Happy hacking!

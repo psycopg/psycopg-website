@@ -21,7 +21,7 @@ A quick bugfix release to solve some teething problems with some of the changes 
 
 Code fresh to grab at:
 
-- `source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-7/psycopg2-2.7.1.tar.gz>`__
-- `signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-7/psycopg2-2.7.1.tar.gz.asc>`__
+- `source package <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.7.1.tar.gz>`__
+- `signature <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.7.1.tar.gz.asc>`__
 
 Enjoy the release!

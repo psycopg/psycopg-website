@@ -13,8 +13,8 @@ body:
 
 Psycopg 2.6.2 has been released. You can get it from:
 
-- `Download source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-6/psycopg2-2.6.2.tar.gz>`__
-- `Signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-6/psycopg2-2.6.2.tar.gz.asc>`__
+- `Download source package <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.6.2.tar.gz>`__
+- `Signature <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.6.2.tar.gz.asc>`__
 
 This is an interim release, packing together one year of bug fixes, before the release 2.7, intended to deliver several new features. Thank you very much to everybody contributing with reports, code, suggestions.
 

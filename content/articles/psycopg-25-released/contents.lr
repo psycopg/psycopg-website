@@ -13,8 +13,8 @@ body:
 
 We are happy to introduce the release 2.5 of Psycopg, packed with several juicy new features!
 
-- `Download source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-5/psycopg2-2.5.tar.gz>`__
-- `Signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-5/psycopg2-2.5.tar.gz.asc>`__
+- `Download source package <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.5.tar.gz>`__
+- `Signature <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.5.tar.gz.asc>`__
 
 Here are a few highlights of the release:
 

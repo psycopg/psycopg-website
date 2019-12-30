@@ -17,7 +17,7 @@ We have just released a new testing package: `psycopg 2.3.0-beta1`__!
 ..
   CUT-HERE
 
-.. __: http://initd.org/psycopg/tarballs/psycopg2-2.3.0-beta1.tar.gz
+.. __: https://pypi.org/packages/source/p/psycopg2/psycopg2-2.3.0-beta1.tar.gz
 
 As `previously described`__  the 2.3 introduces several new features:
 

@@ -23,13 +23,8 @@ repeat with me:
 but thank to Jason Erickson here is 2.2.1 that DO build on windows. :)
 No excerpt this time, it's a single liner, but here are the URLs:
 
-- http://initd.org/pub/software/psycopg/psycopg2-2.2.1.tar.gz
-- http://initd.org/pub/software/psycopg/psycopg2-2.2.1.tar.gz.asc
-
-Stable URLs:
-
-- http://initd.org/pub/software/psycopg/psycopg2-2.2-latest.tar.gz
-- http://initd.org/pub/software/psycopg/psycopg2-2.2-latest.tar.gz.asc
+- https://pypi.org/packages/source/p/psycopg2/psycopg2-2.2.1.tar.gz
+- https://pypi.org/packages/source/p/psycopg2/psycopg2-2.2.1.tar.gz.asc
 
 | Have fun,
 | federico

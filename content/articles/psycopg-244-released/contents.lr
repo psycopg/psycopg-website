@@ -13,8 +13,8 @@ body:
 
 After a short discussion on this list we decided to change the definitions of isolation levels to make sure old code using numeric constants (both psycopg1 and psycopg2) continue to works. Other small fixes are included in the release: see below for details.
 
-- `Download source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-4/psycopg2-2.4.4.tar.gz>`__
-- `Signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-4/psycopg2-2.4.4.tar.gz.asc>`__
+- `Download source package <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.4.4.tar.gz>`__
+- `Signature <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.4.4.tar.gz.asc>`__
 
 .. CUT-HERE
 

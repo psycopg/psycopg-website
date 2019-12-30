@@ -25,8 +25,8 @@ Buzzwords:
 
 You can download as usual from the canonical urls:
 
-- `source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-7/psycopg2-2.7.tar.gz>`__
-- `signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-7/psycopg2-2.7.tar.gz.asc>`__
+- `source package <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.7.tar.gz>`__
+- `signature <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.7.tar.gz.asc>`__
 
 Or just use ``pip``::
 

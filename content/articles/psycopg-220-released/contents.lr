@@ -13,16 +13,8 @@ body:
 
 With many thanks to all the contributors here it is, psycopg 2.2.0:
 
-- http://initd.org/pub/software/psycopg/psycopg2-2.2.0.tar.gz
-- http://initd.org/pub/software/psycopg/psycopg2-2.2.0.tar.gz.asc
-
-From this release on I'll also provide "stable" URLs to the last
-available version; so you can download psycopg 2.0 or 2.2 from:
-
-- http://initd.org/pub/software/psycopg/psycopg2-2.0-latest.tar.gz
-- http://initd.org/pub/software/psycopg/psycopg2-2.0-latest.tar.gz.asc
-- http://initd.org/pub/software/psycopg/psycopg2-2.2-latest.tar.gz
-- http://initd.org/pub/software/psycopg/psycopg2-2.2-latest.tar.gz.asc
+- https://pypi.org/packages/source/p/psycopg2/psycopg2-2.2.0.tar.gz
+- https://pypi.org/packages/source/p/psycopg2/psycopg2-2.2.0.tar.gz.asc
 
 As always, an excerpt from the NEWS file follows.
 

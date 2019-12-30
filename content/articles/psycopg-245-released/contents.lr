@@ -13,8 +13,8 @@ body:
 
 Many thanks to everybody that contributed with bug reports and comments to this release!
 
-- `Download source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-4/psycopg2-2.4.5.tar.gz>`__
-- `Signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-4/psycopg2-2.4.5.tar.gz.asc>`__
+- `Download source package <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.4.5.tar.gz>`__
+- `Signature <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.4.5.tar.gz.asc>`__
 
 .. CUT-HERE
 

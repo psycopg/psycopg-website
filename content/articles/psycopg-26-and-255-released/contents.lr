@@ -18,8 +18,8 @@ The main new feature in Psycopg 2.6 is the support for the large objects 64 bits
 
 I wish to thank all the people who have contributed to these releases, and especially Blake Rouse and the MAAS Team for the development of the large objects 64 bits API support.
 
-- Psycopg 2.6 `source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-6/psycopg2-2.6.tar.gz>`__, `signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-6/psycopg2-2.6.tar.gz.asc>`__
-- Psycopg 2.5.5 `source package <http://initd.org/psycopg/tarballs/PSYCOPG-2-5/psycopg2-2.5.5.tar.gz>`__,  `signature <http://initd.org/psycopg/tarballs/PSYCOPG-2-5/psycopg2-2.5.5.tar.gz.asc>`__
+- Psycopg 2.6 `source package <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.6.tar.gz>`__, `signature <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.6.tar.gz.asc>`__
+- Psycopg 2.5.5 `source package <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.5.5.tar.gz>`__,  `signature <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.5.5.tar.gz.asc>`__
 
 This is the full list of changes for the new versions:
 
