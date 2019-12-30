@@ -12,6 +12,9 @@ body:
 
 Cancelling a long running query from Python is not something that happens automatically: the libpq doesn't react to Python signals so the only way to stop a query is to run a ``pg_cancel_backend`` from another process. Killing the Python process won't cancel the query: it will run until completion and then rolled back. This makes working wth long-running query from the Python interpreter somewhat frustrating.
 
+..
+    CUT-HERE
+
 Using psycopg in `green mode`__ moves the waiting from the libpq C code to Python: this gives Python some chance of interaction: it is possible for instance to catch a ctrl-c and send a cancel request:
 
 .. code-block:: python

@@ -88,11 +88,11 @@ The connection is set in `autocommit mode`__, otherwise the notification would b
 
 The rest of the example is not shown here: it only consists in a static page and the web server setup. You can `download the complete example`__.
 
-.. __: /psycopg/media/attachments/diario_entry/11/pushdemo.py
+.. __: pushdemo.py
 
 Running the program and opening the page http://localhost:7000/ in a WebSocket-enabled browser you will see a page with three coloured bars: using a command such as ``NOTIFY data, 'green'`` in a psql shell, one of the bars in the page will be updated accordingly. Here is a screenshot:
 
-.. image:: /psycopg/media/attachments/diario_entry/11/pushdemo.png
+.. image:: pushdemo.png
   :width: 477px
   :height: 327px
   :alt: psycopg eventlet push demo

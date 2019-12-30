@@ -11,7 +11,7 @@ pgday
 ---
 body:
 
-.. image:: http://2010.pgday.it/media/banner_200x60.gif
+.. image:: banner_200x60.gif
   :target: http://2010.pgday.it/
   :alt: PGDay Roma, 10 Dicembre 2010
   :class: inline-right
