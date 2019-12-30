@@ -7,7 +7,7 @@ Psycopg is written mostly in C and wraps the `libpq`_ library with the result of
 ..
   Please keep consistent with install.rst and setup.py
 
-- Supports Python versions from 2.6 to 2.7 and from Python 3.2 to 3.7 (check the `change log`__ to find versions supporting older Python versions)
+- Currently supports Python versions 2.7 and from 3.4 to 3.8 (older versions are supported by previous psycopg versions: check the `change log`__ for details)
 - Supports PostgreSQL versions from 7.4 to 12
 - Fully compliant implementation of the Python `DB API specification`_ for database adapters
 - Thread-safe: threads can use different connections or share the same connection
