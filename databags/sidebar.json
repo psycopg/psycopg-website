@@ -1,0 +1,25 @@
+{
+    "links": [
+        {
+            "title": "Documentation",
+            "url": "/docs",
+            "icon": "book"
+        },
+        {
+            "title": "Source",
+            "url": "https://github.com/psycopg/psycopg2/",
+            "icon": "github"
+        },
+        {
+            "title": "Issues",
+            "url": "https://github.com/psycopg/psycopg2/issues",
+            "icon": "bug"
+        },
+        {
+            "title": "Download",
+            "url": "https://pypi.org/project/psycopg2/",
+            "icon": "download"
+        }
+    ]
+}
+

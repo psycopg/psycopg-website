@@ -15,3 +15,16 @@
   </div>
   {{ this.body }}
 {% endblock %}
+
+{% block sidebar %}
+  <ul class="fa-ul">
+  {% for link in bag('sidebar.links') %}
+    <li>
+      <a href="{{ link['url'] }}">
+        <i class="fa-li fa-lg fa fa-{{ link['icon'] }}" aria-hidden="true"></i>
+        {{ link['title'] }}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+{% endblock %}

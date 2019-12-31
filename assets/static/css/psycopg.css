@@ -354,3 +354,10 @@ body.comment form .errorlist {
     margin-left: 1em;
 }
 
+#sidebar .fa-ul {
+    margin-top: 1em;
+}
+
+#sidebar .fa-ul li {
+    margin-bottom: 0.5em;
+}

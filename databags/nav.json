@@ -1,16 +1,12 @@
 {
     "links": [
         {
-            "title": "Download",
-            "url": "https://pypi.org/project/psycopg2/"
+            "title": "Documentation",
+            "url": "/docs/"
         },
         {
             "title": "Install",
             "url": "/docs/install.html"
-        },
-        {
-            "title": "Documentation",
-            "url": "/docs/"
         },
         {
             "title": "Articles",
