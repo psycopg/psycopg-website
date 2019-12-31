@@ -29,6 +29,8 @@ def main():
     for record in data:
         if record['model'] == 'flatpages.flatpage':
             convert_flatpage(record)
+        if record['model'] == 'redirects.redirect':
+            convert_redirect(record)
         if record['model'] == 'diario.entry':
             convert_diario_entry(record, users)
 
@@ -49,6 +51,30 @@ title: {fields['title']}
 body:
 
 {body}
+""")
+
+
+def convert_redirect(record):
+    fields = record['fields']
+    if fields['site'] != 2:
+        return
+
+    logger.info("redirect: %s -> %s", fields['old_path'], fields['new_path'])
+    fn = PROJECT_DIR / 'convert/redirects' / fields['old_path'].strip('/') / 'contents.lr'
+    fn.parent.mkdir(parents=True, exist_ok=True)
+    target = fields['new_path']
+    if target.startswith('/psycopg/'):
+        target = target[len('/psycopg'):]
+    absolute = 'yes' if target.startswith('http') else 'no'
+    with fn.open('w') as f:
+        f.write(f"""\
+_model: redirect
+---
+target: {target}
+---
+absolute: {absolute}
+---
+_discoverable: no
 """)
 
 

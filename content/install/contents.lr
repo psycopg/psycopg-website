@@ -1,6 +1,6 @@
 _model: redirect
 ---
-target: /tracker/
+target: /docs/install.html
 ---
 absolute: no
 ---
