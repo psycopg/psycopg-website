@@ -4,8 +4,10 @@ title: PostgreSQL driver for Python
 ---
 teaser:
 
-**Psycopg** is the most popular PostgreSQL_ adapter for the `Python programming language`_. 
-At its core it is a complete implementation of the `Python DB API 2.0`_ specifications. Several extensions allow access to many of the features offered by PostgreSQL.
+**Psycopg** is the most popular PostgreSQL_ adapter for the `Python programming
+language`_. At its core it is a complete implementation of the `Python DB API
+2.0`_ specifications. Several extensions allow access to many of the features
+offered by PostgreSQL.
 
 .. _PostgreSQL: http://www.postgresql.org/
 .. _Python programming language: http://www.python.org/
@@ -14,15 +16,15 @@ At its core it is a complete implementation of the `Python DB API 2.0`_ specific
 ---
 body:
 
-Psycopg is released under the terms of the `GNU Lesser General Public License`_, allowing use from both free and proprietary software.
+Psycopg is released under the terms of the `GNU Lesser General Public
+License`_, allowing use from both free and proprietary software.
 
 .. _GNU Lesser General Public License: /license/
 
-- Check the `features list`__ to see what Psycopg offers
-- Read the `Psycopg documentation`__. Be sure to check the `Frequently Asked Questions`__
-- `Install Psycopg`__!
+- Check the `features list </features/>`__ to see what Psycopg offers
+- Read the `Psycopg documentation </docs/>`__. Be sure to check the `Frequently
+  Asked Questions </docs/faq.html>`__
+- `Install Psycopg </docs/install.html>`__!
 
-.. __: /features/
-.. __: /docs/
-.. __: /docs/faq.html
-.. __: /docs/install.html
+For help requests and development discussions please `subscribe to the mailing
+list <https://lists.postgresql.org/>`__ psycopg\ @postgresql.org.

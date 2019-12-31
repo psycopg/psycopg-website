@@ -1,0 +1,7 @@
+_model: redirect
+---
+target: https://github.com/psycopg/psycopg2/issues
+---
+absolute: yes
+---
+_discoverable: no
