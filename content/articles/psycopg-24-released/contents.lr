@@ -19,8 +19,8 @@ psycopg build and work flawlessy on all the supported platforms (well..
 we can probably do a little bit better on MacOS but everything else is
 almost perfect). So here it is (followed by NEWS excerpt, as always):
 
-- `Source code <http://www.psycopg.org/psycopg/tarballs/PSYCOPG-2-4/psycopg2-2.4.tar.gz>`__
-- `Signature <http://www.psycopg.org/psycopg/tarballs/PSYCOPG-2-4/psycopg2-2.4.tar.gz.asc>`__
+- `Source code <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.4.tar.gz>`__
+- `Signature <https://pypi.org/packages/source/p/psycopg2/psycopg2-2.4.tar.gz.asc>`__
 
 | Have fun,
 | federico

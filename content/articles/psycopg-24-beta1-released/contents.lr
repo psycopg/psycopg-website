@@ -18,19 +18,10 @@ patches) and we're ready to release a beta version of the new psycopg.
 Apart the usual changes and enhancements (detailed below) this is the
 first version that supports Python 3 (thanks to, guess who? :)
 
-.. CUT-HERE
+..
+    CUT-HERE
 
-Here are the download links:
-
-- `Psycopg 2.4 beta1 source package <http://www.psycopg.org/psycopg/tarballs/PSYCOPG-2-4/psycopg2-2.4-beta1.tar.gz>`__
-- `Psycopg 2.4 beta1 signature <http://www.psycopg.org/psycopg/tarballs/PSYCOPG-2-4/psycopg2-2.4-beta1.tar.gz.asc>`__
-
-**Update:** The current testing release is Psycopg 2.4 beta2:
-
-- `Psycopg 2.4 beta2 source package <http://www.psycopg.org/psycopg/tarballs/PSYCOPG-2-4/psycopg2-2.4-beta2.tar.gz>`__
-- `Psycopg 2.4 beta2 signature <http://www.psycopg.org/psycopg/tarballs/PSYCOPG-2-4/psycopg2-2.4-beta2.tar.gz.asc>`__
-
-And the NEWS excerpt:
+The NEWS excerpt:
 
 New features and changes
 -----------------------------------

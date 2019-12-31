@@ -1,6 +1,6 @@
 [project]
 name = Psycopg
-url = http://psycopg.org/
+url = https://psycopg.org/
 # For Sphynx docs
 included_assets = _static,_sources,.nojekyll
 
