@@ -1,8 +1,12 @@
 [project]
 name = Psycopg
 url = https://psycopg.org/
-# For Sphynx docs
+
+# For Sphynx docs, github pages
 included_assets = _static,_sources,.nojekyll
+
+# For correct urls in 404 pages
+url_style = absolute
 
 [packages]
 lektor-feed = 20191006.1

@@ -1,6 +1,5 @@
-{% extends "layout.html" %}
-
-{% block title %}{{ this.title }}{% endblock %}
+{% extends "page.html" %}
+{% from "macros/side_links.html" import render_side_links %}
 
 {% block head %}
   <link rel="alternate" type="application/atom+xml" title="Psycopg news"
@@ -17,14 +16,5 @@
 {% endblock %}
 
 {% block sidebar %}
-  <ul class="fa-ul">
-  {% for link in bag('sidebar.links') %}
-    <li>
-      <a href="{{ link['url'] }}">
-        <i class="fa-li fa-lg fa fa-{{ link['icon'] }}" aria-hidden="true"></i>
-        {{ link['title'] }}
-      </a>
-    </li>
-  {% endfor %}
-  </ul>
+  {{ render_side_links() }}
 {% endblock %}

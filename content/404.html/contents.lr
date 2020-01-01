@@ -1,0 +1,9 @@
+_template: 404.html
+---
+title: 404 Not Found
+---
+body:
+
+Oops... we didn't find the thing you were looking for.
+---
+_discoverable: no

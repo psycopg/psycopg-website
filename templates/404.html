@@ -1,0 +1,8 @@
+{% extends "page.html" %}
+{% from "macros/side_links.html" import render_side_links %}
+
+{% block title %}{{ this.title }}{% endblock %}
+
+{% block sidebar %}
+  {{ render_side_links() }}
+{% endblock %}
