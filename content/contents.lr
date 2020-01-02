@@ -5,9 +5,9 @@ title: PostgreSQL driver for Python
 teaser:
 
 **Psycopg** is the most popular PostgreSQL_ adapter for the `Python programming
-language`_. At its core it is a complete implementation of the `Python DB API
-2.0`_ specifications. Several extensions allow access to many of the features
-offered by PostgreSQL.
+language`_. Its core is a complete implementation of the `Python DB API 2.0`_
+specifications. Several extensions allow access to many of the features offered
+by PostgreSQL.
 
 .. _PostgreSQL: http://www.postgresql.org/
 .. _Python programming language: http://www.python.org/
