@@ -4,7 +4,9 @@ PYTHON=$(CURDIR)/env/bin/python
 LEKTOR=$(CURDIR)/env/bin/lektor
 
 build: docs
-	$(LEKTOR) build -O build
+	test -d build/.git \
+		|| git clone git@github.com:psycopg/psycopg.github.io.git build
+	echo 'y' | $(LEKTOR) build -O build
 
 docs:
 	test -d psycopg2/doc/env || $(MAKE) PYTHON=$(PYTHON) -C psycopg2/doc env
@@ -12,11 +14,10 @@ docs:
 	$(MAKE) PYTHON=$(PYTHON) -C psycopg2/doc html
 
 publish:
-	(cd build && git add -A && git commit -m "updated on $$(date -Iseconds)")
-	git add build
-	git commit -m "content changed on $$(date -Iseconds)"
-	git push
-	(cd build && git push)
+	(cd build \
+		&& git add -A \
+		&& git commit -m "updated on $$(date -Iseconds)" \
+		&& git push)
 
 serve:
 	$(LEKTOR) serve
