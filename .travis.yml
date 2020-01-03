@@ -1,0 +1,22 @@
+language: python
+python: 3.6
+
+install:
+  make setup
+
+script:
+  make
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  local_dir: build
+  target_branch: master
+  repo: psycopg/psycopg.github.io
+  on:
+    branch: master
+
+notifications:
+  email: false

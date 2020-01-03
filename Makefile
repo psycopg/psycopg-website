@@ -5,7 +5,7 @@ LEKTOR=$(CURDIR)/env/bin/lektor
 DOC_BRANCH=goodbye-initd
 
 build: docs
-	test -d build/.git \
+	test "$$TRAVIS" = "true" || test -d build/.git \
 		|| git clone git@github.com:psycopg/psycopg.github.io.git build
 	echo 'y' | $(LEKTOR) build -O build
 
