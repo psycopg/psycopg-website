@@ -2,6 +2,7 @@
 
 PYTHON=$(CURDIR)/env/bin/python
 LEKTOR=$(CURDIR)/env/bin/lektor
+DOC_BRANCH=goodbye-initd
 
 build: docs
 	test -d build/.git \
@@ -9,15 +10,18 @@ build: docs
 	echo 'y' | $(LEKTOR) build -O build
 
 docs:
+	test -d psycopg2/.git \
+		|| git clone -b $(DOC_BRANCH) https://github.com/psycopg/psycopg2.git
+	git -C psycopg2 checkout $(DOC_BRANCH)
+	git -C psycopg2 pull
 	test -d psycopg2/doc/env || $(MAKE) PYTHON=$(PYTHON) -C psycopg2/doc env
 	$(MAKE) PYTHON=$(PYTHON) -C psycopg2
 	$(MAKE) PYTHON=$(PYTHON) -C psycopg2/doc html
 
 publish:
-	(cd build \
-		&& git add -A \
-		&& git commit -m "updated on $$(date -Iseconds)" \
-		&& git push)
+	git -C build add -A
+	git -C build commit -m "updated on $$(date -Iseconds)"
+	git -C build push
 
 serve:
 	$(LEKTOR) serve

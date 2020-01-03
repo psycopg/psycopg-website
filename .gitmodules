@@ -1,4 +1,0 @@
-[submodule "psycopg2"]
-	path = psycopg2
-	url = git@github.com:psycopg/psycopg2.git
-	branch = master
