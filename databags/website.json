@@ -1,5 +1,22 @@
 {
-    "links": [
+    "copyright": "\u00a9 Copyright 2010\u20142020 by Daniele Varrazzo (at gmail).",
+
+    "nav": [
+        {
+            "title": "Documentation",
+            "url": "/docs/"
+        },
+        {
+            "title": "Install",
+            "url": "/docs/install.html"
+        },
+        {
+            "title": "Articles",
+            "url": "/articles/"
+        }
+    ],
+
+    "sidebar": [
         {
             "title": "Documentation",
             "url": "/docs",

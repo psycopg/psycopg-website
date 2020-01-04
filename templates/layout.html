@@ -25,7 +25,7 @@
                 <ul>
                   <li{% if this._path == '/' %} class="active"{% endif
                     %}><a href="{{ '/'|url }}">Home</a></li>
-                  {% for link in bag('nav.links') %}
+                  {% for link in bag('website.nav') %}
                     <li{% if this.is_child_of(link['url']) %} class="active"{% endif
                       %}><a href="{{ link['url'] }}">{{ link['title'] }}</a></li>
                   {% endfor %}
@@ -51,6 +51,6 @@
   <div class="clearBoth"></div>
 
   <footer>
-    &copy; Copyright 2010&mdash;2019 by Daniele Varrazzo (at gmail).
+    {{ bag('website.copyright') }}
   </footer>
 </body>

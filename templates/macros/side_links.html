@@ -1,6 +1,6 @@
 {% macro render_side_links() %}
   <ul class="fa-ul">
-  {% for link in bag('sidebar.links') %}
+  {% for link in bag('website.sidebar') %}
     <li>
       <a href="{{ link['url'] }}">
         <i class="fa-li fa-lg fa fa-{{ link['icon'] }}" aria-hidden="true"></i>
