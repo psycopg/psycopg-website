@@ -3,8 +3,8 @@
 
     "nav": [
         {
-            "title": "Documentation",
-            "url": "/docs/"
+            "title": "Features",
+            "url": "/features/"
         },
         {
             "title": "Install",
@@ -19,7 +19,7 @@
     "sidebar": [
         {
             "title": "Documentation",
-            "url": "/docs",
+            "url": "/docs/",
             "icon": "book"
         },
         {
