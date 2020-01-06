@@ -7,7 +7,7 @@ DOC_BRANCH=goodbye-initd
 build: docs
 	test "$$TRAVIS" = "true" || test -d build/.git \
 		|| git clone git@github.com:psycopg/psycopg.github.io.git build
-	echo 'y' | $(LEKTOR) build -O build
+	echo 'y' | $(LEKTOR) build -O build -f webpack
 
 docs:
 	test -d psycopg2/.git \
@@ -24,7 +24,7 @@ publish:
 	git -C build push
 
 serve:
-	$(LEKTOR) serve
+	$(LEKTOR) serve -f webpack
 
 setup:
 	test -x $(PYTHON) || virtualenv -p python3 env

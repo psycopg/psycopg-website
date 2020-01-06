@@ -12,3 +12,4 @@ url_style = absolute
 lektor-feed = 20191006.1
 lektor-rst = 0.2.0
 lektor-tags = 0.3
+lektor-webpack-support = 0.5
