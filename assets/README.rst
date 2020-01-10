@@ -1,8 +1,7 @@
-The http://psycopg.org website
-==============================
+The https://psycopg.org website
+===============================
 
-This website is build with lektor_ starting from the `psycopg-website`_
-project.
+A static website built from the `psycopg-website`_ project using Lektor_.
 
-.. _lektor: https://www.getlektor.com/
+.. _Lektor: https://www.getlektor.com/
 .. _psycopg-website: https://github.com/psycopg/psycopg-website

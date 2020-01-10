@@ -1,14 +1,19 @@
-A website for http://psycopg.org
-================================
+A website for https://psycopg.org
+=================================
 
-To be published as github page.
+.. |build| image:: https://travis-ci.org/psycopg/psycopg-website.svg?branch=master
+    :target: https://travis-ci.org/psycopg/psycopg-website
+    :alt: Website build status
 
-work in progress.
+In order to change the website:
 
+- clone the repository
+- run ``make setup`` to create the virtualenv
+- run ``make serve`` to serve the website on http://localhost:5000/
+- hack on the website (pages are in the `content` directory)
+- commit and push
 
-Updating contents
------------------
+Travis will |build| the website and push it to the `github pages repos`__,
+served as https://www.psycopg.org/.
 
-- change the contents in `psycopg/content`
-- `make build`
-- `make publish`
+.. __: https://github.com/psycopg/psycopg.github.io
