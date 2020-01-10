@@ -1,18 +1,6 @@
 body {
     font:14px/1.5em "Lucida Grande", Tahoma, sans-serif;
-    letter-spacing:0px;
-    color:#333;
-    background-color:#fff;
-    margin:0;
-    padding:0;
 }
-
-.clearLeft {clear:left;}
-.clearRight {clear:right;}
-.clearBoth {clear:both;}
-.hide {display:none;}
-.centered {text-align: center }
-
 
 /* key colours:
  * darker green: #074
@@ -21,12 +9,15 @@ body {
  * lighter green: #dfd
  */
 
+/* generic tags */
+
 h1 {
     font-size: 1.6em;
 }
 
 h2 {
     font-size: 1.3em;
+    font-weight: bold;
 }
 
 h3 {
@@ -37,103 +28,29 @@ h4 {
     margin-bottom: 0;
 }
 
-ul {
-    margin: 0.5em 0;
-}
-
-p {
-    margin-top: 0;
-    margin-bottom: 0.5em;
-}
-
-a img {
-    border: none;
-}
-
 a {
-    color: #097;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-h2 {
-    margin-top: 0.5em;
-    margin-bottom: 0.25em;
+    color: #074;
 }
 
 blockquote {
     font-style: italic;
 }
 
-div#site {
-    width: 770px;
-    min-height: 600px;
-    position: relative;
-    margin: 20px auto 0 auto;
-}
+
+/* layout */
 
 div#content {
-    width: 500px;
     min-height: 600px;
-    float: left;
     border-right: 1px dashed #888;
     padding-right: 16px;
 }
 
-div#content .clearbox {
-    width: 480px;
-}
-
-div#sidebar {
-    width: 240px;
-    padding-left: 10px;
-    min-height: 600px;
-    float: right;
-}
-
-#sidebar .clearbox {
-    width: 230px;
-}
-
-.clearbox {
-    float: left;
-    padding: 10px 3px 3px 0px;
-    margin: 0 10px 10px 0px;
-    border-top: 1px dashed #888;
-}
-
-#sidebar .clearbox:first-child {
-    border-top: none;
-}
-
-.clearbox ul {
-    padding: 0;
-    padding-left: 1.2em;
-}
-
-.clearbox li {
-    line-height: 120%;
-    margin-bottom: 0.5em;
-}
-
-.clearbox h3 {
-    padding-top: 1px;
-    margin-top: 1px;
-}
-
-.clearbox h3 a {
-    color: #074;
-}
-
 footer {
     margin: 10px auto 0 auto;
-    width: 770px;
     font-size: small;
     padding-top: 2em;
     padding-bottom: 2em;
+    padding-left: 2em;
     border-top: 1px dashed #888;
     color: #888;
 }
@@ -158,7 +75,6 @@ header {
 }
 
 #logoContainer {
-    width: 770px;
     margin: 0 auto;
     padding: 10px;
 }
@@ -171,53 +87,35 @@ header {
     text-decoration: none;
 }
 
+
+/* menu */
+
 #menu {
     background:#097;
-    border-top:2px solid #6db;
-    border-bottom:1px solid #6db;
-    text-align:center;
 }
 
-#menu table {
-    width:auto;
-    margin:0 auto;
-}
-
-#menu ul {
-    display:block;
-    width:100%;
-    margin:0 auto;
-    padding:0;
-}
-
-#menu ul li {
-    display:block;
-    float:left;
-}
-
-#menu ul li a {
-    display:block;
-    margin:-2px 0 0 0;
-    padding:5px 7px 8px 7px;
-    text-decoration:none;
+#menu a,
+#menu button {
     color:#eee;
-    background-color:transparent;
-    border-top: 2px solid #6db;
 }
 
 #menu ul li.active a {
     font-weight: bold;
 }
 
-#menu ul li a:hover {
-    display:block;
-    margin:-2px 0 0 0;
-    padding:5px 7px 8px 7px;
-    text-decoration:none;
-    color:#000;
-    background: #6db;
-    border-top: 2px solid #dff;
+
+/* side bar */
+
+#sidebar ul.links li {
+    margin-bottom: 0.5em;
 }
+
+#sidebar ul.links {
+    margin-top: 1em;
+}
+
+
+/* reST */
 
 div.codeblock,
 pre.literal-block {
@@ -233,7 +131,8 @@ div.codeblock pre {
     margin-bottom: 0.5em;
 }
 
-/*- teaser -*/
+
+/* teaser */
 
 div.teaser {
     background-color: #6db;
@@ -261,19 +160,12 @@ div.teaser a {
 
 /* articles */
 
-div.article {
-    margin-bottom: 1em;
-}
-
 div.article p.header {
     font-style: italic;
     margin-bottom: 1em;
 }
 
-div.article span.author {
-  font-weight: bold;
-}
-
+div.article span.author,
 div.article a.tag {
   font-weight: bold;
 }
@@ -296,68 +188,3 @@ div.article .inline-right {
     margin-right: auto;
 }
 
-div.article .align-center {
-    margin-bottom: 1em;
-}
-
-div.codeblock {
-    margin-bottom: 0.5em;
-}
-
-div.comment div.header div.gravatar {
-    float: left;
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
-div.comment p.body {
-    clear: left;
-    line-height: 100%;
-    margin-top: 0.5em;
-    margin-bottom: 1em;
-}
-
-div.comment span.author {
-    font-size: small;
-    font-style: italic;
-}
-
-body.diario label,
-body.comment label {
-    width: 150px;
-    float: left;
-}
-
-body.comment h1 {
-    font-size: 13pt;
-}
-
-form .errorlist {
-    padding: 0;
-    margin: 0;
-    margin-left: 2em;
-}
-
-form .errorlist li {
-    list-style-type: none;
-    color: maroon;
-}
-
-form p.error {
-    color: maroon;
-}
-
-body.comment form .errorlist {
-    margin-left: 150px;
-}
-
-.lighthouse .event li {
-    margin-left: 1em;
-}
-
-#sidebar .fa-ul {
-    margin-top: 1em;
-}
-
-#sidebar .fa-ul li {
-    margin-bottom: 0.5em;
-}

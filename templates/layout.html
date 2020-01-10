@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Python adapter for PostgreSQL" />
     <meta name="keywords" content="python, postgresql, adapter, driver, psycopg, psycopg2, database" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ '/static/css/syntax.css'|url }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ '/static/css/syntax.css'|url }}">
+    <link rel="stylesheet" href="{{ '/static/css/psycopg.css'|url }}">
     <title>{% block title %}Welcome{% endblock %} — Psycopg</title>
     {% block head %}{% endblock %}
   </head>
   <body>
     <header>
-      <div class="jumbotron text-center" style="margin-bottom: 0">
-        <img src="{{ '/static/img/logo/psycopg-100.png'|url }}"
-          width="71" height="100" style="" />
-        <h1><a href="{{ '/'|url }}">psycopg</a></h1>
+      <div id="logoContainer" class="container">
+        <div id="logo"><h1><a href="{{ '/'|url }}">psycopg</a></h1></div>
+        <div style="clear: left"></div>
       </div>
 
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <nav id="menu" class="navbar navbar-expand-sm navbar-dark">
         <a class="navbar-brand" href="{{ '/'|url }}">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#collapsibleNavbar">
@@ -50,13 +50,13 @@
     </div>
 
     <footer>
-      <div class="jumbotron text-center" style="margin-bottom:0">
+      <div style="margin-bottom:0">
         <p>{{ bag('website.copyright') }}</p>
       </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   </body>
 </html>

@@ -15,6 +15,9 @@ Hello,
 
 we have released psycopg2 version 2.7 beta 2. This version comes two years after the previous major release so it is packed with new features and improvements; among the main points:
 
+..
+    CUT-HERE
+
 - support for replication protocol
 - helpers to build dynamically SQL statements and manipulate connection strings
 - speedups in multiple execution and Unicode decoding
