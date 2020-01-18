@@ -9,14 +9,22 @@ build: docs
 		|| git clone git@github.com:psycopg/psycopg.github.io.git build
 	echo 'y' | $(LEKTOR) build -O build
 
-docs:
+psycopg2:
 	test -d psycopg2/.git \
 		|| git clone -b $(DOC_BRANCH) https://github.com/psycopg/psycopg2.git
 	git -C psycopg2 checkout $(DOC_BRANCH)
 	git -C psycopg2 pull
-	test -d psycopg2/doc/env || $(MAKE) PYTHON=$(PYTHON) -C psycopg2/doc env
+
+docs: psycopg2/doc/env psycopg2/doc/src/_templates/layout.html
 	$(MAKE) PYTHON=$(PYTHON) -C psycopg2
 	$(MAKE) PYTHON=$(PYTHON) -C psycopg2/doc html
+
+psycopg2/doc/env: psycopg2
+	$(MAKE) PYTHON=$(PYTHON) -C psycopg2/doc env
+
+psycopg2/doc/src/_templates/layout.html: templates/docs-layout.html
+	mkdir -p $(dir $@)
+	cp $< $@
 
 publish:
 	git -C build add -A
