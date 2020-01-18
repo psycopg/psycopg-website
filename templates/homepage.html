@@ -2,19 +2,19 @@
 {% from "macros/side_links.html" import render_side_links %}
 
 {% block head %}
-  <link rel="alternate" type="application/atom+xml" title="Psycopg news"
-    href="{{'/news.xml'|url}}" />
-  <link rel="alternate" type="application/atom+xml" title="Psycopg articles"
-    href="{{'/articles.xml'|url}}" />
-{% endblock %}
+    <link rel="alternate" type="application/atom+xml" title="Psycopg news"
+      href="{{'/news.xml'|url}}" />
+    <link rel="alternate" type="application/atom+xml" title="Psycopg articles"
+      href="{{'/articles.xml'|url}}" />
+{%- endblock %}
 
 {% block body %}
-  <div class="teaser">
-    {{ this.teaser }}
-  </div>
-  {{ this.body }}
-{% endblock %}
+<div class="teaser">
+{{ this.teaser }}
+</div>
+{{ this.body }}
+{%- endblock %}
 
-{% block sidebar %}
-  {{ render_side_links() }}
-{% endblock %}
+{%- block sidebar %}
+{{- render_side_links() }}
+{%- endblock %}

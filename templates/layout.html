@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ '/css/syntax.css'|asseturl }}">
     <link rel="stylesheet" href="{{ '/css/psycopg.css'|asseturl }}">
     <title>{% block title %}Welcome{% endblock %} — Psycopg</title>
-    {% block head %}{% endblock %}
+{%- block head %}{% endblock %}
   </head>
   <body>
     <header>
@@ -27,12 +27,12 @@
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
           <ul class="navbar-nav">
-            {% for link in bag('website.nav') %}
+            {%- for link in bag('website.nav') %}
               <li class="nav-item
                 {{ this.is_child_of(link['url']) and 'active' or '' }}">
                 <a class="nav-link" href="{{ link['url'] }}">{{ link['title'] }}</a>
               </li>
-            {% endfor %}
+            {%- endfor %}
           </ul>
         </div>
       </nav>
@@ -41,10 +41,10 @@
     <div id="site" class="container" style="margin-top:30px">
       <div class="row">
         <div id="content" class="col-sm-8">
-          {% block body %}{% endblock %}
+          {%- block body %}{% endblock %}
         </div>
         <div id="sidebar" class="col-sm-4">
-          {% block sidebar %}{% endblock %}
+          {%- block sidebar %}{% endblock %}
         </div>
       </div>
     </div>
