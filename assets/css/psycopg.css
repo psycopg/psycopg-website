@@ -28,7 +28,7 @@ h4 {
     margin-bottom: 0;
 }
 
-a {
+a, a:hover {
     color: #074;
 }
 
