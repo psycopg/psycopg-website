@@ -1,5 +1,4 @@
 {% extends "page.html" %}
-{% from "macros/side_links.html" import render_side_links %}
 
 {% block head %}
     <link rel="alternate" type="application/atom+xml" title="Psycopg news"
@@ -13,8 +12,4 @@
 {{ this.teaser }}
 </div>
 {{ this.body }}
-{%- endblock %}
-
-{%- block sidebar %}
-{{- render_side_links() }}
 {%- endblock %}
