@@ -7,6 +7,10 @@
             "url": "/features/"
         },
         {
+            "title": "Documentation",
+            "url": "/docs/"
+        },
+        {
             "title": "Install",
             "url": "/docs/install.html"
         },
