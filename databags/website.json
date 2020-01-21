@@ -37,6 +37,17 @@
             "icon": "bug"
         },
         {
+            "title": "Mailing list",
+            "url": "https://www.postgresql.org/list/psycopg/",
+            "icon": "envelope",
+			"append": [
+				{
+					"title": "Subscribe",
+					"url": "https://lists.postgresql.org/"
+				}
+			]
+        },
+        {
             "title": "Download",
             "url": "https://pypi.org/project/psycopg2/",
             "icon": "download"

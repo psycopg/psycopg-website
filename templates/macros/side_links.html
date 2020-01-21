@@ -2,10 +2,18 @@
   <ul class="fa-ul links">
   {%- for link in bag('website.sidebar') %}
     <li>
-      <a href="{{ link['url'] }}">
-        <i class="fa-li fa-lg fa fa-{{ link['icon'] }}" aria-hidden="true"></i>
-        {{ link['title'] }}
-      </a>
+      <a href="{{ link.url }}">
+        <i class="fa-li fa-lg fa fa-{{ link.icon }}" aria-hidden="true"></i>
+        {{ link.title }}</a>
+      {%- if link.append %}
+        {%- for child in link.append %}
+      | <a href="{{ child['url'] }}">
+          {%- if child['icon'] %}
+        <i class="fa-lg fa fa-{{ child['icon'] }}" aria-hidden="true"></i>
+          {%- endif %}
+        {{ child['title'] }}</a>
+        {%- endfor %}
+      {%- endif %}
     </li>
   {%- endfor %}
 {%- endmacro %}
