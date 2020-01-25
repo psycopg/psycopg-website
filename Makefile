@@ -2,7 +2,7 @@
 
 PYTHON=$(CURDIR)/env/bin/python
 LEKTOR=$(CURDIR)/env/bin/lektor
-DOC_BRANCH=goodbye-initd
+DOC_BRANCH=master
 
 build: docs
 	test "$$TRAVIS" = "true" || test -d build/.git \
