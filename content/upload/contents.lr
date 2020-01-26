@@ -1,0 +1,7 @@
+_model: redirect
+---
+target: http://upload.psycopg.org
+---
+absolute: yes
+---
+_discoverable: no
