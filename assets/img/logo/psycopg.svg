@@ -18,7 +18,7 @@
    height="1052.3622"
    id="svg4802"
    version="1.1"
-   inkscape:version="0.48.3.1 r9886"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="psycopg.svg"
    style="display:inline"
    inkscape:export-filename="/home/piro/dev/psycoweb/media/img/logo/psycopg-100-2.png"
@@ -437,15 +437,15 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
      inkscape:cx="269.51949"
-     inkscape:cy="622.56562"
+     inkscape:cy="525.40041"
      inkscape:document-units="px"
      inkscape:current-layer="layer4"
      showgrid="false"
-     inkscape:window-width="1438"
-     inkscape:window-height="879"
+     inkscape:window-width="2176"
+     inkscape:window-height="1400"
      inkscape:window-x="0"
-     inkscape:window-y="19"
-     inkscape:window-maximized="1" />
+     inkscape:window-y="38"
+     inkscape:window-maximized="0" />
   <metadata
      id="metadata4807">
     <rdf:RDF>
@@ -454,7 +454,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -845,9 +845,10 @@
              x="28.49" />
           <text
              transform="matrix(0.938,0,0,1,28.49,124.053)"
-             id="XMLID_1_">
+             id="XMLID_1_"
+             style="line-height:0%">
             <tspan
-               style="font-size:5px;fill:#446785;font-family:Verdana"
+               style="font-size:5px;font-family:Verdana;fill:#446785"
                id="tspan122"
                font-size="5"
                y="0"
@@ -905,9 +906,10 @@
              x="56.849998" />
           <text
              transform="matrix(0.938,0,0,1,56.8501,152.803)"
-             id="XMLID_2_">
+             id="XMLID_2_"
+             style="line-height:0%">
             <tspan
-               style="font-size:5px;fill:#446785;font-family:Verdana"
+               style="font-size:5px;font-family:Verdana;fill:#446785"
                id="tspan133"
                font-size="5"
                y="0"
@@ -965,9 +967,10 @@
              x="140.7" />
           <text
              transform="matrix(0.938,0,0,1,140.7,186.813)"
-             id="XMLID_3_">
+             id="XMLID_3_"
+             style="line-height:0%">
             <tspan
-               style="font-size:5px;fill:#446785;font-family:Verdana"
+               style="font-size:5px;font-family:Verdana;fill:#446785"
                id="tspan144"
                font-size="5"
                y="0"
@@ -1025,9 +1028,10 @@
              x="68.190002" />
           <text
              transform="matrix(0.938,0,0,1,68.1899,179.933)"
-             id="XMLID_4_">
+             id="XMLID_4_"
+             style="line-height:0%">
             <tspan
-               style="font-size:5px;fill:#446785;font-family:Verdana"
+               style="font-size:5px;font-family:Verdana;fill:#446785"
                id="tspan155"
                font-size="5"
                y="0"
@@ -1085,9 +1089,10 @@
              x="63.73" />
           <text
              transform="matrix(0.938,0,0,1,63.73,47.5132)"
-             id="XMLID_5_">
+             id="XMLID_5_"
+             style="line-height:0%">
             <tspan
-               style="font-size:5px;fill:#446785;font-family:Verdana"
+               style="font-size:5px;font-family:Verdana;fill:#446785"
                id="tspan166"
                font-size="5"
                y="0"
@@ -1145,9 +1150,10 @@
              x="89.790001" />
           <text
              transform="matrix(0.797,0,0,1,89.79,73.4424)"
-             id="XMLID_6_">
+             id="XMLID_6_"
+             style="line-height:0%">
             <tspan
-               style="font-size:4px;fill:#cccccc;font-family:Verdana"
+               style="font-size:4px;font-family:Verdana;fill:#cccccc"
                id="tspan177"
                font-size="4"
                y="0"
@@ -1295,9 +1301,10 @@
              x="167.44" />
           <text
              transform="matrix(0.938,0,0,1,167.44,158.063)"
-             id="XMLID_7_">
+             id="XMLID_7_"
+             style="line-height:0%">
             <tspan
-               style="font-size:5px;fill:#446785;font-family:Verdana"
+               style="font-size:5px;font-family:Verdana;fill:#446785"
                id="tspan208"
                font-size="5"
                y="0"
@@ -1355,9 +1362,10 @@
              x="186.07001" />
           <text
              transform="matrix(0.938,0,0,1,186.07,82.7432)"
-             id="XMLID_8_">
+             id="XMLID_8_"
+             style="line-height:0%">
             <tspan
-               style="font-size:5px;fill:#446785;font-family:Verdana"
+               style="font-size:5px;font-family:Verdana;fill:#446785"
                id="tspan219"
                font-size="5"
                y="0"
@@ -1415,9 +1423,10 @@
              x="182.83" />
           <text
              transform="matrix(0.938,0,0,1,182.83,191.673)"
-             id="XMLID_9_">
+             id="XMLID_9_"
+             style="line-height:0%">
             <tspan
-               style="font-size:5px;fill:#446785;font-family:Verdana"
+               style="font-size:5px;font-family:Verdana;fill:#446785"
                id="tspan230"
                font-size="5"
                y="0"
@@ -1475,9 +1484,10 @@
              x="478.67999" />
           <text
              transform="matrix(1.014,0,0,1,478.68,80.313)"
-             id="XMLID_10_">
+             id="XMLID_10_"
+             style="line-height:0%">
             <tspan
-               style="font-size:5px;fill:#446785;font-family:Verdana"
+               style="font-size:5px;font-family:Verdana;fill:#446785"
                id="tspan241"
                font-size="5"
                y="0"
@@ -1726,9 +1736,10 @@
                x="123.69" />
             <text
                transform="matrix(0.938,0,0,1,123.69,39.0132)"
-               id="XMLID_11_">
+               id="XMLID_11_"
+               style="line-height:0%">
               <tspan
-                 style="font-size:5px;fill:#446785;font-family:Verdana"
+                 style="font-size:5px;font-family:Verdana;fill:#446785"
                  id="tspan296"
                  font-size="5"
                  y="0"
@@ -1870,21 +1881,22 @@
              x="299.48999" />
           <text
              transform="matrix(0.998,0,0,1,299.49,36.875)"
-             id="XMLID_12_">
+             id="XMLID_12_"
+             style="line-height:0%">
             <tspan
-               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold"
+               style="font-size:5px;font-family:CourierNew-Bold;fill:#446785"
                id="tspan323"
                font-size="5"
                y="0"
                x="0">HEX #446785</tspan>
             <tspan
-               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold"
+               style="font-size:5px;font-family:CourierNew-Bold;fill:#446785"
                id="tspan325"
                font-size="5"
                y="6.0840001"
                x="0">RGB 68,103,133</tspan>
             <tspan
-               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold"
+               style="font-size:5px;font-family:CourierNew-Bold;fill:#446785"
                id="tspan327"
                font-size="5"
                y="12.168"
@@ -1958,21 +1970,22 @@
              x="374.84" />
           <text
              transform="matrix(0.998,0,0,1,374.84,36.4648)"
-             id="XMLID_13_">
+             id="XMLID_13_"
+             style="line-height:0%">
             <tspan
-               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold"
+               style="font-size:5px;font-family:CourierNew-Bold;fill:#446785"
                id="tspan338"
                font-size="5"
                y="0"
                x="0">HEX #D5AD42</tspan>
             <tspan
-               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold"
+               style="font-size:5px;font-family:CourierNew-Bold;fill:#446785"
                id="tspan340"
                font-size="5"
                y="6.0840001"
                x="0">RGB 213,173,66</tspan>
             <tspan
-               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold"
+               style="font-size:5px;font-family:CourierNew-Bold;fill:#446785"
                id="tspan342"
                font-size="5"
                y="12.168"
@@ -2055,21 +2068,22 @@
              x="455.85999" />
           <text
              transform="matrix(0.998,0,0,1,455.86,36.4648)"
-             id="XMLID_14_">
+             id="XMLID_14_"
+             style="line-height:0%">
             <tspan
-               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold"
+               style="font-size:5px;font-family:CourierNew-Bold;fill:#446785"
                id="tspan355"
                font-size="5"
                y="0"
                x="0">HEX #646464</tspan>
             <tspan
-               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold"
+               style="font-size:5px;font-family:CourierNew-Bold;fill:#446785"
                id="tspan357"
                font-size="5"
                y="6.0840001"
                x="0">RGB 100,100,100</tspan>
             <tspan
-               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold"
+               style="font-size:5px;font-family:CourierNew-Bold;fill:#446785"
                id="tspan359"
                font-size="5"
                y="12.168"
@@ -2136,9 +2150,10 @@
              x="454.42999" />
           <text
              transform="matrix(0.999,0,0,1,454.43,218.813)"
-             id="XMLID_15_">
+             id="XMLID_15_"
+             style="line-height:0%">
             <tspan
-               style="font-size:5px;fill:#b4b4b4;font-family:Verdana"
+               style="font-size:5px;font-family:Verdana;fill:#b4b4b4"
                id="tspan372"
                font-size="5"
                y="0"
@@ -2473,13 +2488,14 @@
              style="fill:none" />
           <text
              transform="matrix(0.938,0,0,1,28.49,124.053)"
-             id="text2356">
+             id="text2356"
+             style="line-height:0%">
             <tspan
                id="tspan2034"
                font-size="5"
                y="0"
                x="0"
-               style="font-size:5px;fill:#446785;font-family:Verdana">10</tspan>
+               style="font-size:5px;font-family:Verdana;fill:#446785">10</tspan>
           </text>
         </g>
       </switch>
@@ -2533,13 +2549,14 @@
              style="fill:none" />
           <text
              transform="matrix(0.938,0,0,1,56.8501,152.803)"
-             id="text2363">
+             id="text2363"
+             style="line-height:0%">
             <tspan
                id="tspan2045"
                font-size="5"
                y="0"
                x="0"
-               style="font-size:5px;fill:#446785;font-family:Verdana">10</tspan>
+               style="font-size:5px;font-family:Verdana;fill:#446785">10</tspan>
           </text>
         </g>
       </switch>
@@ -2593,13 +2610,14 @@
              style="fill:none" />
           <text
              transform="matrix(0.938,0,0,1,140.7,186.813)"
-             id="text2370">
+             id="text2370"
+             style="line-height:0%">
             <tspan
                id="tspan2056"
                font-size="5"
                y="0"
                x="0"
-               style="font-size:5px;fill:#446785;font-family:Verdana">30</tspan>
+               style="font-size:5px;font-family:Verdana;fill:#446785">30</tspan>
           </text>
         </g>
       </switch>
@@ -2653,13 +2671,14 @@
              style="fill:none" />
           <text
              transform="matrix(0.938,0,0,1,68.1899,179.933)"
-             id="text2377">
+             id="text2377"
+             style="line-height:0%">
             <tspan
                id="tspan2067"
                font-size="5"
                y="0"
                x="0"
-               style="font-size:5px;fill:#446785;font-family:Verdana">40</tspan>
+               style="font-size:5px;font-family:Verdana;fill:#446785">40</tspan>
           </text>
         </g>
       </switch>
@@ -2713,13 +2732,14 @@
              style="fill:none" />
           <text
              transform="matrix(0.938,0,0,1,63.73,47.5132)"
-             id="text2384">
+             id="text2384"
+             style="line-height:0%">
             <tspan
                id="tspan2078"
                font-size="5"
                y="0"
                x="0"
-               style="font-size:5px;fill:#446785;font-family:Verdana">40</tspan>
+               style="font-size:5px;font-family:Verdana;fill:#446785">40</tspan>
           </text>
         </g>
       </switch>
@@ -2773,13 +2793,14 @@
              style="fill:none" />
           <text
              transform="matrix(0.797,0,0,1,89.79,73.4424)"
-             id="text2391">
+             id="text2391"
+             style="line-height:0%">
             <tspan
                id="tspan2089"
                font-size="4"
                y="0"
                x="0"
-               style="font-size:4px;fill:#cccccc;font-family:Verdana">45</tspan>
+               style="font-size:4px;font-family:Verdana;fill:#cccccc">45</tspan>
           </text>
         </g>
       </switch>
@@ -2923,13 +2944,14 @@
              style="fill:none" />
           <text
              transform="matrix(0.938,0,0,1,167.44,158.063)"
-             id="text2408">
+             id="text2408"
+             style="line-height:0%">
             <tspan
                id="tspan2120"
                font-size="5"
                y="0"
                x="0"
-               style="font-size:5px;fill:#446785;font-family:Verdana">10</tspan>
+               style="font-size:5px;font-family:Verdana;fill:#446785">10</tspan>
           </text>
         </g>
       </switch>
@@ -2983,13 +3005,14 @@
              style="fill:none" />
           <text
              transform="matrix(0.938,0,0,1,186.07,82.7432)"
-             id="text2415">
+             id="text2415"
+             style="line-height:0%">
             <tspan
                id="tspan2131"
                font-size="5"
                y="0"
                x="0"
-               style="font-size:5px;fill:#446785;font-family:Verdana">140</tspan>
+               style="font-size:5px;font-family:Verdana;fill:#446785">140</tspan>
           </text>
         </g>
       </switch>
@@ -3043,13 +3066,14 @@
              style="fill:none" />
           <text
              transform="matrix(0.938,0,0,1,182.83,191.673)"
-             id="text2422">
+             id="text2422"
+             style="line-height:0%">
             <tspan
                id="tspan2142"
                font-size="5"
                y="0"
                x="0"
-               style="font-size:5px;fill:#446785;font-family:Verdana">754</tspan>
+               style="font-size:5px;font-family:Verdana;fill:#446785">754</tspan>
           </text>
         </g>
       </switch>
@@ -3103,13 +3127,14 @@
              style="fill:none" />
           <text
              transform="matrix(1.014,0,0,1,478.68,80.313)"
-             id="text2429">
+             id="text2429"
+             style="line-height:0%">
             <tspan
                id="tspan2153"
                font-size="5"
                y="0"
                x="0"
-               style="font-size:5px;fill:#446785;font-family:Verdana">Flux Regular</tspan>
+               style="font-size:5px;font-family:Verdana;fill:#446785">Flux Regular</tspan>
           </text>
         </g>
       </switch>
@@ -3354,13 +3379,14 @@
                style="fill:none" />
             <text
                transform="matrix(0.938,0,0,1,123.69,39.0132)"
-               id="text2458">
+               id="text2458"
+               style="line-height:0%">
               <tspan
                  id="tspan2208"
                  font-size="5"
                  y="0"
                  x="0"
-                 style="font-size:5px;fill:#446785;font-family:Verdana">80</tspan>
+                 style="font-size:5px;font-family:Verdana;fill:#446785">80</tspan>
             </text>
           </g>
         </switch>
@@ -3498,25 +3524,26 @@
              style="fill:none" />
           <text
              transform="matrix(0.998,0,0,1,299.49,36.875)"
-             id="text2473">
+             id="text2473"
+             style="line-height:0%">
             <tspan
                id="tspan2235"
                font-size="5"
                y="0"
                x="0"
-               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold">HEX #446785</tspan>
+               style="font-size:5px;font-family:CourierNew-Bold;fill:#446785">HEX #446785</tspan>
             <tspan
                id="tspan2237"
                font-size="5"
                y="6.0840001"
                x="0"
-               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold">RGB 68,103,133</tspan>
+               style="font-size:5px;font-family:CourierNew-Bold;fill:#446785">RGB 68,103,133</tspan>
             <tspan
                id="tspan2239"
                font-size="5"
                y="12.168"
                x="0"
-               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold">PANTONE 548</tspan>
+               style="font-size:5px;font-family:CourierNew-Bold;fill:#446785">PANTONE 548</tspan>
           </text>
         </g>
       </switch>
@@ -3586,25 +3613,26 @@
              style="fill:none" />
           <text
              transform="matrix(0.998,0,0,1,374.84,36.4648)"
-             id="text2482">
+             id="text2482"
+             style="line-height:0%">
             <tspan
                id="tspan2250"
                font-size="5"
                y="0"
                x="0"
-               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold">HEX #D5AD42</tspan>
+               style="font-size:5px;font-family:CourierNew-Bold;fill:#446785">HEX #D5AD42</tspan>
             <tspan
                id="tspan2252"
                font-size="5"
                y="6.0840001"
                x="0"
-               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold">RGB 213,173,66</tspan>
+               style="font-size:5px;font-family:CourierNew-Bold;fill:#446785">RGB 213,173,66</tspan>
             <tspan
                id="tspan2254"
                font-size="5"
                y="12.168"
                x="0"
-               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold">PANTONE 7405</tspan>
+               style="font-size:5px;font-family:CourierNew-Bold;fill:#446785">PANTONE 7405</tspan>
           </text>
         </g>
       </switch>
@@ -3683,25 +3711,26 @@
              style="fill:none" />
           <text
              transform="matrix(0.998,0,0,1,455.86,36.4648)"
-             id="text2492">
+             id="text2492"
+             style="line-height:0%">
             <tspan
                id="tspan2267"
                font-size="5"
                y="0"
                x="0"
-               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold">HEX #646464</tspan>
+               style="font-size:5px;font-family:CourierNew-Bold;fill:#446785">HEX #646464</tspan>
             <tspan
                id="tspan2269"
                font-size="5"
                y="6.0840001"
                x="0"
-               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold">RGB 100,100,100</tspan>
+               style="font-size:5px;font-family:CourierNew-Bold;fill:#446785">RGB 100,100,100</tspan>
             <tspan
                id="tspan2271"
                font-size="5"
                y="12.168"
                x="0"
-               style="font-size:5px;fill:#446785;font-family:CourierNew-Bold">PANTONE 446</tspan>
+               style="font-size:5px;font-family:CourierNew-Bold;fill:#446785">PANTONE 446</tspan>
           </text>
         </g>
       </switch>
@@ -3764,13 +3793,14 @@
              style="fill:none" />
           <text
              transform="matrix(0.999,0,0,1,454.43,218.813)"
-             id="text2502">
+             id="text2502"
+             style="line-height:0%">
             <tspan
                id="tspan2284"
                font-size="5"
                y="0"
                x="0"
-               style="font-size:5px;fill:#b4b4b4;font-family:Verdana">designed by Pollenation Internet Ltd</tspan>
+               style="font-size:5px;font-family:Verdana;fill:#b4b4b4">designed by Pollenation Internet Ltd</tspan>
           </text>
         </g>
       </switch>
