@@ -1,4 +1,15 @@
-<meta http-equiv="refresh" content="0; URL='
-  {%- if this.absolute %}{{ this.target }}
-  {%- else -%}{{ this.target|url }}
-  {%- endif -%}'" />
+<!DOCTYPE html>
+{%- if this.absolute %}
+{%- set dest = this.target %}
+{%- else %}
+{%- set dest = this.target|url %}
+{%- endif %}
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; URL='{{dest}}'" />
+  </head>
+  <body>
+    <p><a href="{{dest}}">content moved</a></p>
+  </body>
+</html>
+{#- vim: set filetype=htmldjango: -#}
