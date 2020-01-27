@@ -1,14 +1,15 @@
-{# Override the sphinx theme for the docs to add analytics #}
-
+{#- Override the sphinx theme for the docs to add analytics #}
+{#- Note that the template is rendered by Sphynx, not by Lektor #}
+{#- So we can't use bag() to get the analytic tracking ID #}
+{#- It is passed in by make instead #}
 {%- extends "!layout.html" %}
-
 {%- block scripts %}
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-19287248-2"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=${TRACKING_ID}"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'UA-19287248-2');
+      gtag('config', '${TRACKING_ID}');
     </script>
     {{- super() }}
 {%- endblock %}

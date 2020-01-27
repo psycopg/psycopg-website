@@ -4,6 +4,8 @@ PYTHON=$(CURDIR)/env/bin/python
 LEKTOR=$(CURDIR)/env/bin/lektor
 DOC_BRANCH=master
 
+TRACKING_ID = $(shell jq --raw-output '.tracking_id' databags/analytics.json)
+
 build: docs
 	test "$$TRAVIS" = "true" || test -d build/.git \
 		|| git clone git@github.com:psycopg/psycopg.github.io.git build
@@ -33,6 +35,6 @@ psycopg2/README.rst:
 	git -C psycopg2 checkout $(DOC_BRANCH)
 	git -C psycopg2 pull
 
-psycopg2/doc/src/_templates/layout.html: templates/docs-layout.html
+psycopg2/doc/src/_templates/layout.html: templates/docs-layout.html databags/analytics.json
 	mkdir -p $(dir $@)
-	cp $< $@
+	TRACKING_ID=${TRACKING_ID} envsubst < $< > $@
