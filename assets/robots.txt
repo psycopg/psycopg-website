@@ -1,3 +1,4 @@
 User-agent: *
-Disallow:
+Allow: /
 
+Sitemap: https://www.psycopg.org/sitemap.xml
