@@ -1,12 +1,7 @@
 {% extends "layout.html" %}
-{% from "macros/side_links.html" import render_side_links %}
 
 {% block title %}{{ this.title }}{% endblock %}
 {% block body %}
   <h1>{{ this.title }}</h1>
   {{ this.body }}
 {% endblock %}
-
-{%- block sidebar %}
-{{- render_side_links() }}
-{%- endblock %}

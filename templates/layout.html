@@ -1,5 +1,6 @@
 <!doctype html>
 {%- from "macros/analytics.html" import render_analytics %}
+{%- from "macros/side_links.html" import render_side_links %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -46,7 +47,9 @@
           {%- block body %}{% endblock %}
         </div>
         <div id="sidebar" class="col-sm-4">
-          {%- block sidebar %}{% endblock %}
+          {%- block sidebar %}
+            {{- render_side_links() }}
+          {%- endblock %}
         </div>
       </div>
     </div>
