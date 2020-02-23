@@ -110,6 +110,10 @@ header {
     margin-bottom: 0.5em;
 }
 
+#sidebar ul.links li .fa-heart {
+    color: #ea4aaa;
+}
+
 #sidebar ul.links {
     margin-top: 1em;
 }

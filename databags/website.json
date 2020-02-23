@@ -51,6 +51,11 @@
             "title": "Download",
             "url": "https://pypi.org/project/psycopg2/",
             "icon": "download"
+        },
+        {
+            "title": "Funding",
+            "url": "https://github.com/sponsors/dvarrazzo/",
+            "icon": "heart"
         }
     ]
 }
