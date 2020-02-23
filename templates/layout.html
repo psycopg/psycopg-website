@@ -22,7 +22,6 @@
       </div>
 
       <nav id="menu" class="navbar navbar-expand-sm navbar-dark">
-        <a class="navbar-brand" href="{{ '/'|url }}">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#collapsibleNavbar">
           <span class="navbar-toggler-icon"></span>
@@ -31,7 +30,9 @@
           <ul class="navbar-nav">
             {%- for link in bag('website.nav') %}
               <li class="nav-item
-                {{ this.is_child_of(link['url']) and 'active' or '' }}">
+                {%- if link['url'] != '/' and this.is_child_of(link['url']) %} active{% endif -%}
+                {%- if link['url'] == '/' and this.path == '/' %} active{% endif -%}
+                ">
                 <a class="nav-link" href="{{ link['url'] }}">{{ link['title'] }}</a>
               </li>
             {%- endfor %}
@@ -62,3 +63,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   </body>
 </html>
+{# vim: set filetype=htmldjango: #}
