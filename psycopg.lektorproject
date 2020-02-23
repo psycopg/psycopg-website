@@ -3,7 +3,7 @@ name = Psycopg
 url = https://www.psycopg.org/
 
 # For Sphynx docs, github pages
-included_assets = _static,_sources,.nojekyll,.gitignore
+included_assets = _static,_sources,.nojekyll,.gitignore,.github
 
 # For correct urls in 404 pages
 url_style = absolute
