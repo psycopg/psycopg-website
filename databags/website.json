@@ -31,19 +31,19 @@
             "icon": "book"
         },
         {
-            "title": "Source",
+            "title": "Source code",
             "url": "https://github.com/psycopg/psycopg2/",
             "icon": "github"
         },
         {
-            "title": "Issues",
+            "title": "Bug tracker",
             "url": "https://github.com/psycopg/psycopg2/issues",
             "icon": "bug"
         },
         {
             "title": "Mailing list",
             "url": "https://www.postgresql.org/list/psycopg/",
-            "icon": "envelope",
+            "icon": "envelope-o",
 			"append": [
 				{
 					"title": "Subscribe",
@@ -54,7 +54,7 @@
         {
             "title": "Download",
             "url": "https://pypi.org/project/psycopg2/",
-            "icon": "download"
+            "icon": "cloud-download"
         },
         {
             "title": "Funding",
