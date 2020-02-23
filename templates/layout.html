@@ -30,8 +30,7 @@
           <ul class="navbar-nav">
             {%- for link in bag('website.nav') %}
               <li class="nav-item
-                {%- if link['url'] != '/' and this.is_child_of(link['url']) %} active{% endif -%}
-                {%- if link['url'] == '/' and this.path == '/' %} active{% endif -%}
+                {%- if this.path|url == link['url'] %} active{% endif -%}
                 ">
                 <a class="nav-link" href="{{ link['url'] }}">{{ link['title'] }}</a>
               </li>
