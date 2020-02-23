@@ -1,5 +1,5 @@
-The https://psycopg.org website
-===============================
+The https://www.psycopg.org website
+===================================
 
 A static website built from the `psycopg-website`_ project using Lektor_.
 

@@ -1,5 +1,5 @@
-A website for https://psycopg.org
-=================================
+A website for https://www.psycopg.org
+=====================================
 
 .. |build| image:: https://travis-ci.org/psycopg/psycopg-website.svg?branch=master
     :target: https://travis-ci.org/psycopg/psycopg-website
