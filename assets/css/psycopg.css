@@ -164,6 +164,14 @@ div.teaser a {
 
 /* articles */
 
+div.article {
+    margin-bottom: 2em;
+}
+
+div.article p {
+    margin-bottom: 0.5em;
+}
+
 div.article p.header {
     font-style: italic;
     margin-bottom: 1em;
