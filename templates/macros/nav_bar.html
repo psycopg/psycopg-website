@@ -1,0 +1,22 @@
+{%- macro render_nav_bar(page) %}
+  <nav id="menu" class="navbar navbar-expand-sm navbar-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+        data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        {%- for link in bag('website.nav') %}
+          <li class="nav-item
+            {%- if page.path|url == link['url'] %} active{% endif -%}
+            {%- if 'news' in page.tags and '/news/' in link['url'] %} active{% endif -%}
+            {%- if 'recipe' in page.tags and '/recipe/' in link['url'] %} active{% endif -%}
+            ">
+            <a class="nav-link" href="{{ link['url'] }}">{{ link['title'] }}</a>
+          </li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </nav>
+{%- endmacro %}
+{# vim: set filetype=htmldjango: #}
