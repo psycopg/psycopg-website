@@ -3,4 +3,12 @@
 {% block title %}{{ this.title }}{% endblock %}
 {% block body %}
   {{ render_blog_post(this) }}
+  <script src="https://utteranc.es/client.js"
+    repo="psycopg/psycopg-website"
+    issue-term="pathname"
+    label="comments"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
 {% endblock %}
