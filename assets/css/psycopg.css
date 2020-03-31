@@ -36,6 +36,14 @@ blockquote {
     font-style: italic;
 }
 
+.dashed-top {
+    border-top: 1px dashed #888;
+    padding-top: 1rem;
+}
+
+.dashed-bottom {
+    border-bottom: 1px dashed #888;
+}
 
 /* layout */
 
@@ -136,7 +144,7 @@ div.codeblock pre {
 }
 
 
-/* teaser */
+/* homepage */
 
 div.teaser {
     background-color: #6db;
@@ -159,6 +167,10 @@ div.teaser h3 {
 
 div.teaser a {
     color: #00c;
+}
+
+a.twitter-timeline {
+    display: none;
 }
 
 
