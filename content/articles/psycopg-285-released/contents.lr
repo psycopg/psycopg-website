@@ -1,0 +1,38 @@
+title: Psycopg 2.8.5 released
+---
+pub_date: 2020-04-06
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+release
+---
+body:
+
+Psycopg 2.8.5 has been released.
+
+This release adds support for AIX and brings a few bug fixes.
+
+.. CUT-HERE
+
+You can download the files from the new release `from PyPI`__ or install it
+with::
+
+    pip install --upgrade psycopg2
+
+.. __: https://pypi.org/project/psycopg2/2.8.5/#files
+
+
+The changes included in the release are:
+
+- Fixed use of ``connection_factory`` and ``cursor_factory`` together
+  (:ticket:`#1019`).
+- Added support for ``logging.LoggerAdapter`` in
+  ``LoggingConnection`` (:ticket:`#1026`).
+- ``Column`` objects in ``cursor.description`` can be sliced (:ticket:`#1034`).
+- Added AIX support (:ticket:`#1061`).
+- Fixed ``copy()`` of ``DictCursor`` rows (:ticket:`#1073`).
+
+Happy hacking!
