@@ -36,7 +36,7 @@ class BlogArchive(VirtualSourceObject):
             if pub_date:
                 years.add(pub_date.year)
         return [BlogYearArchive(self.record, self.plugin,
-                                year=year) for year in sorted(years)]
+                                year=year) for year in sorted(years, reverse=True)]
 
     @property
     def items(self):
@@ -66,7 +66,7 @@ class BlogArchive(VirtualSourceObject):
                               []).append(item)
         return [(BlogMonthArchive(self.record, self.plugin,
                                   year=d.year, month=d.month), i)
-                for d, i in sorted(months.items())]
+                for d, i in sorted(months.items(), reverse=True)]
 
     def get_archive_url_path(self):
         return self.plugin.get_url_path('archive_path')
@@ -128,7 +128,7 @@ class BlogMonthArchive(BlogArchive):
 
     @property
     def path(self):
-        return '%s@blog-archive/%s/%s' % (
+        return '%s@blog-archive/%s/%02d' % (
             self.record.path,
             self.year,
             self.month
@@ -144,7 +144,7 @@ class BlogMonthArchive(BlogArchive):
 
     def get_archive_url_path(self):
         return self.plugin.get_url_path('month_archive_prefix') + [
-            self.year, self.month]
+            self.year, "%02d" % self.month]
 
 
 class BlogArchiveBuildProgram(BuildProgram):
