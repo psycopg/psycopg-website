@@ -1,0 +1,16 @@
+{% extends "page.html" %}
+{% from "macros/blog.html" import render_blog_post %}
+
+{% block title %}{{ this.date|dateformat('MMMM yyyy') }} Articles{% endblock %}
+
+{% block body %}
+  <h1>Articles from {{ this.date|dateformat('MMMM yyyy') }}</h1>
+  <p>
+    <a href="{{ '..'|url }}">&laquo; Back to {{ this.year }}</a>
+  </p>
+
+  {% for post in this.items %}
+    {{ render_blog_post(post, from_index=true) }}
+  {% endfor %}
+
+{% endblock %}

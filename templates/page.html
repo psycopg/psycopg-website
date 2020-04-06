@@ -1,7 +1,17 @@
 {% extends "layout.html" %}
+{% from "macros/blog.html" import render_blog_archive %}
 
 {% block title %}{{ this.title }}{% endblock %}
+
 {% block body %}
   <h1>{{ this.title }}</h1>
   {{ this.body }}
+{% endblock %}
+
+{% block sidebar %}
+{{- render_side_links() }}
+
+<div class="dashed-top">
+{{- render_blog_archive() }}
+</div>
 {% endblock %}

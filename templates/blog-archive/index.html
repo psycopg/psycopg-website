@@ -1,0 +1,16 @@
+{% extends "page.html" %}
+
+{% block title %}Articles Archive{% endblock %}
+
+{% block body %}
+  <h1>Articles archive</h1>
+  <p>
+    <a href="{{ '/articles'|url }}">&laquo; back to the blog</a>
+  <p>
+    There have been posts in the following years:
+  <ul>
+  {% for archive in this.year_archives %}
+    <li><a href="{{ archive|url }}">{{ archive.year }}</a></li>
+  {% endfor %}
+  </ul>
+{% endblock %}

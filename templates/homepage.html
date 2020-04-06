@@ -26,7 +26,8 @@
 {%- endblock %}
 
 {% block sidebar %}
-{{- super() }}
+{{- render_side_links() }}
+
 <div class="dashed-top">
   <a class="twitter-timeline" data-width="300" data-height="600" data-dnt="true"
     href="https://twitter.com/psycopg?ref_src=twsrc%5Etfw">Tweets by psycopg</a>

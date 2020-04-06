@@ -114,6 +114,10 @@ header {
 
 /* side bar */
 
+#sidebar h3 {
+    font-size: 1.3em;
+}
+
 #sidebar ul.links li {
     margin-bottom: 0.5em;
 }
