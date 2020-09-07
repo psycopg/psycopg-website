@@ -29,7 +29,7 @@ The changes included in the release are:
   (:ticket:`#1101`).
 - Fixed search of mxDateTime headers in virtualenvs (:ticket:`#996`).
 - Added missing values from errorcodes (:ticket:`#1133`).
-- ``cursor.query`` reports the query of the last ``COPY`` opearation too
+- ``cursor.query`` reports the query of the last ``COPY`` operation too
   (:ticket:`#1141`).
 - ``errorcodes`` map and ``errors`` classes updated to PostgreSQL 13.
 - Wheel package compiled against OpenSSL 1.1.1g.
