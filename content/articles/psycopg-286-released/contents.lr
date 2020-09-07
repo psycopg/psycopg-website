@@ -1,0 +1,37 @@
+title: Psycopg 2.8.6 released
+---
+pub_date: 2020-09-06
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+release
+---
+body:
+
+Psycopg 2.8.6 has been released.
+
+.. CUT-HERE
+
+You can download the files from the new release `from PyPI`__ or install it
+with::
+
+    pip install --upgrade psycopg2
+
+.. __: https://pypi.org/project/psycopg2/2.8.6/#files
+
+
+The changes included in the release are:
+
+- Fixed memory leak changing connection encoding to the current one
+  (:ticket:`#1101`).
+- Fixed search of mxDateTime headers in virtualenvs (:ticket:`#996`).
+- Added missing values from errorcodes (:ticket:`#1133`).
+- ``cursor.query`` reports the query of the last ``COPY`` opearation too
+  (:ticket:`#1141`).
+- ``errorcodes`` map and ``errors`` classes updated to PostgreSQL 13.
+- Wheel package compiled against OpenSSL 1.1.1g.
+
+Thank you very much to everyone who gave their contribution!
