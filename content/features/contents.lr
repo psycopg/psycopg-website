@@ -27,7 +27,6 @@ Psycopg is written mostly in C and wraps the `libpq`_ library with the result of
 .. _uGreen: http://projects.unbit.it/uwsgi/wiki/uGreen
 .. _gevent: http://www.gevent.org/
 .. _Eventlet: http://eventlet.net/
-.. _Zope: http://www.zope.org/
 
 .. __: /docs/news.html
 .. __: /docs/advanced.html#asynchronous-support
