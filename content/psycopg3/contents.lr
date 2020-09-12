@@ -28,9 +28,11 @@ psycopg3 is designed to optimise communication with the database, while
 presenting a familiar interface and offering a smooth update path from
 psycopg2 or from other database systems using the DBAPI interface.
 
+.. role:: raw-html(raw)
+   :format: html
 
-Project funding
----------------
+Project funding :raw-html:`<i class="fa fa-heart"></i>`
+-------------------------------------------------------
 
 psycopg3 is current `in development phase`__. A few project milestones have
 been documented in a series of `blog articles`__.
