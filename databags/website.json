@@ -21,6 +21,10 @@
         {
             "title": "Recipes",
             "url": "/articles/tag/recipe/"
+        },
+        {
+            "title": "...psycopg3!",
+            "url": "/psycopg3/"
         }
     ],
 
