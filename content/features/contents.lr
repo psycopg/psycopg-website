@@ -39,4 +39,3 @@ Psycopg is written mostly in C and wraps the `libpq`_ library with the result of
 .. __: /docs/usage.html#access-to-postgresql-large-objects
 .. __: /docs/advanced.html#asynchronous-notifications
 .. __: /docs/usage.html#two-phase-commit-protocol-support
-

@@ -50,8 +50,11 @@ blockquote {
 
 div#content {
     min-height: 600px;
-    border-right: 1px dashed #888;
     padding-right: 16px;
+}
+
+div#content.sidebar {
+    border-right: 1px dashed #888;
 }
 
 footer {
@@ -217,6 +220,27 @@ div.article .inline-right {
     margin-right: auto;
 }
 
+
+/* psycopg3 landing page */
+
+div.splash-icons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+div.splash-icon {
+  padding: 1em;
+  max-width: 45%;
+  min-width: 350px;
+  text-align: center;
+}
+
+div.splash-icon .icon {
+  width: 100%;
+  padding: 1em;
+}
 
 span.raw-html .fa-heart {
     color: #ea4aaa;

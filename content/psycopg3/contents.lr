@@ -1,32 +1,54 @@
 title: The psycopg3 project
 ---
+sidebar: no
+---
 body:
 
 psycopg3 is the new implementation of the most used, reliable, feature-rich
 PostgreSQL adapter for the Python programming language.
 
-psycopg3 design emerges from the experience gathered in more than 10 years
-developing and supporting psycopg2, understanding the difficulties and use
-cases of the vast Python and PostgreSQL users base, and addresses the
-technical challenges posed by the new generations of the language and the
-database it tries to connect, and the emerging patterns in software
-development and deployment.
+
+.. container:: splash-icons
+
+    .. container:: splash-icon
+
+        .. image:: ../img/handshake.svg
+            :class: icon
+
+        A familiar DBAPI interface, or an ``asyncio``\-based asynchronous
+        interface
 
 
-Project highlights
-------------------
+    .. container:: splash-icon
 
-- A pure Python module with an optional optimised C layer
-- Asynchronous communication with the database
-- A familiar DBAPI interface, or an ``asyncio``\-based asynchronous interface
-- Flexible adaptation system between Python objects and PostgreSQL data types
-- Binary communication with the database
-- COPY from a stream of Python object, optionally asynchronous and binary
-- Prepared statements
+        .. image:: ../img/async.svg
+            :class: icon
 
-psycopg3 is designed to optimise communication with the database, while
-presenting a familiar interface and offering a smooth update path from
-psycopg2 or from other database systems using the DBAPI interface.
+        Asynchronous communication with Python and with the database
+
+
+    .. container:: splash-icon
+
+        .. image:: ../img/adapt.svg
+            :class: icon
+
+        Rich and flexible adaptation system, optionally using binary format
+        for efficient data transfer
+
+
+    .. container:: splash-icon
+
+        .. image:: ../img/mbuto.svg
+            :class: icon
+
+        High performance data loading using COPY directly from Python objects
+
+
+psycopg3 design emerges from the experience of more than 10 years of
+development and support of psycopg2, embracing and addressing the new
+possibilities offered by the new generations of the language and the database
+and the emerging patterns in software development and deployment.
+
 
 .. role:: raw-html(raw)
    :format: html
@@ -35,15 +57,15 @@ Project funding :raw-html:`<i class="fa fa-heart"></i>`
 -------------------------------------------------------
 
 psycopg3 is current `in development phase`__. A few project milestones have
-been documented in a series of `blog articles`__.
+been documented in a series of `blog articles`__. Full-time development will
+start in October 2020.
 
 .. __: https://github.com/psycopg/psycopg3
 .. __: https://www.varrazzo.com/blog/tag/psycopg/
 
-Part of the backbone of the project is written, but now the code has to grow
-to cover the many features required for a seamless interaction between the
-database and the language, for instance covering the several data types, the
-many different pattern of data processing.
+Part of the project is already written, but now the code needs to grow the
+several features useful for a seamless interaction between the database and
+the language.
 
 Funding the project would allow full-time work on the database and the initial
 release in a few months. If you are interested in sponsoring the development
