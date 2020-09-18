@@ -4,8 +4,10 @@ sidebar: no
 ---
 body:
 
-psycopg3 is the new implementation of the most used, reliable, feature-rich
-PostgreSQL adapter for the Python programming language.
+// change "...psycopg3!" in menu bar to "psycopg3"
+
+psycopg3 is the new implementation of the most used, reliable and feature-rich
+PostgreSQL adapter for Python.
 
 
 .. container:: splash-icons
@@ -15,8 +17,7 @@ PostgreSQL adapter for the Python programming language.
         .. image:: ../img/handshake.svg
             :class: icon
 
-        A familiar DBAPI interface, or an ``asyncio``\-based asynchronous
-        interface
+        A familiar DBAPI interface or an ``asyncio``\-based interface
 
 
     .. container:: splash-icon
@@ -24,7 +25,7 @@ PostgreSQL adapter for the Python programming language.
         .. image:: ../img/async.svg
             :class: icon
 
-        Asynchronous communication with Python and with the database
+        Asynchronous communication with both Python and the database
 
 
     .. container:: splash-icon
@@ -44,35 +45,36 @@ PostgreSQL adapter for the Python programming language.
         High performance data loading using COPY directly from Python objects
 
 
-psycopg3 design emerges from the experience of more than 10 years of
-development and support of psycopg2, embracing and addressing the new
-possibilities offered by the new generations of the language and the database
-and the emerging patterns in software development and deployment.
+psycopg3 design comes from the experience of more than 10 years of
+development and support of psycopg2. Embracing and addressing new
+possibilities, psycopg3 has grown from generations of the language, database
+and emerging patterns in software development and deployment.
 
 
 .. role:: raw-html(raw)
    :format: html
 
-Project funding :raw-html:`<i class="fa fa-heart"></i>`
+Support me :raw-html:`<i class="fa fa-heart"></i>`
 -------------------------------------------------------
 
-psycopg3 is current `in development phase`__. A few project milestones have
-been documented in a series of `blog articles`__. Full-time development will
-start in October 2020.
+psycopg3 is currently `in development phase`__. A few project milestones have
+been documented in a series of `blog articles`__ and full-time development will
+commence in October 2020.
 
 .. __: https://github.com/psycopg/psycopg3
 .. __: https://www.varrazzo.com/blog/tag/psycopg/
 
-Part of the project is already written, but now the code needs to grow the
-several features useful for a seamless interaction between the database and
+Part of the project has already been written, but now the code needs to grow. There are
+several features needed to create a more seamless interaction between both the database and
 the language.
 
-Funding the project would allow full-time work on the database and the initial
-release in a few months. If you are interested in sponsoring the development
-you are welcome to contribute__.
+Funding this project would enable full-time work to begin in just a few months. We aim to progress with the database, leading to initial
+release. So if you are interested in sponsoring the development of psycopg3 then you are encouraged to contribute__.
 
 .. __: https://github.com/sponsors/dvarrazzo/
 
+All and any kind of support is gratefully received and very much appreciated.
+
 .. class:: footer
 
-Icons by `Icons8 <https://icons8.com/>`__
+Icons by `Icons8 <https://icons8.com/
