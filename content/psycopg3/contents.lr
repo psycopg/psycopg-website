@@ -56,9 +56,9 @@ the current patterns in software development and deployment.
 Project funding :raw-html:`<i class="fa fa-heart"></i>`
 -------------------------------------------------------
 
-psycopg3 is currently `in development phase`__. A few project milestones have
-been documented in a series of `blog articles`__ and full-time development will
-commence in October 2020.
+psycopg3 is currently `under active development`__. A few project milestones have
+been documented in a series of `blog articles`__ and full-time development has
+commenced in October 2020.
 
 .. __: https://github.com/psycopg/psycopg3
 .. __: https://www.varrazzo.com/blog/tag/psycopg/
