@@ -54,7 +54,7 @@ psycopg3/docs/env: psycopg3/README.rst
 
 psycopg3/README.rst:
 	test -d psycopg3/.git \
-		|| git clone -b $(DOC3_BRANCH) /home/piro/dev/psycopg3/ # https://github.com/psycopg/psycopg3.git
+		|| git clone -b $(DOC3_BRANCH) https://github.com/psycopg/psycopg3.git
 	git -C psycopg3 checkout $(DOC3_BRANCH)
 	git -C psycopg3 pull
 
