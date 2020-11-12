@@ -26,45 +26,6 @@
             "title": "psycopg3",
             "url": "/psycopg3/"
         }
-    ],
-
-    "sidebar": [
-        {
-            "title": "Documentation",
-            "url": "/docs/",
-            "icon": "book"
-        },
-        {
-            "title": "Source code",
-            "url": "https://github.com/psycopg/psycopg2/",
-            "icon": "github"
-        },
-        {
-            "title": "Bug tracker",
-            "url": "https://github.com/psycopg/psycopg2/issues",
-            "icon": "bug"
-        },
-        {
-            "title": "Mailing list",
-            "url": "https://www.postgresql.org/list/psycopg/",
-            "icon": "envelope-o",
-			"append": [
-				{
-					"title": "Subscribe",
-					"url": "https://lists.postgresql.org/"
-				}
-			]
-        },
-        {
-            "title": "Download",
-            "url": "https://pypi.org/project/psycopg2/",
-            "icon": "cloud-download"
-        },
-        {
-            "title": "Funding",
-            "url": "https://github.com/sponsors/dvarrazzo/",
-            "icon": "heart"
-        }
     ]
 }
 

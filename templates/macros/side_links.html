@@ -1,20 +1,76 @@
 {%- macro render_side_links() %}
+
+<div>
+  <iframe src="https://github.com/sponsors/dvarrazzo/button"
+          title="Sponsor the project" style="border: 0"
+          width="116" height="35">
+  </iframe>
+</div>
+
+<div class="dashed-top">
+  <h3>psycopg2</h3>
+
   <ul class="fa-ul links">
-  {%- for link in bag('website.sidebar') %}
     <li>
-      <a href="{{ link.url }}">
-        <i class="fa-li fa-lg fa fa-{{ link.icon }}" aria-hidden="true"></i>
-        {{ link.title }}</a>
-      {%- if link.append %}
-        {%- for child in link.append %}
-      | <a href="{{ child['url'] }}">
-          {%- if child['icon'] %}
-        <i class="fa-lg fa fa-{{ child['icon'] }}" aria-hidden="true"></i>
-          {%- endif %}
-        {{ child['title'] }}</a>
-        {%- endfor %}
-      {%- endif %}
+      <a href="/docs/">
+        <i class="fa-li fa-lg fa fa-book" aria-hidden="true"></i>
+        Documentation</a>
     </li>
-  {%- endfor %}
+    <li>
+      <a href="https://github.com/psycopg/psycopg2/">
+        <i class="fa-li fa-lg fa fa-github" aria-hidden="true"></i>
+        Source code</a>
+    </li>
+    <li>
+      <a href="https://github.com/psycopg/psycopg2/issues">
+        <i class="fa-li fa-lg fa fa-bug" aria-hidden="true"></i>
+        Bug tracker</a>
+    </li>
+    <li>
+      <a href="https://pypi.org/project/psycopg2/">
+        <i class="fa-li fa-lg fa fa-cloud-download" aria-hidden="true"></i>
+        Download</a>
+    </li>
   </ul>
+</div>
+
+<div class="dashed-top">
+  <h3>psycopg3</h3>
+
+  <ul class="fa-ul links">
+    <li>
+      <a href="/psycopg3/docs/">
+        <i class="fa-li fa-lg fa fa-book" aria-hidden="true"></i>
+        Documentation</a>
+    </li>
+    <li>
+      <a href="https://github.com/psycopg/psycopg3/">
+        <i class="fa-li fa-lg fa fa-github" aria-hidden="true"></i>
+        Source code</a>
+    </li>
+    <li>
+      <a href="https://github.com/psycopg/psycopg3/issues">
+        <i class="fa-li fa-lg fa fa-bug" aria-hidden="true"></i>
+        Bug tracker</a>
+    </li>
+  </ul>
+</div>
+
+<div class="dashed-top">
+  <h3>Mailing List</h3>
+
+  <ul class="fa-ul links">
+    <li>
+      <a href="https://lists.postgresql.org/">
+        <i class="fa-li fa-lg fa fa-pencil" aria-hidden="true"></i>
+        Subscribe</a>
+    </li>
+    <li>
+      <a href="https://www.postgresql.org/list/psycopg/">
+        <i class="fa-li fa-lg fa fa-envelope-o" aria-hidden="true"></i>
+        Archives</a>
+    </li>
+  </ul>
+</div>
+
 {%- endmacro %}
