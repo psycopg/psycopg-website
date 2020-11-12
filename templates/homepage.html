@@ -12,6 +12,34 @@
 {{ this.teaser }}
 </div>
 
+<div class="sponsor">
+  <p>
+  The <a href="/psycopg3/">psycopg3 project</a> is currently
+  <a href="https://github.com/psycopg/psycopg3" target="_blank"
+    >under active development</a>.
+  </p>
+
+  <p>
+  Sponsoring this project will help achieve swift completion and
+  ensure the maintenance of psycopg2, psycopg3 and other related
+  projects.
+  </p>
+
+  <p>
+  If you use Python and PostgreSQL, and you would like to support the
+  creation of the most advanced adapter between the two systems,
+  <a href="https://github.com/sponsors/dvarrazzo/" target="_blank"
+    >please consider becoming a sponsor</a>. Thank you!
+  </p>
+
+  <iframe src="https://github.com/sponsors/dvarrazzo/button"
+          title="Sponsor the project" style="border: 0"
+          width="116" height="35">
+  </iframe>
+
+  <div class="clear"></div>
+</div>
+
 {{ this.body }}
 
 {% from "macros/blog.html" import render_blog_post %}
@@ -26,7 +54,7 @@
 {%- endblock %}
 
 {% block sidebar %}
-{{- render_side_links() }}
+{{- render_side_links(this) }}
 
 <div class="dashed-top">
   <a class="twitter-timeline" data-width="300" data-height="600" data-dnt="true"

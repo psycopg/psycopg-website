@@ -46,6 +46,11 @@ blockquote {
     border-bottom: 1px dashed #888;
 }
 
+.clear {
+  clear: both;
+}
+
+
 /* layout */
 
 div#content {
@@ -176,6 +181,25 @@ div.teaser h3 {
 div.teaser a {
     color: #00c;
 }
+
+div.sponsor {
+    background-color: #ffc;
+    color: #222;
+    border: 2px solid #888;
+    padding: 10px;
+    clear: both;
+    margin: 3px;
+    margin-bottom: 10px;
+}
+
+div.sponsor a {
+    color: #285071;
+    font-weight: bold;
+}
+
+div.sponsor iframe {
+}
+
 
 a.twitter-timeline {
     display: none;

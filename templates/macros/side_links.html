@@ -1,13 +1,19 @@
-{%- macro render_side_links() %}
+{%- macro render_side_links(this) %}
 
+{% if this._model != "homepage" %}
 <div>
   <iframe src="https://github.com/sponsors/dvarrazzo/button"
           title="Sponsor the project" style="border: 0"
           width="116" height="35">
   </iframe>
 </div>
+{% endif %}
 
+{% if this._model != "homepage" %}
 <div class="dashed-top">
+{% else %}
+<div>
+{% endif %}
   <h3>psycopg2</h3>
 
   <ul class="fa-ul links">

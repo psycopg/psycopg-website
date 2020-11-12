@@ -37,7 +37,7 @@
         {%- if this.sidebar %}
         <div id="sidebar" class="col-sm-4">
           {%- block sidebar %}
-            {{- render_side_links() }}
+            {{- render_side_links(this) }}
           {%- endblock %}
         </div>
         {% endif %}
