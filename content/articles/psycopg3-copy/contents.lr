@@ -1,0 +1,187 @@
+title: The new COPY support in psycopg3
+---
+pub_date: 2020-11-15
+---
+author: Daniele Varrazzo
+---
+tags:
+
+psycopg3
+development
+news
+
+---
+body:
+
+``psycopg2`` allows `interaction with PostgreSQL COPY commands`__. However
+what is possible to do with them is relatively limited: the only possible
+interaction is with file-like objects:
+
+.. __: https://www.psycopg.org/docs/usage.html#copy
+
+- there is no adaptation from Python objects to PostgreSQL, as there is for
+  normal queries: data must be formatted "manually" by the user;
+- psycopg2 "pulls" data from the file: writing a system that produces data and
+  pushes it into PostgreSQL is a very contrived operation, requiring to write
+  a blocking file-like object;
+- there is no support for `asynchronous copy`__.
+
+.. __: https://github.com/psycopg/psycopg2/issues/428
+
+psycopg3_ addresses these shortcoming and makes easy to write Python
+programs producing data and pushing it efficiently to the database using the
+``COPY`` protocol.
+
+.. CUT-HERE
+
+``psycopg2`` adaptation system is designed to compose queries client-side, so
+it is concerned with the right use of the quotes: the python string
+``O'Reilly`` is converted to ``'O''Reilly'``, and the ``date(2020, 11, 15)``
+to ``'2020-11-15'::date``. These extra quotes get in the way of COPY, and
+there isn't an intermediate level where a conversion to string is performed,
+but no quote or other SQL construct are added.
+
+``psycopg3`` uses the PostgreSQL extended query protocol and sends query and
+parameters separately. Parameters require adaptation to the PostgreSQL
+formats, but quoting, and quotes escaping, are no more its concern: the string
+``O'Reilly`` doesn't need further manipulation and the date is converted only
+to the string ``2020-11-15``; types informations are passed as additional
+separate information according to `the libpq API`__.
+
+.. _psycopg3: /psycopg3/
+.. __: https://www.postgresql.org/docs/current/libpq-exec.html#LIBPQ-PQEXECPARAMS
+
+The server-side format of these values are exactly what the ``COPY FROM``
+command expects, so it's now easy to compose a row by adapting Python objects
+and to pass ::
+
+    O'Reilly\t2020-11-15\n
+
+to the server. The mechanism to do so is exposed to Python by a new context
+manager, returned by the `Cursor.copy()`__ method, which enables to write:
+
+.. __: https://www.psycopg.org/psycopg3/docs/cursor.html#psycopg3.Cursor.copy
+
+.. code:: python
+
+    with cursor.copy("COPY mytable FROM STDIN") as copy:
+        copy.write_row(("O'Reilly", date(2020, 11, 15)))
+
+Any list of tuples of values, or generator of sequences of values, can be used
+to push data into Postgres:
+
+.. code:: python
+
+    with cursor.copy("COPY mytable FROM STDIN") as copy:
+        for record in my_generator():
+            copy.write_row(record)
+
+The copy operation is concluded as soon as the ``with`` block is exited and,
+in case a Python exception is raised, the error is pushed to the server, which
+will cancel the COPY operation in progress.
+
+
+Binary format
+-------------
+
+The ``Copy`` object is also able to write data in `binary format`__: at Python
+level this is entirely transparent:
+
+.. code:: python
+
+    with cursor.copy("COPY mytable FROM STDIN (FORMAT BINARY)") as copy:
+        for record in generator:
+            copy.write_row(record)
+
+.. __: https://www.postgresql.org/docs/13/sql-copy.html#id-1.9.3.55.9.4
+
+which might be more efficient than the textual format, but requires more care
+with the data types, as the server will not even perform an innocent
+``int4`` -> ``int8`` cast for you.
+
+
+Block-level COPY
+----------------
+
+``psycopg2`` allows (only) to operate on a COPY stream using a Python
+file-like objects: behind the scenes it reads one block of data from the
+source and writes it to the destination:
+
+.. code:: python
+
+    # From a file to the database
+    with open("input.data") as f:
+        cursor2.copy_expert(f, "COPY mytable FROM STDIN")
+
+    # From the database to a file
+    with open("input.data", "w") as f:
+        cursor2.copy_expert(f, "COPY mytable TO STDOUT")
+
+This way of operating is not lost, but now the responsibility of moving data
+from one stream to the other is left to the user's code:
+
+.. code:: python
+
+    with open("input.data") as f:
+        with cursor3.copy("COPY mytable FROM STDIN") as copy:
+            while data := f.read(SIZE)
+                copy.write(data)
+
+    with cursor3.copy("COPY mytable TO STDOUT") as copy:
+        with open("input.data", "w") as f:
+            while data := copy.read()
+                f.write(data)
+
+While the new pattern is more verbose, it allows to produce and consume data
+with interfaces different than the file one, whereas previously it would have
+required to write some form of file-like adapter, blocking the copy in case no
+data was ready. This inversion of control allows, finally, the use of...
+
+
+Asynchronous COPY
+-----------------
+
+If you data producer, either at rows level or at blocks level, is capable of
+asynchronous operations, it is now possible to operate asynchronously with
+COPY using exactly the same pattern as the sync code, only sprinkling the
+magic words here and there:
+
+.. code:: python
+
+    async with cursor.copy("COPY mytable FROM STDIN (FORMAT BINARY)") as copy:
+        async for record in my_async_generator():
+            await copy.write_row(record)
+
+    async with async_producer() as f:
+        async with cursor.copy("COPY mytable FROM STDIN") as copy:
+            while data := await f.read()
+                await copy.write(data)
+
+which covers an important use case pretty much impossible to introduce in
+``psycopg2``.
+
+
+Project sponsorship
+-------------------
+
+.. container:: sponsor
+
+    The new COPY support is one of several new features that are being
+    designed and implemented in psycopg3_. The project is currently `under
+    active development`__: if there is enough support it will be possible to
+    work at the project full-time and bring it to release swiftly.
+
+    .. __: https://github.com/psycopg/psycopg3
+
+    If you use Python and PostgreSQL, and you would like to support the
+    creation of the most advanced adapter between the two systems, `please
+    consider becoming a sponsor`__. Thank you!
+
+    .. __: https://github.com/sponsors/dvarrazzo/
+
+    .. raw:: html
+
+        <iframe src="https://github.com/sponsors/dvarrazzo/button"
+            title="Sponsor the project" style="border: 0"
+            width="116" height="35">
+        </iframe>
