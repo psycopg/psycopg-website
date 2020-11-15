@@ -28,7 +28,7 @@ interaction is with file-like objects:
 
 .. __: https://github.com/psycopg/psycopg2/issues/428
 
-psycopg3_ addresses these shortcoming and makes easy to write Python
+psycopg3_ addresses these shortcomings and makes it easy to write Python
 programs producing data and pushing it efficiently to the database using the
 ``COPY`` protocol.
 
@@ -141,7 +141,7 @@ data was ready. This inversion of control allows, finally, the use of...
 Asynchronous COPY
 -----------------
 
-If you data producer, either at rows level or at blocks level, is capable of
+If your data producer, either at rows level or at blocks level, is capable of
 asynchronous operations, it is now possible to operate asynchronously with
 COPY using exactly the same pattern as the sync code, only sprinkling the
 magic words here and there:
