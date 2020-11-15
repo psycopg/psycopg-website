@@ -7,17 +7,35 @@ Psycopg is written mostly in C and wraps the `libpq`_ library with the result of
 ..
   Please keep consistent with install.rst and setup.py
 
-- Currently supports Python versions 2.7 and from 3.4 to 3.8 (older versions are supported by previous psycopg versions: check the `change log`__ for details)
-- Supports PostgreSQL versions from 7.4 to 12
-- Fully compliant implementation of the Python `DB API specification`_ for database adapters
-- Thread-safe: threads can use different connections or share the same connection
-- `Asynchronous nonblocking I/O`__, also integrated with `coroutine-based libraries`__ (gevent_, Eventlet_, uGreen_)
-- Adaptation__ of many Python objects to database type: tuples to records, lists to array, dictionaries to hstore, flexible JSON support
-- Extendible with `new adapters`__ to convert Python objects to SQL syntax and typecasters__ to convert PostgreSQL types back into Python objects
+- Currently supports Python versions 2.7 and from 3.4 to 3.9 (older versions
+  are supported by previous psycopg versions: check the `change log`__ for
+  details)
+
+- Supports PostgreSQL versions from 7.4 to 13
+
+- Fully compliant implementation of the Python `DB API specification`_ for
+  database adapters
+
+- Thread-safe: threads can use different connections or share the same
+  connection
+
+- `Asynchronous nonblocking I/O`__, also integrated with `coroutine-based
+  libraries`__ (gevent_, Eventlet_, uGreen_)
+
+- Adaptation__ of many Python objects to database type: tuples to records,
+  lists to array, dictionaries to hstore, flexible JSON support
+
+- Extendible with `new adapters`__ to convert Python objects to SQL syntax and
+  typecasters__ to convert PostgreSQL types back into Python objects
+
 - `Server-side cursors`__
+
 - |COPY|__ support
+
 - `Large objects`__ support
+
 - Can send and receive `asynchronous notification`__
+
 - Support for `two-phase commit`__
 
 .. |COPY| replace:: ``COPY``
