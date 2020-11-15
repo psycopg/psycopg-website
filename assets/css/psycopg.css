@@ -273,3 +273,8 @@ span.raw-html .fa-heart {
 p.footer {
     color: #888;
 }
+
+p.footer-right {
+    color: #888;
+    text-align: right;
+}
