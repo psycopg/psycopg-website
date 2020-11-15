@@ -37,6 +37,14 @@ blockquote {
     font-style: italic;
 }
 
+tt.literal {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 0px 3px;
+
+}
+
 .dashed-top {
     border-top: 1px dashed #888;
     padding-top: 1rem;
