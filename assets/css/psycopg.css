@@ -171,6 +171,7 @@ div.teaser {
     background-color: #6db;
     color: #000;
     border: 2px solid #097;
+    border-radius: 8px;
     padding: 10px;
     clear: both;
     margin: 3px;
@@ -194,6 +195,7 @@ div.sponsor {
     background-color: #ffc;
     color: #222;
     border: 2px solid #888;
+    border-radius: 8px;
     padding: 10px;
     clear: both;
     margin: 3px;
