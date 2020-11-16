@@ -2,7 +2,7 @@
 
 PYTHON=$(CURDIR)/env/bin/python
 LEKTOR=$(CURDIR)/env/bin/lektor
-DOC_BRANCH=master
+DOC_BRANCH=maint_2_8
 DOC3_BRANCH=master
 
 TRACKING_ID = $(shell jq --raw-output '.tracking_id' databags/analytics.json)
