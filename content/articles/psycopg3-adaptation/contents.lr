@@ -245,7 +245,7 @@ Project sponsorship
 
 .. container:: sponsor
 
-    The new COPY support is one of several new features that are being
+    The new adaptation system is one of several new features that are being
     designed and implemented in psycopg3_. The project is currently `under
     active development`__: if there is enough support it will be possible to
     work at the project full-time and bring it to release swiftly.
