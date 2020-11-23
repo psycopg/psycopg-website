@@ -133,7 +133,7 @@ parameters and PostgreSQL data types are adapted. The new system:
 - cannot use the whole SQL syntax, but must limit to literals. For instance
   the Python list ``["foo, bar", "Hel'lo"]`` cannot be expressed with
   ``ARRAY['foo, bar', 'Hel''lo']`` but must use array literal rules and become
-  ``{"foo, bar",O'Reilly}``.
+  ``{"foo, bar",Hel'lo}``.
 
 - Makes possible to specify type OIDs, in case that useful (`not always an
   easy choice`__).
