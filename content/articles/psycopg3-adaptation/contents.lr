@@ -1,0 +1,268 @@
+title: The psycopg3 adaptation system
+---
+pub_date: 2020-11-24
+---
+author: Daniele Varrazzo
+---
+_discoverable: no
+---
+tags:
+
+psycopg3
+development
+news
+
+---
+body:
+
+The adaptation system between Python objects and PostgreSQL types is at the
+core of ``psycopg2`` and ``psycopg3``. The flexibility of the ``psycopg2``
+adaptation system gives `a good object mapping out-of-the-box`__ and allow
+users to `customise it according to any need`__. Do you need your ``decimal``
+numbers returned as ``float`` because you need speed over pennies? Do you want
+to map PostgreSQL Infinity date to the 25th of December 3099? That's certainly
+doable.
+
+ .. __: https://www.psycopg.org/docs/usage.html#adaptation-of-python-values-to-sql-types
+ .. __: https://www.psycopg.org/docs/advanced.html#adapting-new-python-types-to-sql-syntax
+
+``psycopg3`` adaptation system needs some modification compared to
+``psycopg2``, because ``psycopg3`` uses the "extended query protocol" to send
+query parameters separately from the query. Together with the differences to
+accommodate, there is also a chance to improve over a system that has been at
+work for several years and has shown its shortcomings together with its
+strengths.
+
+.. CUT-HERE
+
+
+Server-side binding
+-------------------
+
+Server-side parameters binding has been a long-time desired feature. So far
+``psycopg3`` has adapted arguments on the client-side:
+
+.. code:: python
+
+    # psycopg2
+    cursor.execute(
+        "INSERT INTO tbl (s, n, d) VALUES (%s, %s, %s)",
+        [42, "Hel'lo", date(2020, 12, 31)])
+
+    # has arguments adapted and quoted:
+    args[0] = "42"
+    args[1] = "'Hel''lo'"
+    args[2] = "'2020-12-31'::date"
+
+    # merged to the query:
+    query = query % args
+     
+    # and passed as a single string:
+    libpq.PQexec(
+        "INSERT INTO tbl (s, n, d) VALUES (42, 'Hel''lo', '2020-12-31'::date)")
+
+
+``psycopg3`` end user interface is unchanged, but behind the scene will only
+perform adaptation, not quoting, and will send the arguments separately:
+
+.. code:: python
+
+    # psycopg3
+    cursor.execute(
+        "INSERT INTO tbl (s, n, d) VALUES (%s, %s, %s)",
+        [42, "Hel'lo", date(2020, 12, 31)])
+
+    # has arguments adapted:
+    args[0] = "42"
+    args[1] = "Hel'lo"
+    args[2] = "2020-12-31"
+     
+    # and passed as separate information:
+    libpq.PQexecParams(
+        "INSERT INTO tbl (s, n, d) VALUES ($1, $2, $3)",  # Postgres placeholders 
+        ["42", "Hel'lo", "2020-12-31"],                   # Postgres formats, no quoting
+        oids=[INT8_OID, 0, DATE_OID])                     # Type indications if available
+
+Server-side binding brings better performance, the possibility to use prepared
+statements and binary data, better integration with server-side logging and
+monitoring. Theoretically it also brings better safety against SQL injections,
+but ``psycopg2`` does already a good job at `providing a safe path for
+parameters binding`__: creating an unsafe query is already harder, in
+``psycopg2``, than doing things the right way.
+
+.. __: https://www.psycopg.org/docs/usage.html#the-problem-with-the-query-parameters
+
+However server-side binding brings a few incompatibilities, such as:
+
+- cannot send more than one query at once if parameters are used:
+
+  .. code:: python
+
+    # Must use separate queries or psycopg3.sql client-side adaptation
+    cur.execute(
+        "INSERT INTO tbl1 VALUES (%s); INSERT INTO tbl2 VALUES (%s)",
+        [10, 20])
+
+- cannot use certain commands such as ``SET`` or ``NOTIFY`` with parameters:
+
+  .. code:: python
+
+    # Must use "SELECT set_config('timezone', %s)"
+    cur.execute("SET timezone to %s", [timezone])
+
+    # Must use "SELECT pg_notify('channel', %s)"
+    cur.execute("NOTIFY channel, %s", [message])
+
+- cannot use the ``IN (...)`` construct:
+
+  .. code:: python
+
+    # Must use "AND nation = any (%s)"
+    cur.execute("... AND nation in %s", [("IT", "FR", "DE")])
+
+All in all, most queries will just work, however the few incompatibilities
+require a non-backward-compatible change in version.
+
+
+A new adaptation system
+-----------------------
+
+Embracing the new type of communication requires to change the way Python
+parameters and PostgreSQL data types are adapted. The new system:
+
+- cannot use the whole SQL syntax, but must limit to literals. For instance
+  the Python list ``["foo, bar", "Hel'lo"]`` cannot be expressed with
+  ``ARRAY['foo, bar', 'Hel''lo']`` but must use array literal rules and become
+  ``{"foo, bar",O'Reilly}``.
+
+- Makes possible to specify type OIDs, in case that useful (`not always an
+  easy choice`__).
+
+- Allows using binary types, especially useful for large binary blob, which
+  otherwise get bloated by `binary escaping`__ and have to traverse the many
+  layers of lexing/parsing in the server, each one with its memory copy. This
+  can be done by simply using the ``%b`` placeholder over ``%s``:
+
+  .. code:: python
+
+    with open(image_name, "rb") as f:
+        cur.execute(
+            "INSERT INTO images (name, data) VALUES (%s, %b)",
+            [image_name, f.read()])
+
+.. __: https://www.varrazzo.com/blog/2020/11/07/psycopg3-adaptation/
+.. __: https://www.postgresql.org/docs/current/datatype-binary.html
+
+It's also a good chance to review the work that must be done by the client to
+adapt values. ``psycopg2`` creates several instances of "adapter" wrappers,
+one for each value adapted. In ``psycopg3`` the adaptation objects have a
+different life cycle: choices based on the environment, such as the connection
+encoding, can be made once for each Python type, rather than once per value,
+ending up doing radically less work for each converted object. You can head to
+`the psycopg3 adaptation documentation`__ for all the details.
+
+.. __: https://www.psycopg.org/psycopg3/docs/adaptation.html
+
+
+Customising psycopg3 adaptation
+-------------------------------
+
+Customising types adaptation can now be done using Dumper_ classes, either
+creating new ones or mapping existing ones on different Python classes to save
+to the database. For instance, the builtin ``DateDumper`` converts Python
+dates to PostgreSQL ones. PostgreSQL can handle an "infinity" date, which
+Python cannot: if we wanted to store Python's ``date.max`` to PostgreSQL
+infinity we could create a subclass for the dumper, and register it in the
+scope we want to use it, globally or just on a connection or cursor:
+
+.. code:: python
+
+    class InfDateDumper(DateDumper):
+        def dump(self, obj):
+            if obj == date.max:
+                return b"infinity"
+            else:
+                return super().dump(obj)
+
+    cur.execute("SELECT %s::text, %s::text", [date(2020, 12, 31), date.max]).fetchone()
+    # ('2020-12-31', '9999-12-31')
+
+    InfDateDumper.register(date, cur)
+
+    cur.execute("SELECT %s::text, %s::text", [date(2020, 12, 31), date.max]).fetchone()
+    # ('2020-12-31', 'infinity')
+
+The system is pretty symmetric and employs similar Loader_ objects to map OIDs
+to the code responsible for its decoding. For instance, if we wanted to
+reverse the above customisation and map PostgreSQL infinity date to
+``date.max`` (instead of raising an exception) it could be done using a
+subclass of the builtin loader (or using an entirely new object if required):
+
+.. code:: python
+
+    class InfDateLoader(DateLoader):
+        def load(self, data):
+            if data == b"infinity":
+                return date.max
+            else:
+                return super().load(data)
+
+    cur.execute("select '2020-12-31'::date, 'infinity'::date").fetchone()
+    # Raises DataError: Python date doesn't support years after 9999: got infinity
+
+    from psycopg3.oids import builtins
+    InfDateLoader.register(builtins["date"].oid, cur)
+
+    cur.execute("select '2020-12-31'::date, 'infinity'::date").fetchone()
+    (datetime.date(2020, 12, 31), datetime.date(9999, 12, 31))
+
+.. _Dumper: https://www.psycopg.org/psycopg3/docs/adaptation.html#psycopg3.adapt.Dumper
+.. _Loader: https://www.psycopg.org/psycopg3/docs/adaptation.html#psycopg3.adapt.Loader
+
+The customisation automatically applies to recursive types, such as arrays or
+composite types: if the date loader is customised then the date array works as
+expected:
+
+.. code:: python
+
+    cur.execute("select '{2020-12-31,infinity}'::date[]").fetchone()
+    ([datetime.date(2020, 12, 31), datetime.date(9999, 12, 31)],)
+
+All in all the new adaptation system provides better performance and easier
+customisation `compared to psycopg2`__. The new adapters are easier to
+compose, for instance to use them in :ref:`COPY operations
+<articles/psycopg3-copy>`. And if client-side adaptation is still needed (to
+generate dynamically data definition statements, to prepare offline update
+scripts...) the `psycopg3.sql`_ still allows the flexibility of client-side
+query composition.
+
+.. __: https://www.psycopg.org/docs/advanced.html#adapting-new-python-types-to-sql-syntax
+.. _psycopg3.sql: https://www.psycopg.org/psycopg3/docs/sql.html
+
+
+Project sponsorship
+-------------------
+
+.. container:: sponsor
+
+    The new COPY support is one of several new features that are being
+    designed and implemented in psycopg3_. The project is currently `under
+    active development`__: if there is enough support it will be possible to
+    work at the project full-time and bring it to release swiftly.
+
+    .. __: https://github.com/psycopg/psycopg3
+
+    If you use Python and PostgreSQL, and you would like to support the
+    creation of the most advanced adapter between the two systems, `please
+    consider becoming a sponsor`__. Thank you!
+
+    .. __: https://github.com/sponsors/dvarrazzo/
+
+    .. raw:: html
+
+        <iframe src="https://github.com/sponsors/dvarrazzo/button"
+            title="Sponsor the project" style="border: 0"
+            width="116" height="35">
+        </iframe>
+
+.. _psycopg3: /psycopg3/

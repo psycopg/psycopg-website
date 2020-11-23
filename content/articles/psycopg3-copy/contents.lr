@@ -142,7 +142,7 @@ Asynchronous COPY
 -----------------
 
 If your data producer, either at rows level or at blocks level, is capable of
-asynchronous operations, it is now possible to operate asynchronously with
+asynchronous operations, it is now possible to combine it asynchronously with
 COPY using exactly the same pattern as the sync code, only sprinkling the
 magic words here and there:
 
