@@ -39,7 +39,7 @@ Server-side binding
 -------------------
 
 Server-side parameter binding has been a long-time desired feature. So far
-``psycopg3`` has adapted arguments on the client-side:
+``psycopg2`` has adapted arguments on the client-side:
 
 .. code:: python
 
