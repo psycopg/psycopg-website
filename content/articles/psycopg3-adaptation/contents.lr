@@ -4,7 +4,7 @@ pub_date: 2020-11-24
 ---
 author: Daniele Varrazzo
 ---
-_discoverable: no
+_discoverable: yes
 ---
 tags:
 
@@ -17,21 +17,20 @@ body:
 
 The adaptation system between Python objects and PostgreSQL types is at the
 core of ``psycopg2`` and ``psycopg3``. The flexibility of the ``psycopg2``
-adaptation system gives `a good object mapping out-of-the-box`__ and allow
-users to `customise it according to any need`__. Do you need your ``decimal``
+adaptation system provides `good out-of-the-box object mapping`__ and allows
+users to `customise it to suit any need`__. Do you want your ``decimal``
 numbers returned as ``float`` because you need speed over pennies? Do you want
-to map PostgreSQL Infinity date to the 25th of December 3099? That's certainly
-doable.
+to map PostgreSQL Infinity dates to the 25th of December 3099? That's
+certainly doable.
 
  .. __: https://www.psycopg.org/docs/usage.html#adaptation-of-python-values-to-sql-types
  .. __: https://www.psycopg.org/docs/advanced.html#adapting-new-python-types-to-sql-syntax
 
-``psycopg3`` adaptation system needs some modification compared to
+The ``psycopg3`` adaptation system needs some modification compared to
 ``psycopg2``, because ``psycopg3`` uses the "extended query protocol" to send
-query parameters separately from the query. Together with the differences to
-accommodate, there is also a chance to improve over a system that has been at
-work for several years and has shown its shortcomings together with its
-strengths.
+query parameters separately from the query. Together, with the differences to
+accommodate, there is also a chance to improve a system that has been in use
+for several years and has shown its shortcomings together with its strengths.
 
 .. CUT-HERE
 
@@ -39,7 +38,7 @@ strengths.
 Server-side binding
 -------------------
 
-Server-side parameters binding has been a long-time desired feature. So far
+Server-side parameter binding has been a long-time desired feature. So far
 ``psycopg3`` has adapted arguments on the client-side:
 
 .. code:: python
@@ -56,13 +55,13 @@ Server-side parameters binding has been a long-time desired feature. So far
 
     # merged to the query:
     query = query % args
-     
+
     # and passed as a single string:
     libpq.PQexec(
         "INSERT INTO tbl (s, n, d) VALUES (42, 'Hel''lo', '2020-12-31'::date)")
 
 
-``psycopg3`` end user interface is unchanged, but behind the scene will only
+The ``psycopg3`` end user interface is unchanged, but behind the scenes will only
 perform adaptation, not quoting, and will send the arguments separately:
 
 .. code:: python
@@ -76,19 +75,19 @@ perform adaptation, not quoting, and will send the arguments separately:
     args[0] = "42"
     args[1] = "Hel'lo"
     args[2] = "2020-12-31"
-     
+
     # and passed as separate information:
     libpq.PQexecParams(
-        "INSERT INTO tbl (s, n, d) VALUES ($1, $2, $3)",  # Postgres placeholders 
+        "INSERT INTO tbl (s, n, d) VALUES ($1, $2, $3)",  # Postgres placeholders
         ["42", "Hel'lo", "2020-12-31"],                   # Postgres formats, no quoting
         oids=[INT8_OID, 0, DATE_OID])                     # Type indications if available
 
 Server-side binding brings better performance, the possibility to use prepared
-statements and binary data, better integration with server-side logging and
-monitoring. Theoretically it also brings better safety against SQL injections,
-but ``psycopg2`` does already a good job at `providing a safe path for
-parameters binding`__: creating an unsafe query is already harder, in
-``psycopg2``, than doing things the right way.
+statements and binary data, as well as better integration with server-side
+logging and monitoring. Theoretically it also brings better safety against SQL
+injections, but ``psycopg2`` already does a good job at `providing a safe path
+for parameter binding`__: in ``psycopg2``, creating an unsafe query is already
+harder than doing things the right way.
 
 .. __: https://www.psycopg.org/docs/usage.html#the-problem-with-the-query-parameters
 
@@ -135,13 +134,14 @@ parameters and PostgreSQL data types are adapted. The new system:
   ``ARRAY['foo, bar', 'Hel''lo']`` but must use array literal rules and become
   ``{"foo, bar",Hel'lo}``.
 
-- Makes possible to specify type OIDs, in case that useful (`not always an
+- Makes possible to specify type OIDs, in case that's useful (`not always an
   easy choice`__).
 
-- Allows using binary types, especially useful for large binary blob, which
-  otherwise get bloated by `binary escaping`__ and have to traverse the many
-  layers of lexing/parsing in the server, each one with its memory copy. This
-  can be done by simply using the ``%b`` placeholder over ``%s``:
+- Allows for the use of binary types, which is especially useful for a large
+  binary blob, otherwise things become bloated by `binary escaping`__ and have
+  to traverse the many layers of lexing/parsing in the server, each with its
+  own memory copy. This can be done by simply using the ``%b`` placeholder
+  over ``%s``:
 
   .. code:: python
 
@@ -155,11 +155,11 @@ parameters and PostgreSQL data types are adapted. The new system:
 
 It's also a good chance to review the work that must be done by the client to
 adapt values. ``psycopg2`` creates several instances of "adapter" wrappers,
-one for each value adapted. In ``psycopg3`` the adaptation objects have a
+one for each value adapted. In ``psycopg3``, the adaptation objects have a
 different life cycle: choices based on the environment, such as the connection
 encoding, can be made once for each Python type, rather than once per value,
-ending up doing radically less work for each converted object. You can head to
-`the psycopg3 adaptation documentation`__ for all the details.
+doing radically less work for each converted object. You can check out the
+`psycopg3 adaptation documentation`__ for all the details.
 
 .. __: https://www.psycopg.org/psycopg3/docs/adaptation.html
 
@@ -171,8 +171,8 @@ Customising types adaptation can now be done using Dumper_ classes, either
 creating new ones or mapping existing ones on different Python classes to save
 to the database. For instance, the builtin ``DateDumper`` converts Python
 dates to PostgreSQL ones. PostgreSQL can handle an "infinity" date, which
-Python cannot: if we wanted to store Python's ``date.max`` to PostgreSQL
-infinity we could create a subclass for the dumper, and register it in the
+Python cannot. If we wanted to store Python's ``date.max`` to PostgreSQL
+infinity, we could create a subclass for the dumper and register it in the
 scope we want to use it, globally or just on a connection or cursor:
 
 .. code:: python
@@ -195,7 +195,7 @@ scope we want to use it, globally or just on a connection or cursor:
 The system is pretty symmetric and employs similar Loader_ objects to map OIDs
 to the code responsible for its decoding. For instance, if we wanted to
 reverse the above customisation and map PostgreSQL infinity date to
-``date.max`` (instead of raising an exception) it could be done using a
+``date.max`` (instead of raising an exception), it could be done using a
 subclass of the builtin loader (or using an entirely new object if required):
 
 .. code:: python
@@ -230,10 +230,10 @@ expected:
 
 All in all the new adaptation system provides better performance and easier
 customisation `compared to psycopg2`__. The new adapters are easier to
-compose, for instance to use them in :ref:`COPY operations
+compose, such as using them in :ref:`COPY operations
 <articles/psycopg3-copy>`. And if client-side adaptation is still needed (to
 generate dynamically data definition statements, to prepare offline update
-scripts...) the `psycopg3.sql`_ still allows the flexibility of client-side
+scripts...) `psycopg3.sql`_ still allows for the flexibility of client-side
 query composition.
 
 .. __: https://www.psycopg.org/docs/advanced.html#adapting-new-python-types-to-sql-syntax
