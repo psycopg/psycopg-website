@@ -18,6 +18,3 @@ deploy:
   repo: psycopg/psycopg.github.io
   on:
     branch: master
-
-notifications:
-  email: false
