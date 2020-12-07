@@ -25,6 +25,10 @@
         {
             "title": "psycopg3",
             "url": "/psycopg3/"
+        },
+        {
+            "title": "Sponsors",
+            "url": "/sponsors/"
         }
     ]
 }
