@@ -283,13 +283,14 @@ div.sponsors-avatars-top {
     flex-direction: row;
     flex-wrap: wrap;
     padding: 0;
+    margin-left: -15px;
   }
 
 div.sponsors-avatars-bottom {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     padding: 0;
+    margin-left: -10px;
   }
   
   div.sponsors-avatar-top {
@@ -308,13 +309,12 @@ div.sponsors-avatars-bottom {
   
   div.sponsors-avatar-top .avatar {
     width: 100%;
-    padding: 1em;
     border-radius: 50%;
   }
 
   div.sponsors-avatar-bottom .avatar {
     width: 100%;
-    padding: 1em;
+    padding: 0.5em;
     border-radius: 50%;
   }
 

@@ -12,34 +12,39 @@ Github Sponsors
 
     .. container:: sponsors-avatar-top
 
-        .. image:: ../img/sponsors/37837.png
+        .. image:: ../img/sponsors/top/601732.png
             :class: avatar
 
     .. container:: sponsors-avatar-top
 
-        .. image:: ../img/sponsors/94721.jpeg
+        .. image:: ../img/sponsors/top/37837.png
             :class: avatar
 
     .. container:: sponsors-avatar-top
 
-        .. image:: ../img/sponsors/115712.jpeg
+        .. image:: ../img/sponsors/top/3852020.jpeg
             :class: avatar
 
     .. container:: sponsors-avatar-top
 
-        .. image:: ../img/sponsors/174182.png
+        .. image:: ../img/sponsors/top/330373.png
             :class: avatar
 
 .. container:: sponsors-avatars-bottom
 
     .. container:: sponsors-avatar-bottom 
 
-        .. image:: ../img/sponsors/330373.png
+        .. image:: ../img/sponsors/94721.jpeg
             :class: avatar
 
     .. container:: sponsors-avatar-bottom 
 
-        .. image:: ../img/sponsors/601732.png
+        .. image:: ../img/sponsors/115712.jpeg
+            :class: avatar
+
+    .. container:: sponsors-avatar-bottom 
+
+        .. image:: ../img/sponsors/174182.png
             :class: avatar
 
     .. container:: sponsors-avatar-bottom 
@@ -50,11 +55,6 @@ Github Sponsors
     .. container:: sponsors-avatar-bottom 
 
         .. image:: ../img/sponsors/3085224.png
-            :class: avatar
-
-    .. container:: sponsors-avatar-bottom 
-
-        .. image:: ../img/sponsors/3852020.jpeg
             :class: avatar
 
     .. container:: sponsors-avatar-bottom 
