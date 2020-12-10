@@ -276,6 +276,48 @@ div.splash-icon .icon {
   padding: 1em;
 }
 
+/* sponsors avatars */
+
+div.sponsors-avatars-top {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0;
+    margin-left: -15px;
+  }
+
+div.sponsors-avatars-bottom {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin-left: -10px;
+  }
+
+  div.sponsors-avatar-top {
+    padding: 0.5em;
+    max-width: 25%;
+    min-width: 145px;
+    text-align: center;
+  }
+
+  div.sponsors-avatar-bottom {
+    padding: 0.2em;
+    max-width: 15%;
+    min-width: 80px;
+    text-align: center;
+  }
+
+  div.sponsors-avatar-top .avatar {
+    width: 100%;
+    border-radius: 50%;
+  }
+
+  div.sponsors-avatar-bottom .avatar {
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 50%;
+  }
+
 span.raw-html .fa-heart {
     color: #ea4aaa;
 }

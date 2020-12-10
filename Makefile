@@ -46,7 +46,7 @@ psycopg2/doc/src/_templates/layout.html: templates/docs-layout.html databags/ana
 
 # Build psycopg3 docs
 
-docs3: psycopg3/docs/.venv psycopg3/docs/_templates/layout.html
+docs3: psycopg3/docs/.venv psycopg3/docs/_templates/layout.html templates/_sponsors.html
 	$(MAKE) SPHINXBUILD=.venv/bin/sphinx-build PSYCOPG3_IMPL=python -C psycopg3/docs html
 
 psycopg3/docs/.venv: psycopg3/README.rst
@@ -61,3 +61,6 @@ psycopg3/README.rst:
 psycopg3/docs/_templates/layout.html: templates/docs3-layout.html databags/analytics.json
 	mkdir -p $(dir $@)
 	TRACKING_ID=${TRACKING_ID} envsubst < $< > $@
+
+templates/_sponsors.html: psycopg3/BACKERS.yaml tools/make_sponsors.py
+	$(PYTHON) tools/make_sponsors.py < $< > $@

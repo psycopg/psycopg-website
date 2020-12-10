@@ -5,3 +5,4 @@
 /build
 /psycopg2
 /psycopg3
+templates/_sponsors.html
