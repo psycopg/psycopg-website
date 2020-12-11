@@ -289,6 +289,7 @@ div.sponsors-avatars-top {
 div.sponsors-avatars-bottom {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     padding: 0;
     margin-left: -10px;
   }
