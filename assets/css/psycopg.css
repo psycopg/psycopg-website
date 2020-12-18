@@ -276,52 +276,72 @@ div.splash-icon .icon {
   padding: 1em;
 }
 
-/* sponsors avatars */
-
-div.sponsors-avatars-top {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 0;
-    margin-left: -15px;
-  }
-
-div.sponsors-avatars-bottom {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 0;
-    margin-left: -10px;
-  }
-
-  div.sponsors-avatar-top {
-    padding: 0.5em;
-    max-width: 25%;
-    min-width: 145px;
-    text-align: center;
-  }
-
-  div.sponsors-avatar-bottom {
-    padding: 0.2em;
-    max-width: 15%;
-    min-width: 80px;
-    text-align: center;
-  }
-
-  div.sponsors-avatar-top .avatar {
-    width: 100%;
-    border-radius: 50%;
-  }
-
-  div.sponsors-avatar-bottom .avatar {
-    width: 100%;
-    padding: 0.5em;
-    border-radius: 50%;
-  }
-
 span.raw-html .fa-heart {
     color: #ea4aaa;
 }
+
+
+/* sponsors avatars */
+
+div.sponsors-avatars {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0;
+    margin-bottom: 3em;
+}
+
+div.sponsors-avatar {
+    text-align: center;
+    padding: 0.5em;
+}
+
+div.sponsors-avatars img.avatar {
+    border-radius: 50%;
+}
+
+div.sponsors-avatars div.sponsor-name {
+    color: #444;
+}
+
+div.sponsors-avatars-top div.sponsor-name {
+    font-size: 130%;
+    margin-top: 0.75em;
+}
+
+div.sponsors-avatars-top div.sponsors-avatar {
+    padding: 1em;
+}
+
+div.sponsors-avatars-top img.avatar {
+    width: 270px;
+}
+
+
+div.sponsors-avatars-mid div.sponsor-name {
+    font-size: 100%;
+    margin-top: 0.5em;
+}
+
+div.sponsors-avatars-mid div.sponsors-avatar {
+    padding: 0.5em;
+}
+
+div.sponsors-avatars-mid img.avatar {
+    width: 150px;
+}
+
+
+div.sponsors-avatars-bottom div.sponsors-avatar {
+    padding: 0.2em;
+}
+
+div.sponsors-avatars-bottom img.avatar {
+    width: 80px;
+}
+
+
+/* footer */
 
 p.footer {
     color: #888;
