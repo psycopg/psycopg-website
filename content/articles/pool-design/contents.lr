@@ -1,0 +1,337 @@
+title: Designing a connection pool for psycopg3
+---
+pub_date: 2021-01-17
+---
+author: Daniele Varrazzo
+---
+_discoverable: no
+---
+tags:
+
+psycopg3
+development
+---
+body:
+
+The `psycopg2 pool`__ is a pretty simple object, little more than... a pool of
+open connections, and I think it falls short in several ways:
+
+.. __: https://www.psycopg.org/docs/pool.html
+
+- the top usability problem is the fact that it cannot be used as context
+  manager;
+
+- if a connection is broken it is not noticed it until it is used by a client;
+
+- if ``minconn`` connections are already taken, a new one is created and
+  disposed of as soon as finished using, regardless of whether other clients
+  may need it;
+
+- if more than ``maxconn`` connections are requested the client will receive
+  an error.
+
+For ``psycopg3`` I would like something better. I have read around looking
+into other pool implementations to figure out what a "better" connection pool
+ought to do (a very well thought one seems `HikariCP`__, a Java connection
+pool) and these are a few ideas I'd like to work on, here for a feedback
+before I jump into implementing enthusiastically the wrong thing.
+
+.. __: https://github.com/brettwooldridge/HikariCP
+
+.. CUT-HERE
+
+
+Client interface
+================
+
+Context manager
+---------------
+
+In modern Python it is expected that resources are handled by a context
+manager, so the canonical way to use a pooled connection should be:
+
+.. code:: python
+
+    with pool.connection() as conn:
+        cur = conn.cursor()
+        cur.execute("...")
+        consume_data(cur.fetchall())
+
+Note that, because there is a `Connection.execute()`__ method, the minimal use
+would be:
+
+.. __: https://www.psycopg.org/psycopg3/docs/connection.html#psycopg3.Connection.execute
+
+.. code:: python
+
+    with pool.connection() as conn:
+        conn.execute(DML_QUERY)
+
+
+Blocking behaviour
+------------------
+
+Another important usability point is the behaviour in the face of an exhausted
+pool: the sane behaviour here is to block, with a timeout, so that in the face
+of a spike there is a buffer before requests start to get killed. I would
+expect no crash here:
+
+.. code:: python
+
+    async def worker(conn, work_for_sec):
+        await conn.execute("select pg_sleep(%s)", (work_for_sec,))
+
+    pool = psycopg3.AsyncPool(maxconn=4, connection_timeout_sec=1.0):
+    for i in range(8):
+        async with pool.connection():
+            create_task(worker(conn, work_for_sec=0.5))
+
+Which also illustrates that, as many other objects in ``psycopg3``, there
+would be an asyncio_ version of the object and a sync one (which would work
+with normal threads and with eventlet/gevent green threads).
+
+.. _asyncio: https://docs.python.org/3/library/asyncio.html
+
+
+Connection configuration
+------------------------
+
+There should be a way to configure a Python connection, for instance to
+register adapters, before it is available to the application. Is subclassing
+the best way to do it? Someone might find more useful to choose dynamically
+what configuration to use.
+
+.. code:: python
+
+    # Subclassing:
+
+    class MyPool(psycopg3.pool):
+        def configure(self, conn):
+            MyAdapter.register(conn)
+            return conn
+
+    pool = MyPool()
+
+    # Configuring:
+
+    def my_configure(self, conn):
+        MyAdapter.register(conn)
+        return conn
+
+    pool = psycopg3.Pool(configure_func=my_configure)
+
+
+
+Exclusive connections?
+----------------------
+
+Should there be a way to create an exclusive connection? Sometimes I need
+one, in an otherwise pooled application, e.g. to receive notifications:
+
+.. code:: python
+
+    def listen_notifications():
+        with pool.exclusive() as conn:
+            conn.autocommit = True
+            for notify in conn.cursor().notifies():
+                handle_notification(notify)
+
+But I don't think there is such need if the connection parameters are made
+available on the pool:
+
+.. code:: python
+
+    pool = Pool(maxconn=config.pool_maxconn, args=(config.db_dsn,))
+
+    def listen_notifications():
+        with psycopg3.connect(*pool.args, **pool.kwargs):
+            conn.autocommit = True
+            for notify in conn.cursor().notifies():
+                handle_notification(notify)
+
+which leaves to the user the choice between what connection class to use,
+how to configure it, etc. So that's probably not so useful.
+
+
+Internal behaviour
+==================
+
+Pool worker
+-----------
+
+If we desire the pool to be a fast provider of connection, not slowing down
+the application operations, certain things should happen behind the scene:
+
+- do we have a spike, so we need more connections?
+
+- do we have a moment of calm, so we can do with less connections?
+
+- are the connections in the pool still sane?
+
+A trivial behaviour would be something like "if there are no connections
+available create a new one":
+
+.. code:: python
+
+    class Pool:
+        def getconn(self):
+            if not self._pool():
+                newconn = psycopg3.connect(*self.args, **self.kwargs)
+                self._put_it_in_the_pool_when_done(newconn)
+                return newconn
+
+This `interesting article`__ shows that this might not be the best way to do
+it, especially if the connection time is particularly long compared to the
+processing time. Growing the pool could be demanded to a background worker,
+following a strategy like:
+
+.. __: https://github.com/brettwooldridge/HikariCP/blob/dev/documents/Welcome-To-The-Jungle.md
+
+.. code:: python
+
+    class Pool:
+        def getconn(self):
+            if not self._pool():
+                self.worker.create_a_new_connection_and_put_it_in_the_pool()
+            return self.wait_for_a_connection_from_the_pool()
+
+If there is a workers infrastructure in place there can me more jobs for them:
+periodically checking for the state of the unused connections in the pool, for
+instance, or closing them if they have been alive more than a configured
+amount of time (30 minutes?) and replacing them with a fresh one (or not
+replacing them in case we have more than ``minconn`` connections no more as
+much pressure as when there was a spike.
+
+
+Connections usage pattern
+-------------------------
+
+In which order should the connections in the pool be used? As a stack (put
+back a connection on top of the stack, it will be the next one to use)? As a
+queue (put back the connection at the bottom of the queue, try to use them
+uniformly)? Randomly (whatever comes out from whatever hash map used to keep
+the connection)?
+
+Is there a reason to prefer one way or the other? ISTM that a stack behaviour
+allows a better reuse of prepared statements and an easy implementation of
+the ``max_idle_sec`` parameter (get connection from the top of the stack,
+evict idle ones from the bottom).
+
+
+Proposed API
+============
+
+Given the behaviour described, the pool's interface might look like:
+
+``connection(timeout_sec=None)`` method:
+    Open a context block and return a connection from the pool. The connection
+    is returned to the pool at the end of the block.
+
+    On block exit, if a transaction is open, **commit or roll back** an open
+    transaction, according to whether an exception has been raised in the
+    block, consistently with what the `connection block`__ does.
+
+    .. __: https://www.psycopg.org/psycopg3/docs/transactions.html#transaction-blocks
+
+
+``getconn(timeout_sec)``, ``putconn(conn)`` methods:
+    Obtain a connection from the pool and return it. To use if, for some
+    reason, the context manager cannot be used.
+
+    On ``putconn()`` check the state of the connection: if it is broken
+    dispose of it and create a new one; if in state of transaction of error
+    **roll back the transaction**, consistently with what
+    `Connection.close()`__ does.
+
+    .. __: https://www.psycopg.org/psycopg3/docs/connection.html#psycopg3.Connection.close
+
+
+``configure(conn)``:
+    Configure a connection before making it available to the pool. The default
+    implementation is no-op: subclasses may override it to configure the
+    connections; alternatively a ``configure_func`` might be passed to the
+    ``Pool`` constructor.
+
+
+``get_info()``:
+    Return stats about the behaviour of the pool so far (connections open,
+    reused, returned...) for monitoring.
+
+
+``get_maintenance_task()``:
+    Get the next maintenance task to perform on the pool. Having them
+    available externally would make possible to have full control of when such
+    tasks are executed (useful for testing or to provide some sort of
+    sync behaviour, using no background worker).
+
+    Experimental idea: will drop it if it would make the pool implementation
+    more difficult than it should be.
+
+
+Key configuration knobs
+-----------------------
+
+``minconn``:
+  Minimum number of connections to keep open in the pool. If some
+  are closed the pool should try to create new ones as quickly as
+  possible to replace them. Proposed default: 4 (very defensive, to enable
+  pool behaviour but avoid to saturate a server unless configured up).
+
+``maxconn``:
+  Maximum number of connections to open at any given time. If
+  ``maxconn`` By default ``maxconn`` == ``minconn``, meaning that no extra
+  connection is created in case more client requests arrive. If ``maxconn`` >
+  ``minconn`` the pool can create new connections if demand increases; later
+  on the extra ``maxconn`` - ``minconn`` connections may be closed if deemed
+  no more required (default: ``minconn``).
+
+``args``, ``kwargs``:
+  Arguments to pass to the ``connection_factory`` to create a new connection
+  (default: empty, connect as per `PG* env vars`__, like
+  ``psycopg3.connect()``).
+
+  .. __: https://www.postgresql.org/docs/current/libpq-envars.html
+
+``connection_factory``:
+  The connection class to create (default: `Connection`__ for ``Pool``,
+  `AsyncConnection`__ for ``AsyncPool``).
+
+  .. __: https://www.psycopg.org/psycopg3/docs/connection.html#psycopg3.Connection
+  .. __: https://www.psycopg.org/psycopg3/docs/connection.html#psycopg3.AsyncConnection
+
+``configure_function``:
+  A function to configure the connection after its creation and before making
+  it available to the pool. Alternative to subclassing the ``Pool`` class to
+  configure ``Pool.configure()``. It can be a callable taking a connection as
+  parameter, or the dotted name of such callable, so that e.g. the function
+  name might be passed to the application as an env var.
+
+``timeout_sec``:
+  Default timeout before raising an exception if a connection
+  cannot be served. It may be overridden by
+  ``Pool.connection(timeout_sec=...)`` (default: 30 sec).
+
+``max_idle_sec``:
+  Time a connection can sit idle in the pool before being removed. Only
+  connections above ``minconn`` are removed, if ``maxconn`` allows to create
+  them.
+
+``max_lifetime_sec``:
+  Maximum time a connection should be kept in the pool
+  and used. After such time, when the connection is not in use, it can be
+  closed and replaced by a new one (default: 30 minutes - 10% random factor to
+  avoid mass evictions).
+
+``num_workers``:
+  Number of background workers to perform maintenance tasks. If no worker is
+  desired the dynamic characteristics of the pool are downgraded (creating a
+  new connection will be demanded to the requesting task). Background jobs
+  might be executed by the application calling ``get_maintenance_task()``
+  (default: 3).
+
+
+Thoughts?
+=========
+
+Please let me know what you think your Best Ever Connection Pool for psycopg3
+should do. Thank you very much!
