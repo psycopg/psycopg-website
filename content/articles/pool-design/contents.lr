@@ -30,11 +30,11 @@ open connections, and I think it falls short in several ways:
 - if more than ``maxconn`` connections are requested the client will receive
   an error.
 
-For ``psycopg3`` I would like something better. I have read around looking
-into other pool implementations to figure out what a "better" connection pool
-ought to do (a very well thought one seems `HikariCP`__, a Java connection
-pool) and these are a few ideas I'd like to work on, here for a feedback
-before I jump into implementing enthusiastically the wrong thing.
+For ``psycopg3`` I would like something better. I have read around, looking
+into other pool implementations to figure out what a well designed connection
+pool ought to do (a very well thought one seems the Java `HikariCP`__) and
+these are a few ideas I'd like to work on: they are here for a feedback,
+before I jump into enthusiastically implementing the wrong thing...
 
 .. __: https://github.com/brettwooldridge/HikariCP
 
@@ -72,9 +72,10 @@ Blocking behaviour
 ------------------
 
 Another important usability point is the behaviour in the face of an exhausted
-pool: the sane behaviour here is to block, with a timeout, so that in the face
-of a spike there is a buffer before requests start to get killed. I would
-expect no crash here:
+pool: the sane behaviour here is to block: not forever, but until either a
+connection is available or until a timeout expires, and only then throw an
+exception, so that in the face of a spike there is a buffer before requests
+start to get killed. I would expect no crash here:
 
 .. code:: python
 
@@ -88,7 +89,7 @@ expect no crash here:
 
 Which also illustrates that, as many other objects in ``psycopg3``, there
 would be an asyncio_ version of the object and a sync one (which would work
-with normal threads and with eventlet/gevent green threads).
+with normal threads and with Eventlet/gevent green threads).
 
 .. _asyncio: https://docs.python.org/3/library/asyncio.html
 
@@ -175,10 +176,13 @@ available create a new one":
 
     class Pool:
         def getconn(self):
-            if not self._pool():
-                newconn = psycopg3.connect(*self.args, **self.kwargs)
-                self._put_it_in_the_pool_when_done(newconn)
-                return newconn
+            conn = self._get_a_connection_from_the_pool()
+            if conn:
+                return conn
+            else:
+                conn = psycopg3.connect(*self.args, **self.kwargs)
+                self._put_it_in_the_pool_when_done(conn)
+                return conn
 
 This `interesting article`__ shows that this might not be the best way to do
 it, especially if the connection time is particularly long compared to the
@@ -198,9 +202,36 @@ following a strategy like:
 If there is a workers infrastructure in place there can me more jobs for them:
 periodically checking for the state of the unused connections in the pool, for
 instance, or closing them if they have been alive more than a configured
-amount of time (30 minutes?) and replacing them with a fresh one (or not
-replacing them in case we have more than ``minconn`` connections no more as
-much pressure as when there was a spike.
+amount of time (30 minutes?) and replacing them with a fresh one, (or not
+replacing them in case we have more than ``minconn`` connections and a
+previous spike has now passed).
+
+
+What to do in case of connection failure?
+-----------------------------------------
+
+The pool acts as a shield helping the application to reconnect in case the
+connection with the database is lost. However, when does this behaviour stop
+being sane? If the database is unreachable - maybe misconfigured, maybe moved
+- there is a risk that the application doesn't die, because the pool keeps
+insisting to reconnect, but it doesn't work either, because there is no
+working database connection.
+
+In my experience with live systems this can be a difficult condition to
+diagnose: several times I have wished that an application, screaming loud on a
+dashboard, instead of trying to stay up complaining quietly in some logging
+stream. On the other hand maybe the state the application holds is precious
+enough that it can be worth to wait a few minutes before crashing and burning.
+
+A first step towards a sane behaviour could be to die early, on startup, if
+the connection is not working when the first pool population is done: the
+program would fail hard and fast if the database - assumed to be a
+prerequisite - is nowhere to be found.
+
+What if the database is missing in action during the program lifetime?
+Following connection attempts may be repeated, with an exponential backoff,
+until dying after a few minutes of fruitless attempts (with a ``sys.exit(1)``
+or some other termination function which might be subclassed.
 
 
 Connections usage pattern
@@ -214,14 +245,22 @@ the connection)?
 
 Is there a reason to prefer one way or the other? ISTM that a stack behaviour
 allows a better reuse of prepared statements and an easy implementation of
-the ``max_idle_sec`` parameter (get connection from the top of the stack,
-evict idle ones from the bottom).
+the ``max_idle_sec`` parameter (get connections from the top of the stack,
+evict idle ones from the bottom). I am sure I haven't thought about this well
+enough though.
 
 
 Proposed API
 ============
 
-Given the behaviour described, the pool's interface might look like:
+Given the behaviour described, the methods available on the pool object might
+look like the ones described here.
+
+The interface would be implemented in two version: a ``Pool`` class
+using normal blocking functions and threads for concurrency (which greenlet
+libraries such as Eventlet or gevent would be able to monkeypatch) and an
+``AsyncPool`` implementation using the usual ``await`` and ``async with`` on
+blocking methods and using ``asyncio.Task`` for concurrency.
 
 ``connection(timeout_sec=None)`` method:
     Open a context block and return a connection from the pool. The connection
@@ -246,6 +285,12 @@ Given the behaviour described, the pool's interface might look like:
     .. __: https://www.psycopg.org/psycopg3/docs/connection.html#psycopg3.Connection.close
 
 
+``close()``
+    Close all the connections in the pool. Further attempts to create a new
+    connection will fail immediately with a helpful message (like, "dude,
+    what do you want to do, seriously?")
+
+
 ``configure(conn)``:
     Configure a connection before making it available to the pool. The default
     implementation is no-op: subclasses may override it to configure the
@@ -258,6 +303,12 @@ Given the behaviour described, the pool's interface might look like:
     reused, returned...) for monitoring.
 
 
+``terminate()``
+    Terminate the program, invoked by a pool worker after connection attempts
+    have been repeatedly fruitless. It is exposed to allow overriding the
+    default behaviour (`sys.exit(1)`) in a subclass.
+
+
 ``get_maintenance_task()``:
     Get the next maintenance task to perform on the pool. Having them
     available externally would make possible to have full control of when such
@@ -268,22 +319,24 @@ Given the behaviour described, the pool's interface might look like:
     more difficult than it should be.
 
 
-Key configuration knobs
------------------------
+Key configuration parameters
+----------------------------
+
+These parameter would be passed to the class constructor.
 
 ``minconn``:
-  Minimum number of connections to keep open in the pool. If some
-  are closed the pool should try to create new ones as quickly as
-  possible to replace them. Proposed default: 4 (very defensive, to enable
-  pool behaviour but avoid to saturate a server unless configured up).
+  Minimum number of connections to keep open in the pool. If some are closed
+  the pool should try to create new ones as quickly as possible to replace
+  them. Proposed default: 4 (very defensive: to enable the pooling behaviour
+  but to avoid to saturate a server unless configured up).
 
 ``maxconn``:
-  Maximum number of connections to open at any given time. If
-  ``maxconn`` By default ``maxconn`` == ``minconn``, meaning that no extra
-  connection is created in case more client requests arrive. If ``maxconn`` >
-  ``minconn`` the pool can create new connections if demand increases; later
-  on the extra ``maxconn`` - ``minconn`` connections may be closed if deemed
-  no more required (default: ``minconn``).
+  Maximum number of connections to open at any given time. If ``maxconn`` ==
+  ``minconn`` no extra connection is created in case more client requests
+  arrive: they will just wait until a connection is made available again. If
+  ``maxconn`` > ``minconn`` the pool can create new connections if the demand
+  increases; later the extra connections created may be closed if deemed no
+  more required (default: ``minconn``).
 
 ``args``, ``kwargs``:
   Arguments to pass to the ``connection_factory`` to create a new connection
@@ -311,23 +364,29 @@ Key configuration knobs
   cannot be served. It may be overridden by
   ``Pool.connection(timeout_sec=...)`` (default: 30 sec).
 
-``max_idle_sec``:
-  Time a connection can sit idle in the pool before being removed. Only
-  connections above ``minconn`` are removed, if ``maxconn`` allows to create
-  them.
-
 ``max_lifetime_sec``:
   Maximum time a connection should be kept in the pool
   and used. After such time, when the connection is not in use, it can be
   closed and replaced by a new one (default: 30 minutes - 10% random factor to
   avoid mass evictions).
 
+``max_idle_sec``:
+  Time a connection can sit idle in the pool before being removed. Only
+  connections above ``minconn`` are removed, if ``maxconn`` allows to create
+  them (default: 10 min + 10% random).
+
+``terminate_after_sec``:
+  Number of seconds to wait for a reconnection attempt before giving up and
+  terminate the program, calling ``Pool.terminate()`` (default: 5 min,
+  starting from 1sec ± 10%, doubled up until the precise threshold, then
+  kaputt).
+
 ``num_workers``:
-  Number of background workers to perform maintenance tasks. If no worker is
-  desired the dynamic characteristics of the pool are downgraded (creating a
-  new connection will be demanded to the requesting task). Background jobs
-  might be executed by the application calling ``get_maintenance_task()``
-  (default: 3).
+  Number of background workers to perform maintenance tasks. If set to 0 the
+  dynamic characteristics of the pool might be downgraded (e.g. creating a new
+  connection will happen in the requesting thread, blocking it for the time it
+  takes). Background jobs might be executed by the application calling
+  ``get_maintenance_task()`` (default: 3).
 
 
 Thoughts?
