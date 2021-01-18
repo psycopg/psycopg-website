@@ -306,7 +306,7 @@ blocking methods and using ``asyncio.Task`` for concurrency.
 ``terminate()``
     Terminate the program, invoked by a pool worker after connection attempts
     have been repeatedly fruitless. It is exposed to allow overriding the
-    default behaviour (`sys.exit(1)`) in a subclass.
+    default behaviour (``sys.exit(1)``) in a subclass.
 
 
 ``get_maintenance_task()``:
