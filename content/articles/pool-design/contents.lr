@@ -231,7 +231,7 @@ prerequisite - is nowhere to be found.
 What if the database is missing in action during the program lifetime?
 Following connection attempts may be repeated, with an exponential backoff,
 until dying after a few minutes of fruitless attempts (with a ``sys.exit(1)``
-or some other termination function which might be subclassed.
+or some other termination function which might be subclassed).
 
 
 Connections usage pattern
