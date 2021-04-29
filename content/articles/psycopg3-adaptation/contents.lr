@@ -161,7 +161,7 @@ encoding, can be made once for each Python type, rather than once per value,
 doing radically less work for each converted object. You can check out the
 `psycopg3 adaptation documentation`__ for all the details.
 
-.. __: https://www.psycopg.org/psycopg3/docs/adaptation.html
+.. __: https://www.psycopg.org/psycopg3/docs/advanced/adapt.html
 
 
 Customising psycopg3 adaptation
@@ -216,8 +216,8 @@ subclass of the builtin loader (or using an entirely new object if required):
     cur.execute("select '2020-12-31'::date, 'infinity'::date").fetchone()
     (datetime.date(2020, 12, 31), datetime.date(9999, 12, 31))
 
-.. _Dumper: https://www.psycopg.org/psycopg3/docs/adaptation.html#psycopg3.adapt.Dumper
-.. _Loader: https://www.psycopg.org/psycopg3/docs/adaptation.html#psycopg3.adapt.Loader
+.. _Dumper: https://www.psycopg.org/psycopg3/docs/advanced/adapt.html#psycopg3.adapt.Dumper
+.. _Loader: https://www.psycopg.org/psycopg3/docs/advanced/adapt.html#psycopg3.adapt.Loader
 
 The customisation automatically applies to recursive types, such as arrays or
 composite types: if the date loader is customised then the date array works as
