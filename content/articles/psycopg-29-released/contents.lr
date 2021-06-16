@@ -1,0 +1,55 @@
+title: Psycopg 2.9 released
+---
+pub_date: 2021-06-16
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+release
+---
+body:
+
+Psycopg 2.9 has been released!
+
+.. role:: raw-html(raw)
+   :format: html
+
+This is a relatively small release compared to previous major releases.
+However the creation of the packages took a lot of effort. The previously used
+CI system now has reduced support for free software projects - it was decided
+that package building should be moved to GitHub Actions.
+
+Packaging has also become more complex because of the evolution of the Python
+packaging standards and the need to support multiple architectures (Intel,
+ARM, PPC...).
+
+Maintaining a project such as Psycopg requires a lot of effort. For this
+reason, we are extremely grateful to all our sponsors__ who are enabling the
+maintenance and development of Psycopg. Thank you very much! :raw-html:`<i
+class="fa fa-heart"></i>`
+
+.. __: https://www.psycopg.org/sponsors/
+
+
+.. CUT-HERE
+
+What’s new in psycopg 2.9
+
+- ``with connection`` starts a transaction on autocommit transactions too (:ticket:`#941`).
+- Timezones with fractional minutes are supported on Python 3.7 and following (:ticket:`#1272`).
+- Escape table and column names in ``copy_from()`` and ``copy_to()``.
+- Connection exceptions with sqlstate 08XXX reclassified as ``OperationalError`` (a subclass of the previously used ``DatabaseError``) (:ticket:`#1148`).
+- Include library dirs required from libpq to work around MacOS build problems (:ticket:`#1200`).
+
+Other changes:
+
+- Dropped support for Python 2.7, 3.4, 3.5 (:ticket:`#1198`, :ticket:`#1000`, :ticket:`#1197`).
+- Dropped support for ``mx.DateTime``.
+- Use ``datetime.timezone`` objects by default in ``datetime`` objects instead of ``FixedOffsetTimezone``.
+- The ``psycopg2.tz`` module is deprecated and scheduled to be dropped in the next major release.
+- Provide :pep:`599` wheels packages (``manylinux2014`` tag) for ``i686`` and ``x86_64`` platforms.
+- Provide :pep:`600` wheels packages (``manylinux_2_24`` tag) for ``aarch64`` and ``ppc64le`` platforms.
+- Wheel package compiled against OpenSSL 1.1.1k and PostgreSQL 13.3.
+- Build system for Linux/MacOS binary packages moved to GitHub Actions.
