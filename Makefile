@@ -8,7 +8,7 @@ DOC3_BRANCH=master
 TRACKING_ID = $(shell jq --raw-output '.tracking_id' databags/analytics.json)
 
 build: docs docs3
-	test "$$TRAVIS" = "true" || test -d build/.git \
+	test "$$CI" = "true" || test -d build/.git \
 		|| git clone git@github.com:psycopg/psycopg.github.io.git build
 	echo 'y' | $(LEKTOR) build -O build
 
