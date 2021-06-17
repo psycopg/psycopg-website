@@ -16,7 +16,7 @@ serve:
 	$(LEKTOR) serve
 
 setup:
-	test -x $(PYTHON) || virtualenv -p python3 env
+	test -x $(PYTHON) || python3 -m venv env
 	test -x $(LEKTOR) || env/bin/pip install -r requirements.txt
 
 publish:
