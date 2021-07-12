@@ -47,7 +47,7 @@ psycopg2/doc/src/_templates/layout.html: templates/docs-layout.html databags/ana
 # Build psycopg3 docs
 
 docs3: psycopg3/docs/.venv psycopg3/docs/_templates/layout.html templates/_sponsors.html
-	$(MAKE) SPHINXBUILD=.venv/bin/sphinx-build PSYCOPG3_IMPL=python -C psycopg3/docs html
+	$(MAKE) SPHINXBUILD=.venv/bin/sphinx-build PSYCOPG_IMPL=python -C psycopg3/docs html
 
 psycopg3/docs/.venv: psycopg3/README.rst
 	$(MAKE) PYTHON=$(PYTHON) -C psycopg3/docs env
