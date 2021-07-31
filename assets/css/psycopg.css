@@ -256,6 +256,10 @@ div.article .inline-right {
     margin-right: auto;
 }
 
+div.figure {
+  margin-bottom: 0.5em;
+}
+
 
 /* psycopg3 landing page */
 
