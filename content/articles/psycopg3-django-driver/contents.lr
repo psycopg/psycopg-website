@@ -45,13 +45,13 @@ pass the entire Django test suite!
 The implementation of the Django backend actually started several months ago,
 but it can be seen, from the test progression above, that its development had
 been suspended for several months. The problem, in the first attempts, was
-that too much of the Django code was in the need for being adapted: this was a
-sign telling that the changes needed to use the new adapter were too invasive
+that too much of the Django code was in need of being adapted: this was a
+sign that the changes needed to use the new adapter were too invasive
 and that the same type of difficulties would have been met by everyone trying
-to replace Psycopg 2 for Psycopg 3. Back to the design board then, but 
-hopefully the resulting adapter will behave without surprise and will not
-force to change every query in your program (which would have been a deal
-breaker in most of the non-trivial projects).
+to replace Psycopg 2 with Psycopg 3. Back to the design board then, but 
+hopefully the resulting adapter will behave accordingly and will not
+forcibly change every query in your program (which would have been a deal
+breaker for most non-trivial projects).
 
 The backend cannot be used with the current Django version: `a few
 modifications`__ to the Django codebase are needed in order to use it. These
@@ -63,22 +63,22 @@ Django releases.
 
 The aim of this article is to take a look at some of these modifications, to
 understand where the behaviour of Psycopg 3 diverges from its well known
-predecessor, and how to work around the differences.
+predecessor and how to work around the differences.
 
 
 Server-side parameters binding
 ------------------------------
 
-Many of the changes are the consequence of using server-side binding for the
+Many of these changes are the consequence of using server-side binding for the
 query parameters (using the libpq `PQexecParams()`_ function), instead of
 merging the arguments to the query on the client-side and using the simpler
 `PQexec()`_ function.
 
 In the ``PQexec()`` case, the Postgres query parser has access to the literal
-values in the context where they are used, and it looks like it is able to use
-this information in ways we don't appreciate... until we lose them. Do you
+values in the context where they are used and it looks like it is able to use
+this information in ways we don't appreciate...until we lose them. Do you
 think that ``text`` is the best PostgreSQL data type to convert Python strings
-to? I wish it was so simple. An experiment using the `psycopg.pq`_ objects,
+to? I wish it was so simple. Below is an experiment with the `psycopg.pq`_ objects,
 the low level libpq wrapper that Psycopg 3 exposes:
 
 .. code:: pycon
@@ -101,13 +101,13 @@ the low level libpq wrapper that Psycopg 3 exposes:
     # HINT:  You will need to rewrite or cast the expression.
 
 Specifying the ``text`` Postgres type is an exessivelly strict type
-indication: in most cases Postgres will not be able to convert automatically
+indication: in most cases, Postgres will not be able to automatically convert 
 the value to the required type.
 
 When we use a literal ``'{}'`` in the query, we are specifying an *untyped
 literal*. `Postgres docs`__ say that we can do the same using 0 as type OID for
-the parameter (see the ``paramTypes[]`` description). But it turns out not to
-be always the case. For instance:
+the parameter (see the ``paramTypes[]`` description). But it seems this isn't 
+always the case. For instance:
 
 .. code:: pycon
 
@@ -123,10 +123,10 @@ be always the case. For instance:
 
 This problem doesn't happen with every function: it seems to be only a problem
 with "variadic" functions, such as ``concat()`` or ``json_build_object()``. As
-sporadic as it is, it doesn't seem like there is an universally correct way of
+sporadic as it is, it doesn't seem like there is a universally correct way of
 mapping Python types to PostgreSQL type OIDs: we can try to get it right *most
-of the cases* (so, by default, Psycopg 3 dumps Python strings using the OID 0)
-but places where this isn't right do exist... And they exist in Django, of
+of the time* (so, by default, Psycopg 3 dumps Python strings using the OID 0),
+but places where this isn't right do exist...and they exist in Django, of
 course.
 
 .. _PQexecParams(): https://www.postgresql.org/docs/13/libpq-exec.html#LIBPQ-PQEXECPARAMS
@@ -138,7 +138,7 @@ There are two different ways to work around the problem, both have their
 merit and one might be easier to use than the other in different contexts.
 
 - Add a cast to the placeholder: specifying ``%s::text`` (or other types) in
-  your query it is possible to disambiguate the type where "unknown" doesn't
+  your query, it is possible to disambiguate the type where "unknown" doesn't
   work:
 
   .. code:: pycon
@@ -183,8 +183,8 @@ merit and one might be easier to use than the other in different contexts.
   .. __: https://github.com/django/django/compare/stable/3.2.x...dvarrazzo:psycopg3-support
          #diff-444d9c5689a90ceeb46dc42d947ff042d67d5fa229e633734afbe1235604ec28
 
-Note that both the solutions make the queries compatible both with Psycopg 2
-and 3: the ``%s::text`` casts are no problem in ``psycopg2`` queries, and
+Note that both the solutions make the queries compatible with Psycopg 2
+and 3: the ``%s::text`` casts are no problem in ``psycopg2`` queries and
 ``psycopg2`` is smart enough to notice that ``Text`` is a ``str`` subclass and
 to apply the same conversion rules used for the vanilla strings.
 
@@ -215,8 +215,8 @@ parameters:
     ...     .format(sql.Literal(42))
     ... )
 
-A similar module is `available in psycopg2 too`__, so it is easy to write code
-working for both the version: pretty much only the ``import`` statement needs
+A similar module is `available in psycopg2 too`__ so it is easy to write code
+that works for both versions: it's just the ``import`` statement that needs
 to be changed.
 
 .. _psycopg.sql: https://www.psycopg.org/psycopg3/docs/api/sql.html
@@ -230,7 +230,7 @@ A different package organisation
 This is less mysterious to understand. The ``psycopg2`` package has a bit of a
 chaotic organisation, with a couple of kitchen-sink modules (``extensions``
 and ``extras``) containing a bit of everything: cursor subclasses, extra data
-types, utility functions, symbolic constants... Starting from Psycopg 3 the
+types, utility functions, symbolic constants...starting from Psycopg 3, the
 package is organised in a more rational way and `separated in different
 modules and sub-packages`__.
 
@@ -249,11 +249,11 @@ adoption for users having both experience and codebases in ``psycopg2``. The
 experience of the Django backend porting shows that most of the adjustments
 required fall in these categories:
 
-- different package organisation;
-- over/under-specified types, which can be tweaked via casts and data
-  wrappers;
-- inability to use server-side parameters, which can be worked around with
-  client-side query composition.
+- Different package organisation
+- Over/under-specified types, which can be tweaked via casts and data
+  wrappers
+- Inability to use server-side parameters, which can be worked around with
+  client-side query composition
 
 Hopefully now you know how to address these problems in case you are thinking
-to use Psycopg 3 in your next or current project!
+of using Psycopg 3 in your next or current project!
