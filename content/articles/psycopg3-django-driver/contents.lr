@@ -224,6 +224,85 @@ to be changed.
 .. __: psycopg2.sql_
 
 
+GROUP BY/ORDER BY with parameters
+---------------------------------
+
+Another unexpected problem manifested with tests failing with a message like
+"column *name* must appear in the GROUP BY clause or be used in an aggregate
+function". This type of error appeared in tests leveraging `Django ORM
+aggregation features`__, when the aggregation keys contain parameters.
+
+.. __: https://docs.djangoproject.com/en/3.2/topics/db/aggregation/#topics-db-aggregation
+
+For example, if you want to count your people by grouping them by the first
+two letters of their name, you may use a query such as::
+
+    SELECT left(name, 2) AS prefix, count(*) AS number
+    FROM people
+    GROUP BY left(name, 2)
+    ORDER BY left(name, 2)
+
+If the "2" is actually a parameter, Django ends up composing and executing a
+query like:
+
+.. code:: python
+
+   cursor.execute("""
+       SELECT left(name, %s) AS prefix, count(*) AS number
+       FROM people
+       GROUP BY left(name, %s)
+       ORDER BY left(name, %s)
+       """,
+       [2, 2, 2])
+
+If composed by the client, this query presents no problem, because the server
+query parser can clearly see the same expression in the output column and in
+the group/order predicates. However, moving to use server-side parameters, the
+query would be transformed to::
+
+    SELECT left(name, $1) AS prefix, count(*) AS number
+    FROM people
+    GROUP BY left(name, $2)
+    ORDER BY left(name, $3)
+
+This query could be executed only if the three parameters are the same, but at
+parsing time the server cannot make sure this will be the case, failing with
+the error above.
+
+If this query was under someone's control, it could be easily rewritten using
+named parameters instead of positional ones. I would personally write:
+
+.. code:: python
+
+   cursor.execute("""
+       SELECT left(name, %(len)s) AS prefix, count(*) AS number
+       FROM people
+       GROUP BY left(name, %(len)s)
+       ORDER BY left(name, %(len)s)
+       """,
+       {"len": 2})
+
+which is transformed in a query with a single ``$1`` placeholder used three
+times, and parsed successfully. Unfortunately Django only uses positional
+placeholders throughout its entire codebase and switching to a parameters
+mapping would be a very invasive change. A more localised change is to use
+column aliases: the same query can be rewritten as::
+
+    SELECT left(name, %s) AS prefix, count(*) AS number
+    FROM people
+    GROUP BY 1
+    ORDER BY 1
+
+where "1" refers to the first output column. It is not a particularly loved
+syntax but it turns out useful here.
+
+Probably not every database supports this syntax, so, in the `proposed Django
+changeset`__, new feature parameters can be used to signal that the feature is
+accepted by specific databases, and currently enabled only for PostgreSQL.
+
+.. __: https://github.com/dvarrazzo/django/commit/597b2fcd9b3154bcdcb6946c73d38e62b5ca48e7
+
+
 A different package organisation
 --------------------------------
 
