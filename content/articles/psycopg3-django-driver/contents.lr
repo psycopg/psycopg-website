@@ -236,16 +236,25 @@ modules and sub-packages`__.
 
 .. __: https://www.psycopg.org/psycopg3/docs/api/
 
-So, the bulk of the changes required to use Psycopg 3 is just not to assume
-that talking to PostgreSQL will be done using ``psycopg2``, but to use objects
-according to the driver in use.
+The bulk of the changes required to use Psycopg 3 from Django is just not to
+assume that talking to PostgreSQL will be done using ``psycopg2``, but to
+import and use the objects according to the version of the driver in use.
+
+Note that, with these modifications, Django is able to use both Psycopg 2 and
+3, possibly both in the same project. While this is possible, it might not be
+the average use case in your project: more often than not you will be just
+interested in upgrading from Psycopg 2 to 3. In the simpler case of an update,
+you will just have to change your import statements, assuming unconditionally
+that the ``psycopg`` package is installed (there is no ``psycopg3`` package:
+the same module name will do for the following major versions too) and just
+say goodbye to the glorious workhorse that ``psycopg2`` has been so far. 👋
 
 
 Takeaway points
 ---------------
 
 In the design of Psycopg 3, a great effort has been made to allow a smooth
-adoption for users having both experience and codebases in ``psycopg2``. The
+adoption for users who have experience, and codebases, in ``psycopg2``. The
 experience of the Django backend porting shows that most of the adjustments
 required fall in these categories:
 
