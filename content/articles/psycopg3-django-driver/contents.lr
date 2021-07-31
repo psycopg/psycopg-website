@@ -45,12 +45,12 @@ pass the entire Django test suite!
 The implementation of the Django backend actually started several months ago,
 but it can be seen, from the test progression above, that its development had
 been suspended for several months. The problem, in the first attempts, was
-that too much of the Django code was in need of being adapted: this was a
-sign that the changes needed to use the new adapter were too invasive
-and that the same type of difficulties would have been met by everyone trying
-to replace Psycopg 2 with Psycopg 3. Back to the design board then, but 
-hopefully the resulting adapter will behave accordingly and will not
-forcibly change every query in your program (which would have been a deal
+that too much of the Django code was in need of being adapted: this was a sign
+that the changes needed to use the new adapter were too invasive and that the
+same type of difficulties would have been met by everyone trying to replace
+Psycopg 2 with Psycopg 3. Back to the design board then, but hopefully the
+resulting adapter will behave mostly as you might expect and will not force
+users to change every query in their program (which would have been a deal
 breaker for most non-trivial projects).
 
 The backend cannot be used with the current Django version: `a few
@@ -101,12 +101,12 @@ the low level libpq wrapper that Psycopg 3 exposes:
     # HINT:  You will need to rewrite or cast the expression.
 
 Specifying the ``text`` Postgres type is an exessivelly strict type
-indication: in most cases, Postgres will not be able to automatically convert 
+indication: in most cases, Postgres will not be able to automatically convert
 the value to the required type.
 
 When we use a literal ``'{}'`` in the query, we are specifying an *untyped
 literal*. `Postgres docs`__ say that we can do the same using 0 as type OID for
-the parameter (see the ``paramTypes[]`` description). But it seems this isn't 
+the parameter (see the ``paramTypes[]`` description). But it seems this isn't
 always the case. For instance:
 
 .. code:: pycon
