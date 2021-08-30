@@ -1,0 +1,65 @@
+title: Psycopg 3.0 beta 1 released!
+---
+pub_date: 2021-08-30
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+release
+---
+body:
+
+We are immensely proud to `release on PyPI
+<https://pypi.org/project/psycopg/3.0b1/>`__ the first beta package of Psycopg
+3!
+
+.. CUT-HERE
+
+Psycopg 3 is a complete rewrite of Psycopg 2, maintaining the same fundamental
+libpq wrapper architecture and DB-API interface design, but exposing new
+features to better work with the newer versions of Python and PostgreSQL.
+
+On the Python side, Psycopg 3 allows the use of asyncio-based concurrency and
+static typing. Many improvement to the Python interface make the library much
+simpler and more idiomatic to use,
+
+On the PostgreSQL side, Psycopg 3 makes use of server-side parameters,
+prepared statements, binary parameters, and great support for COPY operations.
+
+But the most outstanding feature of the project is not a technical one:
+Psycopg 3 was made possible by the great generosity of many `sponsors
+<https://www.psycopg.org/sponsors/>`__, who have funded the development of the
+project. Among the many backers, we are especially grateful to `Postgres
+Professional <https://postgrespro.com/>`__ and `Command Prompt, Inc
+<https://www.commandprompt.com/>`__, which have given the most outstanding
+support. But many other companies and individuals, each one in their capacity,
+have shown concrete support for free software development and progress. We
+sincerely hope that you will find this work useful and that you will feel
+proud for having contributed to it.
+
+https://www.psycopg.org/sponsors/
+
+Where do we go from here? The hope is that the interface of the adapter will
+not change excessively before a definitive 3.0 release: the project has
+already been used in a few production environments, in the past months, and a
+lot of real world feedback has already helped to improve the interface and
+functionalities. We invite you to test the project and give us your feedback.
+So... ::
+
+    pip install -U pip
+    pip install --pre psycopg[binary]
+
+Please try it, test it, and let us know how it goes!
+
+For more info you can dive into the docs: start from the install__ and usage__
+pages, I'm sure you will find your way.
+
+.. __: https://www.psycopg.org/psycopg3/docs/basic/install.html
+.. __: https://www.psycopg.org/psycopg3/docs/basic/usage.html
+
+Happy hacking!
+
+.. role:: raw-html(raw)
+   :format: html
