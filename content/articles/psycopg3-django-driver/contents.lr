@@ -100,7 +100,7 @@ the low level libpq wrapper that Psycopg 3 exposes:
     #                                             ^
     # HINT:  You will need to rewrite or cast the expression.
 
-Specifying the ``text`` Postgres type is an exessivelly strict type
+Specifying the ``text`` Postgres type is an excessively strict type
 indication: in most cases, Postgres will not be able to automatically convert
 the value to the required type.
 
