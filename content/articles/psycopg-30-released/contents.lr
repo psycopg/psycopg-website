@@ -1,0 +1,45 @@
+title: Psycopg 3.0 released
+---
+pub_date: 2021-10-13
+---
+author: Daniele Varrazzo
+---
+tags:
+
+news
+release
+---
+body:
+
+Hello,
+
+I am extremely excited to announce the first stable release of Psycopg 3!
+
+.. CUT-HERE
+
+Psycopg 3 is a complete rewrite based on the experience accumulated with the
+development and maintenance of psycopg2. Psycopg 3 targets all the current
+versions of Python (3.6-3.10) and PostgreSQL (10-14) and allows the use of
+modern Python development techniques, such as async and statically typed code.
+`A list of the new features <https://www.psycopg.org/psycopg3/docs/>`__ is
+available in the documentation.
+
+This was a long journey: I would like to thank the people who have helped to
+make this project amazing with their ideas and their code: Denis Laxalde (row
+factories), Daniel Fortunov (transaction blocks), Jacopo Farina (PostGIS
+support) and many who have tested, helped, discussed, cheered for us.
+
+And an immense thank you to the sponsors who have made this project possible:
+`Postgres Professional <https://postgrespro.com/>`__ and `Command Prompt
+<https://www.commandprompt.com/>`__ have been our biggest supporters so far,
+but `many companies and individuals <https://www.psycopg.org/sponsors/>`__
+have given their generous contribution. Surely there will be more work to come
+in the future: if you want you can help `sponsoring the project
+<https://github.com/sponsors/dvarrazzo/>`__ too.
+
+If you would like to try out the project please check out the `installation
+and usage instructions
+<https://www.psycopg.org/psycopg3/docs/basic/install.html>`__. We are eager to
+hear your feedback and to share this journey with you.
+
+-- Daniele, on behalf of Psycopg
