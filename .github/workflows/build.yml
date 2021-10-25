@@ -20,6 +20,9 @@ jobs:
         with:
           python-version: "3.8"
 
+      - name: Install requirements to generate Psycopg 3 docs
+        run: sudo apt-get install -y libgeos-dev
+
       - name: Install
         run: make setup
 
