@@ -51,6 +51,8 @@ docs3: psycopg3/docs/.venv psycopg3/docs/_templates/layout.html templates/_spons
 
 psycopg3/docs/.venv: psycopg3/README.rst
 	$(MAKE) PYTHON=$(PYTHON) -C psycopg3/docs env
+	# Drop link to the personal blog of the docs theme's author from the footer
+	find $@ -name page.html -exec sed -i '/https:\/\/pradyunsg.me/d' {} \;
 
 psycopg3/README.rst:
 	test -d psycopg3/.git \
