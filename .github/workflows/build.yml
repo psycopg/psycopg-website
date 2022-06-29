@@ -14,12 +14,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.3.1
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v4
         with:
           python-version: "3.8"
 
+      - name: Codespell
+        run: |
+          pip install codespell
+          codespell --ignore-words-list=possibile --skip="*.css,*.svg"
+
+      
       - name: Install requirements to generate Psycopg 3 docs
         run: sudo apt-get install -y libgeos-dev
 
@@ -30,7 +36,7 @@ jobs:
         run: make
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+        uses: JamesIves/github-pages-deploy-action@4.3.4
         with:
           branch: master
           folder: build

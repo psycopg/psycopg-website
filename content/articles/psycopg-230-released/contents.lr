@@ -13,7 +13,7 @@ body:
 
 Hi \*,
 
-lately my involvment on psycopg has been quite small (work and other
+lately my involvement on psycopg has been quite small (work and other
 projects are taking their toll) but thanks to Daniele (with some help
 from Jan) here is a new psycopg2 release. The number of changes is big
 (an excerpt from the NEWS file is at the end, as always) so we decided

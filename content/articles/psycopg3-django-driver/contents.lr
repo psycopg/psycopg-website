@@ -111,7 +111,7 @@ always the case. For instance:
 
 .. code:: pycon
 
-    >>> conn.execue("select concat(%s, %s)", ["foo", "bar"])
+    >>> conn.execute("select concat(%s, %s)", ["foo", "bar"])
     # ...becomes...
     >>> conn.pgconn.exec_params(
     ...     b"select concat($1, $2)",
@@ -143,7 +143,7 @@ merit and one might be easier to use than the other in different contexts.
 
   .. code:: pycon
 
-      >>> conn.execue("select concat(%s::text, %s::text)", ["foo", "bar"])
+      >>> conn.execute("select concat(%s::text, %s::text)", ["foo", "bar"])
       # ...becomes...
       >>> conn.pgconn.exec_params(
       ...     b"select concat($1::text, $2::text)",
@@ -165,7 +165,7 @@ merit and one might be easier to use than the other in different contexts.
 
   .. code:: pycon
 
-      >>> conn.execue("select concat(%s, %s)", [Text("foo"), Text("bar")])
+      >>> conn.execute("select concat(%s, %s)", [Text("foo"), Text("bar")])
       # ...becomes...
       >>> conn.pgconn.exec_params(
       ...     b"select concat($1, $2)",

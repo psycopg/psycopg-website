@@ -45,7 +45,7 @@ but no quote or other SQL construct are added.
 parameters separately. Parameters require adaptation to the PostgreSQL
 formats, but quoting, and quotes escaping, are no more its concern: the string
 ``O'Reilly`` doesn't need further manipulation and the date is converted only
-to the string ``2020-11-15``; types informations are passed as additional
+to the string ``2020-11-15``; types information are passed as additional
 separate information according to `the libpq API`__.
 
 .. _psycopg3: /psycopg3/

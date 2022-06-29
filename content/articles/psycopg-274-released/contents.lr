@@ -33,7 +33,7 @@ For the lifespan of the Psycopg 2.7 cycle, the ``psycopg2`` PyPI package will st
 The choices for the users are then two:
 
 - if the program works fine with the Wheel packages, and the convenience of the binary distribution is preferred, it is possible to `specify the dependency on the binary package </docs/install.html#binary-install-from-pypi>`__ using the ``psycopg2-binary`` instead of the ``psycopg2`` PyPI package. No change to the program code is needed;
-- if there are concerns about the unreliability of the Wheels package, it is adviced to `force installation from source </docs/install.html#disabling-wheel-packages-for-psycopg-2-7>`__. This requires the presence of build tools and runtime libraries on the client, but again it requires no change to the code.
+- if there are concerns about the unreliability of the Wheels package, it is advised to `force installation from source </docs/install.html#disabling-wheel-packages-for-psycopg-2-7>`__. This requires the presence of build tools and runtime libraries on the client, but again it requires no change to the code.
 
 We hope this solution will suggest the default use of a reliable version of the library, while still allowing the convenience of a dependencies-free package. Feedback is welcome on the `mailing list <https://www.postgresql.org/list/psycopg/>`__.
 
