@@ -34,7 +34,7 @@ Bux fixes
   offset. The old ``register_tstz_w_secs()`` function is deprecated and
   will raise a warning if called.
 - Exceptions raised by the column iterator are propagated.
-- Exceptions raised by ``executemany()`` interators are propagated.
+- Exceptions raised by ``executemany()`` iterators are propagated.
 
 | Have fun,
 | federico

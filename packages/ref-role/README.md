@@ -1,6 +1,6 @@
 # ref-role
 
-Add a reST role to point to other conent ::
+Add a reST role to point to other content ::
 
     see also: :ref:`model/id`
     see also: :ref:`something else <model/id>`
