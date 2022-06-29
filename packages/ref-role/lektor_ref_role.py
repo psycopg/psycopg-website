@@ -15,7 +15,7 @@ def ref_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
     )
     if m is None:
         msg = inliner.reporter.error(
-            "ref shoud be 'model/id' or 'label <model/id>', got '%s'" % text
+            "ref should be 'model/id' or 'label <model/id>', got '%s'" % text
         )
         prb = inliner.problematic(rawtext, rawtext, msg)
         return [prb], [msg]
