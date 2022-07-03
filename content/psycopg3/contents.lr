@@ -56,7 +56,7 @@ the current patterns in software development and deployment.
 Project funding :raw-html:`<i class="fa fa-heart"></i>`
 -------------------------------------------------------
 
-psycopg3 is currently `under active development`__: it started as a part-time
+psycopg3 is currently `in stable release`__: it started as a part-time
 project around mid 2020, and has become a full-time project in October of the
 same year. A few project milestones have been documented in a series of `blog
 articles`__.
