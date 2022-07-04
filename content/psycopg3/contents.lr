@@ -56,25 +56,21 @@ the current patterns in software development and deployment.
 Project funding :raw-html:`<i class="fa fa-heart"></i>`
 -------------------------------------------------------
 
-psycopg3 is currently `in stable release`__: it started as a part-time
-project around mid 2020, and has become a full-time project in October of the
-same year. A few project milestones have been documented in a series of `blog
+psycopg3 is currently `in version 3.0`__ and version 3.1 is under way. If you are interested, the development has been documented in a series of `blog
 articles`__.
 
 .. __: https://github.com/psycopg/psycopg3
 .. __: https://www.varrazzo.com/blog/tag/psycopg/
 
-Part of the project has already been written, but now the code needs to grow.
-There are several features needed to create a more seamless interaction
-between the database and the language.
+The project is stable and ready to be used, but the code still needs to grow.
+There are several features planned to improve and expand the functionality.
 
-Funding this project would enable full-time work and a first release in just a
-few months. So if you are interested in sponsoring the development of psycopg3
-then you are encouraged to contribute__.
+Funding this project would enable full-time work and more frequent releases. 
+If you are interested in sponsoring the development of psycopg3, you are encouraged to contribute__.
 
 .. __: https://github.com/sponsors/dvarrazzo/
 
-All and any kind of support is gratefully received and very much appreciated.
+Any and all kinds of support are gratefully received and very much appreciated.
 
 
 Project links
