@@ -9,9 +9,9 @@ language`_. Its core is a complete implementation of the `Python DB API 2.0`_
 specifications. Several extensions allow access to many of the features offered
 by PostgreSQL.
 
-.. _PostgreSQL: http://www.postgresql.org/
-.. _Python programming language: http://www.python.org/
-.. _Python DB API 2.0: http://www.python.org/dev/peps/pep-0249/
+.. _PostgreSQL: https://www.postgresql.org/
+.. _Python programming language: https://www.python.org/
+.. _Python DB API 2.0: https://www.python.org/dev/peps/pep-0249/
 
 ---
 body:

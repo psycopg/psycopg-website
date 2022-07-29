@@ -1,6 +1,6 @@
 _model: redirect
 ---
-target: http://upload.psycopg.org
+target: https://upload.psycopg.org
 ---
 absolute: yes
 ---

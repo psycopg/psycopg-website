@@ -17,7 +17,7 @@ PostgreSQL supports `asynchronous notifications`_, a simple messaging system all
 
 .. CUT-HERE
 
-.. _asynchronous notifications: http://www.postgresql.org/docs/9.0/interactive/sql-notify.html
+.. _asynchronous notifications: https://www.postgresql.org/docs/9.0/interactive/sql-notify.html
 
 Psycopg2 allows a client program to `receive notifications from the database backend`__. Starting from version 2.3 the notification received will also include the payload, when connected to a PostgreSQL 9.0 server. The notification are received automatically after each query and are made available in the |notifies|_ attribute of the connection. They are also received using the |poll()|_ method, without the need of issuing queries only to receive notifications.
 
@@ -26,7 +26,7 @@ Psycopg2 allows a client program to `receive notifications from the database bac
 .. _notifies: :/docs/connection.html#connection.notifies
 .. _poll(): /docs/connection.html#connection.poll
 
-But polling a connection is not the most efficient nor timely way to receive notifications: a better approach is to ask the OS to wake us up when there is something to read on the connection socket. This approach is particularly appealing when using an event-driven framework such as `Twisted <http://twistedmatrix.com/>`__ or `Eventlet <http://eventlet.net/>`__, with which is easy to perform other tasks while there is nothing to read on the connection. In "regular" Python programs it is possible to use ``select()`` to block until a notification arrives (see the documentation for an example): this would block the entire program. If some concurrency is required it is possible to use the blocking syscall in a thread to allow the rest of the program to carry on.
+But polling a connection is not the most efficient nor timely way to receive notifications: a better approach is to ask the OS to wake us up when there is something to read on the connection socket. This approach is particularly appealing when using an event-driven framework such as `Twisted <https://twistedmatrix.com/>`__ or `Eventlet <https://eventlet.net/>`__, with which is easy to perform other tasks while there is nothing to read on the connection. In "regular" Python programs it is possible to use ``select()`` to block until a notification arrives (see the documentation for an example): this would block the entire program. If some concurrency is required it is possible to use the blocking syscall in a thread to allow the rest of the program to carry on.
 
 .. __: /docs/advanced.html#asynchronous-notifications
 
@@ -35,11 +35,11 @@ Eventlet example
 
 This example shows how hook the notifications system into Eventlet: using it with a WebSocket_ it is possible to send an event from the database to the application and up to a web browser, all in push mode! The example requires PostgreSQL 9.0 and Psycopg 2.3 as it uses notification payloads.
 
-.. _WebSocket: http://en.wikipedia.org/wiki/WebSockets
+.. _WebSocket: https://en.wikipedia.org/wiki/WebSockets
 
 This function handles a WebSocket connection in a green thread: it creates a ``Queue`` and opens a database connection (calling the ``dblisten()`` function), then blocks on the queue waiting to receive notifications: as soon as any is received, its payload is forwarded to the browser. This is obviously just an example: a database connection for every browser wouldn't scale very much...
 
-.. code-block:: python 
+.. code-block:: python
 
     import eventlet
     from eventlet import wsgi
@@ -64,9 +64,9 @@ The ``dblisten`` function sets up the listening database connection:
 .. code-block:: python
 
     import psycopg2
-    from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT    
+    from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
     from eventlet.hubs import trampoline
-    
+
     def dblisten(q):
         """
         Open a db connection and add notifications to *q*.

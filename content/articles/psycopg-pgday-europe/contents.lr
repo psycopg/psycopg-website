@@ -15,10 +15,10 @@ Hello,
 
 I will be at `PgDay Europe 2010`__ in Stuttgart with a talk about Psycopg: `Advanced PostgreSQL Access from Python with Psycopg`__.
 
-.. __: http://2010.pgday.eu/
+.. __: https://2010.pgday.eu/
 .. __: https://www.postgresql.eu/events/schedule/pgday2010/session/72-advanced-postgresql-access-from-python-with-psycopg/
 
-The talk will be about some of the most advanced functionalities and new features available in the latest Psycopg releases: asynchronous communication, notifications, server-side cursors, advanced data mapping between Python and PostgreSQL, the upcoming support for two-phase commit and hstore objects. 
+The talk will be about some of the most advanced functionalities and new features available in the latest Psycopg releases: asynchronous communication, notifications, server-side cursors, advanced data mapping between Python and PostgreSQL, the upcoming support for two-phase commit and hstore objects.
 
 If you have any suggestion about what you'd like to be shown in the talk, you may leave a feedback.
 

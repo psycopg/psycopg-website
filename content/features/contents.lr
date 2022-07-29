@@ -42,9 +42,9 @@ Psycopg is written mostly in C and wraps the `libpq`_ library with the result of
 
 .. _DB API specification: https://www.python.org/dev/peps/pep-0249/
 .. _libpq: https://www.postgresql.org/docs/current/libpq.html
-.. _uGreen: http://projects.unbit.it/uwsgi/wiki/uGreen
-.. _gevent: http://www.gevent.org/
-.. _Eventlet: http://eventlet.net/
+.. _uGreen: https://uwsgi-docs.readthedocs.io/en/latest/uGreen.html
+.. _gevent: https://www.gevent.org/
+.. _Eventlet: https://eventlet.net/
 
 .. __: /docs/news.html
 .. __: /docs/advanced.html#asynchronous-support

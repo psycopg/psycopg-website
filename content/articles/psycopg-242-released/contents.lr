@@ -15,7 +15,7 @@ Psycopg 2.4.2 has been released: it brings a few small but interesting new featu
 
 .. CUT-HERE
 
-Transaction control has been overhauled: a new connection method `set_session() </docs/connection.html#connection.set_session>`__ allows setting all the session properties affecting the transactions behaviour: the `isolation level <http://www.postgresql.org/docs/9.1/static/transaction-iso.html>`__ but it can also be used to have auto-commit, read-only, and deferrable transactions. You can use for example:
+Transaction control has been overhauled: a new connection method `set_session() </docs/connection.html#connection.set_session>`__ allows setting all the session properties affecting the transactions behaviour: the `isolation level <https://www.postgresql.org/docs/9.1/static/transaction-iso.html>`__ but it can also be used to have auto-commit, read-only, and deferrable transactions. You can use for example:
 
 .. code-block:: python
 
@@ -72,13 +72,13 @@ with the ``BEGIN``/``COMMIT`` obviously omitted in autocommit mode (the datestyl
 The new release also brings a lot of bug fixes, so we encourage updating soon, particularly if you use Psycopg in multithread programs:
 
 - Fixed bug with multithread code potentially causing loss of sync
-  with the server communication or lock of the client (`ticket #55 <http://psycopg.lighthouseapp.com/projects/62710/tickets/55>`__).
+  with the server communication or lock of the client (`ticket #55 <https://psycopg.lighthouseapp.com/projects/62710/tickets/55>`__).
 - Don't fail import if mx.DateTime module can't be found, even if its
-  support was built (`ticket #53 <http://psycopg.lighthouseapp.com/projects/62710/tickets/53>`__): a fix for the "ghost mx.DateTime" issue reported in virtualenv.
+  support was built (`ticket #53 <https://psycopg.lighthouseapp.com/projects/62710/tickets/53>`__): a fix for the "ghost mx.DateTime" issue reported in virtualenv.
 - Fixed escape for negative numbers prefixed by minus operator
-  (`ticket #57 <http://psycopg.lighthouseapp.com/projects/62710/tickets/57>`__).
+  (`ticket #57 <https://psycopg.lighthouseapp.com/projects/62710/tickets/57>`__).
 - Fixed GC race condition during copy in multithread programs, potentially resulting in refcount errors.  Fixed by Dave
-  Malcolm (`ticket #58 <http://psycopg.lighthouseapp.com/projects/62710/tickets/58>`__, Red Hat `Bug 711095 <https://bugzilla.redhat.com/show_bug.cgi?id=711095>`__).
+  Malcolm (`ticket #58 <https://psycopg.lighthouseapp.com/projects/62710/tickets/58>`__, Red Hat `Bug 711095 <https://bugzilla.redhat.com/show_bug.cgi?id=711095>`__).
 - Trying to execute concurrent operations on the same connection
   through concurrent green thread results in an error instead of a
   deadlock.

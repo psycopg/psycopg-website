@@ -103,7 +103,7 @@ connection encoding was different. I've done a quick check and in Py3
 a file open in text mode doesn't accept bytes, while one open in
 binary mode doesn't accept unicode. Uhm... what could we pass this
 file? Is there an interface in Python 3 to know if a file is binary or
-text? Added ticket `#36 <http://psycopg.lighthouseapp.com/projects/62710/tickets/36>`__.
+text? Added ticket `#36 <https://psycopg.lighthouseapp.com/projects/62710/tickets/36>`__.
 
 Large Objects
 ------------------
@@ -127,6 +127,6 @@ Other random details
 
 This should be pretty much everything about the Py3 porting. Comments
 are welcome, above all on the open points (typecasters and COPY OUT),
-but if there is anything to point out I'd be happy to know. Best option would be to discuss on the `mailing list <http://mail.postgresql.org/mj/mj_wwwusr/domain=postgresql.org?func=lists-long-full&extra=psycopg>`__. See you there!
+but if there is anything to point out I'd be happy to know. Best option would be to discuss on the `mailing list <https://mail.postgresql.org/mj/mj_wwwusr/domain=postgresql.org?func=lists-long-full&extra=psycopg>`__. See you there!
 
 **Update:** `Psycopg 2.4 beta 1 has been released </articles/2011/02/06/psycopg-24-beta1-released/>`__ with Python 3 support.

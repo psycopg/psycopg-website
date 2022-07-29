@@ -46,7 +46,7 @@ def dispatch(environ, start_response):
 page = """
 <html>
   <head><title>pushdemo</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
     <style type="text/css">
       .bar {width: 20px; height: 20px;}
     </style>
@@ -76,5 +76,3 @@ page = """
 if __name__ == "__main__":
     listener = eventlet.listen(('127.0.0.1', 7000))
     wsgi.server(listener, dispatch)
-
-
