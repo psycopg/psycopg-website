@@ -15,7 +15,7 @@ After a long while Psycopg has a Mailing List again!
 
 You are welcome to subscribe__, either if you are an user dealing with the first stumbling blocks (albeit a look at the documentation_ or the FAQ_ wouldn't hurt!) or if you want to contribute to the psycopg2 development, about which there are several upcoming news.
 
-.. __: http://mail.postgresql.org/mj/mj_wwwusr/domain=postgresql.org?func=lists-long-full&extra=psycopg
+.. __: https://mail.postgresql.org/mj/mj_wwwusr/domain=postgresql.org?func=lists-long-full&extra=psycopg
 .. _documentation: /docs/
 .. _faq: /docs/faq.html
 

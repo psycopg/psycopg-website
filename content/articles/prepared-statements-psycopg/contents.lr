@@ -14,8 +14,8 @@ Although the libpq library supports `prepared statements`__, psycopg2 doesn't of
 
 .. CUT-HERE
 
-.. __: http://www.postgresql.org/docs/current/static/libpq-exec.html#LIBPQ-PQPREPARE
-.. __: http://www.postgresql.org/docs/current/static/sql-prepare.html
+.. __: https://www.postgresql.org/docs/current/static/libpq-exec.html#LIBPQ-PQPREPARE
+.. __: https://www.postgresql.org/docs/current/static/sql-prepare.html
 
 Whenever you have a loop where the same parametrized query or command is executed:
 

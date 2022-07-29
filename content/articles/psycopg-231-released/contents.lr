@@ -13,7 +13,7 @@ body:
 
 Hello,
 
-just released Psycopg 2.3.1. No new feature since `release 2.3.0 </psycopg/articles/2010/12/01/psycopg-230-released/>`__: the only fix is for a build issue on CentOS 5.5 x86_64 (`ticket #23 <http://psycopg.lighthouseapp.com/projects/62710/tickets/23>`__).
+just released Psycopg 2.3.1. No new feature since `release 2.3.0 </psycopg/articles/2010/12/01/psycopg-230-released/>`__: the only fix is for a build issue on CentOS 5.5 x86_64 (`ticket #23 <https://psycopg.lighthouseapp.com/projects/62710/tickets/23>`__).
 
 .. CUT-HERE
 

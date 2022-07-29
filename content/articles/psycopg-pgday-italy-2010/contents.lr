@@ -12,7 +12,7 @@ pgday
 body:
 
 .. image:: banner_200x60.gif
-  :target: http://2010.pgday.it/
+  :target: https://2010.pgday.it/
   :alt: PGDay Roma, 10 Dicembre 2010
   :class: inline-right
   :width: 200
@@ -23,12 +23,12 @@ Psycopg will be at PGDay Italy in Rome, on December 10th.
 ..
   CUT-HERE
 
-Psycopg sarà a Roma per il `PGDay 2010 <http://2010.pgday.it/>`__ con ben due interventi:
+Psycopg sarà a Roma per il `PGDay 2010 <https://2010.pgday.it/>`__ con ben due interventi:
 
 **Accedere a PostgreSQL da Python: uso di base di Psycopg**: sarà un tutorial di base su come usare Python per accedere a PostgreSQL, presentato come una sessione interattiva e adatto ai principianti.
 
 **Uso avanzato di Psycopg per l'accesso a PostgreSQL da Python**: illustrerà le tecniche più avanzate messe a disposizione dalla libreria (query e notifiche asincrone, cursori lato server, data mapping tra Python e PostgreSQL) e le ultime novità introdotte nella libreria (mapping di dizionari con ``hstore``, two-phase commit).
 
-`Le iscrizioni sono aperte <http://2010.pgday.it/registrazione>`__: fino al 21 novembre sarà possibile registrarsi al prezzo di 50 euro (inclusi coffee break e pranzo). La `sede dell'evento <http://2010.pgday.it/sede-del-pgday-2010>`__ è al `Centro Congressi iCavour <http://www.icavour.it/>`__, a due passi dalla stazione Termini.
+`Le iscrizioni sono aperte <https://2010.pgday.it/registrazione>`__: fino al 21 novembre sarà possibile registrarsi al prezzo di 50 euro (inclusi coffee break e pranzo). La `sede dell'evento <https://2010.pgday.it/sede-del-pgday-2010>`__ è al `Centro Congressi iCavour <http://www.icavour.it/>`__, a due passi dalla stazione Termini.
 
 Ci vediamo a Roma, ciao!

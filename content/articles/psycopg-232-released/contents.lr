@@ -13,7 +13,7 @@ body:
 
 Hello,
 
-just released Psycopg 2.3.2. The release fixes `a bug <http://psycopg.lighthouseapp.com/projects/62710/tickets/24>`__ reported in 2.3.0 and 2.3.1 preventing Psycopg to connect to pgBouncer. Thanks to Marti Raudsepp for the bug report and the patch.
+just released Psycopg 2.3.2. The release fixes `a bug <https://psycopg.lighthouseapp.com/projects/62710/tickets/24>`__ reported in 2.3.0 and 2.3.1 preventing Psycopg to connect to pgBouncer. Thanks to Marti Raudsepp for the bug report and the patch.
 
 .. CUT-HERE
 

@@ -8,7 +8,7 @@ by the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
 .. __: /
-.. __: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
+.. __: https://www.gnu.org/licenses/lgpl-3.0-standalone.html
 
 psycopg2 is distributed in the hope that it will be useful, but WITHOUT
 ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
@@ -20,7 +20,7 @@ permission to link this program with the OpenSSL__ library (or with
 modified versions of OpenSSL that use the same license as OpenSSL),
 and distribute linked combinations including the two.
 
-.. __: http://www.openssl.org/
+.. __: https://www.openssl.org/
 
 You must obey the GNU Lesser General Public License in all respects for
 all of the code used other than OpenSSL. If you modify file(s) with this
@@ -31,7 +31,7 @@ statement from all source files in the program, then also delete it here.
 
 You should have received a copy of the GNU Lesser General Public License
 along with psycopg2 (see the ``doc`` directory.)
-If not, see http://www.gnu.org/licenses/.
+If not, see https://www.gnu.org/licenses/.
 
 
 Alternative licenses
@@ -49,8 +49,8 @@ files following the pattern ``psycopg/adapter*.{h,c}`` and
     claim that you wrote the original software. If you use this
     software in a product, an acknowledgment in the product documentation
     would be appreciated but is not required.
- 
+
  2. Altered source versions must be plainly marked as such, and must not
     be misrepresented as being the original software.
- 
+
  3. This notice may not be removed or altered from any source distribution.

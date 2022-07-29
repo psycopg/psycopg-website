@@ -33,7 +33,7 @@ The JSON adapter allows easy exchange of unstructured data with the database:
     >>> cur.fetchone()[0]
     {u'a': [1, 2, 3], u'b': [4, 5, 6]}
 
-It works with PostgreSQL 9.2 native `JSON data type <http://www.postgresql.org/docs/current/static/datatype-json.html>`__, with previous versions' `extension modules <http://people.planetpostgresql.org/andrew/index.php?/archives/255-JSON-for-PG-9.2-...-and-now-for-9.1!.html>`__ and, in a pinch, with regular text too. You can feed JSON data to PostgreSQL using `a specific adapter </psycopg/docs/extras.html#psycopg2.extras.Json>`__:
+It works with PostgreSQL 9.2 native `JSON data type <https://www.postgresql.org/docs/current/static/datatype-json.html>`__, with previous versions' `extension modules <http://people.planetpostgresql.org/andrew/index.php?/archives/255-JSON-for-PG-9.2-...-and-now-for-9.1!.html>`__ and, in a pinch, with regular text too. You can feed JSON data to PostgreSQL using `a specific adapter </psycopg/docs/extras.html#psycopg2.extras.Json>`__:
 
 .. code-block:: python
 
@@ -53,7 +53,7 @@ or you can be more aggressive and ask for automatic JSON serialization for every
 Range adapters
 ---------------
 
-Other handy adapters for PostgreSQL 9.2 are the `Range data type <http://www.postgresql.org/docs/current/static/rangetypes.html>`__ adapters family: ranges are returned as `an object </psycopg/docs/extras.html#psycopg2.extras.Range>`__ allowing access to their properties:
+Other handy adapters for PostgreSQL 9.2 are the `Range data type <https://www.postgresql.org/docs/current/static/rangetypes.html>`__ adapters family: ranges are returned as `an object </psycopg/docs/extras.html#psycopg2.extras.Range>`__ allowing access to their properties:
 
 .. code-block:: python
 
@@ -114,4 +114,4 @@ Other changes:
 - Dropped support for Python 2.4. Please use Psycopg 2.4.x if you need it.
 - `errorcodes </psycopg/docs/errorcodes.html#module-psycopg2.errorcodes>`__ map updated to PostgreSQL 9.2.
 - Dropped Zope adapter from source repository. ZPsycopgDA has now its own
-  project at <http://github.com/psycopg/ZPsycopgDA>.
+  project at <https://github.com/psycopg/ZPsycopgDA>.
