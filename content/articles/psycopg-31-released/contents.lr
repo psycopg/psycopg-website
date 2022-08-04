@@ -1,0 +1,219 @@
+title: Psycopg 3.1 released
+---
+pub_date: 2022-08-08
+---
+author: Daniele Varrazzo
+---
+_discoverable: no
+---
+tags:
+
+news
+release
+---
+body:
+
+Hello,
+
+After about 8 months of development, we are proud to release Psycopg 3.1!
+
+Psycopg 3.1 is a gradual improvement on Psycopg 3.0, introducing new exciting
+features, redefining what can be done on the boundary between Python and
+PostgreSQL.
+
+.. CUT-HERE
+
+Pipeline mode
+-------------
+
+The `pipeline mode <https://www.psycopg.org/psycopg3/docs/advanced/pipeline.html>`__
+is by far the biggest feature introduced in Psycopg 3.1, largely the work of
+Denis Laxalde and supported by `Dalibo <http://www.dalibo.com>`__. In
+pipeline mode, Psycopg will send send batches of commands to the server without
+waiting for a response for every operation, resulting in a massive speed
+improvement.
+
+The pipeline mode is exposed to Python as a context block. Within the block,
+Psycopg will manage the pipeline in a transparent way, allowing to use even
+features which break the pipeline flow, for instance to fetch results, or to
+manage transactions:
+
+.. code:: python
+
+    with conn.pipeline():
+        cur = conn.cursor()
+        for op in operations:
+            cur.execute(op)
+
+        with conn.transaction():
+            cur.execute(op1)
+            rec = cur.fetchone()
+            cur.execute(op2, [rec.id])
+        ...
+
+Quantifying the speedup is difficult, as it depends on the network conditions
+and on the pattern of statements executed. In particularly bad conditions (250
+ms of ping time between client and server), we measured a loop of 100 inserts
+to take 25 s in normal mode and just 0.5 s in pipeline mode, for a 50x
+speedup. Testing the same operation on a localhost connection, we have
+measured a >20x speedup (a 5000 inserts batch taking 0.3 s instead of 6.6 s).
+If the program requires results from the server before sending further
+statement (for instance to insert in a table and then use the new record's
+primary key to insert related records in a different tables) you can expect
+less dramatic speedups.
+
+
+Client-binding cursors
+----------------------
+
+Psycopg 3 uses `server-side binding
+<https://www.psycopg.org/psycopg3/docs/basic/from_pg2.html#server-side-binding>`__,
+passing the query and adapted arguments separately. This allows to use several
+features otherwise unavailable, such as prepared statements. However, several
+type of statements, especially data-definition, don't support server-side
+parameters. The `'sql' module
+<https://www.psycopg.org/psycopg3/docs/api/sql.html>`__ allows to compose
+statements on the client, but using it might require many changes to programs
+making heavy use of data-definition statements.
+
+Psycopg 3.1 introduces a `ClientCursor
+<https://www.psycopg.org/psycopg3/docs/advanced/cursors.html#client-side-binding-cursors>`__
+object, which makes psycopg2 programs easier to port. This cursor reproduces
+psycopg2 way of composing queries, which is not the most efficient, but for
+certain programs it is exactly what needed.
+
+.. code:: python
+
+    with psycopg2.connect(..., cursor_factory=ClientCursor) as conn:
+        cur = conn.cursor()  # this is a client-side binding cursor
+        # This statement doesn't support server-side parameters
+        cur.execute("ALTER TABLE x ALTER y SET DEFAULT %s", ["hello"])
+
+As a bonus, the client cursor reintroduces the handy and often requested
+`mogrify()
+<https://www.psycopg.org/psycopg3/docs/api/cursors.html#psycopg.ClientCursor.mogrify>`__
+method, which returns the query merged with the parameters the way it is
+passed to the server:
+
+.. code:: python
+
+    cur.mogrify("ALTER TABLE x ALTER y SET DEFAULT %s", ["hell'o"])
+    "ALTER TABLE x ALTER y SET DEFAULT 'hell''o'"
+
+
+Enum adaptation
+---------------
+
+Python has `enums <https://docs.python.org/3/library/enum.html>`__, PostgreSQL
+has `enums <https://www.postgresql.org/docs/current/static/datatype-enum.html>`__...
+Why not mapping them into each other? Well for a start because they are
+actually pretty different from each other (Python enums have a type and value,
+Postgres ones are just an identity) and because often, in programs,
+differences between the enums in the db and the code creep in.
+
+Psycopg 3.1 introduces `a flexible adapter between Python and Postgres enums
+<https://www.psycopg.org/psycopg3/docs/basic/adapt.html#enum-adaptation>`__.
+It can be used in a simple way when there is a 1:1 mapping between the enums:
+
+.. code::
+
+    =# CREATE TYPE numbers AS ENUM ('ONE', 'TWO', 'THREE');
+
+.. code:: python
+
+    class Numbers(Enum):
+        ONE = auto()
+        TWO = auto()
+        THREE = auto()
+
+    info = EnumInfo.fetch(conn, "numbers")
+    register_enum(info, conn, Numbers)
+
+    conn.execute("SELECT 'TWO'::numbers").fetchone()[0]
+    <Numbers.TWO: 2>
+
+    conn.execute("SELECT pg_typeof(%s)", [Numbers.ONE]).fetchone()[0]
+    'numbers'
+
+The facility can be also customized in order to adapt enums when the mapping is not
+bijective.
+
+.. code:: python
+
+    class NumbersPlus(Enum):
+        ONE = auto()
+        TWO = auto()
+        THREE = auto()
+        THREE_PLUS = auto()  # has some meaning in the program, but it is not stored
+
+    register_enum(info, conn, NumbersPlus,
+        mapping=[(NumbersPlus.THREE_PLUS, "THREE"), (NumbersPlus.THREE, "THREE")])
+
+    conn.execute("SELECT %s::text",
+        [[NumbersPlus.ONE, NumbersPlus.THREE_PLUS]]
+    ).fetchone()[0]
+    '{ONE,THREE}'
+
+    conn.execute("select '{TWO,THREE}'::numbers[]").fetchone()[0]
+    [<NumbersPlus.TWO: 2>, <NumbersPlus.THREE: 3>]
+
+
+In partnership with CockroachDB
+-------------------------------
+
+TODO
+
+
+``executemany()`` improvements
+------------------------------
+
+The `executemany()
+<https://www.psycopg.org/psycopg3/docs/api/cursors.html#psycopg.Cursor.executemany>`__
+method now supports returning the executed statements' output. You can now for
+instance execute an ``INSERT ... RETURNING`` on a batch of records and
+retrieve the ids associated to the newly inserted records.
+
+``executemany()`` automatically uses `the pipeline mode
+<https://www.psycopg.org/psycopg3/docs/advanced/pipeline.html>`__ already
+described, making use of pipeline mode speedups without changing any code in
+programs using this method.
+
+
+And many more improvements
+--------------------------
+
+- The `Two-phase commit protocol
+  <https://www.psycopg.org/psycopg3/docs/basic/transactions.html#two-phase-commit>`__
+  is now available as per `DBAPI specification
+  <https://peps.python.org/pep-0249/#optional-two-phase-commit-extensions>`__.
+
+- Asynchronous connections `don't block on DNS names resolution on connect
+  <https://www.psycopg.org/psycopg3/docs/advanced/async.html#asynchronous-operations>`__.
+
+- ``Cursor.copy()`` now `takes parameters
+  <https://www.psycopg.org/psycopg3/docs/api/cursors.html#psycopg.Cursor.copy>`__,
+  like a normal query.
+
+- It is also possible to `replace the writer of a 'Copy' object
+  <https://www.psycopg.org/psycopg3/docs/api/copy.html#copy-writers>`__, in
+  order to use psycopg just to format data in COPY format and to do something
+  else with the data produced, for instance save it to a file for later
+  processing.
+
+- ...And many more improvements you can find in our `release notes
+  <https://www.psycopg.org/psycopg3/docs/news.html#psycopg-3-1>`__.
+
+
+Thank you very much!
+--------------------
+
+We hope you will enjoy to use Psycopg 3.1 and will benefit of its new
+features. Psycopg 3 has been developed and is maintained thanks to the support
+of `our sponsors <https://www.psycopg.org/sponsors/>`__.
+
+If you are a Python and PostgreSQL user and would like to make sure that the
+interface between the two is well maintained and continuously improved, please
+consider `sponsoring the project 💜
+<https://github.com/sponsors/dvarrazzo>`__.
+
+Thank you very much, happy hacking!
