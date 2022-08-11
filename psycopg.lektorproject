@@ -9,6 +9,6 @@ included_assets = _static,_sources,_images,.nojekyll,.gitignore,.github
 url_style = absolute
 
 [packages]
-lektor-feed = 20191006.1
 lektor-rst = 0.2.0
 lektor-tags = 0.3
+lektor-atom = 0.4.0
