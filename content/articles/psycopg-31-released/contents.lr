@@ -84,7 +84,7 @@ certain programs it is exactly what is needed.
 
 .. code:: python
 
-    with psycopg2.connect(..., cursor_factory=ClientCursor) as conn:
+    with psycopg.connect(..., cursor_factory=ClientCursor) as conn:
         cur = conn.cursor()  # this is a client-side binding cursor
         # This statement doesn't support server-side parameters
         cur.execute("ALTER TABLE x ALTER y SET DEFAULT %s", ["hello"])
