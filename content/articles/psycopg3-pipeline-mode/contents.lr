@@ -1,6 +1,6 @@
 title: Pipeline mode in Psycopg
 ---
-pub_date: 2022-09-19
+pub_date: 2022-10-14
 ---
 author: Denis Laxalde
 ---
@@ -13,21 +13,18 @@ development
 ---
 body:
 
-`Psycopg`_, the PostgreSQL database adapter for Python, recently added
-support for `libpq pipeline mode`_ thus bringing significant performance
-boost, especially when network latency is important. In this article,
-we’ll briefly describe how it works from users’ perspective and *under
-the hood* while also providing a few implementation details.
+`Version 3.1`_ of Psycopg added support for `libpq pipeline mode`_, bringing
+significant performance boost, especially when network latency is important.
+In this article, we’ll briefly describe how it works from users’ perspective
+and *under the hood* while also providing a few implementation details.
 
 .. CUT-HERE
 
-Psycopg 3.1, `released in late August`_, is the second major release of
-the `Psycopg 3 project`_, which is a complete rewrite of the venerable
-`psycopg2`_. Supporting `libpq pipeline mode`_ involved significant
-changes to the query processing logic in the driver. Yet, the challenge
-was to make it compatible with the “normal” query mode in order to keep
-the API almost unchanged and thus bring performance benefits to users
-without exposing the complexity of the batch query mode.
+Supporting `libpq pipeline mode`_ involved significant changes to the query
+processing logic in the driver. Yet, the challenge was to make it compatible
+with the “normal” query mode in order to keep the API almost unchanged and
+thus bring performance benefits to users without exposing the complexity of
+the batch query mode.
 
 For the impatient, head out to the `pipeline mode`_ documentation of
 Psycopg: it’s self-consistent, explains nicely the details for
@@ -498,9 +495,16 @@ use the pipeline mode implicitly (try adapting the demo script above to
 use it — hint: no need for the ``with pipeline:`` block). And be sure to
 read the Psycopg’s `pipeline mode`_ documentation soon!
 
+----
+
+    This article, originally published at `Pipeline mode in Psycopg
+    <https://blog.dalibo.com/2022/09/19/psycopg-pipeline-mode.html>`_, is used
+    under `CC BY-NC-SA <https://creativecommons.org/licenses/by-nc-sa/4.0/>`_
+    (introduction shortened).
+
 .. _Psycopg: https://www.psycopg.org/psycopg3/docs/
 .. _libpq pipeline mode: https://www.postgresql.org/docs/current/libpq-pipeline-mode.html
-.. _released in late August: https://www.psycopg.org/articles/2022/08/30/psycopg-31-released/
+.. _Version 3.1: https://www.psycopg.org/articles/2022/08/30/psycopg-31-released/
 .. _Psycopg 3 project: https://www.psycopg.org/psycopg3/
 .. _psycopg2: https://www.psycopg.org/docs/
 .. _pipeline mode: https://www.psycopg.org/psycopg3/docs/advanced/pipeline.html
