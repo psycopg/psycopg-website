@@ -61,7 +61,7 @@ and assume an application does a lot of queries like:
 
 .. code:: sql
 
-   INSERT INTO t (x, d, p) VALUES ($1, $2, $3)
+   INSERT INTO t (x, d, p) VALUES (%s, %s, %s)
 
 with distinct values, and with ``x`` possibly being a large integer
 (``n!, n<1000``). Maybe the application could make use of batch inserts
