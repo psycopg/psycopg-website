@@ -69,7 +69,7 @@ such as `executemany()`_, maybe not (e.g. because it needs to do some
 other operations between inserts, like querying another resource): this
 does not matter much.
 
-Let’s put this up into a little ``demo.py`` Python program:
+Let’s put this together into a little ``demo.py`` Python program:
 
 .. code:: python
 
@@ -291,7 +291,7 @@ Result Processing and Query Dispatch” states:
     them, matching them up to the next entry in its corresponding results
     queue.
 
-As often with PostgreSQL, everything is there. But this paragraph is
+As often with PostgreSQL, everything is there although this paragraph is
 somehow enigmatic. However, it, in fact, describes the heart of the
 algorithm for the Psycopg driver (though it took us a while to grasp all
 the details implied by these few sentences…).
