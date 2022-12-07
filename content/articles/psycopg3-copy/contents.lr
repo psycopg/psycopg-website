@@ -28,9 +28,11 @@ interaction is with file-like objects:
 
 .. __: https://github.com/psycopg/psycopg2/issues/428
 
-psycopg3_ addresses these shortcomings and makes it easy to write Python
+psycopg3_ `addresses these shortcomings`__ and makes it easy to write Python
 programs producing data and pushing it efficiently to the database using the
 ``COPY`` protocol.
+
+.. __: https://www.psycopg.org/psycopg3/docs/basic/copy.html#copy
 
 .. CUT-HERE
 
@@ -60,7 +62,7 @@ and to pass ::
 to the server. The mechanism to do so is exposed to Python by a new context
 manager, returned by the `Cursor.copy()`__ method, which enables to write:
 
-.. __: https://www.psycopg.org/psycopg3/docs/cursor.html#psycopg3.Cursor.copy
+.. __: https://www.psycopg.org/psycopg3/docs/api/cursors.html#psycopg.Cursor.copy
 
 .. code:: python
 
@@ -114,7 +116,7 @@ source and writes it to the destination:
         cursor2.copy_expert(f, "COPY mytable FROM STDIN")
 
     # From the database to a file
-    with open("input.data", "w") as f:
+    with open("output.data", "w") as f:
         cursor2.copy_expert(f, "COPY mytable TO STDOUT")
 
 This way of operating is not lost, but now the responsibility of moving data
@@ -128,7 +130,7 @@ from one stream to the other is left to the user's code:
                 copy.write(data)
 
     with cursor3.copy("COPY mytable TO STDOUT") as copy:
-        with open("input.data", "w") as f:
+        with open("output.data", "wb") as f:
             while data := copy.read()
                 f.write(data)
 
