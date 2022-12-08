@@ -126,7 +126,7 @@ from one stream to the other is left to the user's code:
 
     with open("input.data") as f:
         with cursor3.copy("COPY mytable FROM STDIN") as copy:
-            while data := f.read(SIZE)
+            while data := f.read(SIZE):
                 copy.write(data)
 
     with cursor3.copy("COPY mytable TO STDOUT") as copy:
