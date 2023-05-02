@@ -6,6 +6,8 @@
 #
 babel==2.12.1
     # via lektor
+blinker==1.6.2
+    # via flask
 certifi==2022.12.7
     # via requests
 charset-normalizer==3.1.0
@@ -18,7 +20,7 @@ exifread==3.0.0
     # via lektor
 filetype==1.2.0
     # via lektor
-flask==2.2.3
+flask==2.3.2
     # via lektor
 idna==3.4
     # via requests
@@ -53,7 +55,7 @@ urllib3==1.26.15
     # via requests
 watchdog==3.0.0
     # via lektor
-werkzeug==2.2.3
+werkzeug==2.3.3
     # via
     #   flask
     #   lektor
