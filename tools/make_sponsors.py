@@ -12,7 +12,7 @@ template = Template("""\
 <div class="sponsors-avatars sponsors-avatars-top">
 {%- for entry in data %}
     {%- if entry.tier == "top" %}
-    <div class="sponsors-avatar">
+    <div class="sponsors-avatar {{entry.class}}">
         <a href="{{entry.website}}">
             <img class="avatar" src="{{entry.avatar}}" title="{{entry.name}}"/>
             <div class="sponsor-name">{{entry.name}}</div>
@@ -25,7 +25,7 @@ template = Template("""\
 <div class="sponsors-avatars sponsors-avatars-mid">
 {%- for entry in data %}
     {%- if entry.tier == "mid" %}
-    <div class="sponsors-avatar">
+    <div class="sponsors-avatar {{entry.class}}">
         <a href="{{entry.website}}">
             <img class="avatar" src="{{entry.avatar}}" title="{{entry.name}}"/>
             <div class="sponsor-name">{{entry.name}}</div>
@@ -38,7 +38,7 @@ template = Template("""\
 <div class="sponsors-avatars sponsors-avatars-bottom">
 {%- for entry in data %}
     {%- if not entry.tier %}
-    <div class="sponsors-avatar">
+    <div class="sponsors-avatar {{entry.class}}">
         <a href="{{entry.website}}">
             <img class="avatar" src="{{entry.avatar}}" title="{{entry.name}}"/>
         </a>
