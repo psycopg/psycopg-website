@@ -306,6 +306,10 @@ div.sponsors-avatar {
 div.sponsors-avatars img.avatar {
     border-radius: 50%;
 }
+div.sponsors-avatars div.square img.avatar {
+    border-radius: 0%;
+}
+
 
 div.sponsors-avatars div.sponsor-name {
     color: #444;
