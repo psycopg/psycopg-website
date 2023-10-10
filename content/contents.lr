@@ -21,10 +21,9 @@ License`_, allowing use from both free and proprietary software.
 
 .. _GNU Lesser General Public License: /license/
 
-- Check the `features list </features/>`__ to see what Psycopg offers
-- Read the `Psycopg documentation </docs/>`__. Be sure to check the `Frequently
-  Asked Questions </docs/faq.html>`__
-- `Install Psycopg </docs/install.html>`__!
+- Check the `features list and comparison </features/>`__ to see what Psycopg offers.
+- Read the `Psycopg 2 </docs/>`__ or `Psycopg 3 </psycopg3/docs/>`__ documentation.
+- `Install Psycopg </install/>`__!
 
 For help requests and development discussions please `subscribe to the mailing
 list <https://lists.postgresql.org/>`__ psycopg\ @postgresql.org.

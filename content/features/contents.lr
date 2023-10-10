@@ -2,58 +2,187 @@ title: Psycopg features
 ---
 body:
 
-Psycopg is written mostly in C and wraps the `libpq`_ library with the result of being both fast and secure.
+Psycopg is a wrapper around the `libpq`_ library, the official PostgreSQL
+client library. This makes it complete, performing, reliable, secure.
+
+- `Psycopg 2`__ is still the most used implementation, as it was first
+  released in 2006. It is still actively maintained, although no new features
+  are planned. Use it if you are maintaining previously written code.
+
+- `Psycopg 3`__ was first released in 2021 and supports many new Python
+  features (static typing, asyncio) and PostgreSQL features (binary protocol,
+  pipeline mode) compared to Psycopg 2. Use it if you are developing something
+  new!
+
+.. __: /psycopg3/docs/
+.. __: /docs/
 
 ..
   Please keep consistent with install.rst and setup.py
 
-- Currently supports Python from 3.7 to 3.12 (older versions
-  are supported by previous psycopg versions: check the `change log`__ for
-  details)
+.. list-table::
+    :header-rows: 1
+    :class: features
 
-- Supports PostgreSQL versions from 7.4 to 16
+    *   - Psycopg 2 features
+        - Psycopg 3 features
 
-- Fully compliant implementation of the Python `DB API specification`_ for
-  database adapters
+    *   - Written mostly in C.
+        - Written mostly in Python, with C speed-up module.
 
-- Thread-safe: threads can use different connections or share the same
-  connection
+    *   - | Supports Python 3.7 to 3.12
+          | (check the changelog__ for older versions support).
 
-- `Asynchronous nonblocking I/O`__, also integrated with `coroutine-based
-  libraries`__ (gevent_, Eventlet_, uGreen_)
+        - | Supports Python 3.7 to 3.12
+          | (check the changelog__ for older versions support).
 
-- Adaptation__ of many Python objects to database type: tuples to records,
-  lists to array, dictionaries to hstore, flexible JSON support
+    *   - Supports PostgreSQL from 7.4 to 16.
+        - Supports PostgreSQL from 10 to 16.
 
-- Extendible with `new adapters`__ to convert Python objects to SQL syntax and
-  typecasters__ to convert PostgreSQL types back into Python objects
+    *   - `DB-API 2.0`_ compliant.
+        - DB-API 2.0 compliant.
 
-- `Server-side cursors`__
+    *   - Thread-safe: threads can share the same connection.
 
-- |COPY|__ support
+        - Thread-safe: threads can share the same connection.
 
-- `Large objects`__ support
+          .. class:: better-right
 
-- Can send and receive `asynchronous notification`__
+    *   - Low-level `asynchronous I/O`__. No native ``asyncio`` support.
+        - Native `asyncio support`__.
 
-- Support for `two-phase commit`__
+          .. class:: better-left
 
-.. |COPY| replace:: ``COPY``
+    *   - Integration with `coroutine-based libraries`__
+          (gevent_, Eventlet_, uGreen_).
+        - Coroutine libraries support `on its way`__.
 
-.. _DB API specification: https://www.python.org/dev/peps/pep-0249/
+          .. class:: better-right
+
+    *   - Built-in adaptation__ between many Python objects to database types.
+        - Native support for `more Python types`__ (such as Enums) and
+          `PostgreSQL types`__ (such as multirange, geometric types).
+
+          .. class:: better-right
+
+    *   - Adaptation extendible with `new adapters`__ to convert Python objects
+          to SQL syntax.
+
+        - More flexible and complete `adaptation customization`__.
+
+          .. class:: better-right
+
+    *   - + Client-side parameters binding
+          + `Server-side cursors`__
+
+        - + `Default server-side parameters binding`__
+          + `Optional client-side parameters binding`__
+          + `Server-side cursors`__
+
+          .. class:: better-right
+
+    *   - Text-only parameters and query results.
+        - Text and binary__ parameters and query results.
+
+          .. class:: better-right
+
+    *   - No prepared statements support.
+
+        - Automatic or opt-in `prepared statements`__.
+
+          .. class:: better-right
+
+    *   - No pipeline/batch mode support.
+
+        - `Pipeline/batch mode support`__.
+
+          .. class:: better-right
+
+    *   - File-based `COPY support`__, synchronous only.
+
+        - `File-based`__ and `Python objects-based`__ COPY support.
+          `Asynchronous copy`__ support.
+
+          .. class:: better-left
+
+    *   - `Replication support`__.
+        - Replication support planned__.
+
+          .. class:: better-right
+
+    *   - Very basic `connection pool`__.
+        - A much more `advanced connection pool`__.
+
+          .. class:: better-right
+
+    *   - No static typing support.
+        - `Static typing support`__.
+
+          .. class:: better-left
+
+    *   - `Large objects`__ support.
+        - Large objects support planned__.
+
+    *   - Support for `asynchronous notifications`__.
+        - Support for `asynchronous notifications`__.
+
+    *   - Support for `two-phase commit`__.
+        - Support for `two-phase commit`__.
+
+
+.. __: /docs/news.html
+.. __: /psycopg3/docs/news.html
+
+.. __: /docs/advanced.html#asynchronous-support
+.. __: https://www.psycopg.org/psycopg3/docs/advanced/async.html
+
+.. __: /docs/advanced.html#support-to-coroutine-libraries
+.. __: https://github.com/psycopg/psycogreen/issues/9
+
+.. __: /docs/usage.html#adaptation-of-python-values-to-sql-types
+.. __: /psycopg3/docs/basic/adapt.html
+.. __: /psycopg3/docs/basic/pgtypes.html
+
+.. __: /docs/advanced.html#adapting-new-python-types-to-sql-syntax
+.. __: /psycopg3/docs/advanced/adapt.html
+
+.. __: /docs/usage.html#server-side-cursors
+.. __: /psycopg3/docs/basic/from_pg2.html#server-side-binding
+.. __: /psycopg3/docs/advanced/cursors.html#client-side-binding-cursors
+.. __: /psycopg3/docs/advanced/cursors.html#server-side-cursors
+
+.. __: /psycopg3/docs/basic/params.html#binary-data
+
+.. __: /psycopg3/docs/advanced/prepare.html
+
+.. __: /psycopg3/docs/advanced/pipeline.html
+
+.. __: /docs/usage.html#using-copy-to-and-copy-from
+.. __: /psycopg3/docs/basic/copy.html#copying-block-by-block
+.. __: /psycopg3/docs/basic/copy.html#writing-data-row-by-row
+.. __: /psycopg3/docs/basic/copy.html#asynchronous-copy-support
+
+.. __: /docs/advanced.html#replication-protocol-support
+.. __: https://github.com/psycopg/psycopg/issues/71
+
+.. __: /docs/pool.html
+.. __: /psycopg3/docs/advanced/pool.html
+
+.. __: /psycopg3/docs/advanced/typing.html#static-typing
+
+.. __: /docs/usage.html#access-to-postgresql-large-objects
+.. __: https://github.com/psycopg/psycopg/issues/73
+
+.. __: /docs/advanced.html#asynchronous-notifications
+.. __: /psycopg3/docs/advanced/async.html#asynchronous-notifications
+
+.. __: /docs/usage.html#two-phase-commit-protocol-support
+.. __: /psycopg3/docs/basic/transactions.html#two-phase-commit
+
+.. _DB-API 2.0: https://www.python.org/dev/peps/pep-0249/
+
 .. _libpq: https://www.postgresql.org/docs/current/libpq.html
 .. _uGreen: https://uwsgi-docs.readthedocs.io/en/latest/uGreen.html
 .. _gevent: https://www.gevent.org/
 .. _Eventlet: https://eventlet.net/
 
-.. __: /docs/news.html
-.. __: /docs/advanced.html#asynchronous-support
-.. __: /docs/advanced.html#support-to-coroutine-libraries
-.. __: /docs/usage.html#adaptation-of-python-values-to-sql-types
-.. __: /docs/advanced.html#adapting-new-python-types-to-sql-syntax
-.. __: /docs/advanced.html#type-casting-of-sql-types-into-python-objects
-.. __: /docs/usage.html#server-side-cursors
-.. __: /docs/usage.html#using-copy-to-and-copy-from
-.. __: /docs/usage.html#access-to-postgresql-large-objects
-.. __: /docs/advanced.html#asynchronous-notifications
-.. __: /docs/usage.html#two-phase-commit-protocol-support

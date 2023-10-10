@@ -2,20 +2,36 @@ title: Psycopg2 installation
 ---
 body:
 
-The short version
-=================
+Psycopg 3 installation
+======================
 
-First install the prerequisites (not needed on Windows, please adapt to your
-\*nix distribution)::
+The Psycopg 3 package is packaged as the ``psycopg``. Fun fact: *there is no*
+``psycopg3`` *package!*
 
-    sudo apt install python3-dev libpq-dev
+Quick installation::
 
-Then install the module::
+    pip install psycopg[binary]
 
-    pip install psycopg2
+For all the details about installing Psycopg 3, please check the `installation
+documentation`__.
 
-The complete version
-====================
+Did you install Psycopg 3? You can `start here`__ to learn how to use it!
 
-For all the details, please check the `installation docs
-</docs/install.html>`__.
+.. __: /psycopg3/docs/basic/install.html
+.. __: /psycopg3/docs/basic/usage.html
+
+
+Psycopg 2 installation
+======================
+
+Quick installation::
+
+    pip install psycopg2-binary
+
+For all the details about installing Psycopg 2, please check the `installation
+documentation`__.
+
+Did you install Psycopg 2? You can `start here`__ to learn how to use it!
+
+.. __: /docs/install.html
+.. __: /docs/usage.html

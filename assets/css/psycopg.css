@@ -35,6 +35,10 @@ a, a:hover {
     color: #074;
 }
 
+ul {
+  padding-left: 1.75em;
+}
+
 blockquote {
     font-style: italic;
 }
@@ -361,4 +365,32 @@ p.footer {
 p.footer-right {
     color: #888;
     text-align: right;
+}
+
+/* features page */
+
+table.features th,
+table.features td {
+    padding: 0.2em 0.4em;
+}
+
+table.features p,
+table.features ul {
+    margin-bottom: 0;
+}
+
+table.features ul {
+    padding-left: 1.25em;
+}
+
+/* docutils shortcoming? Can't see how to attach a class to a cell, only to a row */
+
+table.features tr.better-left td:first-child,
+table.features tr.better-right td:last-child {
+  background-color: #d8fdd8;
+}
+
+table.features tr.better-left td:first-child a,
+table.features tr.better-right td:last-child a {
+  color: #1b6273;
 }
