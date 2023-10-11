@@ -41,7 +41,7 @@ client library. This makes it complete, performing, reliable, secure.
 
           .. class:: better-right
 
-    *   - | Pre-compiled bundle avalable as the `psycopg2-binary package`__.
+    *   - | Pre-compiled bundle available as the `psycopg2-binary package`__.
           | Difficult dependencies management.
 
         - | Pre-compiled bundle available as the `psycopg[bnary] extra`__.
