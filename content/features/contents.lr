@@ -39,6 +39,14 @@ client library. This makes it complete, performing, reliable, secure.
     *   - Supports PostgreSQL from 7.4 to 16.
         - Supports PostgreSQL from 10 to 16.
 
+          .. class:: better-right
+
+    *   - | Pre-compiled bundle avalable as the `psycopg2-binary package`__.
+          | Difficult dependencies management.
+
+        - | Pre-compiled bundle available as the `psycopg[bnary] extra`__.
+          | Simpler dependencies management.
+
     *   - `DB-API 2.0`_ compliant.
         - DB-API 2.0 compliant.
 
@@ -132,6 +140,9 @@ client library. This makes it complete, performing, reliable, secure.
 
 .. __: /docs/news.html
 .. __: /psycopg3/docs/news.html
+
+.. __: /docs/install.html#psycopg-vs-psycopg-binary
+.. __: /psycopg3/docs/basic/install.html#binary-installation
 
 .. __: /docs/advanced.html#asynchronous-support
 .. __: https://www.psycopg.org/psycopg3/docs/advanced/async.html
