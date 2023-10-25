@@ -14,8 +14,8 @@ client library. This makes it complete, performing, reliable, secure.
   pipeline mode) compared to Psycopg 2. Use it if you are developing something
   new!
 
-.. __: /psycopg3/docs/
 .. __: /docs/
+.. __: /psycopg3/docs/
 
 ..
   Please keep consistent with install.rst and setup.py
