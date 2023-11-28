@@ -44,7 +44,7 @@ client library. This makes it complete, performing, reliable, secure.
     *   - | Pre-compiled bundle available as the `psycopg2-binary package`__.
           | Difficult dependencies management.
 
-        - | Pre-compiled bundle available as the `psycopg[bnary] extra`__.
+        - | Pre-compiled bundle available as the `psycopg[binary] extra`__.
           | Simpler dependencies management.
 
     *   - `DB-API 2.0`_ compliant.
