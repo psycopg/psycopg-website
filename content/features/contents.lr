@@ -59,11 +59,10 @@ client library. This makes it complete, performing, reliable, secure.
     *   - Low-level `asynchronous I/O`__. No native ``asyncio`` support.
         - Native `asyncio support`__.
 
-          .. class:: better-left
-
-    *   - Integration with `coroutine-based libraries`__
-          (gevent_, Eventlet_, uGreen_).
-        - Coroutine libraries support `on its way`__.
+    *   - Integration with `coroutine-based libraries`__ (gevent_, Eventlet_,
+          uGreen_) available via psycogreen_.
+        - gevent `supported out-of-the-box`__; other libraries can be
+          supported if there is request.
 
           .. class:: better-right
 
@@ -148,7 +147,7 @@ client library. This makes it complete, performing, reliable, secure.
 .. __: https://www.psycopg.org/psycopg3/docs/advanced/async.html
 
 .. __: /docs/advanced.html#support-to-coroutine-libraries
-.. __: https://github.com/psycopg/psycogreen/issues/9
+.. __: /psycopg3/docs/advanced/async.html#gevent
 
 .. __: /docs/usage.html#adaptation-of-python-values-to-sql-types
 .. __: /psycopg3/docs/basic/adapt.html
@@ -196,4 +195,5 @@ client library. This makes it complete, performing, reliable, secure.
 .. _uGreen: https://uwsgi-docs.readthedocs.io/en/latest/uGreen.html
 .. _gevent: https://www.gevent.org/
 .. _Eventlet: https://eventlet.net/
+.. _psycogreen: https://pypi.org/project/psycogreen/
 
