@@ -35,7 +35,7 @@ Using the pipeline mode in Psycopg
 ==================================
 
 ``Connection`` objects gained a `pipeline()`_ method to enable the
-pipeline mode through a context manager (`with statement`_); so
+pipeline mode through a context manager (`"with" statement`_); so
 using it is as simple as:
 
 .. code:: python
