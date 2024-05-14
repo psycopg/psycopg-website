@@ -1,0 +1,159 @@
+title: Improved query cancellation in PostgreSQL 17 and Psycopg 3.2
+---
+pub_date: 2024-05-14
+---
+author: Denis Laxalde
+---
+_discoverable: yes
+---
+tags:
+
+psycopg3
+development
+---
+body:
+
+The upcoming PostgreSQL 17 will ship with improved query cancellation
+capabilities, as part of the libpq, and so will the upcoming release of
+Psycopg version 3.2.
+
+.. CUT-HERE
+
+In March, Alvaro Herrera committed the following `patch`_ to PostgreSQL:
+
+::
+
+   libpq: Add encrypted and non-blocking query cancellation routines
+
+   The existing PQcancel API uses blocking IO, which makes PQcancel
+   impossible to use in an event loop based codebase without blocking the
+   event loop until the call returns.  It also doesn't encrypt the
+   connection over which the cancel request is sent, even when the original
+   connection required encryption.
+
+   This commit adds a PQcancelConn struct and assorted functions, which
+   provide a better mechanism of sending cancel requests; in particular all
+   the encryption used in the original connection are also used in the
+   cancel connection.  The main entry points are:
+
+   - PQcancelCreate creates the PQcancelConn based on the original
+     connection (but does not establish an actual connection).
+   - PQcancelStart can be used to initiate non-blocking cancel requests,
+     using encryption if the original connection did so, which must be
+     pumped using
+   - PQcancelPoll.
+   - PQcancelReset puts a PQcancelConn back in state so that it can be
+     reused to send a new cancel request to the same connection.
+   - PQcancelBlocking is a simpler-to-use blocking API that still uses
+     encryption.
+
+   Additional functions are
+    - PQcancelStatus, mimicks PQstatus;
+    - PQcancelSocket, mimicks PQcancelSocket;
+    - PQcancelErrorMessage, mimicks PQerrorMessage;
+    - PQcancelFinish, mimicks PQfinish.
+
+   Author: Jelte Fennema-Nio <postgres@jeltef.nl>
+   Reviewed-by: Denis Laxalde <denis.laxalde@dalibo.com>
+   Discussion: https://postgr.es/m/AM5PR83MB0178D3B31CA1B6EC4A8ECC42F7529@AM5PR83MB0178.EURPRD83.prod.outlook.com
+
+This should be shipped with the upcoming PostgreSQL 17 release.
+
+The Psycopg team pays special attention to how the `libpq`_ evolves in
+PostgreSQL core and this changeset obviously caught our attention.
+
+The initial version of the patch was submitted by Jelte Fennema-Nio more
+than one year ago, entitled `Add non-blocking version of PQcancel`_ and
+planned in March 2023’s commitfest. By that time, I took the opportunity
+to review it and started `integrating in Psycopg`_. Sadly, the patch did
+not get committed for PostgreSQL 16 last year. Luckily, subsequent
+reviews brought interesting features to the initial patch set,
+especially concerning security when connection encryption is used.
+
+What makes this changeset interesting?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Well, it’s explained in the commit message above:
+
+-  one can now cancel queries in progress in a non-blocking manner from
+   a client program (typically one using asynchronous I/O), and,
+-  the connection used to drive query cancellation is now as secured as
+   the original connection was.
+
+How does Psycopg benefit from this?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The Psycopg `Connection`_ already had a `cancel()`_ method, which used
+the (now legacy) `PQcancel`_ interface.
+
+For the upcoming Psycopg 3.2, the integration was done in coordination
+with Daniele; here’s a (sub-)set of pull requests at stake:
+
+-  `add libpq interface for encrypted and non-blocking cancellation`_
+-  `encrypted and non-blocking cancellation`_
+-  `add a timeout parameter to Connection.cancel_safe()`_
+
+And the target result should be the following high-level interface:
+
+.. code:: python
+
+   class AsyncConnection:
+       ...
+
+       async def cancel_safe(self, *, timeout: float) -> None:
+           """Cancel the current operation on the connection.
+
+           This is a non-blocking version of cancel() which leverages a more
+           secure and improved cancellation feature of the libpq, which is only
+           available from version 17.
+
+           If the underlying libpq is older than version 17, the method will fall
+           back to using the same implementation of cancel().
+
+           Raises:
+
+               CancellationTimeout - If the cancellation did not terminate within
+               specified timeout.
+           """
+           ...
+
+which would make it possible to write this kind of application code
+using `asyncio`_:
+
+.. code:: python
+
+   async with await psycopg.AsyncConnection.connect() as conn:
+       ...
+       try:
+           async with asyncio.timeout(delay):
+               await conn.execute("... long running query ...")
+       except TimeoutError:
+           print("operation did not terminate within {delay}s, cancelling")
+           await conn.cancel_safe()
+
+in which the cancel operation (i.e. the ``await conn.cancel_safe()``
+instruction) would not block the program, thus allowing it to handle
+other requests while waiting for cancellation to complete.
+
+So… Waiting for PostgreSQL 17, and `Psycopg 3.2`_!
+
+----
+
+   This article, originally published at `Improved query cancellation in
+   PostgreSQL 17 and Psycopg 3.2`_, is used under `CC BY-NC-SA`_
+   (content slightly adjusted in the context of Psycopg).
+
+.. _patch: https://git.postgresql.org/gitweb/?p=postgresql.git;a=commit;h=61461a300c1cb5d53955ecd792ad0ce75a104736
+.. _libpq: https://www.postgresql.org/docs/current/libpq.html
+.. _Add non-blocking version of PQcancel: https://commitfest.postgresql.org/37/3511/
+.. _integrating in Psycopg: https://github.com/psycopg/psycopg/issues/534
+.. _Connection: https://www.psycopg.org/psycopg3/docs/api/connections.html#psycopg.Connection
+.. _cancel(): https://www.psycopg.org/psycopg3/docs/api/connections.html#psycopg.Connection.cancel
+.. _PQcancel: https://www.postgresql.org/docs/devel/libpq-cancel.html#LIBPQ-CANCEL-DEPRECATED
+.. _add libpq interface for encrypted and non-blocking cancellation: https://github.com/psycopg/psycopg/pull/754
+.. _encrypted and non-blocking cancellation: https://github.com/psycopg/psycopg/pull/763
+.. _add a timeout parameter to Connection.cancel_safe(): https://github.com/psycopg/psycopg/pull/780
+.. _asyncio: https://docs.python.org/3/library/asyncio.html
+.. _Psycopg 3.2: https://www.postgresql.org/message-id/CA%2Bmi_8YaYErxx0L56Z1HdXkMmdMd-TSYZ%3DUDjQZAOSQ4zUTKPQ%40mail.gmail.com
+.. _Improved query cancellation in PostgreSQL 17 and Psycopg 3.2: https://blog.dalibo.com/2024/04/15/improved-query-cancellation-in-postgresql-17-and-psycopg-3.2.html
+.. _CC BY-NC-SA: https://creativecommons.org/licenses/by-nc-sa/4.0/
