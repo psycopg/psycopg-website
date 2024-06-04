@@ -15,7 +15,7 @@ Hi \*,
 
 this is probably one of the best psycopg releases ever. Daniele, Jason
 and all the others that sent patches did an impressive work to have
-psycopg build and work flawlessy on all the supported platforms (well..
+psycopg build and work flawlessly on all the supported platforms (well..
 we can probably do a little bit better on MacOS but everything else is
 almost perfect). So here it is (followed by NEWS excerpt, as always):
 
