@@ -1,0 +1,202 @@
+title: Psycopg 3.2 released
+---
+pub_date: 2024-06-30
+---
+author: Daniele Varrazzo
+---
+_discoverable: yes
+---
+tags:
+
+news
+release
+---
+body:
+
+It was quite the ride! But we made it!
+
+After almost two years, 846 commits, more than 700 new tests, more than 20000
+changes in 310 files (I didn't even realise that there were 310 files in this
+project...) Psycopg 3.2 has been released!
+
+This release brings a few new feature and hopefully no meaningful non-backward
+compatible change. The whole list of changes is available `in the changelog
+<https://www.psycopg.org/psycopg3/docs/news.html#psycopg-3-2>`__; these are
+some of the major points explained.
+
+.. CUT-HERE
+
+
+Numpy scalars support
+---------------------
+
+In many scientific applications, `Numpy scalars
+<https://numpy.org/doc/stable/reference/arrays.scalars.html#built-in-scalar-types>`__
+are widely used, either by themselves or in conjunction with regular Python
+values. However there was no support for storing them to the database and a
+conversion to normal Python values was necessary. Starting from Psycopg 3.2
+storing Numpy scalars is automatic and the operation efficient.
+
+A natural extension would be to convert between Numpy and PostgreSQL arrays
+too. However there hasn't been much demand for the feature, therefore it's
+currently `on the back burner
+<https://github.com/psycopg/psycopg/issues/336>`__ but can be implemented if
+there is demand.
+
+
+PostgreSQL parameters
+---------------------
+
+Psycopg uses placeholders such as ``%s`` and ``%(name)s`` to `pass values to
+queries <https://www.psycopg.org/psycopg3/docs/basic/params.html>`__. These
+formats are familiar to Python developers, but they are quite foreign in
+PostgreSQL environment, because, natively, `PostgreSQL uses a number-based
+placeholder format
+<https://www.postgresql.org/docs/current/libpq-exec.html#LIBPQ-PQEXECPARAMS>`__
+(such as ``$1``, ``$2``...) Psycopg, internally, converts the first format
+into the second.
+
+It is now possible to execute queries using the PostgreSQL format by using the
+`raw query cursors
+<https://www.psycopg.org/psycopg3/docs/advanced/cursors.html#raw-query-cursors>`__,
+which should feel more familiar to PostgreSQL developers and maybe lower the
+barrier to convert programs using large bodies of native queries to Python
+(the PostgreSQL test suite, maybe?)
+
+.. code:: python
+
+    cur = psycopg.RawCursor(conn)
+    cur.execute("SELECT ($1 + $2) * $1", [3, 5]).fetchone()
+    (24,)
+
+
+Scalar row factory
+------------------
+
+The example above shows a pretty common annoyance. How many times do you need
+a single value from the database and you are returned a tuple?
+
+Psycopg normally emits records as Python tuples; the behaviour can be
+customized to return named tuples, dictionaries, or entirely custom objects
+with the use of `row factories
+<https://www.psycopg.org/psycopg3/docs/advanced/rows.html>`__.
+
+In the frequent case of a query returning a single value, the new `scalar_row
+<https://www.psycopg.org/psycopg3/docs/api/rows.html#psycopg.rows.scalar_row>`__
+factory will return only that:
+
+.. code:: python
+
+    cur = psycopg.RawCursor(conn, row_factory=scalar_row)
+    cur.execute("SELECT ($1 + $2) * $1", [3, 5]).fetchone()
+    24
+
+This is not a feature of ``RawCursor`` only, but it's independent from the
+choice of the cursor class. We just needed to fix the example above!
+
+
+Libpq 17 features
+-----------------
+
+In the upcoming PostgreSQL 17 release, the libpq (the PostgreSQL client
+library used internally by Psycopg) has seen an unusually intense activity,
+with the introduction of `several new features
+<https://www.postgresql.org/docs/17/release-17.html#RELEASE-17-LIBPQ>`__.
+
+Our friend Denis Laxalde has been quick to build features and improvements on
+top of these new functionalities. So, when Psycopg is used with libpq 17, it
+can benefit of features such as:
+
+- `asynchronous, safe cancellation
+  <https://www.psycopg.org/psycopg3/docs/api/connections.html#psycopg.Connection.cancel_safe>`__
+- `chunked stream results
+  <https://www.psycopg.org/psycopg3/docs/api/cursors.html#psycopg.Cursor.stream>`__
+- `better interaction with PgBouncer
+  <https://www.psycopg.org/psycopg3/docs/advanced/prepare.html#pgbouncer>`__
+
+A new `capabilities object
+<https://www.psycopg.org/psycopg3/docs/api/objects.html#psycopg.Capabilities>`__
+can help to navigate the differences and to write programs either degrading
+gracefully or crashing helpfully if the libpq used doesn't offer a requested
+functionality.
+
+
+Easier interaction with notifications 
+-------------------------------------
+
+Psycopg 3 introduced a `notifications generator
+<https://www.psycopg.org/psycopg3/docs/advanced/async.html#asynchronous-notifications>`__
+to receive asynchronous notification from the database. However the generator
+turned out to be... difficult to stop! It could be stopped upon receiving a
+specific notification as a message, but, because of Python quirks, not easily
+from the rest of the program.
+
+.. code:: python
+
+    import psycopg
+    conn = psycopg.connect("", autocommit=True)
+    conn.execute("LISTEN mychan")
+    gen = conn.notifies()
+    for notify in gen:
+        print(notify)
+        # ehm... please kill me!
+
+New ``timeout`` and ``stop_after`` parameters allow for better control of a
+notification listening task (often a component of larger applications) and to
+provide better ways to control its operations. Such as to kindly tell it that
+its services are not requested anymore without having to kill the whole
+program!
+
+
+Less work for us!
+-----------------
+
+An interesting internal change has helped us to reduce the amount of code to
+write and maintain.
+
+All the Psycopg objects interacting with the network come in two flavours: one
+implementing "classic" blocking methods (with which concurrency in a process
+can be implemented via multi-threading) and one implementing `asynchronous
+methods
+<https://www.psycopg.org/psycopg3/docs/advanced/async.html#asynchronous-operations>`__
+to participate in `collaborative concurrency
+<https://docs.python.org/3/library/asyncio.html>`__.
+
+Thanks to an early design choice, all the libpq I/O interaction only happens
+via asynchronous functions and is shared by both the sync and the async
+objects; however the code implementing the outermost objects and highest level
+behaviour had to be pretty much almost duplicated, with the same features
+implemented almost identically with and without async/await keywords, bugs to
+be tested and fixed on two sides...
+
+We have therefore developed an `async_to_sync conversion tool
+<https://github.com/psycopg/psycopg/blob/3.2.0/tools/async_to_sync.py>`__ to
+generate the synchronous code starting from the AST of the asynchronous
+counterpart. As a result, the 20-25% of the codebase is now automatically
+generated and doesn't require specific maintenance. The process of converting
+the sync side from hand-written to auto-generated has also highlighted subtle
+differences between async and sync behaviours, which have been addressed, and
+affects tests too.
+
+The technique could be useful for other projects maintaining both sync and
+async code, and is interesting enough to require an article of its own to
+be written...
+
+
+We need your help!
+------------------
+
+Psycopg, first v2, now v3, is the de-facto standard for the communication
+between Python and PostgreSQL, two major components of innumerable businesses
+and mission-critical infrastructures.
+
+Maintaining such a critical library to the highest standard of reliability,
+completeness, performance requires a lot of care and work.
+
+
+If you are a Python and PostgreSQL user and would like to make sure that the
+interface between the two is well maintained and continuously improved, please
+consider `sponsoring the project <https://github.com/sponsors/dvarrazzo>`__
+and to be one of `our sponsors <https://www.psycopg.org/sponsors/>`__ 💜
+
+Thank you very much, happy hacking!
