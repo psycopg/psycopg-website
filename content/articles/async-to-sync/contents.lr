@@ -98,7 +98,7 @@ of source code such as:
 
     import asyncio
 
-    async def async_square(n: float) -> float:
+    async def async_square(n):
         # Squares are slow
         await asyncio.sleep(1)
 
@@ -117,33 +117,25 @@ you can pass it to the module to see the AST tree representing it:
           **AsyncFunctionDef**\(
              name='async_square',
              args=arguments(
-                posonlyargs=[],
                 args=[
-                   arg(
-                      arg='n',
-                      annotation=Name(id='float', ctx=Load()))],
-                kwonlyargs=[],
-                kw_defaults=[],
+                   arg(arg='n')],
                 defaults=[]),
              body=[
                 Expr(
                    value=\ **Await**\(
                       value=\ **Call**\(
                          func=Attribute(
-                            value=Name(id='asyncio', ctx=Load()),
-                            attr='sleep',
-                            ctx=Load()),
+                            value=Name(id='asyncio'),
+                            attr='sleep'),
                          args=[
-                            Constant(value=1)],
-                         keywords=[]))),
+                            Constant(value=1)]))),
                 **Return**\ (
                    value=BinOp(
-                      left=Name(id='n', ctx=Load()),
+                      left=Name(id='n'),
                       op=Mult(),
-                      right=Name(id='n', ctx=Load())))],
+                      right=Name(id='n')))],
              decorator_list=[],
-             returns=Name(id='float', ctx=Load()))],
-       type_ignores=[])
+             returns=Name(id='float'))])
 
 You can see, highlighted, the nodes in the tree representing the main
 statements in the code: the tree represents a *module*, whose body contains two
@@ -280,9 +272,8 @@ highlighted parts from the original tree:
     **value=Await**\(    # this node must be dropped, replaced by its ``value``
        value=Call(
           func=Attribute(
-             value=Name(id='\ **asyncio**\', ctx=Load()),  # we want ``time`` here
-             attr='sleep',
-             ctx=Load()),
+             value=Name(id='\ **asyncio**\'),  # we want ``time`` here
+             attr='sleep'),
           args=[
              Constant(value=1)],
           keywords=[]))),
@@ -400,13 +391,13 @@ The AST with this code, including the comments, looks like:
                 **Comment(value='# ASYNC', inline=True),**
                 Expr(
                    value=Call(
-                      func=Name(id='foo', ctx=Load()),
+                      func=Name(id='foo'),
                       args=[],
                       keywords=[]))],
              orelse=[
                 Expr(
                    value=Call(
-                      func=Name(id='bar', ctx=Load()),
+                      func=Name(id='bar'),
                       args=[],
                       keywords=[]))])],
        type_ignores=[])
