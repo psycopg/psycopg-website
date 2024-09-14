@@ -58,7 +58,7 @@ Until Psycopg 3.1, the two variants of each objects were developed manually.
 Once a change was made on the sync side, it had to be ported to the async
 side, with cumbersome and noisy diffs, and subtle differences introduced every
 now and then. Even the tests were pretty much duplicated (with some sync test
-lost in the asnyc side, or the other way round). It seemed a situation that
+lost in the async side, or the other way round). It seemed a situation that
 could have been improved.
 
 
