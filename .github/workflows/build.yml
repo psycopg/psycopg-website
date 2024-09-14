@@ -23,7 +23,7 @@ jobs:
       - name: Codespell
         run: |
           pip install codespell
-          codespell --ignore-words-list=possibile --skip="*.css,*.svg"
+          codespell
 
       - name: Install requirements to generate Psycopg 3 docs
         run: sudo apt-get install -y libgeos-dev

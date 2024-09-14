@@ -1,0 +1,3 @@
+[tool.codespell]
+ignore-words-list = "possibile"
+skip = "build,env,.venv,psycopg2,psycopg3,*.css,*.svg"
