@@ -1,0 +1,653 @@
+title: Automatic async to sync code conversion
+---
+pub_date: 2024-09-13
+---
+author: Daniele Varrazzo
+---
+_discoverable: no
+---
+tags:
+
+article
+internals
+hacking
+---
+body:
+
+Psycopg 3 exposes both a sync and an async interface. For every object used to
+perform some I/O operation, such as ``Connection``, ``Cursor``, there is an
+async counterpart: ``AsyncConnection``, ``AsyncCursor``, with an intuitive
+interface: just add the right ``async`` or ``await`` keyword where needed:
+
+.. code:: python
+
+    # Familiar sync code
+    conn = psycopg.Connection.connect("")
+    cur = conn.execute("select now()")
+    print(cur.fetchone()[0])
+
+    # Similar async code
+    aconn = await psycopg.AsyncConnection.connect("")
+    acur = await aconn.execute("select now()")
+    print((await acur.fetchone())[0])
+
+The decision to provide both sync and async code was `an early one in Psycopg
+3 development`__, so we tried to make most of the code already sync/async
+compatible in order to keep code duplication at a minimum. This was achieved
+by making all the libpq communication async, and to write the networking code
+as generators, yielding at the moment they need to wait, isolating the
+differences in the sync/async waiting policy all in ``wait()`` functions.
+
+.. __: https://www.varrazzo.com/blog/2020/03/26/psycopg3-first-report/
+
+This helped to make the async/sync differences between Python and PostgreSQL
+minimal. However, the interface between Psycopg and the Python user,  is still
+a lot to maintain, and is made of a lot of code very similar, almost
+duplicated, between the sync and async side. Apart from the obvious
+``async``\/``await`` keywords, there would be subtle implementation
+differences, for instance:
+
+- using ``await asyncio.sleep()`` instead of ``time.sleep()``;
+- ``asyncio.create_task(f(arg1, arg2))`` is similar to ``thread.Thread(f,
+  (arg1, arg2)).start()``;
+- ``threading.Event`` has a ``asyncio.Event`` counterpart whose ``lock()``
+  method doesn't have a ``timeout``, parameter, so ``event.wait(timeout=10)``
+  must be rewritten as ``asyncio.wait_for(event.wait(), timeout=10)``.
+
+Until Psycopg 3.1, the two variants of each objects were developed manually.
+Once a change was made on the sync side, it had to be ported to the async
+side, with cumbersome and noisy diffs, and subtle differences introduced every
+now and then. Even the tests were pretty much duplicated (with some sync test
+lost in the asnyc side, or the other way round). It seemed a situation that
+could have been improved.
+
+
+This is so boring that...
+-------------------------
+
+...a computer should do it for me instead. Looking at the code, it is obvious
+that the async side has more information than the sync counterpart (every
+method definition and call clearly indicate whether it will block or not) and
+most differences are minimal and repetitive. What we want then is *a script
+taking an asyncio-based source code as input and emitting equivalent sync
+code*. This article describes how such a script can be implemented and how it
+is used for the transformation and the maintenance of the Psycopg 3 codebase.
+
+
+Abstract Syntax Tree
+--------------------
+
+You would be tempted to write a bunch of regular expressions to just scrub
+away every ``async`` and ``await`` keyword found, but the source code is
+likely the wrong level to attack the problem: Python knows well how to parse
+Python and can allow us to reason at a higher level.
+
+A better tool to work with is the `Abstract Syntax Tree`__ (AST): an in-memory
+representation of the code obtained after it has been parsed. At this level we
+manipulate objects representing "the for loop", or "the function call", and we
+will not be fooled by unexpected spacing, extra brackets, comments, literal
+strings, and other traps.
+
+The `Python 'ast' module`__ is the obvious starting point: if you have a bit
+of source code such as:
+
+.. __: https://en.wikipedia.org/wiki/Abstract_syntax_tree
+.. __: https://docs.python.org/3/library/ast.html
+
+.. code:: python
+
+    import asyncio
+
+    async def async_square(n: float) -> float:
+        # Squares are slow
+        await asyncio.sleep(1)
+
+        return n * n
+
+you can pass it to the module to see the AST tree representing it:
+
+.. parsed-literal::
+
+    $ python -m ast ast1.py
+    **Module**\(
+       body=[
+          **Import**\ (
+             names=[
+                alias(name='asyncio')]),
+          **AsyncFunctionDef**\(
+             name='async_square',
+             args=arguments(
+                posonlyargs=[],
+                args=[
+                   arg(
+                      arg='n',
+                      annotation=Name(id='float', ctx=Load()))],
+                kwonlyargs=[],
+                kw_defaults=[],
+                defaults=[]),
+             body=[
+                Expr(
+                   value=\ **Await**\(
+                      value=\ **Call**\(
+                         func=Attribute(
+                            value=Name(id='asyncio', ctx=Load()),
+                            attr='sleep',
+                            ctx=Load()),
+                         args=[
+                            Constant(value=1)],
+                         keywords=[]))),
+                **Return**\ (
+                   value=BinOp(
+                      left=Name(id='n', ctx=Load()),
+                      op=Mult(),
+                      right=Name(id='n', ctx=Load())))],
+             decorator_list=[],
+             returns=Name(id='float', ctx=Load()))],
+       type_ignores=[])
+
+You can see, highlighted, the nodes in the tree representing the main
+statements in the code: the tree represents a *module*, whose body contains two
+*statements* - an ``import`` and an ``async def`` - with the function's body
+defining an ``await`` call and a ``return`` statement.
+
+The same ``ast`` module can perform the opposite transformation and convert an
+AST tree back to source::
+
+    $ python -c "import ast; print(ast.unparse(ast.parse(open('ast1.py').read())))"
+    import asyncio
+
+    async def square(n: float) -> float:
+        await asyncio.sleep(1)
+        return n * n
+
+As you can see, unfortunately, the transformation back to code is not a
+perfect reconstruction of the original code, it is only *equivalent*, with
+missing comments and different spacing. That's because the syntax tree is
+*abstract* and whitespaces or comments don't affect it. If you wanted to keep
+these details into account you would need a *concrete* syntax tree (there is
+`something available`__ but I haven't played with it).
+
+.. __: https://pypi.org/project/libcst/
+
+Whitespaces changing is not a problem, but losing comments may be, especially
+when they are used to drive linters (such as Flake8's ``noqa`` or Mypy's
+``type: ignore``), or simply if you happen to be a human being and want to
+read the source code. Thankfully there is a simple wrapper module,
+`ast-comments`__, which does exactly what it says on the tin: it introduces
+Comment nodes as part of an AST. Playing with it, it turned out to be a good
+compromise between an abstract and a concrete syntax tree, after taming the
+comments placement a bit.
+
+.. __: https://pypi.org/project/ast-comments/
+
+
+Du AST Mich
+-----------
+
+In order to perform the code transformation, we will walk over the abstract
+syntax tree and we will perform some operation to generate a different tree of
+our liking. Usually, this type of operation is performed with an
+implementation of the `visitor pattern`__.
+
+This pattern can be incredibly useful whenever you need to perform operations
+on data structures composed of heterogeneous nodes (I've seen it in
+applications ranging from converting UML representations to code, converting
+markup language to HTML, converting Kubernetes manifests to Helm charts,
+converting annotated lyrics files to Ukulele tab sheets...); unfortunately
+many of the descriptions of the pattern you can find online fail to make its
+brilliance immediate (the Wikipedia page is pretty bad at it) and,
+historically, have focused on solving the *double-dispatch* problem in static
+languages such as C++ or Java (which in a dynamic language such as Python is
+trivial) instead of focusing on the **awesome** things you can do with it.
+
+In a nutshell, you will have an object walking over an input data structure,
+element by element, and building an output structure in the process, allowing
+to run different code and to perform different manipulations according to the
+type of element traversed.
+
+In our case, both the input and the output are AST trees, which will happen to
+be very similar to each other (as we are just trying to convert some subtle
+differences from one Python module to another): for many nodes, the visitor
+will just emit a copy of it (for instance the ``return`` statement in the
+example is unchanged). But, when we recognise a certain pattern, we can
+instruct our visitor to produce a somewhat different node.
+
+The ``ast`` module offers a base `ast.NodeTransformer`__ class, which
+implements the node traversal and tree production parts. On its own, it
+doesn't perform any operation on the nodes, so, if you use the object as it
+is, it will just produce a copy of the input tree. However, by subclassing the
+class and adding visit methods, you can implement node-specific
+transformations.
+
+With the AST node transformer, the method to call is based on the name of the
+node visited; for instance, if you add a method called ``visit_Import`` to
+your subclass, the visitor will call it whenever it traverses an ``Import``
+node, giving you a chance to manipulate an ``import`` statement. You can then
+decide if you want to change some of the node detail (drop some import, change
+some name), or replace the node with something entirely different (such as an
+async function definition into a sync one).
+
+.. __: https://en.wikipedia.org/wiki/Visitor_pattern
+.. __: https://docs.python.org/3/library/ast.html#ast.NodeTransformer
+
+Let's say that we want to produce a sync version of the above script: the
+differences should be the following:
+
+.. code:: diff
+
+    @@ -1,7 +1,7 @@
+    -import asyncio
+    +import time
+
+    -async def async_square(n: float) -> float:
+    +def square(n: float) -> float:
+         # Squares are slow
+    -    await asyncio.sleep(1)
+    +    time.sleep(1)
+
+         return n * n
+
+In our toy example, we want to convert the ``asyncio`` module in the ``time``
+module (which is obviously not the right thing to do in the general case, but
+let's keep the example simple). The following script implements the
+transformation and prints the converted module:
+
+.. code:: python
+
+    import ast
+
+    class MyTransformer(ast.NodeTransformer):
+        def visit_Import(self, node):
+            for alias in node.names:
+                if alias.name == "asyncio":
+                    alias.name = "time"
+
+            return node
+
+    with open("ast1.py") as f:
+        tree = ast.parse(f.read())
+    tree = MyTransformer().visit(tree)
+    print(ast.unparse(tree))
+
+The script will print the new source, with an ``import time`` replacing the
+original ``import asyncio``.
+
+Changing the ``async`` call is a bit trickier: we want to change the
+highlighted parts from the original tree:
+
+.. parsed-literal::
+
+    **value=Await**\(    # this node must be dropped, replaced by its ``value``
+       value=Call(
+          func=Attribute(
+             value=Name(id='\ **asyncio**\', ctx=Load()),  # we want ``time`` here
+             attr='sleep',
+             ctx=Load()),
+          args=[
+             Constant(value=1)],
+          keywords=[]))),
+
+Adding the following two methods to the above class will implement what
+described. To make sense of them, and to implement your own transformations,
+you can always look at the output of ``python -m ast`` in order to figure out
+the attributes on each node and the way they are nested.
+
+.. code:: python
+
+    def visit_Await(self, node):
+        new_node = node.value  # drop the node, continue to operate on the value
+        self.visit(new_node)
+        return new_node
+
+    def visit_Call(self, node):
+        match node.func:
+            case ast.Attribute(value=ast.Name(id="asyncio"), attr="sleep"):
+                node.func.value.id = "time"
+        return node
+
+The latter method shows how, for this operation, the `structural pattern
+matching`__ introduced in Python 3.10 comes extremely handy. The
+``visit_Call`` method will be invoked for every function call found in the
+input code; checking if the one just received requires some manipulation would
+have involved a cascade of ifs (the value is a ``Name``, its id is
+``asyncio``, the attr is ``sleep``...) which becomes pretty ugly pretty
+quickly, whereas instead a ``match`` statement can describe a complex nested
+test very succinctly.
+
+.. __: https://peps.python.org/pep-0636/
+
+
+Problems with ``sleep()``
+-------------------------
+
+Performing the transformation from ``asyncio.sleep`` to ``time.sleep`` for
+real is much more complex than this. What if our source includes ``from
+asycio import sleep, Event``? We would need to split the import into
+different parts:
+
+.. code:: python
+
+    from time import sleep
+    from threading import Event
+
+and the latter should be treated differently later because the two ``Event``
+objects have a different ``wait()`` signature.
+
+In order to help ourselves with this operation, in Psycopg 3 we introduced `an
+internal '_acompat' module`__ (`two`__, actually, because the pool is released
+separately and uses different functions; `three`__ actually, because the tests
+have its own too...) to expose pairs of functions or objects that should be
+used alternatively in sync or in async mode.
+
+.. __: https://github.com/psycopg/psycopg/blob/d13137aacb82fed79459a9dd487846a2ec972571/psycopg/psycopg/_acompat.py
+.. __: https://github.com/psycopg/psycopg/blob/d13137aacb82fed79459a9dd487846a2ec972571/psycopg_pool/psycopg_pool/_acompat.py
+.. __: https://github.com/psycopg/psycopg/blob/d13137aacb82fed79459a9dd487846a2ec972571/tests/acompat.py
+
+For instance we can solve the ``sleep()`` problem with:
+
+.. code:: python
+
+    # module _acompat.py
+
+    import time
+    import asyncio
+
+    sleep = time.sleep
+
+    def asleep(seconds: float) -> Coroutine[Any, Any, None]:
+        """
+        Equivalent to asyncio.sleep(), converted to time.sleep() by async_to_sync.
+        """
+        return asyncio.sleep(seconds)
+
+Now it's easy to use ``from ._acompat import asleep; await asleep(1)`` and to
+make simple names substitutions in the AST: the resulting statement
+``from ._acompat import sleep, sleep(1)`` will work as expected.
+
+Other goodies we have implemented to help uniforming async and sync code are
+``spawn``\/\ ``aspawn`` and ``agather``\/\ ``gather`` to uniform threads and
+asyncio tasks creation, ``alist()`` to encapsulate ``[x for x in await
+iterable]`` in a way that can be easily converted to ``list(iterable)`` and
+many other helpers to smoothen the transition.
+
+
+When everything else fail
+-------------------------
+
+There might be parts of the codebase where the difference between sync and
+async versions is too difficult to deal in a practical way, and is not worth
+to put together a complex matching for a complex, one-off case. What we would
+like to have is a simple "if async, do this, else do that".
+
+We have solved this problem by using a pattern such as:
+
+.. code:: python
+
+    if True:  # ASYNC
+        foo()
+    else:
+        bar()
+
+The AST with this code, including the comments, looks like:
+
+.. parsed-literal::
+
+    Module(
+       body=[
+          **If(**
+             **test=Constant(value=True),**
+             body=[
+                **Comment(value='# ASYNC', inline=True),**
+                Expr(
+                   value=Call(
+                      func=Name(id='foo', ctx=Load()),
+                      args=[],
+                      keywords=[]))],
+             orelse=[
+                Expr(
+                   value=Call(
+                      func=Name(id='bar', ctx=Load()),
+                      args=[],
+                      keywords=[]))])],
+       type_ignores=[])
+
+`Our transformation`__ will find the ``ASYNC`` comment: in that case it will
+just discard the if-side of the condition, as well as the ``if`` itself, and
+will leave only the ``else`` branch in the sync code, allowing to discard
+unneeded imports or other code that would be just invalid in the sync context.
+
+.. __: https://github.com/psycopg/psycopg/blob/d13137aacb82fed79459a9dd487846a2ec972571/tools/async_to_sync.py#L253-L262
+
+This pattern is also efficient, because the Python compiler is able to
+recognise that ``if True`` will always take the first branch, so it will
+discard the test and the code in the ``else`` branch. The `dis`__\ (assembler)
+module shows no jump and that no reference to the ``bar()`` function call::
+
+    $ python -m dis ast3.py
+      1           0 NOP
+
+      2           2 LOAD_NAME                0 (foo)
+                  4 CALL_FUNCTION            0
+                  6 POP_TOP
+                  8 LOAD_CONST               1 (None)
+                 10 RETURN_VALUE
+
+.. __: https://docs.python.org/3/library/dis.html
+
+
+Conversion methodology
+----------------------
+
+If we have our conversion script, how can we use it to actually convert the
+codebase? The progress, for us, has been iterative: progressing
+module-by-module and adding features to the script until completing all the
+"duplicated" modules.
+
+For every module to convert, the procedure has been, roughly:
+
+First step: refactoring to change no behaviour but to make the async code as
+close as possible to the sync one. This would have meant some code
+reorganization, some variables, some function definitions swapping, some
+rediscovery of forgotten skeletons and a chance to give them the proper
+burial.
+
+Often we would have some non-I/O-related helper functionality implemented in
+the sync side and imported in the async side:
+
+.. code:: python
+
+    # connection.py
+
+    def clean_up_conninfo(conninfo):
+        # hack hack
+        return better_conninfo
+
+    def connect(conninfo):
+        better_conninfo = clean_up_conninfo(conninfo)
+        conn = wait(connection_gen(bettern_conninfo))
+        return conn
+
+    # connection_async.py
+
+    from .connection import clean_up_conninfo
+
+    async def connect_async(conninfo):
+        better_conninfo = clean_up_conninfo(conninfo)
+        aconn = await async_wait(connection_gen(bettern_conninfo))
+        return aconn
+
+In this case we would have moved the common functionality into a separate
+module and imported the function on both the sides:
+
+.. code:: python
+
+    # _connection.py
+
+    def clean_up_conninfo(conninfo):
+        # hack hack
+        return better_conninfo
+
+    # connection.py
+
+    from ._connection import clean_up_conninfo
+
+    def connect(conninfo):
+        better_conninfo = clean_up_conninfo(conninfo)
+        conn = wait(connection_gen(bettern_conninfo))
+        return conn
+
+    # connection_async.py
+
+    from ._connection import clean_up_conninfo
+
+    async def connect_async(conninfo):
+        better_conninfo = clean_up_conninfo(conninfo)
+        aconn = await async_wait(connection_gen(bettern_conninfo))
+        return aconn
+
+Now that the two modules are more similar we can run the test suite to verify
+that the library is still working and can commit the current state in
+git.
+
+Second step: running a conversion async -> sync with the current version of
+the script. Even running a no-op script is useful: it produces changes that
+can be easily seen with ``git diff``, suggesting which feature is missing, or
+what further cleanup we can do to the code to make the sync and async flavours
+more similar.
+
+For instance, a no-op script which would just copy the async side on the sync
+side, would be seen in ``git diff`` as:
+
+.. code:: diff
+
+    @@ -1,6 +1,6 @@
+     from ._connection import clean_up_conninfo
+
+    -def connect(conninfo):
+    +async def connect_async(conninfo):
+         better_conninfo = clean_up_conninfo(conninfo)
+    -    conn = wait(connection_gen(bettern_conninfo))
+    -    return conn
+    +    aconn = await async_wait(connection_gen(bettern_conninfo))
+    +    return aconn
+
+The first feature to add to the conversion script is the removal of the
+``async`` and ``await`` keywords. Running conversion and diff again you would
+see:
+
+.. code:: diff
+
+    @@ -1,6 +1,6 @@
+     from ._connection import clean_up_conninfo
+
+    -def connect(conninfo):
+    +def connect_async(conninfo):
+         better_conninfo = clean_up_conninfo(conninfo)
+    -    conn = wait(connection_gen(bettern_conninfo))
+    -    return conn
+    +    aconn = async_wait(connection_gen(bettern_conninfo))
+    +    return aconn
+
+A following step is some renaming. If ``connect()`` and ``connect_async()``
+are public functions we don't want to change their name. The script should
+have a names mapping function, suggesting to convert:
+
+- ``connect_async`` -> ``connect``
+- ``wait_async`` -> ``wait``
+
+Implementing these renaming in the AST we would get to the diff:
+
+.. code:: diff
+
+    @@ -2,5 +2,5 @@
+
+     def connect(conninfo):
+         better_conninfo = clean_up_conninfo(conninfo)
+    -    conn = wait(libpq.connect_async())
+    -    return conn
+    +    aconn = async(libpq.connect_async())
+    +    return aconn
+
+We are getting there. This remaining ``aconnn``\/``conn`` is actually a
+gratuitous difference: we can change the async side and call the local
+variable ``conn`` without losing readability and obviously without changing
+any behaviour.
+
+Committing the async-side change and running the conversion again would show
+no more difference on the sync side. At this point we can commit the entire
+project (any leftover but acceptable change on the sync side, the new features
+added to the conversion script, new entries in the renaming mapping...), run
+the tests to verify that no regression was introduced, and move on to the next
+module.
+
+This operation, in Psycopg 3, started at commit 765f663f__ and can be seen in
+the git history as a parallel branch that was eventually merged in 8bb0f9bf__.
+The ``diff --stat`` shows a whopping::
+
+     99 files changed, 9697 insertions(+), 8486 deletions(-)
+
+which is a monster changeset of course, but mostly consisting of step-by-step
+refactoring, conversions, finding new ways to minimize differences. It might
+make for an interesting ride if you have a project where you need to introduce
+a similar automatic conversion.
+
+.. __: https://github.com/psycopg/psycopg/commit/765f663f171bf5d5e4862d5c4a5d572b7e3227d8
+.. __: https://github.com/psycopg/psycopg/commit/8bb0f9bfef945861e8f671fba9073b3fae45c67f
+
+
+The final result
+----------------
+
+Here is the `Psycopg 3 async to sync conversion script`__ (as of the Psycopg
+3.2 release). It operates on 27 of files, auto-generating about the 25% of the
+codebase. Some of the features it boasts:
+
+.. __: https://github.com/psycopg/psycopg/blob/3.2.0/tools/async_to_sync.py
+
+- the AST transformations described, including trickeries such as recursing
+  down strings containing code to convert, such as Mypy annotations expressed
+  as strings, tailoring the output and the comments to make the resulting
+  unparsed code almost as good as the hand-written side;
+
+- it inserts non-essential whitespace, and runs black__ on the output, in
+  order to make the resulting code as uniform as possible to the original and
+  as good to work with (to read, debug, diff, etc);
+
+- because different Python versions may generate different AST and different
+  output code, it can run in a Docker container, whose image is created on the
+  fly using as base the Python image of the reference version;
+
+- it adds an useful disclaimer on top of the file:
+
+  .. code:: python
+
+    # WARNING: this file is auto-generated by 'async_to_sync.py'
+    # from the original file 'connection_async.py'
+    # DO NOT CHANGE! Change the original file instead.
+
+- it has a "check" mode that runs in Github Action upon every commit, as part
+  of the lint step, and fails if it finds any file needing conversion that
+  haven't been committed;
+
+- the check mode has its own check: if any script that includes the disclaimer
+  above is not included in the list of files to convert, it will throw an
+  error (because a converted file has not been added to the automatic
+  conversion list);
+
+- the check of the check has its own check too! If no file is found with the
+  disclaimer then it means that something is broken... Maybe the disclaimer was
+  reworded and, as a consequence, the check doesn't work anymore.
+
+- it can run in parallel and only on the files changed. Almost as good as
+  ``make`` (for some reason that at the moment I don't remember we preferred
+  to write a script converting all the files instead of a recursive makefile
+  converting only one module).
+
+The code is specific to the Psycopg 3 codebase and formatting style, so it's
+probably not ready to be used as it is in other project. But it is probably a
+great starting point to perform your own conversion: change the list of files
+to process, the names mapping, and you should be good to start.
+
+We hope this helps. Happy hacking!
+
+.. __: https://black.readthedocs.io/
