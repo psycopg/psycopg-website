@@ -366,7 +366,7 @@ For example we can solve the ``sleep()`` problem with:
 
 Now it's easy to use ``from ._acompat import asleep; await asleep(1)`` and do
 some simple name substitutions in the AST: the resulting statement ``from
-._acompat import sleep, sleep(1)`` will work as expected.
+._acompat import sleep; sleep(1)`` will work as expected.
 
 Other goodies we have implemented to help unify async and sync code are
 ``spawn``\/\ ``aspawn`` and ``agather``\/\ ``gather`` to unify threads and
@@ -601,11 +601,13 @@ a similar automatic conversion.
 The final result
 ----------------
 
-Here is the `Psycopg 3 async to sync conversion script`__ (as of the Psycopg
-3.2 release). At the time of writing, It processes 27 files and automatically
-generates about the 25% of the codebase. Some of the features it boasts:
+Here is the `Psycopg 3 async to sync conversion script`__ (as of the `Psycopg
+3.2 release`__). At the time of writing, It processes 27 files and
+automatically generates about the 25% of the codebase. Some of the features it
+boasts:
 
 .. __: https://github.com/psycopg/psycopg/blob/3.2.0/tools/async_to_sync.py
+.. __: https://www.psycopg.org/articles/2024/06/30/psycopg-32-released/
 
 - the AST transformations described above, including tricks like recursion
   into strings containing code to be transformed, such as Mypy annotations
