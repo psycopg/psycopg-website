@@ -13,10 +13,15 @@ development
 ---
 body:
 
-Psycopg 3 provide both a sync and an async Python interface. For each object used to
-perform I/O operations, such as ``Connection``, ``Cursor``, there is an
-async counterpart: ``AsyncConnection``, ``AsyncCursor``, with an intuitive
+Psycopg 3 provides both a sync and an async Python interface: for each object
+used to perform I/O operations, such as Connection__, Cursor__, there is an
+async counterpart: AsyncConnection__, AsyncCursor__, with an intuitive
 interface: just add the right ``async`` or ``await`` keyword where needed:
+
+.. __: https://www.psycopg.org/psycopg3/docs/api/connections.html#psycopg.Connection
+.. __: https://www.psycopg.org/psycopg3/docs/api/cursors.html#psycopg.Cursor
+.. __: https://www.psycopg.org/psycopg3/docs/api/connections.html#psycopg.AsyncConnection
+.. __: https://www.psycopg.org/psycopg3/docs/api/cursors.html#psycopg.AsyncCursor
 
 .. code:: python
 
@@ -41,25 +46,26 @@ the sync/async wait policy all in ``wait()`` functions.
 .. __: https://www.varrazzo.com/blog/2020/03/26/psycopg3-first-report/
 
 This helped to minimise the async/sync differences in the code related to the
-communication between Python and PostgreSQL. However, the interface between
+communication between PostgreSQL and Psycopg. However, the interface between
 Psycopg and the Python user is still a lot to maintain, and consists of a lot
 of code that is very similar, almost duplicated, between the sync and async
 sided. Apart from the obvious ``async``\/``await`` keywords, there would be
 subtle implementation differences, for example:
 
-- using ``await asyncio.sleep()`` instead of ``time.sleep()``;
+- using ``asyncio`` functions instead of blocking counterparts, for instance
+  ``await asyncio.sleep()`` instead of ``time.sleep()``;
 - ``asyncio.create_task(f(arg1, arg2))`` is similar to ``thread.Thread(f,
   (arg1, arg2)).start()``;
 - ``threading.Event`` has a ``asyncio.Event`` counterpart whose ``lock()``
   method doesn't have a ``timeout``, parameter, so ``event.wait(timeout=10)``
   needs to be rewritten as ``asyncio.wait_for(event.wait(), timeout=10)``.
 
-Up to Psycopg 3.1, the two variants of each object were developed manually.
-Every time changes were made on the sync side, they had to be ported to the
-async side, with cumbersome and noisy diffs, and subtle differences being
-introduced from time to time. Even the tests were pretty much duplicated (with
-some sync tests being accidentally lost on the async side, or vice versa). It
-seemed like a situation that could have been improved.
+Up until Psycopg 3.1, the two variants of each object were kept in sync
+manually. Every time changes were made on the sync side, they had to be ported
+to the async side, with cumbersome and noisy diffs, with subtle differences
+being introduced from time to time. Even the tests were pretty much duplicated
+(with some sync tests being accidentally lost on the async side, or vice
+versa). It seemed like a situation that could have been improved.
 
 
 This is so boring that...
@@ -200,9 +206,9 @@ language like Python) rather than focusing on the **awesome** things you
 can do with it.
 
 In a nutshell, you will have an object that traverses an input data structure,
-element by element, and building an output structure in the process, allowing
-you to run different code and to perform different manipulations depending on
-the type of element being traversed.
+element by element, building an output structure in the process, allowing you
+to run different code and to perform different manipulations depending on the
+type of element being traversed.
 
 In our case, both the input and the output are AST trees, which will happen to
 be very similar to each other (since we are just trying to translate some
@@ -275,19 +281,17 @@ highlighted parts of the original tree:
 
 .. parsed-literal::
 
-    **value=Await**\(    # this node must be dropped, replaced by its ``value``
+    **value=Await**\(   << this node must be dropped, replaced by its **value**
        value=Call(
           func=Attribute(
-             value=Name(id='\ **asyncio**\'),  # we want ``time`` here
+             value=Name(id='\ **asyncio**\'),  << we want **time** here
              attr='sleep'),
           args=[
              Constant(value=1)],
           keywords=[]))),
 
 Adding the following two methods to the above class will implement what has
-been described. To make sense of them, and to implement your own
-transformations, you can always look at the output of ``python -m ast`` in
-order to see the attributes on each node and how they are nested.
+been described.
 
 .. code:: python
 
@@ -302,8 +306,13 @@ order to see the attributes on each node and how they are nested.
                 node.func.value.id = "time"
         return node
 
-The latter method shows how the `structural pattern matching`__ introduced in
-Python 3.10 comes in handy for this operation. The ``visit_Call`` method is
+To make sense of how these methods operate on their input nodes, and then to
+implement your own transformations, you can always look at the output of
+``python -m ast`` in order to see the attributes on each node and how they are
+nested.
+
+The ``visit_Call`` method shows how the `structural pattern matching`__
+introduced in Python 3.10 comes in handy for this operation. The method is
 called for each function call found in the input code; checking whether the
 one just received requires any manipulation would have involved a cascade of
 ifs (the value is a ``Name``, its id is ``asyncio``, the attr is ``sleep``...)
@@ -356,7 +365,7 @@ For example we can solve the ``sleep()`` problem with:
         return asyncio.sleep(seconds)
 
 Now it's easy to use ``from ._acompat import asleep; await asleep(1)`` and do
-come simple name substitutions in the AST: the resulting statement ``from
+some simple name substitutions in the AST: the resulting statement ``from
 ._acompat import sleep, sleep(1)`` will work as expected.
 
 Other goodies we have implemented to help unify async and sync code are
@@ -504,11 +513,11 @@ module and imported the function on both the sides:
 Now that the two modules are more similar we can run the test suite to verify
 that the library still works and can commit the current state to git.
 
-Second step: run an async -> sync conversion with the current version of
-the script. Even running a no-op script is useful: it produces changes that
-can be easily seen with ``git diff``, suggesting which feature is missing, or
-what further cleanup we can do in the code to make the sync and async flavours
-more similar.
+Second step: run an async -> sync conversion with the current version of the
+script. Even running a no-op script is useful: it produces changes that can be
+easily seen with ``git diff``, suggesting which conversion feature is missing,
+or what further cleanup we could have done in the code to make the sync and
+async flavours more similar.
 
 For example, a no-op script that just copies the async side to the sync
 side, would show up in ``git diff`` as:
@@ -593,8 +602,8 @@ The final result
 ----------------
 
 Here is the `Psycopg 3 async to sync conversion script`__ (as of the Psycopg
-3.2 release). It currently works on 27 files and automatically generates about
-the 25% of the codebase. Some of the features it boasts:
+3.2 release). At the time of writing, It processes 27 files and automatically
+generates about the 25% of the codebase. Some of the features it boasts:
 
 .. __: https://github.com/psycopg/psycopg/blob/3.2.0/tools/async_to_sync.py
 
@@ -605,7 +614,7 @@ the 25% of the codebase. Some of the features it boasts:
 
 - it inserts non-essential whitespace, and runs black__ on the output, in
   order to make the resulting code as uniform as possible to the original and
-  as good to work with (to read, debug, diff, etc);
+  as good for humans to work with (to read, debug, diff, etc);
 
 - since different Python versions may generate different ASTs and different
   output code, it can run in a Docker container, whose image is created on the
