@@ -22,7 +22,7 @@ jobs:
 
       - name: Codespell
         run: |
-          pip install codespell
+          pip install codespell tomli
           codespell
 
       - name: Install requirements to generate Psycopg 3 docs
