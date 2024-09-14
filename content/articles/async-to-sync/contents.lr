@@ -633,7 +633,7 @@ the 25% of the codebase. Some of the features it boasts:
   disclaimer has been rewritten and the check doesn't work anymore.
 
 - it can run in parallel and only on the files that have changed. Almost as
-  good as ``make`` (for some reason I cant't remember at the moment we
+  good as ``make`` (for some reason I can't remember at the moment we
   preferred to write a script that converts all the files instead of a
   recursive makefile that converts only one module).
 
