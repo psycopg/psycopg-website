@@ -1,10 +1,10 @@
 title: Automatic async to sync code conversion
 ---
-pub_date: 2024-09-13
+pub_date: 2024-09-23
 ---
 author: Daniele Varrazzo
 ---
-_discoverable: no
+_discoverable: yes
 ---
 tags:
 
@@ -369,7 +369,7 @@ some simple name substitutions in the AST: the resulting statement ``from
 ._acompat import sleep; sleep(1)`` will work as expected.
 
 Other goodies we have implemented to help unify async and sync code are
-``spawn``\/\ ``aspawn`` and ``agather``\/\ ``gather`` to unify threads and
+``aspawn``\/\ ``spawn`` and ``agather``\/\ ``gather`` to unify threads and
 asyncio tasks creation, ``alist()`` to encapsulate ``[x for x in await
 iterable]`` in a way that can be easily converted to ``list(iterable)`` and
 many other helpers to smooth the transition.
@@ -464,7 +464,7 @@ sync side and imported it on the async side:
     # connection.py
 
     def clean_up_conninfo(conninfo):
-        # hack hack
+        ...  # hack hack
         return better_conninfo
 
     def connect(conninfo):
@@ -481,15 +481,15 @@ sync side and imported it on the async side:
         aconn = await async_wait(connection_gen(bettern_conninfo))
         return aconn
 
-In this case we would have put the shared functionality in a separate
-module and imported the function on both the sides:
+In this case we would have moved the shared functionality in a separate
+internal module and imported the function on both the sides:
 
 .. code:: python
 
     # _connection.py
 
     def clean_up_conninfo(conninfo):
-        # hack hack
+        ...  # hack hack
         return better_conninfo
 
     # connection.py
@@ -641,12 +641,11 @@ boasts:
 
 - the check of the check also has its own check! If no file with the
   disclaimer is found then it means that something is wrong... Maybe the
-  disclaimer has been rewritten and the check doesn't work anymore.
+  disclaimer has been rewritten and the check doesn't work anymore;
 
 - it can run in parallel and only on the files that have changed. Almost as
-  good as ``make`` (for some reason I can't remember at the moment we
-  preferred to write a script that converts all the files instead of a
-  recursive makefile that converts only one module).
+  good as ``make`` (but for certain tasks it is useful to have all the input
+  files at once, therefore, "better than ``make``\").
 
 The code is specific to the Psycopg 3 codebase and formatting style, so it's
 probably not ready to be used as it is in other projects. But it is probably a
