@@ -33,11 +33,11 @@ client library. This makes it complete, performing, reliable, secure.
     *   - | Supports Python 3.7 to 3.12
           | (check the changelog__ for older versions support).
 
-        - | Supports Python 3.7 to 3.12
+        - | Supports Python 3.7 to 3.13
           | (check the changelog__ for older versions support).
 
-    *   - Supports PostgreSQL from 7.4 to 16.
-        - Supports PostgreSQL from 10 to 16.
+    *   - Supports PostgreSQL from 7.4 to 17.
+        - Supports PostgreSQL from 10 to 17.
 
           .. class:: better-right
 
