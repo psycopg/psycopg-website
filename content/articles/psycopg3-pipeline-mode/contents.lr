@@ -47,7 +47,7 @@ using it is as simple as:
 What is the pipeline mode for?
 ==============================
 
-`Postgres documentation`_ contains advices on when the pipeline mode is
+`Postgres documentation`_ contains advice on when the pipeline mode is
 useful. One particular case is when the application is doing many write
 operations (``INSERT``, ``UPDATE``, ``DELETE``).
 
