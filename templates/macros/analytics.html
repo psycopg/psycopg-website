@@ -1,4 +1,5 @@
 {% macro render_analytics() %}
+{%- if bag("analytics.tracking_id") %}
     <script async src="https://www.googletagmanager.com/gtag/js?id={{bag("analytics.tracking_id")}}"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -6,4 +7,5 @@
       gtag('js', new Date());
       gtag('config', '{{bag("analytics.tracking_id")}}');
     </script>
+{%- endif %}
 {%- endmacro %}
