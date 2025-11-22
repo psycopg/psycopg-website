@@ -18,6 +18,8 @@ used to perform I/O operations, such as Connection__, Cursor__, there is an
 async counterpart: AsyncConnection__, AsyncCursor__, with an intuitive
 interface: just add the right ``async`` or ``await`` keyword where needed:
 
+.. CUT-HERE
+
 .. __: https://www.psycopg.org/psycopg3/docs/api/connections.html#psycopg.Connection
 .. __: https://www.psycopg.org/psycopg3/docs/api/cursors.html#psycopg.Cursor
 .. __: https://www.psycopg.org/psycopg3/docs/api/connections.html#psycopg.AsyncConnection
