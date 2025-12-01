@@ -14,7 +14,7 @@ release
 body:
 
 We have released Psycopg 3.3 — and you should be excited about it!
-This version lets you take advantage of one of the biggest innovations in
+This version lets you take advantage of one of the biggest innovation in
 Python 3.14: the `template strings`__, which allow you to write
 `expressive and safe queries`__.
 
@@ -28,7 +28,8 @@ How does it look? Something like:
 .. code:: python
 
     def fetch_person(conn, name):
-        # 'name' will be quoted and safely escaped
+        # 'name' will be handled safely: as a server-side parameter or
+        # correctly quoted and escaped if client-side binding is required
         cur = conn.execute(t"SELECT * FROM people WHERE name = {name}")
         return cur.fetchone()
 
@@ -36,7 +37,15 @@ The syntax is the same as that of `f-strings`__, introduced back in the
 venerable Python 3.6 (perhaps the feature that finally ended Python 2?),
 but now paired with the safety and adaptation flexibility of Psycopg 3.
 Template strings also help you generate dynamic SQL statements much more
-succinctly than with the `psycopg.sql`__ module.
+succinctly than with the `psycopg.sql`__ module:
+
+.. code:: python
+
+    def delete_something(conn, table_name, name):
+        # Mixing client-side query composition with server-side parameters binding
+        conn.execute(t"DELETE FROM {table_name:i} WHERE name = {name}")
+        # Composing non-parametric statements entirely client-side
+        conn.execute(t"NOTIFY {table_name + '.deleted':i}, {name:l}")
 
 .. __: https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals
 .. __: https://www.psycopg.org/psycopg3/docs/api/sql.html
@@ -49,30 +58,62 @@ Check out the complete `t-string support documentation`__ for inspiration!
 More flexible composite adaptation
 ----------------------------------
 
-Previously, it was only possible to `adapt PostgreSQL composites`__ to
-Python sequence types with a strict 1:1 mapping to the database type.
+Previously, it was only possible to `adapt PostgreSQL composites`__ to Python
+sequence types with a strict 1:1 mapping to the fields of the database type.
 
 .. __: https://www.psycopg.org/psycopg3/docs/basic/pgtypes.html#adapt-composite
 
-The new ``make_instance`` and ``make_sequence`` parameters of
-`register_composite()`__ allow a much more flexible mapping between types.
-For example, you can now support Python classes that take keyword arguments
-or that don’t map 1:1 to the type’s attributes.
+We have now gained extra flexibility: we can customize both how to create
+generic Python objects, for example ones only taking keyword arguments, and
+how to extract a sequence of fields from the attributes of non-sequence
+objects... Dataclasses anyone?
 
-.. __: https://www.psycopg.org/psycopg3/docs/basic/pgtypes.html#psycopg.types.composite.register_composite
+.. code:: python
+
+    from dataclasses import dataclass
+    from psycopg.types.composite import CompositeInfo, register_composite
+
+    @dataclass
+    class MiniPerson:
+        age: int
+        name: str
+        height: float | None = None
+
+        @classmethod
+        def from_db(cls, seq, info):
+            return cls(name=seq[0], age=seq[1])
+
+        def to_db(self, info):
+            return [self.name, self.age]
+
+    conn.execute("CREATE TYPE mini_person AS (name text, age int)")
+    info = CompositeInfo.fetch(conn, "mini_person")
+
+    register_composite(
+        info, conn, factory=MiniPerson,
+        make_object=MiniPerson.from_db, make_sequence=MiniPerson.to_db)
+
+    conn.execute("SELECT ('John', 33)::mini_person").fetchone()[0]
+    # MiniPerson(age=33, name='John', height=None)
+
+    conn.execute(
+        "SELECT (%(person)s).name || ' next year will be ' ||  (%(person)s).age + 1",
+        {"person": MiniPerson(name="John", age=33)},
+    ).fetchone()[0]
+    # 'John next year will be 34'
 
 
 Solving the ``fetchone()`` annoyance with type checkers
 -------------------------------------------------------
 
-If you use Mypy or another type checker with Psycopg, you’ve probably seen
+If you use Mypy or other type checkers with Psycopg, you've probably seen
 false positives when calling ``fetchone()``. Even if you are 100% certain
 your query will return a row, ``fetchone()`` is annotated as possibly
 returning ``None`` — so type checkers complain about patterns like:
 
 .. code:: python
 
-    cur.execute("SELECT count(*) FROM my_table")
+    cur.execute("SELECT count(*) FROM my_table")  # Always returns exactly one value
     count = cur.fetchone()[0]   # Error: value of type "tuple | None" is not indexable
 
 In Psycopg 3.3, the cursor has become an iterator_, whereas it was
@@ -80,7 +121,7 @@ previously only an iterable_. The distinction is subtle but meaningful: an
 iterator holds its own iteration state and does not need to create a new
 object for each pass.
 
-More importantly, this change means you can use next_ or anext_ to retrieve
+More importantly, this change means you can use `next()`_ or `anext()`_ to retrieve
 a record — and these functions never return ``None``. This makes Mypy happy,
 and probably you too:
 
@@ -89,22 +130,24 @@ and probably you too:
     cur.execute("SELECT count(*) FROM my_table")
     count = next(cur)[0]
 
-.. __: https://www.psycopg.org/psycopg3/docs/advanced/typing.html#the-fetchone-frustration
 .. _iterator: https://docs.python.org/3/glossary.html#term-iterator
 .. _iterable: https://docs.python.org/3/glossary.html#term-iterable
-.. _next: https://docs.python.org/3/library/functions.html#next
-.. _anext: https://docs.python.org/3/library/functions.html#anext
+.. _next(): https://docs.python.org/3/library/functions.html#next
+.. _anext(): https://docs.python.org/3/library/functions.html#anext
 
 
 Improvements to the connection pools
 ------------------------------------
 
-A connection pool’s parameters can now be changed dynamically — for example,
-to support short-lived connection tokens used by cloud database providers.
+A connection pool’s parameters can now be changed dynamically — useful for
+example to support short-lived secret tokens as passwords, as requested
+by some cloud database providers.
 
 A useful `drain()`__ method is now available to re-create all connections in
 a pool. This is helpful, for instance, when the database needs to be
-introspected to find the OIDs of extension types to register.
+introspected to find the OIDs of extension types to register: without draining
+the pool the connections already in the pool would remain stale after the
+adapters have been configured.
 
 .. __: https://www.psycopg.org/psycopg3/docs/api/pool.html#psycopg_pool.ConnectionPool.drain
 
@@ -128,11 +171,12 @@ Your help is welcome
 Psycopg is the de-facto standard for communication between Python and
 PostgreSQL — two major components powering countless businesses and
 mission-critical infrastructure. Maintaining such an important library to the
-highest standards of reliability, completeness, and performance requires a
-lot of care and ongoing work.
+highest standards of reliability, performance and security requires a lot of
+care and ongoing work.
 
 If you use Python and PostgreSQL and want to help ensure that the interface
-between them remains robust and continues to improve, please consider
-`supporting the project <https://github.com/sponsors/dvarrazzo>`__ 💜
+between them remains robust and continues to improve, supporting new language
+and database features, please consider `supporting the project
+<https://github.com/sponsors/dvarrazzo>`__ 💜
 
 Thank you very much, and happy hacking!
