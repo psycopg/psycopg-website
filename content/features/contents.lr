@@ -30,14 +30,14 @@ client library. This makes it complete, performing, reliable, secure.
     *   - Written mostly in C.
         - Written mostly in Python, with C speed-up module.
 
-    *   - | Supports Python 3.7 to 3.12
+    *   - | Supports__ Python from 3.9 to 3.14
           | (check the changelog__ for older versions support).
 
-        - | Supports Python 3.7 to 3.13
+        - | Supports__ Python from 3.10 to 3.14
           | (check the changelog__ for older versions support).
 
-    *   - Supports PostgreSQL from 7.4 to 17.
-        - Supports PostgreSQL from 10 to 17.
+    *   - Supports__ PostgreSQL from 7.4 to 18.
+        - Supports__ PostgreSQL from 10 to 18.
 
           .. class:: better-right
 
@@ -137,8 +137,13 @@ client library. This makes it complete, performing, reliable, secure.
         - Support for `two-phase commit`__.
 
 
+.. __: /docs/install.html#prerequisites
 .. __: /docs/news.html
+.. __: /psycopg3/docs/basic/install.html#supported-systems
 .. __: /psycopg3/docs/news.html
+
+.. __: /docs/install.html#prerequisites
+.. __: /psycopg3/docs/basic/install.html#supported-systems
 
 .. __: /docs/install.html#psycopg-vs-psycopg-binary
 .. __: /psycopg3/docs/basic/install.html#binary-installation
