@@ -32,6 +32,7 @@ How does it look? Something like:
 .. code:: python
 
     def fetch_person(conn, name):
+
         # 'name' will be handled safely: as a server-side parameter or
         # correctly quoted and escaped if client-side binding is required
         cur = conn.execute(t"SELECT * FROM people WHERE name = {name}")
@@ -46,8 +47,10 @@ succinctly than with the `psycopg.sql`__ module:
 .. code:: python
 
     def delete_something(conn, table_name, name):
+
         # Mixing client-side query composition with server-side parameters binding
         conn.execute(t"DELETE FROM {table_name:i} WHERE name = {name}")
+
         # Composing non-parametric statements entirely client-side
         conn.execute(t"NOTIFY {table_name + '.deleted':i}, {name:l}")
 
@@ -101,7 +104,7 @@ objects... Dataclasses anyone?
     # MiniPerson(age=33, name='John', height=None)
 
     conn.execute(
-        "SELECT (%(person)s).name || ' next year will be ' ||  (%(person)s).age + 1",
+        "SELECT (%(person)s).name || ' next year will be ' || (%(person)s).age + 1",
         {"person": MiniPerson(name="John", age=33)},
     ).fetchone()[0]
     # 'John next year will be 34'
