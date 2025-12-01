@@ -14,14 +14,18 @@ release
 body:
 
 We have released Psycopg 3.3 — and you should be excited about it!
+
+.. CUT-HERE
+
+Template string queries
+-----------------------
+
 This version lets you take advantage of one of the biggest innovation in
 Python 3.14: the `template strings`__, which allow you to write
 `expressive and safe queries`__.
 
 .. __: https://docs.python.org/3.14/whatsnew/3.14.html#pep-750-template-string-literals
 .. __: https://www.psycopg.org/psycopg3/docs/basic/tstrings.html
-
-.. CUT-HERE
 
 How does it look? Something like:
 
@@ -152,8 +156,8 @@ adapters have been configured.
 .. __: https://www.psycopg.org/psycopg3/docs/api/pool.html#psycopg_pool.ConnectionPool.drain
 
 
-...And more
------------
+...And more!
+------------
 
 Other improvements include greater flexibility when navigating results after
 a ``fetchmany()`` call or after statements returning multiple result sets,
