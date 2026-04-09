@@ -10,7 +10,7 @@ The Psycopg 3 package is packaged as the ``psycopg``. Fun fact: *there is no*
 
 Quick installation::
 
-    pip install psycopg[binary]
+    pip install "psycopg[binary]"
 
 For all the details about installing Psycopg 3, please check the `installation
 documentation`__.
