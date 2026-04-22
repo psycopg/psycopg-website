@@ -1,7 +1,8 @@
 .PHONY: build serve setup docs docs3 publish
 
-PYTHON=$(CURDIR)/env/bin/python
-LEKTOR=$(CURDIR)/env/bin/lektor
+ENVDIR=$(CURDIR)/env
+PYTHON=$(ENVDIR)/bin/python
+LEKTOR=$(ENVDIR)/bin/lektor
 DOC_BRANCH=master
 DOC3_BRANCH=master
 
@@ -16,8 +17,8 @@ serve:
 	$(LEKTOR) serve
 
 setup:
-	test -x $(PYTHON) || python3 -m venv env
-	test -x $(LEKTOR) || env/bin/pip install -r requirements.txt
+	test -x $(PYTHON) || python3 -m venv "$(ENVDIR)"
+	test -x $(LEKTOR) || "$(ENVDIR)/bin/pip" install -r requirements.txt
 
 publish:
 	git -C build add -A
@@ -52,11 +53,11 @@ docs3: psycopg3/docs/.venv psycopg3/docs/_templates/layout.html templates/_spons
 psycopg3/docs/.venv: psycopg3/README.rst
 	$(MAKE) PYTHON=$(PYTHON) -C psycopg3/docs env
 	# Drop link to the personal blog of the docs theme's author from the footer
-	find $@ -name page.html -exec sed -i '/https:\/\/pradyunsg.me/d' {} \;
+	find $@ -name page.html -exec sed -i "/<a[^>]\+>@pradyunsg<\/a>'s/d" {} \;
 
 psycopg3/README.rst:
 	test -d psycopg3/.git \
-		|| git clone -b $(DOC3_BRANCH) https://github.com/psycopg/psycopg3.git
+		|| git clone -b $(DOC3_BRANCH) https://github.com/psycopg/psycopg.git
 	git -C psycopg3 checkout $(DOC3_BRANCH)
 	git -C psycopg3 pull
 
