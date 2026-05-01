@@ -1,56 +1,601 @@
-{% extends "page.html" %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Psycopg — PostgreSQL adapter for Python</title>
+    <meta
+      name="description"
+      content="Psycopg is the most popular PostgreSQL adapter for the Python programming language."
+    />
+    <link rel="icon" type="image/png" href="/img/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- ── Navigation ─────────────────────────────────────────────── -->
+    <header class="site-header">
+      <nav class="nav">
+        <a href="/" class="nav__logo" aria-label="psycopg home">
+          <img src="/img/logo.png" alt="" width="48" height="48" />
+          <span>psycopg</span>
+        </a>
+        <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav__links" role="list">
+          <li><a href="#home">home</a></li>
+          <li><a href="#sponsors">sponsors</a></li>
+          <li><a href="#features">features</a></li>
+          <li><a href="#install">install</a></li>
+          <li><a href="#articles">articles</a></li>
+          <li><a href="#maintainers">maintainers</a></li>
+          <li><a href="#contact">contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-{% block head %}
-    <link rel="alternate" type="application/atom+xml" title="Psycopg news"
-      href="{{'/news.xml'|url}}" />
-    <link rel="alternate" type="application/atom+xml" title="Psycopg articles"
-      href="{{'/articles.xml'|url}}" />
-{%- endblock %}
+    <main class="landing">
+      <!-- ── Hero ───────────────────────────────────────────────── -->
+      <section id="home" class="section hero">
+        <div class="hero__content">
+          <h1 class="hero__title">psycopg</h1>
+          <p class="hero__subtitle">The most popular PostgreSQL adapter for Python</p>
+          <p class="hero__body">
+            A complete implementation of the Python DB&nbsp;API&nbsp;2.0 specification, built on top of the official
+            PostgreSQL client library, with many extensions giving access to the full power of modern Python and
+            PostgreSQL.
+          </p>
+        </div>
+        <div class="scroll-arrow scroll-arrow--right scroll-arrow--hero" aria-hidden="true"></div>
+      </section>
 
-{% block body %}
-<div class="teaser">
-{{ this.teaser }}
-</div>
+      <!-- ── Sponsors ───────────────────────────────────────────── -->
+      <section id="sponsors" class="section sponsors" data-reveal>
+        <h2 class="section__heading section__heading--center">sponsors</h2>
+        <div class="sponsors__strip">
+          <div class="sponsors__track" aria-label="Sponsors">
+            <!-- First set -->
+            <a class="sponsor-item" href="https://postgrespro.com/" target="_blank" rel="noopener"
+              ><img
+                src="https://avatars.githubusercontent.com/u/12005770?v=4"
+                alt="Postgres Professional"
+                width="80"
+                height="80"
+            /></a>
+            <a class="sponsor-item" href="https://www.commandprompt.com/" target="_blank" rel="noopener"
+              ><img
+                src="https://avatars.githubusercontent.com/u/339156?v=4"
+                alt="Command Prompt"
+                width="80"
+                height="80"
+            /></a>
+            <a class="sponsor-item" href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/56135630?v=4" alt="GitHub" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://yougov.com/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/378494?v=4" alt="YouGov" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/20042742?v=4" alt="Phenopolis" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://materialize.com/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/47674186?v=4" alt="Materialize" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://sentry.io/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/1396951?v=4" alt="Sentry" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://beefree.io/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/1843159?v=4" alt="BEE" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/7373189?v=4" alt="Sponsor" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/37837?v=4" alt="Sponsor" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/72260631?v=4" alt="Sponsor" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/115712?v=4" alt="Sponsor" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/16618300?v=4" alt="Sponsor" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/94721?v=4" alt="Sponsor" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/182275?v=4" alt="Sponsor" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/7447491?v=4" alt="Sponsor" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/3085224?v=4" alt="Sponsor" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/446566?v=4" alt="Sponsor" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/174182?v=4" alt="Sponsor" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/14254614?v=4" alt="Sponsor" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/13053880?v=4" alt="Sponsor" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/7826876?v=4" alt="Sponsor" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/2050405?v=4" alt="Sponsor" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/5734243?v=4" alt="Sponsor" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/6997008?v=4" alt="Sponsor" width="80" height="80"
+            /></a>
+            <a class="sponsor-item" href="https://webisoft.com/" target="_blank" rel="noopener"
+              ><img src="https://www.psycopg.org/img/sponsors/webisoft.png" alt="Webisoft" width="80" height="80"
+            /></a>
+            <!-- Duplicate set for seamless loop (hidden from assistive tech) -->
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://postgrespro.com/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/12005770?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://www.commandprompt.com/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/339156?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://github.com/sponsors/dvarrazzo/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/56135630?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://yougov.com/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/378494?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://github.com/sponsors/dvarrazzo/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/20042742?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://materialize.com/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/47674186?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://sentry.io/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/1396951?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://beefree.io/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/1843159?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://github.com/sponsors/dvarrazzo/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/7373189?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://github.com/sponsors/dvarrazzo/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/37837?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://github.com/sponsors/dvarrazzo/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/72260631?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://github.com/sponsors/dvarrazzo/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/115712?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://github.com/sponsors/dvarrazzo/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/16618300?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://github.com/sponsors/dvarrazzo/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/94721?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://github.com/sponsors/dvarrazzo/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/182275?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://github.com/sponsors/dvarrazzo/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/7447491?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://github.com/sponsors/dvarrazzo/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/3085224?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://github.com/sponsors/dvarrazzo/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/446566?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://github.com/sponsors/dvarrazzo/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/174182?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://github.com/sponsors/dvarrazzo/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/14254614?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://github.com/sponsors/dvarrazzo/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/13053880?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://github.com/sponsors/dvarrazzo/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/7826876?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://github.com/sponsors/dvarrazzo/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/2050405?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://github.com/sponsors/dvarrazzo/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/5734243?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://github.com/sponsors/dvarrazzo/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://avatars.githubusercontent.com/u/6997008?v=4" alt="" width="80" height="80"
+            /></a>
+            <a
+              class="sponsor-item"
+              aria-hidden="true"
+              tabindex="-1"
+              href="https://webisoft.com/"
+              target="_blank"
+              rel="noopener"
+              ><img src="https://www.psycopg.org/img/sponsors/webisoft.png" alt="" width="80" height="80"
+            /></a>
+          </div>
+        </div>
+        <p class="sponsors__body">
+          Psycopg is free software. If you use Python and PostgreSQL and would like to support the maintenance of the
+          most advanced adapter between the two systems, please consider
+          <a href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener">becoming a sponsor</a>.
+          <br />
+          Sponsoring helps ensure the continued maintenance of Psycopg 2, Psycopg 3, and related projects.
+        </p>
+      </section>
 
-<div class="sponsor">
-  <p>
-    If you use Python and PostgreSQL, and you would like to support the
-    creation of the most advanced adapter between the two systems,
-    <a href="https://github.com/sponsors/dvarrazzo/" target="_blank"
-      >please consider becoming a sponsor</a>.
-  </p>
+      <!-- ── Features ───────────────────────────────────────────── -->
+      <section id="features" class="section features" data-reveal>
+        <div class="features__left">
+          <h2 class="section__heading">features</h2>
+          <p class="features__intro">
+            Psycopg&nbsp;3 is the current generation. It keeps full DB-API&nbsp;2.0 compatibility while adding native
+            asyncio, server-side binding, pipeline mode, and a much more powerful connection pool.
+          </p>
+          <div class="scroll-arrow scroll-arrow--features" aria-hidden="true"></div>
+        </div>
+        <div class="features__right">
+          <table class="feature-table">
+            <colgroup>
+              <col span="2" style="width: 50%" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th>Psycopg&nbsp;3</th>
+                <th>Psycopg&nbsp;2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Python 3.10–3.14</td>
+                <td>Python 3.9–3.14</td>
+              </tr>
+              <tr>
+                <td>PostgreSQL 10–18</td>
+                <td>PostgreSQL 7.4–18</td>
+              </tr>
+              <tr>
+                <td>Native asyncio support</td>
+                <td>Low-level async only</td>
+              </tr>
+              <tr>
+                <td>Server- and client-side parameter binding</td>
+                <td>Client-side binding only</td>
+              </tr>
+              <tr>
+                <td>Automatic prepared statements</td>
+                <td>No prepared statemetns support</td>
+              </tr>
+              <tr>
+                <td>Pipeline / batch mode</td>
+                <td>No pipeline mode support</td>
+              </tr>
+              <tr>
+                <td>Advanced connection pool</td>
+                <td>Very basic connection pool</td>
+              </tr>
+              <tr>
+                <td>Static typing support</td>
+                <td>No static typing support</td>
+              </tr>
+              <tr>
+                <td>Async COPY support</td>
+                <td>Synchronous COPY only</td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="http://www.psycopg.org/psycopg3/docs/">Documetation</a>
+                  <br/>
+                  <a href="http://github.com/psycopg/psycopg/">Project</a>
+                </td>
+                <td>
+                  <a href="http://www.psycopg.org/docs/">Documetation</a>
+                  <br/>
+                  <a href="http://github.com/psycopg/psycopg2/">Project</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-  <p>
-  Sponsoring this project will help achieve swift completion and
-  ensure the maintenance of psycopg2, psycopg3 and other related
-  projects.
-  </p>
+      <!-- ── Install ────────────────────────────────────────────── -->
+      <section id="install" class="section install" data-reveal>
+        <div class="install__left">
+          <div class="install__package">
+            <h3>Psycopg&nbsp;3</h3>
+            <pre><code>pip install "psycopg[binary]"</code></pre>
+            <p class="more">
+              <a href="https://www.psycopg.org/psycopg3/docs/basic/install.html">More info...</a>
+            </p>
+          </div>
+          <div class="install__package">
+            <h3>Psycopg&nbsp;2</h3>
+            <pre><code>pip install psycopg2-binary</code></pre>
+            <p class="more">
+              <a href="https://www.psycopg.org/docs/install.html">More info...</a>
+            </p>
+          </div>
+        </div>
+        <div class="install__right">
+          <h2 class="section__heading section__heading--right">install</h2>
+          <p class="install__note">
+            <strong>Note:</strong> there is no <code>psycopg3</code> package — the current generation ships as
+            <code>psycopg</code>. The <code>[binary]</code> extra bundles a pre-compiled C extension so no PostgreSQL
+            client libraries need to be installed separately.
+          </p>
+          <p class="install__note">
+            Psycopg&nbsp;2 remains fully supported for legacy applications. New projects should use Psycopg&nbsp;3.
+          </p>
+          <p class="install__note">
+            Both packages are available on PyPI and install with a single pip command. Source distributions are also
+            available for environments that require compilation from source.
+          </p>
+          <div class="scroll-arrow scroll-arrow--right scroll-arrow--install" aria-hidden="true"></div>
+        </div>
+      </section>
 
-  <p>If you are interested in contributing to the maintenance of the project, please reach out. Thank you!
-  </p>
+      <!-- ── Articles ───────────────────────────────────────────── -->
+      <section id="articles" class="section articles" data-reveal>
+        <div class="articles__header">
+          <h2 class="section__heading">articles</h2>
+          <a href="/articles" class="articles__more">Read more!</a>
+        </div>
+        <!-- TODO: really tie to the blog -->
+        <div class="articles__grid">
+          <article class="article-card">
+            <span class="article-card__tag">release</span>
+            <h3 class="article-card__title">Psycopg 3.3 Released</h3>
+            <p>
+              <a href="/articles/2025/12/01/psycopg-33-released/">Read more...</a>
+            </p>
+            <footer class="article-card__footer">
+              <img class="article-card__avatar" src="/img/daniele.jpg" alt="Daniele Varrazzo" />
+              <time class="article-card__date" datetime="2025-12-01">01/12/2025</time>
+            </footer>
+          </article>
+          <article class="article-card">
+            <span class="article-card__tag">development</span>
+            <h3 class="article-card__title">Automatic Async to Sync Code Conversion</h3>
+            <p>
+              <a href="/articles/2024/09/23/async-to-sync/">Read more...</a>
+            </p>
+            <footer class="article-card__footer">
+              <img class="article-card__avatar" src="/img/daniele.jpg" alt="Daniele Varrazzo" />
+              <time class="article-card__date" datetime="2024-09-23">23/09/2024</time>
+            </footer>
+          </article>
+        </div>
+      </section>
 
-  <iframe src="https://github.com/sponsors/dvarrazzo/button"
-          title="Sponsor the project" style="border: 0"
-          width="116" height="35">
-  </iframe>
+      <!-- ── Maintainers ────────────────────────────────────────── -->
+      <section id="maintainers" class="section maintainers" data-reveal>
+        <div class="maintainers__left">
+          <h3 class="maintainers__name">Daniele Varrazzo</h3>
+          <p>
+            Daniele is the creator and primary maintainer of psycopg2 and psycopg3. He has been working on PostgreSQL
+            database connectivity for Python for over fifteen years.
+          </p>
+          <p>
+            His work on the DB-API&nbsp;2.0 specification, binary protocol support, and asyncio integration has made
+            psycopg the standard choice for Python developers working with PostgreSQL.
+          </p>
+          <p>
+            You can follow his work on
+            <a href="https://fosstodon.org/@psycopg" target="_blank" rel="noopener">Mastodon</a>
+            and support the project via
+            <a href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener">GitHub&nbsp;Sponsors</a>.
+          </p>
+          <div class="scroll-arrow scroll-arrow--maintainers" aria-hidden="true"></div>
+        </div>
+        <div class="maintainers__right">
+          <h2 class="section__heading section__heading--right">maintainers</h2>
+          <img class="maintainers__avatar" src="/img/daniele.jpg" alt="Daniele Varrazzo" />
+        </div>
+      </section>
 
-  <div class="clear"></div>
-</div>
+      <!-- ── Contact ────────────────────────────────────────────── -->
+      <section id="contact" class="section contact" data-reveal>
+        <h2 class="section__heading section__heading--center">contact</h2>
+        <p class="contact__subtitle">Get in touch with the Psycopg team</p>
+        <a href="mailto:psycopg@postgresql.org" class="contact__email">psycopg@postgresql.org</a>
+      </section>
 
-{{ this.body }}
+      <!-- ── Newsletter ─────────────────────────────────────────── -->
+      <!-- We don't have a newsletter yet
+        <section id="newsletter" class="section newsletter">
+            <h2 class="newsletter__title">Stay up to date</h2>
+            <p class="newsletter__sub">Get notified about new releases and articles</p>
+            <form class="newsletter__form" action="#" method="post">
+                <input type="email" name="email" placeholder="Enter your email address"
+                       required aria-label="Email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+        -->
+    </main>
 
-{% from "macros/blog.html" import render_blog_post %}
-<div class="dashed-top">
-  <h1>Latest articles</h1>
-  {%- for post in site.get("/articles").children.limit(3) %}
-    {{- render_blog_post(post, from_index=true) }}
-  {%- endfor %}
-  <a href="{{'/articles'|url}}">See all articles...</a>
-</div>
+    <!-- ── Footer ─────────────────────────────────────────────────── -->
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">
+          &copy; The Psycopg Team<br/>
+          Psycopg is free software released under the
+          <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html" target="_blank" rel="noopener">GNU LGPL license</a>.
+        </p>
+        <a href="/" class="site-footer__logo" aria-label="psycopg home">
+          <img src="/img/logo.png" alt="" width="40" height="40" />
+          <span>psycopg</span>
+        </a>
+      </div>
+    </footer>
 
-{%- endblock %}
-
-{% block sidebar %}
-{{- render_side_links(this) }}
-
-{% endblock %}
+    <script src="/js/main.js" type="module"></script>
+  </body>
+</html>

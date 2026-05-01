@@ -1,10 +1,7 @@
-_model: sponsor
+_model: redirect
 ---
-title: psycopg3 backers
+target: /#sponsors
 ---
-body:
-
-psycopg3 is brought to you thanks to the help of our generous backers.
-Please consider `becoming a sponsor too <https://github.com/sponsors/dvarrazzo>`__!
-
-Thank you very much for supporting the project!
+absolute: no
+---
+_discoverable: no

@@ -1,6 +1,6 @@
 _model: redirect
 ---
-target: https://github.com/psycopg/psycopg2/
+target: https://github.com/psycopg/psycopg/
 ---
 absolute: yes
 ---
