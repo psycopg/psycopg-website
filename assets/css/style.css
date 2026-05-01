@@ -272,7 +272,6 @@ ul[role="list"] {
   display: flex;
   gap: 1.5rem;
   align-items: center;
-  margin: 0 auto;
 }
 
 .nav__links a {
@@ -313,6 +312,16 @@ ul[role="list"] {
     transform 0.2s,
     opacity 0.2s;
 }
+
+.header-logo {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.header-logo.visible {
+  opacity: 1;
+}
+
 
 /* ── Sections — shared ──────────────────────────────────────────── */
 .landing .section {

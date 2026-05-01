@@ -78,3 +78,13 @@ document.addEventListener("click", (e) => {
     window.location.href = href;
   }, 200);
 });
+
+// Make the header logo disappear scrolling down.
+const headerLogo = document.querySelector('.header-logo');
+const hero = document.querySelector('.hero__content');
+
+const observer = new IntersectionObserver(([entry]) => {
+  headerLogo.classList.toggle('visible', !entry.isIntersecting);
+}, { threshold: 0 });
+
+observer.observe(hero);
