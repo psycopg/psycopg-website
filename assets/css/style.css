@@ -460,6 +460,7 @@ ul[role="list"] {
 }
 
 .sponsor-item {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -470,14 +471,42 @@ ul[role="list"] {
   text-decoration: none;
 }
 
+.sponsor-item__name {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text);
+  background: rgba(13, 27, 42, 0.88);
+  padding: 0.2em 0.55em;
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+.sponsor-item:hover .sponsor-item__name {
+  opacity: 1;
+}
+
 .sponsor-item img {
   width: 80px;
   height: 80px;
-  object-fit: contain;
+  max-width: none;
+  object-fit: cover;
+  border-radius: 50%;
   filter: grayscale(15%);
   transition:
     filter 0.2s,
     transform 0.2s;
+}
+
+.sponsor-item--square img {
+  object-fit: contain;
+  border-radius: var(--radius);
 }
 
 .sponsor-item:hover img {

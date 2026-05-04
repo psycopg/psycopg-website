@@ -1,0 +1,140 @@
+# Sponsor list for the homepage carousel.
+# key:    url-friendly identifier
+# name:   display name
+# url:    sponsor website
+# github: GitHub profile URL (used for avatar refresh, data lookup, etc.)
+# avatar: image URL
+# style:  round (default) | square  — square for org/product logos
+
+- key: command-prompt
+  name: Command Prompt, Inc.
+  url: https://www.commandprompt.com/
+  github: https://github.com/commandprompt
+  avatar: https://avatars.githubusercontent.com/u/339156?v=4
+  style: square
+
+- key: postgrespro
+  name: Postgres Pro
+  url: https://postgrespro.com/
+  github: https://github.com/postgrespro
+  avatar: https://avatars.githubusercontent.com/u/12005770?v=4
+  style: round
+
+- key: wedgworths
+  name: "Wedgworth's, Inc"
+  url: https://wedgworth.dev
+  github: https://github.com/wedgworth
+  avatar: https://github.com/wedgworth.png
+  style: round
+
+- key: g-research
+  name: G-Research Open Source
+  url: https://www.gresearch.com/teams/open-source-software/
+  github: https://github.com/G-Research-OSS
+  avatar: https://github.com/G-Research-OSS.png
+  style: round
+
+- key: healthchecks
+  name: Healthchecks
+  url: https://healthchecks.io
+  github: https://github.com/healthchecks
+  avatar: https://avatars.githubusercontent.com/u/13053880?v=4
+  style: square
+
+- key: asqui
+  name: Daniel Fortunov
+  url: https://github.com/asqui
+  github: https://github.com/asqui
+  avatar: https://avatars.githubusercontent.com/u/174182?v=4
+  style: square
+
+- key: growthpath
+  name: GrowthPath
+  url: https://growthpath.com.au
+  github: https://github.com/GrowthPath
+  avatar: https://github.com/GrowthPath.png
+  style: square
+
+- key: om-proptech
+  name: OM PropTech GmbH
+  url: https://www.ohne-makler.net
+  github: https://github.com/om-proptech
+  avatar: https://github.com/om-proptech.png
+  style: square
+
+- key: intevation
+  name: Intevation
+  url: https://intevation.de
+  github: https://github.com/Intevation
+  avatar: https://github.com/Intevation.png
+  style: square
+
+- key: httpie
+  name: HTTPie
+  url: https://httpie.io
+  github: https://github.com/httpie
+  avatar: https://github.com/httpie.png
+  style: round
+
+- key: ecosyste-ms
+  name: Ecosystems
+  url: https://ecosyste.ms
+  github: https://github.com/ecosyste-ms
+  avatar: https://github.com/ecosyste-ms.png
+  style: round
+
+- key: pphysch
+  name: pphysch
+  url: https://github.com/pphysch
+  github: https://github.com/pphysch
+  avatar: https://github.com/pphysch.png
+  style: round
+
+- key: yougov
+  name: YouGov
+  url: https://www.yougov.com
+  github: https://github.com/yougov
+  avatar: https://avatars.githubusercontent.com/u/378494?v=4
+  style: round
+
+- key: phenopolis
+  name: Phenopolis
+  url: http://www.phenopolis.co.uk
+  github: https://github.com/phenopolis
+  avatar: https://avatars.githubusercontent.com/u/20042742?v=4
+  style: round
+
+- key: materialize
+  name: Materialize
+  url: https://materialize.com
+  github: https://github.com/MaterializeInc
+  avatar: https://avatars.githubusercontent.com/u/47674186?v=4
+  style: round
+
+- key: sentry
+  name: Sentry
+  url: https://sentry.io
+  github: https://github.com/getsentry
+  avatar: https://avatars.githubusercontent.com/u/1396951?v=4
+  style: round
+
+- key: beefree
+  name: BEE
+  url: https://beefree.io
+  github: https://github.com/20tab
+  avatar: https://avatars.githubusercontent.com/u/1843159?v=4
+  style: round
+
+- key: genropy
+  name: genropy
+  url: http://www.genropy.org
+  github: https://github.com/genropy
+  avatar: https://avatars.githubusercontent.com/u/7373189?v=4
+  style: square
+
+- key: dalibo
+  name: Dalibo
+  url: http://www.dalibo.com
+  github: https://github.com/dalibo
+  avatar: https://avatars.githubusercontent.com/u/182275?v=4
+  style: square
