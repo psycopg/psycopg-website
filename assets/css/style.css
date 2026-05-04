@@ -15,6 +15,7 @@
   --max: 1060px;
   --pad: clamp(1.25rem, 5vw, 4rem);
   --radius: 8px;
+  --nav-h: 64px;
 }
 
 /* ── Reset ──────────────────────────────────────────────────────── */
@@ -28,7 +29,8 @@
 html {
   font-size: 18px;
   scroll-behavior: smooth;
-  scroll-padding-top: 64px;
+  scroll-padding-top: var(--nav-h);
+  overflow-x: clip;
 }
 
 body {
@@ -37,7 +39,6 @@ body {
   color: var(--text);
   line-height: 1.65;
   animation: fadein 1.4s ease both;
-  overflow-x: hidden;
 }
 
 body.is-leaving {
@@ -251,7 +252,7 @@ ul[role="list"] {
   max-width: var(--max);
   margin: 0 auto;
   padding: 0 var(--pad);
-  height: 64px;
+  height: var(--nav-h);
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -376,7 +377,7 @@ ul[role="list"] {
 
 /* ── Hero ───────────────────────────────────────────────────────── */
 .hero {
-  min-height: calc(100vh - 64px);
+  min-height: calc(100vh - var(--nav-h));
   display: flex;
   align-items: center;
   gap: 2rem;
@@ -394,12 +395,12 @@ ul[role="list"] {
   line-height: 1;
   letter-spacing: -0.03em;
   margin-bottom: 1.25rem;
-  padding-bottom: 50px;
-  padding-left: 180px;
+  padding-bottom: clamp(20px, 5vw, 50px);
+  padding-left: clamp(80px, 23vw, 180px);
   background-image: url("../img/logo.png");
   background-repeat: no-repeat;
-  background-size: 150px 150px;
-  background-position: 0px 15px;
+  background-size: clamp(60px, 17vw, 150px) clamp(60px, 17vw, 150px);
+  background-position: 0px clamp(5px, 2vw, 15px);
 }
 
 .hero__subtitle {
@@ -558,7 +559,7 @@ ul[role="list"] {
 }
 
 .install__left p.more {
-  padding-top: 0.5em;
+  padding-top: 0.5rem;
   text-align: right;
 }
 
@@ -873,7 +874,7 @@ p code {
 .site-footer {
   border-top: 1px solid var(--border);
   padding: 1.5rem var(--pad);
-  margin-top: 3em;
+  margin-top: 3rem;
 }
 
 .site-footer__inner {
@@ -924,15 +925,28 @@ p code {
 }
 
 /* ── Responsive ─────────────────────────────────────────────────── */
+
+/*
+  Crossing arrows stick out 2.5rem beyond the section edge.
+  They only fit safely once the viewport is wide enough to have a gutter:
+  --max (1060px) + 2 × 2.5rem padding ≈ 1150px.
+*/
+@media (max-width: 1150px) {
+  .scroll-arrow--hero,
+  .scroll-arrow--features,
+  .scroll-arrow--install,
+  .scroll-arrow--maintainers {
+    display: none;
+  }
+}
+
 @media (max-width: 800px) {
   .hero {
     flex-direction: column;
     min-height: auto;
   }
 
-  .scroll-arrow--right,
-  .scroll-arrow--features,
-  .scroll-arrow--maintainers {
+  .scroll-arrow--right {
     display: none;
   }
 
@@ -945,6 +959,12 @@ p code {
 
   .features__intro {
     max-width: 100%;
+  }
+
+  /* make sure that the columns with the title come first in mobile mode */
+  .install__right,
+  .maintainers__right {
+    order: -1;
   }
 
   .install__right .section__heading {
@@ -979,7 +999,7 @@ p code {
   .nav.is-open .nav__links {
     display: flex;
     position: absolute;
-    top: 64px;
+    top: var(--nav-h);
     left: 0;
     right: 0;
     background: var(--bg);
@@ -1054,3 +1074,8 @@ ul {
   margin-bottom: 2em;
 }
 
+
+/* Drop lektor edit pencil */
+#lektor-edit-link {
+    display: none !important;
+}
