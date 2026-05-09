@@ -1446,7 +1446,7 @@ main.page .post-row__title {
 
 /* ── Blog post ──────────────────────────────────────────────────── */
 .post-article {
-  max-width: 740px;
+  max-width: 850px;
   margin: 0 auto;
   padding: clamp(2rem, 5vw, 4rem) var(--pad);
 }
