@@ -1,14 +1,45 @@
-{% extends "page.html" %}
-{% from "macros/blog.html" import render_blog_post %}
+{% extends "layout.html" %}
+
 {% block title %}{{ this.title }}{% endblock %}
+
 {% block body %}
-  {{ render_blog_post(this) }}
-  <script src="https://utteranc.es/client.js"
-    repo="psycopg/psycopg-website"
-    issue-term="pathname"
-    label="comments"
-    theme="github-dark"
-    crossorigin="anonymous"
-    async>
-  </script>
+<article class="post-article">
+  <a href="{{ '/articles'|url }}" class="post-back">
+    <span class="pag-arrow">&#8592;</span>
+    <span class="post-back__label">articles</span>
+  </a>
+
+  <header class="post-article__header">
+    <h1 class="post-article__title">{{ this.title }}</h1>
+    <div class="post-article__meta">
+      {% if this.tags %}
+      <div class="post-article__tags">
+        {%- for t in this.tags -%}
+        <a class="post-tag" href="{{ ('/articles@tag/' ~ t.lower())|url }}">{{ t }}</a>
+        {%- endfor -%}
+      </div>
+      {% endif %}
+      <div class="post-article__byline">
+        <time class="post-article__date" datetime="{{ this.pub_date }}">{{ this.pub_date|dateformat('dd MMMM yyyy') }}</time>
+        <span class="post-article__sep" aria-hidden="true">·</span>
+        <span class="post-article__author">{{ this.author }}</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="post-article__body">
+    {{ this.body }}
+  </div>
+
+  <div class="post-article__comments">
+    <script src="https://utteranc.es/client.js"
+      repo="psycopg/psycopg-website"
+      issue-term="pathname"
+      label="comments"
+      theme="github-dark"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
+</article>
 {% endblock %}

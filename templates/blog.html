@@ -1,14 +1,73 @@
-{% extends "page.html" %}
-{% from "macros/blog.html" import render_blog_post %}
-{% from "macros/pagination.html" import render_pagination %}
+{% extends "layout.html" %}
 
-{% block title %}{{ this.title }}{% endblock %}
+{% block title %}Articles{% endblock %}
 
 {% block body %}
-  <h1>{{ this.title }}</h1>
-  {% for child in this.pagination.items %}
-    {{ render_blog_post(child, from_index=true) }}
-  {% endfor %}
+<div class="articles-page">
+  <h1 class="articles-page__heading"><span class="text-accent">latest</span> articles</h1>
+  <div class="articles-page__list" id="blog-articles">
+    {% for child in this.children %}
+    <article class="post-row">
+      <div class="post-row__top">
+        <div class="post-row__tags">
+          {%- for t in child.tags -%}
+          <a class="post-tag" href="{{ ('/articles@tag/' ~ t.lower())|url }}">{{ t }}</a>
+          {%- endfor -%}
+        </div>
+        <time class="post-row__date" datetime="{{ child.pub_date }}">{{ child.pub_date|dateformat('dd MMM yyyy') }}</time>
+        <span class="post-row__author">{{ child.author }}</span>
+      </div>
+      <h2 class="post-row__title">
+        <a href="{{ child|url }}">{{ child.title }}</a>
+      </h2>
+    </article>
+    {% endfor %}
+  </div>
+  <div class="articles-pagination" id="blog-pagination"></div>
+</div>
+<script>
+(function () {
+  var PER_PAGE = 10;
+  var rows = document.querySelectorAll('#blog-articles .post-row');
+  var total = rows.length;
+  var pages = Math.ceil(total / PER_PAGE);
+  if (pages <= 1) return;
 
-  {{ render_pagination(this.pagination) }}
+  var current = 1;
+
+  function show(page) {
+    current = page;
+    var start = (page - 1) * PER_PAGE;
+    rows.forEach(function (row, i) {
+      var visible = i >= start && i < start + PER_PAGE;
+      row.style.display = visible ? '' : 'none';
+      row.style.borderTop = (visible && i === start) ? 'none' : '';
+    });
+    render();
+  }
+
+  function render() {
+    var el = document.getElementById('blog-pagination');
+    var prev = current > 1
+      ? '<a href="#" data-page="' + (current - 1) + '" class="pagination__prev"><span class="pag-arrow">&#8592;</span> previous</a>'
+      : '<span class="pagination__prev disabled"><span class="pag-arrow">&#8592;</span> previous</span>';
+    var next = current < pages
+      ? '<a href="#" data-page="' + (current + 1) + '" class="pagination__next">next <span class="pag-arrow">&#8594;</span></a>'
+      : '<span class="pagination__next disabled">next <span class="pag-arrow">&#8594;</span></span>';
+    el.innerHTML = '<div class="pagination">' + prev
+      + '<span class="pagination__info">page ' + current + ' of ' + pages + '</span>'
+      + next + '</div>';
+
+    el.querySelectorAll('[data-page]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        show(parseInt(this.dataset.page));
+        document.querySelector('.articles-page').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  }
+
+  show(1);
+}());
+</script>
 {% endblock %}

@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}404 Not Found{% endblock %}
+
+{% block body %}
+<div class="page-404">
+  <h1 class="page-404__code">404</h1>
+  <p class="page-404__message">You found a broken thing: well done! Here's a cookie 🍪</p>
+  <a href="{{ '/'|url }}" class="page-404__back">
+    <span class="pag-arrow">&#8592;</span>
+    <span>take me home</span>
+  </a>
+</div>
+{% endblock %}
