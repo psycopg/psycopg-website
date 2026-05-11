@@ -16,6 +16,13 @@ if (toggle && nav) {
       toggle.setAttribute("aria-expanded", "false");
     }
   });
+
+  nav.querySelectorAll(".nav__links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    });
+  });
 }
 
 // Active nav link on scroll
