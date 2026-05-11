@@ -104,7 +104,7 @@ ul[role="list"] {
 /* ── Animated yellow underline (hover-only) ─────────────────────── */
 .nav__links a,
 .maintainers__left a,
-.install__left a,
+.development__left a,
 .article-card a,
 .features__right a,
 .sponsors__body a {
@@ -113,20 +113,20 @@ ul[role="list"] {
 }
 
 .maintainers__left a,
-.install__left a,
+.development__left a,
 .features__right a,
 .sponsors__body a {
   transition: color 0.15s;
 }
 
 .maintainers__left a:hover,
-.install__left a:hover,
+.development__left a:hover,
 .features__right a:hover,
 .sponsors__body a:hover {
   color: var(--text);
 }
 .nav__links a::after,
-.install__left a::after,
+.development__left a::after,
 .maintainers__left a::after,
 .article-card a::after,
 .features__right a::after,
@@ -143,7 +143,7 @@ ul[role="list"] {
   transition: transform 0.35s ease;
 }
 .nav__links a:hover::after,
-.install__left a:hover::after,
+.development__left a:hover::after,
 .maintainers__left a:hover::after,
 .article-card a:hover::after,
 .features__right a:hover::after,
@@ -201,7 +201,7 @@ ul[role="list"] {
 */
 .scroll-arrow--hero,
 .scroll-arrow--features,
-.scroll-arrow--install,
+.scroll-arrow--development,
 .scroll-arrow--maintainers,
 .scroll-arrow--center {
   position: absolute;
@@ -219,7 +219,7 @@ ul[role="list"] {
   left: -2.5rem;
   height: 310px;
 }
-.scroll-arrow--install {
+.scroll-arrow--development {
   right: -2.5rem;
   height: 400px;
   translate: 0 110px;
@@ -367,7 +367,7 @@ ul[role="list"] {
   position: relative;
   z-index: 6;
 }
-#install {
+#development {
   position: relative;
   z-index: 5;
 }
@@ -598,25 +598,31 @@ ul[role="list"] {
   background: rgba(255, 255, 255, 0.03);
 }
 
-/* ── Install ────────────────────────────────────────────────────── */
-.install {
+/* ── development ────────────────────────────────────────────────────── */
+
+/* long word, smaller title */
+.development .section__heading {
+  font-size: clamp(2.5rem, 4vw, 5rem);
+}
+
+.development {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6rem;
   align-items: start;
 }
 
-.install__package {
+.development__package {
   margin-bottom: 3.5rem;
 }
 
-.install__package h3 {
+.development__package h3 {
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
 }
 
-.install__left p.more {
+.development__left p.more {
   padding-top: 0.5rem;
   text-align: right;
 }
@@ -627,6 +633,7 @@ pre {
   border-radius: var(--radius);
   padding: 0.85rem 1.25rem;
   overflow-x: auto;
+  margin-bottom: 0.5em;
 }
 
 pre code,
@@ -643,23 +650,23 @@ p code {
   font-size: 0.85em;
 }
 
-.install__right {
+.development__right {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-.install__right .section__heading {
+.development__right .section__heading {
   margin-bottom: 1.25rem;
 }
 
-.install__note {
+.development__note {
   color: var(--text-muted);
   font-size: 1rem;
   line-height: 1.8;
 }
 
-.install__note strong {
+.development__note strong {
   color: var(--text);
 }
 
@@ -1034,7 +1041,7 @@ p code {
 @media (max-width: 1150px) {
   .scroll-arrow--hero,
   .scroll-arrow--features,
-  .scroll-arrow--install,
+  .scroll-arrow--development,
   .scroll-arrow--maintainers,
   .scroll-arrow--center {
     display: none;
@@ -1052,7 +1059,7 @@ p code {
   }
 
   .features,
-  .install,
+  .development,
   .maintainers {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -1063,12 +1070,12 @@ p code {
   }
 
   /* make sure that the columns with the title come first in mobile mode */
-  .install__right,
+  .development__right,
   .maintainers__right {
     order: -1;
   }
 
-  .install__right .section__heading {
+  .development__right .section__heading {
     text-align: right;
   }
   .maintainers__right {

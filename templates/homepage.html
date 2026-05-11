@@ -31,7 +31,7 @@
           <li><a href="#home">home</a></li>
           <li><a href="#sponsors">sponsors</a></li>
           <li><a href="#features">features</a></li>
-          <li><a href="#install">install</a></li>
+          <li><a href="#development">development</a></li>
           <li><a href="#articles">articles</a></li>
           <li><a href="#maintainers">maintainers</a></li>
           <li><a href="#contact">contact</a></li>
@@ -273,48 +273,66 @@
                 <td><a href="http://www.psycopg.org/psycopg3/docs/">Documentation</a></td>
                 <td><a href="http://www.psycopg.org/docs/">Documentation</a></td>
               </tr>
-              <tr>
-                <td><a href="http://github.com/psycopg/psycopg/">Project</a></td>
-                <td><a href="http://github.com/psycopg/psycopg2/">Project</a></td>
-              </tr>
             </tbody>
           </table>
         </div>
       </section>
 
-      <!-- ── Install ────────────────────────────────────────────── -->
-      <section id="install" class="section install" data-reveal>
-        <div class="install__left">
-          <div class="install__package">
+      <!-- ── development ────────────────────────────────────────────── -->
+      <section id="development" class="section development" data-reveal>
+        <div class="development__left">
+          <div class="development__package">
             <h3>Psycopg&nbsp;3</h3>
             <pre><code>pip install "psycopg[binary]"</code></pre>
-            <p class="more">
-              <a href="https://www.psycopg.org/psycopg3/docs/basic/install.html">More info...</a>
-            </p>
+            <ul>
+              <li>
+                <a href="https://www.psycopg.org/psycopg3/docs/basic/install.html">Installation guide</a>
+              </li>
+              <li>
+                <a href="https://www.psycopg.org/psycopg3/docs/">Documentation</a>
+              </li>
+              <li>
+                <a href="https://github.com/psycopg/psycopg/">Project</a>
+              </li>
+              <li>
+                <a href="https://github.com/psycopg/psycopg/issues/">Bug tracker</a>
+              </li>
+            </ul>
           </div>
-          <div class="install__package">
+          <div class="development__package">
             <h3>Psycopg&nbsp;2</h3>
             <pre><code>pip install psycopg2-binary</code></pre>
-            <p class="more">
-              <a href="https://www.psycopg.org/docs/install.html">More info...</a>
-            </p>
+            <ul>
+              <li>
+                <a href="https://www.psycopg.org/docs/install.html">Installation guide</a>
+              </li>
+              <li>
+                <a href="https://www.psycopg.org/docs/">Documentation</a>
+              </li>
+              <li>
+                <a href="https://github.com/psycopg/psycopg2/">Project</a>
+              </li>
+              <li>
+                <a href="https://github.com/psycopg/psycopg2/issues/">Bug tracker</a>
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="install__right">
-          <h2 class="section__heading section__heading--right">install</h2>
-          <p class="install__note">
+        <div class="development__right">
+          <h2 class="section__heading section__heading--right">development</h2>
+          <p class="development__note">
             <strong>Note:</strong> there is no <code>psycopg3</code> package - the current generation ships as
             <code>psycopg</code>. The <code>[binary]</code> extra bundles a pre-compiled C extension so no PostgreSQL
             client libraries need to be installed separately.
           </p>
-          <p class="install__note">
+          <p class="development__note">
             Psycopg&nbsp;2 remains fully supported for legacy applications. New projects should use Psycopg&nbsp;3.
           </p>
-          <p class="install__note">
+          <p class="development__note">
             Both packages are available on PyPI and install with a single pip command. Source distributions are also
             available for environments that require compilation from source.
           </p>
-          <div class="scroll-arrow scroll-arrow--right scroll-arrow--install" aria-hidden="true"></div>
+          <div class="scroll-arrow scroll-arrow--right scroll-arrow--development" aria-hidden="true"></div>
         </div>
       </section>
 
