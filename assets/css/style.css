@@ -423,16 +423,16 @@ ul[role="list"] {
 }
 
 .hero__title {
-  font-size: clamp(4rem, 14vw, 8rem);
+  font-size: clamp(2.5rem, 14vw, 8rem);
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.03em;
   margin-bottom: 1.25rem;
   padding-bottom: clamp(20px, 5vw, 50px);
-  padding-left: clamp(80px, 23vw, 180px);
+  padding-left: clamp(55px, 20vw, 180px);
   background-image: url("../img/logo.png");
   background-repeat: no-repeat;
-  background-size: clamp(60px, 17vw, 150px) clamp(60px, 17vw, 150px);
+  background-size: clamp(45px, 17vw, 150px) clamp(45px, 17vw, 150px);
   background-position: 0px clamp(5px, 2vw, 15px);
 }
 
@@ -611,7 +611,7 @@ ul[role="list"] {
 
 /* long word, smaller title */
 .development .section__heading {
-  font-size: clamp(2.5rem, 4vw, 5rem);
+  font-size: clamp(1.8rem, 4vw, 5rem);
 }
 
 .development {
@@ -1230,6 +1230,13 @@ p code {
   /* Pagination: smaller gap so arrows + text don't overflow */
   .articles-pagination .pagination {
     gap: 0.5rem;
+  }
+
+  /* Social buttons: wrap and centre so they don't crowd screen edges */
+  .contact__social {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 1.5rem;
   }
 
 }

@@ -86,6 +86,14 @@ document.addEventListener("click", (e) => {
   }, 200);
 });
 
+// When the browser restores this page from the back-forward cache, the body
+// still has is-leaving (opacity:0). Remove it so the page fades back in.
+window.addEventListener("pageshow", (e) => {
+  if (e.persisted) {
+    document.body.classList.remove("is-leaving");
+  }
+});
+
 // Make the header logo disappear scrolling down.
 const headerLogo = document.querySelector('.header-logo');
 const hero = document.querySelector('.hero__content');
