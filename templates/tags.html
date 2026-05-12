@@ -13,7 +13,7 @@
     <article class="post-row">
       <div class="post-row__tags">
         {%- for t in child.tags -%}
-        <a class="post-tag" href="{{ ('/articles@tag/' ~ t.lower())|url }}">{{ t }}</a>
+        <a class="post-tag" href="{{ this.parent.url_path ~ 'tag/' ~ t.lower() ~ '/' }}">{{ t }}</a>
         {%- endfor -%}
       </div>
       <h2 class="post-row__title">
