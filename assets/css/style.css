@@ -1097,8 +1097,19 @@ p code {
     order: -1;
   }
 
+  /* prevent pre/code intrinsic width from expanding the grid column */
+  .development__left,
+  .development__right {
+    min-width: 0;
+  }
+
   .development__right .section__heading {
     text-align: right;
+  }
+
+  /* "development" is a long single word — scale it down so it fits narrow tracks */
+  .development .section__heading {
+    font-size: clamp(1.5rem, 4.5vw, 5rem);
   }
   .maintainers__right {
     align-items: center;
@@ -1237,6 +1248,12 @@ p code {
     flex-wrap: wrap;
     justify-content: center;
     padding: 0 1.5rem;
+  }
+
+  /* Let code blocks wrap on narrow screens rather than creating horizontal scroll */
+  pre {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
   }
 
 }
