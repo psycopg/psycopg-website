@@ -17,3 +17,16 @@ GitHub Actions will |build| the website and push it to the `github pages repos`_
 served as https://www.psycopg.org/.
 
 .. __: https://github.com/psycopg/psycopg.github.io
+
+
+Deploying on a Cloudflare page for testing
+------------------------------------------
+
+Run the following::
+
+    export CLOUDFLARE_ACCOUNT="282..."
+    export CLOUDFLARE_API_TOKEN="cfat_twKk..."
+    ./tools/upload-preview
+
+The preview of the website should be published on
+https://new-homepage.psycopg-org-website.pages.dev

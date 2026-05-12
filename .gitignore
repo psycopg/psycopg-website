@@ -6,3 +6,9 @@
 /psycopg2
 /psycopg3
 templates/_sponsors.html
+
+# Stuff created by the upload-preview script
+.nvmrc
+package-lock.json
+package.json
+node_modules/
