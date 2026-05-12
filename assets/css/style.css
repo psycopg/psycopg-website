@@ -609,11 +609,6 @@ ul[role="list"] {
 
 /* ── development ────────────────────────────────────────────────────── */
 
-/* long word, smaller title */
-.development .section__heading {
-  font-size: clamp(1.8rem, 4vw, 5rem);
-}
-
 .development {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1076,6 +1071,13 @@ p code {
     min-height: auto;
   }
 
+  .hero__title {
+    font-size: clamp(3rem, 14vw, 8rem);
+    background-size: 1em 1em;
+    background-position: 0 0;
+    padding-left: calc(1em + 15px);
+  }
+
   .scroll-arrow--right {
     display: none;
   }
@@ -1107,10 +1109,6 @@ p code {
     text-align: right;
   }
 
-  /* "development" is a long single word — scale it down so it fits narrow tracks */
-  .development .section__heading {
-    font-size: clamp(1.5rem, 4.5vw, 5rem);
-  }
   .maintainers__right {
     align-items: center;
   }
@@ -1243,12 +1241,28 @@ p code {
     gap: 0.5rem;
   }
 
-  /* Social buttons: wrap and centre so they don't crowd screen edges */
+  /* Social buttons: 2 on first row, 3 on second row */
   .contact__social {
     flex-wrap: wrap;
     justify-content: center;
     padding: 0 1.5rem;
+    column-gap: 1.25rem;
+    row-gap: 0;
   }
+
+  /* Zero-height spacer that forces a flex-line break after button 2 */
+  .contact__social::after {
+    content: '';
+    width: 100%;
+    height: 1.25rem;
+    order: 3;
+  }
+
+  .contact__social .social-btn:nth-child(1) { order: 1; }
+  .contact__social .social-btn:nth-child(2) { order: 2; }
+  .contact__social .social-btn:nth-child(3) { order: 4; }
+  .contact__social .social-btn:nth-child(4) { order: 5; }
+  .contact__social .social-btn:nth-child(5) { order: 6; }
 
   /* Let code blocks wrap on narrow screens rather than creating horizontal scroll */
   pre {
