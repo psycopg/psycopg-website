@@ -1,0 +1,42 @@
+name: Build website preview
+
+on:
+  push:
+    branches-ignore:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.14"
+
+      - name: Codespell
+        run: |
+          pip install codespell tomli
+          codespell
+
+      - name: Install requirements to generate Psycopg 3 docs
+        run: sudo apt-get install -y libgeos-dev
+
+      - name: Install
+        run: make setup
+
+      - name: Build
+        run: make
+
+      - name: Deploy
+        if: env.CLOUDFLARE_ACCOUNT != '' && env.CLOUDFLARE_API_TOKEN != ''
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT }}
+          command: pages deploy build --project-name psycopg-org-website
