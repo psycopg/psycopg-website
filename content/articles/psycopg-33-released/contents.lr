@@ -13,7 +13,7 @@ release
 ---
 body:
 
-We have released Psycopg 3.3 — and you should be excited about it!
+We have released Psycopg 3.3 - and you should be excited about it!
 
 .. CUT-HERE
 
@@ -116,7 +116,7 @@ Solving the ``fetchone()`` annoyance with type checkers
 If you use Mypy or other type checkers with Psycopg, you've probably seen
 false positives when calling ``fetchone()``. Even if you are 100% certain
 your query will return a row, ``fetchone()`` is annotated as possibly
-returning ``None`` — so type checkers complain about patterns like:
+returning ``None`` - so type checkers complain about patterns like:
 
 .. code:: python
 
@@ -129,7 +129,7 @@ iterator holds its own iteration state and does not need to create a new
 object for each pass.
 
 More importantly, this change means you can use `next()`_ or `anext()`_ to retrieve
-a record — and these functions never return ``None``. This makes Mypy happy,
+a record - and these functions never return ``None``. This makes Mypy happy,
 and probably you too:
 
 .. code:: python
@@ -146,7 +146,7 @@ and probably you too:
 Improvements to the connection pools
 ------------------------------------
 
-A connection pool’s parameters can now be changed dynamically — useful for
+A connection pool’s parameters can now be changed dynamically - useful for
 example to support short-lived secret tokens as passwords, as requested
 by some cloud database providers.
 
@@ -176,7 +176,7 @@ Your help is welcome
 --------------------
 
 Psycopg is the de-facto standard for communication between Python and
-PostgreSQL — two major components powering countless businesses and
+PostgreSQL - two major components powering countless businesses and
 mission-critical infrastructure. Maintaining such an important library to the
 highest standards of reliability, performance and security requires a lot of
 care and ongoing work.

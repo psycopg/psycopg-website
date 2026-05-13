@@ -4,7 +4,7 @@
 # url:    sponsor website
 # github: GitHub profile URL (used for avatar refresh, data lookup, etc.)
 # avatar: image URL
-# style:  round (default) | square  — square for org/product logos
+# style:  round (default) | square - square for org/product logos
 
 - key: command-prompt
   name: Command Prompt, Inc.

@@ -46,7 +46,7 @@ if (sections.length && navLinks.length) {
   sections.forEach((s) => observer.observe(s));
 }
 
-// Scroll reveal — [data-reveal] sections are hidden in HTML/CSS immediately.
+// Scroll reveal - [data-reveal] sections are hidden in HTML/CSS immediately.
 // Flush styles so the browser commits opacity:0 as the "from" state, then
 // start observing in the next frame so transitions actually play.
 document.body.getBoundingClientRect(); // flush style recalculation

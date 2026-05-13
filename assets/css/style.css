@@ -204,7 +204,7 @@ ul[role="list"] {
 
 /*
   Crossing arrows are absolutely positioned at the section edge so they
-  sit in the padding gutter — well clear of text and grid content.
+  sit in the padding gutter - well clear of text and grid content.
   `translate: 0 60px` is the consistent crossing offset; the `arrow-bob`
   animation stacks on top via the separate `transform` property.
 */
@@ -357,7 +357,7 @@ ul[role="list"] {
 }
 
 
-/* ── Sections — shared ──────────────────────────────────────────── */
+/* ── Sections - shared ──────────────────────────────────────────── */
 .landing .section {
   max-width: var(--max);
   margin: 0 auto;
