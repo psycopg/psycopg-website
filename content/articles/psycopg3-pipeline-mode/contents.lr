@@ -491,7 +491,7 @@ required months of work with a lot of thinking and testing. There is
 probably more to say about it, like how it transparently manages
 `automatic prepared statement`_ or how `executemany()`_ got optimized to
 use the pipeline mode implicitly (try adapting the demo script above to
-use it — hint: no need for the ``with pipeline:`` block). And be sure to
+use it - hint: no need for the ``with pipeline:`` block). And be sure to
 read the Psycopg’s `pipeline mode`_ documentation soon!
 
 ----

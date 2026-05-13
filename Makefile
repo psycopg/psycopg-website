@@ -3,6 +3,7 @@
 ENVDIR=$(CURDIR)/env
 PYTHON=$(ENVDIR)/bin/python
 LEKTOR=$(ENVDIR)/bin/lektor
+export PYTHONWARNINGS=ignore::PendingDeprecationWarning
 DOC_BRANCH=master
 DOC3_BRANCH=master
 
@@ -61,7 +62,7 @@ psycopg3/README.rst:
 	git -C psycopg3 checkout $(DOC3_BRANCH)
 	git -C psycopg3 pull
 
-psycopg3/docs/_templates/layout.html: templates/docs3-layout.html databags/analytics.json
+psycopg3/docs/_templates/layout.html: databags/analytics.json
 	mkdir -p $(dir $@)
 	TRACKING_ID=${TRACKING_ID} envsubst < $< > $@
 

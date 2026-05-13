@@ -1,0 +1,26 @@
+{
+  "name": "Psycopg",
+  "short_name": "Psycopg",
+  "description": "The most popular PostgreSQL adapter for Python",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0d1b2a",
+  "theme_color": "#0d1b2a",
+  "icons": [
+    {
+      "src": "/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

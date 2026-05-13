@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -euo pipefail
+
+: ${CLOUDFLARE_ACCOUNT?:please set the CLOUDFLARE_ACCOUNT env var}
+: ${CLOUDFLARE_API_TOKEN?:please set the CLOUDFLARE_API_TOKEN env var}
+
+dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+prjdir="$(cd "$dir/.." && pwd)"
+
+WRANGLER_SCRIPT="${prjdir}/node_modules/wrangler/bin/wrangler.js"
+
+CI=true make
+[[ -s ~/.nvm/nvm.sh ]] && source ~/.nvm/nvm.sh && nvm use
+[[ -f "${WRANGLER_SCRIPT}" ]] || npm install --save-dev wrangler
+
+"${WRANGLER_SCRIPT}" pages deploy build --project-name psycopg-org-website

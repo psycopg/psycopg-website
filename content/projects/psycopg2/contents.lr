@@ -1,7 +1,7 @@
 _model: redirect
 ---
-target: /
+target: https://github.com/psycopg/psycopg2/
 ---
-absolute: no
+absolute: yes
 ---
 _discoverable: no

@@ -1,6 +1,6 @@
 _model: redirect
 ---
-target: https://pypi.org/project/psycopg2/#files
+target: https://pypi.org/project/psycopg/
 ---
 absolute: yes
 ---

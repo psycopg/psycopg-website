@@ -1,56 +1,454 @@
-{% extends "page.html" %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Psycopg - PostgreSQL adapter for Python</title>
+    <meta
+      name="description"
+      content="Psycopg is the most popular PostgreSQL adapter for the Python programming language."
+    />
+    <link rel="icon" type="image/png" href="/img/logo.png" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="canonical" href="https://www.psycopg.org/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.psycopg.org/" />
+    <meta property="og:title" content="Psycopg - PostgreSQL adapter for Python" />
+    <meta property="og:description" content="Psycopg is the most popular PostgreSQL adapter for the Python programming language." />
+    <meta property="og:image" content="https://www.psycopg.org/img/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@psycopg" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- ── Navigation ─────────────────────────────────────────────── -->
+    <header class="site-header">
+      <nav class="nav">
+        <div class="header-logo">
+          <a href="/" class="nav__logo" aria-label="psycopg home">
+            <img src="/img/logo.png" alt="" width="48" height="48" />
+            <span>psycopg</span>
+          </a>
+        </div>
+        <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav__links" role="list">
+          <li><a href="#home">home</a></li>
+          <li><a href="#sponsors">sponsors</a></li>
+          <li><a href="#features">features</a></li>
+          <li><a href="#development">development</a></li>
+          <li><a href="#articles">articles</a></li>
+          <li><a href="#maintainers">maintainers</a></li>
+          <li><a href="#contact">contact</a></li>
+        </ul>
+        <div class="nav__mirror" aria-hidden="true">
+          <span class="nav__logo">
+            <img src="/img/logo.png" alt="" width="48" height="48" />
+            <span>psycopg</span>
+          </span>
+        </div>
+      </nav>
+    </header>
 
-{% block head %}
-    <link rel="alternate" type="application/atom+xml" title="Psycopg news"
-      href="{{'/news.xml'|url}}" />
-    <link rel="alternate" type="application/atom+xml" title="Psycopg articles"
-      href="{{'/articles.xml'|url}}" />
-{%- endblock %}
+    <main class="landing">
+      <!-- ── Hero ───────────────────────────────────────────────── -->
+      <section id="home" class="section hero">
+        <div class="hero__content">
+          <h1 class="hero__title">psycopg</h1>
+          <p class="hero__subtitle">The most popular PostgreSQL adapter for Python</p>
+          <p class="hero__body">
+            A complete implementation of the Python DB&nbsp;API&nbsp;2.0 specification, built on top of the official
+            PostgreSQL client library, with many extensions giving access to the full power of modern Python and
+            PostgreSQL.
+          </p>
+        </div>
+        <div class="scroll-arrow scroll-arrow--right scroll-arrow--hero" aria-hidden="true"></div>
+      </section>
 
-{% block body %}
-<div class="teaser">
-{{ this.teaser }}
-</div>
+      <!-- ── Sponsors ───────────────────────────────────────────── -->
+      <section id="sponsors" class="section sponsors" data-reveal>
+        <h2 class="section__heading section__heading--center">sponsors</h2>
+        <div class="sponsors__strip">
+          <div class="sponsors__track" aria-label="Sponsors">
+            <!-- SPONSORS-START -->
+            <a class="sponsor-item sponsor-item--square" href="https://www.commandprompt.com/" target="_blank" rel="noopener">
+              <img src="/img/sponsors/command-prompt.jpeg" alt="Command Prompt, Inc." width="80" height="80" />
+              <span class="sponsor-item__name">Command Prompt, Inc.</span>
+            </a>
+            <a class="sponsor-item" href="https://postgrespro.com/" target="_blank" rel="noopener">
+              <img src="/img/sponsors/postgrespro.png" alt="Postgres Pro" width="80" height="80" />
+              <span class="sponsor-item__name">Postgres Pro</span>
+            </a>
+            <a class="sponsor-item" href="https://wedgworth.dev" target="_blank" rel="noopener">
+              <img src="/img/sponsors/wedgworths.png" alt="Wedgworth's, Inc" width="80" height="80" />
+              <span class="sponsor-item__name">Wedgworth's, Inc</span>
+            </a>
+            <a class="sponsor-item" href="https://www.gresearch.com/teams/open-source-software/" target="_blank" rel="noopener">
+              <img src="/img/sponsors/g-research.jpeg" alt="G-Research Open Source" width="80" height="80" />
+              <span class="sponsor-item__name">G-Research Open Source</span>
+            </a>
+            <a class="sponsor-item sponsor-item--square" href="https://healthchecks.io" target="_blank" rel="noopener">
+              <img src="/img/sponsors/healthchecks.png" alt="Healthchecks" width="80" height="80" />
+              <span class="sponsor-item__name">Healthchecks</span>
+            </a>
+            <a class="sponsor-item sponsor-item--square" href="https://github.com/asqui" target="_blank" rel="noopener">
+              <img src="/img/sponsors/asqui.png" alt="Daniel Fortunov" width="80" height="80" />
+              <span class="sponsor-item__name">Daniel Fortunov</span>
+            </a>
+            <a class="sponsor-item sponsor-item--square" href="https://growthpath.com.au" target="_blank" rel="noopener">
+              <img src="/img/sponsors/growthpath.png" alt="GrowthPath" width="80" height="80" />
+              <span class="sponsor-item__name">GrowthPath</span>
+            </a>
+            <a class="sponsor-item sponsor-item--square" href="https://www.ohne-makler.net" target="_blank" rel="noopener">
+              <img src="/img/sponsors/om-proptech.png" alt="OM PropTech GmbH" width="80" height="80" />
+              <span class="sponsor-item__name">OM PropTech GmbH</span>
+            </a>
+            <a class="sponsor-item sponsor-item--square" href="https://intevation.de" target="_blank" rel="noopener">
+              <img src="/img/sponsors/intevation.png" alt="Intevation" width="80" height="80" />
+              <span class="sponsor-item__name">Intevation</span>
+            </a>
+            <a class="sponsor-item" href="https://httpie.io" target="_blank" rel="noopener">
+              <img src="/img/sponsors/httpie.png" alt="HTTPie" width="80" height="80" />
+              <span class="sponsor-item__name">HTTPie</span>
+            </a>
+            <a class="sponsor-item" href="https://ecosyste.ms" target="_blank" rel="noopener">
+              <img src="/img/sponsors/ecosyste-ms.png" alt="Ecosystems" width="80" height="80" />
+              <span class="sponsor-item__name">Ecosystems</span>
+            </a>
+            <a class="sponsor-item" href="https://github.com/pphysch" target="_blank" rel="noopener">
+              <img src="/img/sponsors/pphysch.jpeg" alt="pphysch" width="80" height="80" />
+              <span class="sponsor-item__name">pphysch</span>
+            </a>
+            <a class="sponsor-item" href="https://www.yougov.com" target="_blank" rel="noopener">
+              <img src="/img/sponsors/yougov.png" alt="YouGov" width="80" height="80" />
+              <span class="sponsor-item__name">YouGov</span>
+            </a>
+            <a class="sponsor-item" href="http://www.phenopolis.co.uk" target="_blank" rel="noopener">
+              <img src="/img/sponsors/phenopolis.png" alt="Phenopolis" width="80" height="80" />
+              <span class="sponsor-item__name">Phenopolis</span>
+            </a>
+            <a class="sponsor-item" href="https://materialize.com" target="_blank" rel="noopener">
+              <img src="/img/sponsors/materialize.png" alt="Materialize" width="80" height="80" />
+              <span class="sponsor-item__name">Materialize</span>
+            </a>
+            <a class="sponsor-item" href="https://sentry.io" target="_blank" rel="noopener">
+              <img src="/img/sponsors/sentry.png" alt="Sentry" width="80" height="80" />
+              <span class="sponsor-item__name">Sentry</span>
+            </a>
+            <a class="sponsor-item" href="https://beefree.io" target="_blank" rel="noopener">
+              <img src="/img/sponsors/beefree.png" alt="BEE" width="80" height="80" />
+              <span class="sponsor-item__name">BEE</span>
+            </a>
+            <a class="sponsor-item sponsor-item--square" href="http://www.genropy.org" target="_blank" rel="noopener">
+              <img src="/img/sponsors/genropy.jpeg" alt="genropy" width="80" height="80" />
+              <span class="sponsor-item__name">genropy</span>
+            </a>
+            <a class="sponsor-item sponsor-item--square" href="http://www.dalibo.com" target="_blank" rel="noopener">
+              <img src="/img/sponsors/dalibo.png" alt="Dalibo" width="80" height="80" />
+              <span class="sponsor-item__name">Dalibo</span>
+            </a>
+            <!-- Duplicate set for seamless loop (hidden from assistive tech) -->
+            <a class="sponsor-item sponsor-item--square" aria-hidden="true" tabindex="-1" href="https://www.commandprompt.com/" target="_blank" rel="noopener">
+              <img src="/img/sponsors/command-prompt.jpeg" alt="" width="80" height="80" />
+            </a>
+            <a class="sponsor-item" aria-hidden="true" tabindex="-1" href="https://postgrespro.com/" target="_blank" rel="noopener">
+              <img src="/img/sponsors/postgrespro.png" alt="" width="80" height="80" />
+            </a>
+            <a class="sponsor-item" aria-hidden="true" tabindex="-1" href="https://wedgworth.dev" target="_blank" rel="noopener">
+              <img src="/img/sponsors/wedgworths.png" alt="" width="80" height="80" />
+            </a>
+            <a class="sponsor-item" aria-hidden="true" tabindex="-1" href="https://www.gresearch.com/teams/open-source-software/" target="_blank" rel="noopener">
+              <img src="/img/sponsors/g-research.jpeg" alt="" width="80" height="80" />
+            </a>
+            <a class="sponsor-item sponsor-item--square" aria-hidden="true" tabindex="-1" href="https://healthchecks.io" target="_blank" rel="noopener">
+              <img src="/img/sponsors/healthchecks.png" alt="" width="80" height="80" />
+            </a>
+            <a class="sponsor-item sponsor-item--square" aria-hidden="true" tabindex="-1" href="https://github.com/asqui" target="_blank" rel="noopener">
+              <img src="/img/sponsors/asqui.png" alt="" width="80" height="80" />
+            </a>
+            <a class="sponsor-item sponsor-item--square" aria-hidden="true" tabindex="-1" href="https://growthpath.com.au" target="_blank" rel="noopener">
+              <img src="/img/sponsors/growthpath.png" alt="" width="80" height="80" />
+            </a>
+            <a class="sponsor-item sponsor-item--square" aria-hidden="true" tabindex="-1" href="https://www.ohne-makler.net" target="_blank" rel="noopener">
+              <img src="/img/sponsors/om-proptech.png" alt="" width="80" height="80" />
+            </a>
+            <a class="sponsor-item sponsor-item--square" aria-hidden="true" tabindex="-1" href="https://intevation.de" target="_blank" rel="noopener">
+              <img src="/img/sponsors/intevation.png" alt="" width="80" height="80" />
+            </a>
+            <a class="sponsor-item" aria-hidden="true" tabindex="-1" href="https://httpie.io" target="_blank" rel="noopener">
+              <img src="/img/sponsors/httpie.png" alt="" width="80" height="80" />
+            </a>
+            <a class="sponsor-item" aria-hidden="true" tabindex="-1" href="https://ecosyste.ms" target="_blank" rel="noopener">
+              <img src="/img/sponsors/ecosyste-ms.png" alt="" width="80" height="80" />
+            </a>
+            <a class="sponsor-item" aria-hidden="true" tabindex="-1" href="https://github.com/pphysch" target="_blank" rel="noopener">
+              <img src="/img/sponsors/pphysch.jpeg" alt="" width="80" height="80" />
+            </a>
+            <a class="sponsor-item" aria-hidden="true" tabindex="-1" href="https://www.yougov.com" target="_blank" rel="noopener">
+              <img src="/img/sponsors/yougov.png" alt="" width="80" height="80" />
+            </a>
+            <a class="sponsor-item" aria-hidden="true" tabindex="-1" href="http://www.phenopolis.co.uk" target="_blank" rel="noopener">
+              <img src="/img/sponsors/phenopolis.png" alt="" width="80" height="80" />
+            </a>
+            <a class="sponsor-item" aria-hidden="true" tabindex="-1" href="https://materialize.com" target="_blank" rel="noopener">
+              <img src="/img/sponsors/materialize.png" alt="" width="80" height="80" />
+            </a>
+            <a class="sponsor-item" aria-hidden="true" tabindex="-1" href="https://sentry.io" target="_blank" rel="noopener">
+              <img src="/img/sponsors/sentry.png" alt="" width="80" height="80" />
+            </a>
+            <a class="sponsor-item" aria-hidden="true" tabindex="-1" href="https://beefree.io" target="_blank" rel="noopener">
+              <img src="/img/sponsors/beefree.png" alt="" width="80" height="80" />
+            </a>
+            <a class="sponsor-item sponsor-item--square" aria-hidden="true" tabindex="-1" href="http://www.genropy.org" target="_blank" rel="noopener">
+              <img src="/img/sponsors/genropy.jpeg" alt="" width="80" height="80" />
+            </a>
+            <a class="sponsor-item sponsor-item--square" aria-hidden="true" tabindex="-1" href="http://www.dalibo.com" target="_blank" rel="noopener">
+              <img src="/img/sponsors/dalibo.png" alt="" width="80" height="80" />
+            </a>
+            <!-- SPONSORS-END -->
+          </div>
+        </div>
+        <p class="sponsors__body">
+          Psycopg is free software. If you use Python and PostgreSQL and would like to support the maintenance of the
+          most advanced adapter between the two systems, please consider
+          <a href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener">becoming a sponsor</a>.
+          Sponsoring helps ensure the continued maintenance of Psycopg 2, Psycopg 3, and related projects.
+        </p>
+      </section>
 
-<div class="sponsor">
-  <p>
-    If you use Python and PostgreSQL, and you would like to support the
-    creation of the most advanced adapter between the two systems,
-    <a href="https://github.com/sponsors/dvarrazzo/" target="_blank"
-      >please consider becoming a sponsor</a>.
-  </p>
+      <!-- ── Features ───────────────────────────────────────────── -->
+      <section id="features" class="section features" data-reveal>
+        <div class="features__left">
+          <h2 class="section__heading">features</h2>
+          <p class="features__intro">
+            Psycopg&nbsp;3 is the current generation. It keeps full DB-API&nbsp;2.0 compatibility while adding native
+            asyncio, server-side binding, pipeline mode, and a much more powerful connection pool.
+          </p>
+          <div class="scroll-arrow scroll-arrow--features" aria-hidden="true"></div>
+        </div>
+        <div class="features__right">
+          <table class="feature-table">
+            <colgroup>
+              <col span="2" style="width: 50%" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th>Psycopg&nbsp;3</th>
+                <th>Psycopg&nbsp;2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Python 3.10–3.14</td>
+                <td>Python 3.9–3.14</td>
+              </tr>
+              <tr>
+                <td>PostgreSQL 10–18</td>
+                <td>PostgreSQL 7.4–18</td>
+              </tr>
+              <tr>
+                <td>Native asyncio support</td>
+                <td>Low-level async only</td>
+              </tr>
+              <tr>
+                <td>Server- and client-side parameter binding</td>
+                <td>Client-side binding only</td>
+              </tr>
+              <tr>
+                <td>Automatic prepared statements</td>
+                <td>No prepared statemetns support</td>
+              </tr>
+              <tr>
+                <td>Pipeline / batch mode</td>
+                <td>No pipeline mode support</td>
+              </tr>
+              <tr>
+                <td>Advanced connection pool</td>
+                <td>Very basic connection pool</td>
+              </tr>
+              <tr>
+                <td>Static typing support</td>
+                <td>No static typing support</td>
+              </tr>
+              <tr>
+                <td>Async COPY support</td>
+                <td>Synchronous COPY only</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-  <p>
-  Sponsoring this project will help achieve swift completion and
-  ensure the maintenance of psycopg2, psycopg3 and other related
-  projects.
-  </p>
+      <!-- ── development ────────────────────────────────────────────── -->
+      <section id="development" class="section development" data-reveal>
+        <div class="development__left">
+          <div class="development__package">
+            <h3>Psycopg&nbsp;3</h3>
+            <pre><code>pip install "psycopg[binary]"</code></pre>
+            <ul>
+              <li>
+                <a href="/psycopg3/docs/basic/install.html">Installation guide</a>
+              </li>
+              <li>
+                <a href="/psycopg3/docs/">Documentation</a>
+              </li>
+              <li>
+                <a href="https://github.com/psycopg/psycopg/">Project</a>
+              </li>
+              <li>
+                <a href="https://github.com/psycopg/psycopg/issues/">Bug tracker</a>
+              </li>
+            </ul>
+          </div>
+          <div class="development__package">
+            <h3>Psycopg&nbsp;2</h3>
+            <pre><code>pip install psycopg2-binary</code></pre>
+            <ul>
+              <li>
+                <a href="/docs/install.html">Installation guide</a>
+              </li>
+              <li>
+                <a href="/docs/">Documentation</a>
+              </li>
+              <li>
+                <a href="https://github.com/psycopg/psycopg2/">Project</a>
+              </li>
+              <li>
+                <a href="https://github.com/psycopg/psycopg2/issues/">Bug tracker</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="development__right">
+          <h2 class="section__heading section__heading--right">development</h2>
+          <p class="development__note">
+            <strong>Note:</strong> there is no <code>psycopg3</code> package - the current generation ships as
+            <code>psycopg</code>. The <code>[binary]</code> extra bundles a pre-compiled C extension so no PostgreSQL
+            client libraries need to be installed separately.
+          </p>
+          <p class="development__note">
+            Psycopg&nbsp;2 remains fully supported for legacy applications. New projects should use Psycopg&nbsp;3.
+          </p>
+          <p class="development__note">
+            Both packages are available on PyPI and install with a single pip command. Source distributions are also
+            available for environments that require compilation from source.
+          </p>
+          <div class="scroll-arrow scroll-arrow--right scroll-arrow--development" aria-hidden="true"></div>
+        </div>
+      </section>
 
-  <p>If you are interested in contributing to the maintenance of the project, please reach out. Thank you!
-  </p>
+      <!-- ── Articles ───────────────────────────────────────────── -->
+      <section id="articles" class="section articles" data-reveal>
+        <div class="articles__header">
+          <h2 class="section__heading">articles</h2>
+          <a href="/articles" class="articles__more">Read more!</a>
+        </div>
+        <!-- TODO: really tie to the blog -->
+        <div class="articles__grid">
+          <article class="article-card">
+            <span class="article-card__tag">release</span>
+            <h3 class="article-card__title">
+              <a href="/articles/2025/12/01/psycopg-33-released/">Psycopg 3.3 Released</a>
+            </h3>
+            <footer class="article-card__footer">
+              <img class="article-card__avatar" src="/img/daniele.jpg" alt="Daniele Varrazzo" />
+              <time class="article-card__date" datetime="2025-12-01">01/12/2025</time>
+            </footer>
+          </article>
+          <article class="article-card">
+            <span class="article-card__tag">development</span>
+            <h3 class="article-card__title">
+              <a href="/articles/2024/09/23/async-to-sync/">Automatic Async to Sync Code Conversion</a>
+            </h3>
+            <footer class="article-card__footer">
+              <img class="article-card__avatar" src="/img/daniele.jpg" alt="Daniele Varrazzo" />
+              <time class="article-card__date" datetime="2024-09-23">23/09/2024</time>
+            </footer>
+          </article>
+        </div>
+      </section>
 
-  <iframe src="https://github.com/sponsors/dvarrazzo/button"
-          title="Sponsor the project" style="border: 0"
-          width="116" height="35">
-  </iframe>
+      <!-- ── Maintainers ────────────────────────────────────────── -->
+      <section id="maintainers" class="section maintainers" data-reveal>
+        <div class="maintainers__left">
+          <h3 class="maintainers__name">Daniele Varrazzo</h3>
+          <p>
+            Daniele is the creator and primary maintainer of psycopg2 and psycopg3. He has been working on PostgreSQL
+            database connectivity for Python for over fifteen years.
+          </p>
+          <p>
+            His work on the DB-API&nbsp;2.0 specification, binary protocol support, and asyncio integration has made
+            psycopg the standard choice for Python developers working with PostgreSQL.
+          </p>
+          <p>
+            Support the project via
+            <a href="https://github.com/sponsors/dvarrazzo/" target="_blank" rel="noopener">GitHub&nbsp;Sponsors</a>.
+          </p>
+        </div>
+        <div class="maintainers__right">
+          <h2 class="section__heading section__heading--right">maintainers</h2>
+          <img class="maintainers__avatar" src="/img/daniele.jpg" alt="Daniele Varrazzo" />
+        </div>
+      </section>
 
-  <div class="clear"></div>
-</div>
+      <!-- ── Contact ────────────────────────────────────────────── -->
+      <section id="contact" class="section contact" data-reveal>
+        <div class="scroll-arrow scroll-arrow--center" aria-hidden="true"></div>
+        <h2 class="section__heading section__heading--center">contact</h2>
+        <p class="contact__subtitle">Follow the Psycopg team</p>
+        <div class="contact__social">
+          <a href="https://github.com/psycopg" class="social-btn" rel="noopener" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/psycopg" class="social-btn" rel="noopener" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://x.com/psycopg" class="social-btn" rel="noopener" aria-label="X">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.836L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://fosstodon.org/@psycopg" class="social-btn" rel="noopener" aria-label="Mastodon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.818 0 11.49 0h-.03c-4.325 0-5.345.242-5.474.309C3.31.7 1.052 2.763.37 5.34.058 6.604-.005 7.98.004 9.24c.017 1.978.022 3.952.177 5.92.12 1.604.368 3.194.742 4.757.604 2.504 3.09 4.557 5.526 5.404 2.56.872 5.313.99 7.943.315 1.17-.33 2.31-.8 3.339-1.495.174-.116.34-.24.498-.37.052-.043.086-.102.09-.166v-1.65c0-.023-.006-.044-.016-.063-.01-.018-.026-.033-.045-.041-.018-.007-.038-.009-.058-.004-.02.004-.038.013-.053.026-1.04.74-2.184 1.267-3.39 1.56-1.236.296-2.528.355-3.788.166-1.213-.186-2.37-.59-3.408-1.185a5.29 5.29 0 01-2.007-2.01c-.13-.25-.243-.51-.34-.778l-.02-.064c0-.02.006-.04.019-.055.013-.015.03-.023.05-.025l5.553-.724c.052-.007.105.016.134.06.43.63.97 1.175 1.61 1.606.604.41 1.288.682 2.006.8 1.25.22 2.532-.036 3.647-.73 1.1-.69 1.89-1.784 2.24-3.03.11-.4.19-.81.24-1.228h-8.18c-.052 0-.1-.022-.134-.06-.034-.037-.05-.087-.046-.136v-3.59c0-.06.02-.118.06-.16.04-.043.094-.066.15-.067h10.4c.047.001.09.02.122.053.03.034.048.078.048.124.015.84.002 1.683-.04 2.52z"/></svg>
+          </a>
+          <a href="https://bsky.app/profile/psycopg.bsky.social" class="social-btn" rel="noopener" aria-label="Bluesky">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 01-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.204-.659-.299-1.664-.621-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg>
+          </a>
+        </div>
+      </section>
 
-{{ this.body }}
+      <!-- ── Newsletter ─────────────────────────────────────────── -->
+      <!-- We don't have a newsletter yet
+        <section id="newsletter" class="section newsletter">
+            <h2 class="newsletter__title">Stay up to date</h2>
+            <p class="newsletter__sub">Get notified about new releases and articles</p>
+            <form class="newsletter__form" action="#" method="post">
+                <input type="email" name="email" placeholder="Enter your email address"
+                       required aria-label="Email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+        -->
+    </main>
 
-{% from "macros/blog.html" import render_blog_post %}
-<div class="dashed-top">
-  <h1>Latest articles</h1>
-  {%- for post in site.get("/articles").children.limit(3) %}
-    {{- render_blog_post(post, from_index=true) }}
-  {%- endfor %}
-  <a href="{{'/articles'|url}}">See all articles...</a>
-</div>
+    <!-- ── Footer ─────────────────────────────────────────────────── -->
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">
+          &copy; The Psycopg Team<br/>
+          Psycopg is free software released under the
+          <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html" rel="noopener">GNU LGPL license</a>.
+        </p>
+        <a href="/" class="site-footer__logo" aria-label="psycopg home">
+          <img src="/img/logo.png" alt="" width="40" height="40" />
+          <span>psycopg</span>
+        </a>
+      </div>
+    </footer>
 
-{%- endblock %}
-
-{% block sidebar %}
-{{- render_side_links(this) }}
-
-{% endblock %}
+    <script src="/js/main.js" type="module"></script>
+  </body>
+</html>
