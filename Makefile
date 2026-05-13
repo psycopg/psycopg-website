@@ -3,6 +3,7 @@
 ENVDIR=$(CURDIR)/env
 PYTHON=$(ENVDIR)/bin/python
 LEKTOR=$(ENVDIR)/bin/lektor
+export PYTHONWARNINGS=ignore::PendingDeprecationWarning
 DOC_BRANCH=master
 DOC3_BRANCH=master
 
