@@ -10,9 +10,8 @@ prjdir="$(cd "$dir/.." && pwd)"
 
 WRANGLER_SCRIPT="${prjdir}/node_modules/wrangler/bin/wrangler.js"
 
-make
-npm use
+CI=true make
+[[ -s ~/.nvm/nvm.sh ]] && source ~/.nvm/nvm.sh && nvm use
 [[ -f "${WRANGLER_SCRIPT}" ]] || npm install --save-dev wrangler
 
-"${WRANGLER_SCRIPT}" pages deploy build \
-    --project-name psycopg-org-website --branch new-homepage
+"${WRANGLER_SCRIPT}" pages deploy build --project-name psycopg-org-website
