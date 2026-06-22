@@ -56,10 +56,10 @@ def get_person(id: UUID, conn: Conn) -> Person:
         raise HTTPException(status_code=404)
 
 
-# Appication helpers
+# Application helpers
 
 
-def fetch_people(conn: Conn, id: UUID | None = None) -> list[Person]:
+def fetch_people(conn: psycopg.Connection, id: UUID | None = None) -> list[Person]:
     query = "SELECT id, name, date_of_birth FROM person"
     if id:
         query += " WHERE id = %(id)s"
