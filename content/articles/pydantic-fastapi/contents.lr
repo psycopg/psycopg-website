@@ -157,7 +157,7 @@ check `Pydantic Settings`_).
 
 Creating a working database connection, configuring it correctly, managing its
 life cycle, are matters separate from the code of the view functions, which
-just require a database connection. FastAPI offers an elegant method to
+just *require* a database connection. FastAPI offers an elegant method to
 separate these two independent concerns: the `dependency injection
 <https://fastapi.tiangolo.com/tutorial/dependencies/>`_.
 
