@@ -1939,19 +1939,25 @@ main.page .sponsors-page__heading {
 
 /* Per-tier logo sizing */
 .sponsor-wall__group--gold .sponsor-wall__item img {
-  width: 128px;
-  height: 128px;
+  width: 176px;
+  height: 176px;
 }
 .sponsor-wall__group--gold .sponsor-wall__item {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 .sponsor-wall__group--silver .sponsor-wall__item img {
-  width: 104px;
-  height: 104px;
+  width: 112px;
+  height: 112px;
+}
+.sponsor-wall__group--silver .sponsor-wall__item {
+  font-size: 0.85rem;
 }
 .sponsor-wall__group--bronze .sponsor-wall__item img {
-  width: 80px;
-  height: 80px;
+  width: 72px;
+  height: 72px;
+}
+.sponsor-wall__group--bronze .sponsor-wall__item {
+  font-size: 0.78rem;
 }
 
 /* Backer tier: names only */

@@ -43,9 +43,9 @@ WALL_INDENT = "      "
 # avatar (sized down gold -> bronze via CSS); backers are listed by name only.
 # The `supporter` tier is intentionally absent: those get the GitHub badge only.
 TIERS = [
-    {"key": "gold", "label": "Gold sponsors", "logo": True, "size": 128},
-    {"key": "silver", "label": "Silver sponsors", "logo": True, "size": 104},
-    {"key": "bronze", "label": "Bronze sponsors", "logo": True, "size": 80},
+    {"key": "gold", "label": "Gold sponsors", "logo": True, "size": 176},
+    {"key": "silver", "label": "Silver sponsors", "logo": True, "size": 112},
+    {"key": "bronze", "label": "Bronze sponsors", "logo": True, "size": 72},
     {"key": "backer", "label": "Backers", "logo": False, "size": 0},
 ]
 
