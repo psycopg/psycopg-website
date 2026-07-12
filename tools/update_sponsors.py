@@ -43,10 +43,10 @@ WALL_INDENT = "      "
 # avatar (sized down gold -> bronze via CSS); backers are listed by name only.
 # The `supporter` tier is intentionally absent: those get the GitHub badge only.
 TIERS = [
-    {"key": "gold", "label": "Gold sponsors", "logo": True, "size": 176},
-    {"key": "silver", "label": "Silver sponsors", "logo": True, "size": 112},
-    {"key": "bronze", "label": "Bronze sponsors", "logo": True, "size": 72},
-    {"key": "backer", "label": "Backers", "logo": False, "size": 0},
+    {"key": "gold", "label": "Gold sponsors", "logo": True},
+    {"key": "silver", "label": "Silver sponsors", "logo": True},
+    {"key": "bronze", "label": "Bronze sponsors", "logo": True},
+    {"key": "backer", "label": "Backers", "logo": False},
 ]
 
 # Tiers whose sponsors are shown with a logo/avatar on the sponsors page.
@@ -141,10 +141,9 @@ def wall_item(s: dict, tier: dict) -> str:
         cls = "sponsor-wall__item"
         if s.get("style") == "square":
             cls += " sponsor-wall__item--square"
-        size = tier["size"]
         return (
             f'{indent}<a class="{cls}" href="{href}" target="_blank" rel="noopener" title="{name}">\n'
-            f'{indent}  <img src="{s["local"]}" alt="{name}" width="{size}" height="{size}" />\n'
+            f'{indent}  <img src="{s["local"]}" alt="{name}" />\n'
             f'{indent}  <span class="sponsor-wall__name">{name}</span>\n'
             f"{indent}</a>"
         )
