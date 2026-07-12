@@ -1,108 +1,44 @@
-# Sponsor list for the homepage carousel.
-# key:    url-friendly identifier
+# Sponsor list, source of truth for both the homepage carousel and the
+# /sponsors/ page. Run `python tools/update_sponsors.py` after editing to
+# regenerate templates/homepage.html and templates/sponsors.html.
+#
+# key:    url-friendly identifier (also the local avatar filename)
 # name:   display name
-# url:    sponsor website
+# url:    sponsor website (falls back to the GitHub profile)
 # github: GitHub profile URL (used for avatar refresh, data lookup, etc.)
-# avatar: image URL
+# avatar: image URL to download
 # style:  round (default) | square - square for org/product logos
+# tier:   gold | silver | bronze | backer  (drives the display size on the
+#         sponsors page; gold/silver/bronze show a logo, backer shows the name)
+# past:   true for former sponsors - shown on the sponsors page (merged in as a
+#         thank-you) but kept out of the homepage carousel
 
+# ── Gold ─────────────────────────────────────────────────────────────
 - key: command-prompt
   name: Command Prompt, Inc.
   url: https://www.commandprompt.com/
   github: https://github.com/commandprompt
   avatar: https://avatars.githubusercontent.com/u/339156?v=4
   style: square
+  tier: gold
 
+# ── Silver ───────────────────────────────────────────────────────────
 - key: postgrespro
   name: Postgres Pro
   url: https://postgrespro.com/
   github: https://github.com/postgrespro
   avatar: https://avatars.githubusercontent.com/u/12005770?v=4
   style: round
+  tier: silver
 
-- key: wedgworths
-  name: "Wedgworth's, Inc"
-  url: https://wedgworth.dev
-  github: https://github.com/wedgworth
-  avatar: https://github.com/wedgworth.png
-  style: round
-
+# ── Bronze ───────────────────────────────────────────────────────────
 - key: g-research
   name: G-Research Open Source
   url: https://www.gresearch.com/teams/open-source-software/
   github: https://github.com/G-Research-OSS
   avatar: https://github.com/G-Research-OSS.png
   style: round
-
-- key: healthchecks
-  name: Healthchecks
-  url: https://healthchecks.io
-  github: https://github.com/healthchecks
-  avatar: https://avatars.githubusercontent.com/u/13053880?v=4
-  style: square
-
-- key: asqui
-  name: Daniel Fortunov
-  url: https://github.com/asqui
-  github: https://github.com/asqui
-  avatar: https://avatars.githubusercontent.com/u/174182?v=4
-  style: square
-
-- key: growthpath
-  name: GrowthPath
-  url: https://growthpath.com.au
-  github: https://github.com/GrowthPath
-  avatar: https://github.com/GrowthPath.png
-  style: square
-
-- key: om-proptech
-  name: OM PropTech GmbH
-  url: https://www.ohne-makler.net
-  github: https://github.com/om-proptech
-  avatar: https://github.com/om-proptech.png
-  style: square
-
-- key: intevation
-  name: Intevation
-  url: https://intevation.de
-  github: https://github.com/Intevation
-  avatar: https://github.com/Intevation.png
-  style: square
-
-- key: httpie
-  name: HTTPie
-  url: https://httpie.io
-  github: https://github.com/httpie
-  avatar: https://github.com/httpie.png
-  style: round
-
-- key: ecosyste-ms
-  name: Ecosystems
-  url: https://ecosyste.ms
-  github: https://github.com/ecosyste-ms
-  avatar: https://github.com/ecosyste-ms.png
-  style: round
-
-- key: pphysch
-  name: pphysch
-  url: https://github.com/pphysch
-  github: https://github.com/pphysch
-  avatar: https://github.com/pphysch.png
-  style: round
-
-- key: yougov
-  name: YouGov
-  url: https://www.yougov.com
-  github: https://github.com/yougov
-  avatar: https://avatars.githubusercontent.com/u/378494?v=4
-  style: round
-
-- key: phenopolis
-  name: Phenopolis
-  url: http://www.phenopolis.co.uk
-  github: https://github.com/phenopolis
-  avatar: https://avatars.githubusercontent.com/u/20042742?v=4
-  style: round
+  tier: bronze
 
 - key: materialize
   name: Materialize
@@ -110,6 +46,7 @@
   github: https://github.com/MaterializeInc
   avatar: https://avatars.githubusercontent.com/u/47674186?v=4
   style: round
+  tier: bronze
 
 - key: sentry
   name: Sentry
@@ -117,20 +54,15 @@
   github: https://github.com/getsentry
   avatar: https://avatars.githubusercontent.com/u/1396951?v=4
   style: round
+  tier: bronze
 
-- key: beefree
-  name: BEE
-  url: https://beefree.io
-  github: https://github.com/20tab
-  avatar: https://avatars.githubusercontent.com/u/1843159?v=4
+- key: yougov
+  name: YouGov
+  url: https://www.yougov.com
+  github: https://github.com/yougov
+  avatar: https://avatars.githubusercontent.com/u/378494?v=4
   style: round
-
-- key: genropy
-  name: genropy
-  url: http://www.genropy.org
-  github: https://github.com/genropy
-  avatar: https://avatars.githubusercontent.com/u/7373189?v=4
-  style: square
+  tier: bronze
 
 - key: dalibo
   name: Dalibo
@@ -138,3 +70,209 @@
   github: https://github.com/dalibo
   avatar: https://avatars.githubusercontent.com/u/182275?v=4
   style: square
+  tier: bronze
+
+- key: intevation
+  name: Intevation
+  url: https://intevation.de
+  github: https://github.com/Intevation
+  avatar: https://github.com/Intevation.png
+  style: square
+  tier: bronze
+
+- key: httpie
+  name: HTTPie
+  url: https://httpie.io
+  github: https://github.com/httpie
+  avatar: https://github.com/httpie.png
+  style: round
+  tier: bronze
+
+- key: healthchecks
+  name: Healthchecks
+  url: https://healthchecks.io
+  github: https://github.com/healthchecks
+  avatar: https://avatars.githubusercontent.com/u/13053880?v=4
+  style: square
+  tier: bronze
+
+- key: beefree
+  name: BEE
+  url: https://beefree.io
+  github: https://github.com/20tab
+  avatar: https://avatars.githubusercontent.com/u/1843159?v=4
+  style: round
+  tier: bronze
+
+- key: genropy
+  name: genropy
+  url: http://www.genropy.org
+  github: https://github.com/genropy
+  avatar: https://avatars.githubusercontent.com/u/7373189?v=4
+  style: square
+  tier: bronze
+
+- key: ecosyste-ms
+  name: Ecosystems
+  url: https://ecosyste.ms
+  github: https://github.com/ecosyste-ms
+  avatar: https://github.com/ecosyste-ms.png
+  style: round
+  tier: bronze
+
+- key: logilab
+  name: Logilab
+  url: http://www.logilab.org
+  github: https://github.com/logilab
+  avatar: https://avatars.githubusercontent.com/u/446566?v=4
+  style: square
+  tier: bronze
+  past: true
+
+- key: ferpection
+  name: Ferpection
+  url: https://ferpection.com
+  github: https://github.com/ferpection
+  avatar: https://avatars.githubusercontent.com/u/6997008?v=4
+  style: round
+  tier: bronze
+  past: true
+
+- key: webisoft
+  name: Webisoft
+  url: https://webisoft.com/django-development
+  github: https://github.com/webisoftcom
+  avatar: /img/sponsors/webisoft.png  # committed logo; the GitHub user is gone
+  style: square
+  tier: bronze
+  past: true
+
+# ── Backers ──────────────────────────────────────────────────────────
+- key: wedgworths
+  name: "Wedgworth's, Inc"
+  url: https://wedgworth.dev
+  github: https://github.com/wedgworth
+  avatar: https://github.com/wedgworth.png
+  style: round
+  tier: backer
+
+- key: growthpath
+  name: GrowthPath
+  url: https://growthpath.com.au
+  github: https://github.com/GrowthPath
+  avatar: https://github.com/GrowthPath.png
+  style: square
+  tier: backer
+
+- key: om-proptech
+  name: OM PropTech GmbH
+  url: https://www.ohne-makler.net
+  github: https://github.com/om-proptech
+  avatar: https://github.com/om-proptech.png
+  style: square
+  tier: backer
+
+- key: phenopolis
+  name: Phenopolis
+  url: http://www.phenopolis.co.uk
+  github: https://github.com/phenopolis
+  avatar: https://avatars.githubusercontent.com/u/20042742?v=4
+  style: round
+  tier: backer
+
+- key: asqui
+  name: Daniel Fortunov
+  url: https://github.com/asqui
+  github: https://github.com/asqui
+  avatar: https://avatars.githubusercontent.com/u/174182?v=4
+  style: square
+  tier: backer
+
+- key: pphysch
+  name: pphysch
+  url: https://github.com/pphysch
+  github: https://github.com/pphysch
+  avatar: https://github.com/pphysch.png
+  style: round
+  tier: backer
+
+- key: svenne-krap
+  name: Svenne Krap
+  url: http://www.svenne.dk
+  github: https://github.com/svennek
+  avatar: https://avatars.githubusercontent.com/u/37837?v=4
+  style: round
+  tier: backer
+  past: true
+
+- key: marco-beri
+  name: Marco Beri
+  url: http://beri.it
+  github: https://github.com/taifu
+  avatar: https://avatars.githubusercontent.com/u/115712?v=4
+  style: round
+  tier: backer
+  past: true
+
+- key: brock-friedrich
+  name: Brock Friedrich
+  url: https://github.com/la-mar
+  github: https://github.com/la-mar
+  avatar: https://avatars.githubusercontent.com/u/16618300?v=4
+  style: round
+  tier: backer
+  past: true
+
+- key: alex-plugaru
+  name: Alex Plugaru
+  url: https://plugaru.org
+  github: https://github.com/xarg
+  avatar: https://avatars.githubusercontent.com/u/94721?v=4
+  style: round
+  tier: backer
+  past: true
+
+- key: richard-h
+  name: Richard H
+  url: https://github.com/rafmagns-skepa-dreag
+  github: https://github.com/rafmagns-skepa-dreag
+  avatar: https://avatars.githubusercontent.com/u/7447491?v=4
+  style: round
+  tier: backer
+  past: true
+
+- key: ryan-lambert
+  name: Ryan Lambert
+  url: https://www.rustprooflabs.com
+  github: https://github.com/rustprooflabs
+  avatar: https://avatars.githubusercontent.com/u/3085224?v=4
+  style: round
+  tier: backer
+  past: true
+
+- key: iqbal-abdullah
+  name: Iqbal Abdullah
+  url: https://info.xoxzo.com/
+  github: https://github.com/iqbalabd
+  avatar: https://avatars.githubusercontent.com/u/14254614?v=4
+  style: round
+  tier: backer
+  past: true
+
+- key: c-rindi
+  name: "C~+"
+  url: https://github.com/c-rindi
+  github: https://github.com/c-rindi
+  avatar: https://avatars.githubusercontent.com/u/7826876?v=4
+  style: round
+  tier: backer
+  past: true
+
+- key: abhishek-begerhotta
+  name: Abhishek Begerhotta
+  url: https://github.com/abegerho
+  github: https://github.com/abegerho
+  avatar: https://avatars.githubusercontent.com/u/5734243?v=4
+  style: round
+  tier: backer
+  past: true
