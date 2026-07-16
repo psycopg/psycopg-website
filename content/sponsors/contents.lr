@@ -1,7 +1,18 @@
-_model: redirect
+_model: page
 ---
-target: /#sponsors
+_template: sponsors.html
 ---
-absolute: no
+title: Sponsors
 ---
-_discoverable: no
+sidebar: no
+---
+body:
+
+Psycopg is open source software, meaning it's free to use! We at the Psycopg team are
+able to maintain this thanks to the generosity of the companies and
+individuals listed below. Thanks to you, we can continue with the
+ongoing development of Psycopg 3, Psycopg 2 and all other related tools!
+
+Sponsorship tiers and their perks are described on our GitHub sponsors page.
+Every contribution, large or small, helps keep the project alive and well.
+Please consider supporting us! It would be greatly appreciated.

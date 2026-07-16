@@ -103,7 +103,7 @@ ul[role="list"] {
 
 /* ── Animated yellow underline (hover-only) ─────────────────────── */
 .nav__links a,
-.maintainers__left a,
+.maintainers__support a,
 .development__left a,
 .article-card a,
 .features__right a,
@@ -113,7 +113,7 @@ ul[role="list"] {
   padding-bottom: 2px;
 }
 
-.maintainers__left a,
+.maintainers__support a,
 .development__left a,
 .features__right a,
 .sponsors__body a,
@@ -125,7 +125,7 @@ ul[role="list"] {
   color: var(--text);
 }
 
-.maintainers__left a:hover,
+.maintainers__support a:hover,
 .development__left a:hover,
 .features__right a:hover,
 .sponsors__body a:hover,
@@ -134,7 +134,7 @@ ul[role="list"] {
 }
 .nav__links a::after,
 .development__left a::after,
-.maintainers__left a::after,
+.maintainers__support a::after,
 .article-card a::after,
 .features__right a::after,
 .sponsors__body a::after,
@@ -152,7 +152,7 @@ ul[role="list"] {
 }
 .nav__links a:hover::after,
 .development__left a:hover::after,
-.maintainers__left a:hover::after,
+.maintainers__support a:hover::after,
 .article-card a:hover::after,
 .features__right a:hover::after,
 .sponsors__body a:hover::after,
@@ -560,6 +560,43 @@ ul[role="list"] {
   color: var(--yellow);
 }
 
+.sponsors__more {
+  max-width: var(--max);
+  margin: 1.5rem auto 0;
+  padding: 0 var(--pad);
+  text-align: center;
+}
+
+.sponsors__more a {
+  color: var(--yellow);
+  font-weight: 700;
+  font-size: 1rem;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 0.15s;
+}
+
+.sponsors__more a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--yellow);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.sponsors__more a:hover {
+  color: var(--text);
+}
+
+.sponsors__more a:hover::after {
+  transform: scaleX(1);
+}
+
 /* ── Features ───────────────────────────────────────────────────── */
 .landing #features {
   padding-top: 2.5rem;
@@ -789,16 +826,24 @@ p code {
 
 /* ── Maintainers ────────────────────────────────────────────────── */
 .maintainers {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.maintainers__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6rem;
   align-items: start;
 }
 
-.maintainers__left {
+.maintainer {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
 }
 
 .maintainers__name {
@@ -806,22 +851,36 @@ p code {
   font-weight: 700;
 }
 
-.maintainers__left p {
+.maintainers__role {
+  color: var(--yellow);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: -0.5rem;
+}
+
+.maintainers__bio {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.maintainers__bio p {
   color: var(--text-muted);
   font-size: 1rem;
   line-height: 1.8;
 }
 
-.maintainers__right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 2rem;
+.maintainers__support {
+  color: var(--text-muted);
+  font-size: 1rem;
+  text-align: center;
 }
 
 .maintainers__avatar {
-  width: clamp(180px, 30vw, 280px);
-  height: clamp(180px, 30vw, 280px);
+  width: clamp(160px, 22vw, 220px);
+  height: clamp(160px, 22vw, 220px);
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
@@ -1084,9 +1143,9 @@ p code {
 
   .features,
   .development,
-  .maintainers {
+  .maintainers__grid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 3rem;
   }
 
   .features__intro {
@@ -1094,8 +1153,7 @@ p code {
   }
 
   /* make sure that the columns with the title come first in mobile mode */
-  .development__right,
-  .maintainers__right {
+  .development__right {
     order: -1;
   }
 
@@ -1107,22 +1165,6 @@ p code {
 
   .development__right .section__heading {
     text-align: right;
-  }
-
-  .maintainers__right {
-    align-items: center;
-  }
-  .maintainers__right .section__heading {
-    text-align: center;
-    width: 100%;
-  }
-  .maintainers__left {
-    align-items: flex-start;
-    text-align: left;
-  }
-  .maintainers__name {
-    align-self: center;
-    text-align: center;
   }
 
   .articles__grid {
@@ -1768,4 +1810,190 @@ main.page .post-article__title {
 
 .page-404__back:hover span:last-child::after {
   transform: scaleX(1);
+}
+
+/* ── Sponsors page ──────────────────────────────────────────────── */
+main.page:has(.sponsors-page) {
+  padding: 0 var(--pad);
+}
+
+main.page .sponsors-page__heading {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-top: clamp(3rem, 6vw, 5rem);
+  margin-bottom: 1.5rem;
+}
+
+.sponsors-page__intro {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 720px;
+}
+
+.sponsors-page__intro p {
+  margin-bottom: 1rem;
+}
+
+.sponsors-page__intro a {
+  color: var(--yellow);
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 0.15s;
+}
+
+.sponsors-page__intro a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--yellow);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.sponsors-page__intro a:hover {
+  color: var(--text);
+}
+
+.sponsors-page__intro a:hover::after {
+  transform: scaleX(1);
+}
+
+.sponsors-page__cta {
+  margin-top: 1.75rem;
+}
+
+/* ── Sponsor wall ───────────────────────────────────────────────── */
+.sponsor-wall {
+  margin: clamp(3.5rem, 8vw, 5.5rem) 0 clamp(4rem, 9vw, 7rem);
+}
+
+.sponsor-wall__group + .sponsor-wall__group {
+  margin-top: 3.5rem;
+}
+
+.sponsor-wall__tier {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin: 0 0 1.75rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sponsor-wall__items {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 2rem 2.5rem;
+}
+
+/* Logo tiers (gold / silver / bronze) */
+.sponsor-wall__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-align: center;
+  transition: color 0.15s;
+}
+
+.sponsor-wall__item img {
+  max-width: none;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: grayscale(15%);
+  transition:
+    filter 0.2s,
+    transform 0.2s;
+}
+
+.sponsor-wall__item--square img {
+  object-fit: contain;
+  border-radius: var(--radius);
+  background: var(--bg-strip);
+  padding: 6px;
+}
+
+.sponsor-wall__item:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.sponsor-wall__item:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.sponsor-wall__name {
+  line-height: 1.3;
+}
+
+/* Per-tier logo sizing. The name's max-width is pinned to the logo's own
+   width so a long sponsor name can never widen the item past its logo -
+   otherwise the logo gets re-centered in the wider box and drifts out of
+   alignment with the other logos in the row. */
+.sponsor-wall__group--gold .sponsor-wall__item img {
+  width: 176px;
+  height: 176px;
+}
+.sponsor-wall__group--gold .sponsor-wall__item {
+  font-size: 0.95rem;
+}
+.sponsor-wall__group--gold .sponsor-wall__name {
+  max-width: 176px;
+}
+.sponsor-wall__group--silver .sponsor-wall__item img {
+  width: 112px;
+  height: 112px;
+}
+.sponsor-wall__group--silver .sponsor-wall__item {
+  font-size: 0.85rem;
+}
+.sponsor-wall__group--silver .sponsor-wall__name {
+  max-width: 112px;
+}
+.sponsor-wall__group--bronze .sponsor-wall__item img {
+  width: 72px;
+  height: 72px;
+}
+.sponsor-wall__group--bronze .sponsor-wall__item {
+  font-size: 0.78rem;
+}
+.sponsor-wall__group--bronze .sponsor-wall__name {
+  max-width: 72px;
+}
+
+/* Backer tier: names only */
+.sponsor-wall__group--backer .sponsor-wall__items {
+  gap: 0.75rem 1rem;
+}
+
+.sponsor-wall__item--name {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition:
+    color 0.15s,
+    border-color 0.15s;
+}
+
+.sponsor-wall__item--name:hover {
+  color: var(--text);
+  border-color: var(--yellow);
+  text-decoration: none;
 }
