@@ -8,11 +8,11 @@ sidebar: no
 ---
 body:
 
-Psycopg is free software, maintained thanks to the generosity of the companies
-and individuals listed below. Thank you for supporting the ongoing development
-of Psycopg 3, Psycopg 2, and the related tools!
+Psycopg is open source software, meaning it's free to use! We at the Psycopg team are
+able to maintain this thanks to the generosity of the companies and
+individuals listed below. Thanks to you, we can continue with the
+ongoing development of Psycopg 3, Psycopg 2 and all other related tools!
 
-Sponsorship tiers and their perks are described on our `GitHub Sponsors
-page`__. Every contribution, large or small, helps keep the project healthy.
-
-.. __: https://github.com/sponsors/psycopg
+Sponsorship tiers and their perks are described on our GitHub sponsors page.
+Every contribution, large or small, helps keep the project alive and well.
+Please consider supporting us! It would be greatly appreciated.

@@ -110,7 +110,7 @@ def sponsor_item(s: dict, *, hidden: bool = False) -> str:
     )
     return (
         f'{INDENT}<a class="{cls}"{extra_attrs}'
-        f' href="{s["url"]}" target="_blank" rel="noopener">'
+        f' href="{s["url"]}">'
         f'\n{INDENT}  <img src="{s["local"]}" alt="{alt}" width="80" height="80" />'
         f"{name_span}"
         f"\n{INDENT}</a>"
@@ -142,14 +142,14 @@ def wall_item(s: dict, tier: dict) -> str:
         if s.get("style") == "square":
             cls += " sponsor-wall__item--square"
         return (
-            f'{indent}<a class="{cls}" href="{href}" target="_blank" rel="noopener" title="{name}">\n'
+            f'{indent}<a class="{cls}" href="{href}" title="{name}">\n'
             f'{indent}  <img src="{s["local"]}" alt="{name}" />\n'
             f'{indent}  <span class="sponsor-wall__name">{name}</span>\n'
             f"{indent}</a>"
         )
     return (
         f'{indent}<a class="sponsor-wall__item sponsor-wall__item--name"'
-        f' href="{href}" target="_blank" rel="noopener">{name}</a>'
+        f' href="{href}">{name}</a>'
     )
 
 
