@@ -33,7 +33,7 @@
 
 # ── Bronze ───────────────────────────────────────────────────────────
 - key: g-research
-  name: G-Research Open Source
+  name: G‑Research Open Source  # non-breaking hyphen (U+2011) keeps "G‑Research" from splitting across lines
   url: https://www.gresearch.com/teams/open-source-software/
   github: https://github.com/G-Research-OSS
   avatar: https://github.com/G-Research-OSS.png
@@ -96,16 +96,16 @@
   style: square
   tier: bronze
 
-- key: beefree
-  name: BEE
-  url: https://beefree.io
+- key: 20tab
+  name: 20tab
+  url: https://www.20tab.com/
   github: https://github.com/20tab
   avatar: https://avatars.githubusercontent.com/u/1843159?v=4
   style: round
   tier: bronze
 
 - key: genropy
-  name: genropy
+  name: Genropy
   url: http://www.genropy.org
   github: https://github.com/genropy
   avatar: https://avatars.githubusercontent.com/u/7373189?v=4
@@ -113,7 +113,7 @@
   tier: bronze
 
 - key: ecosyste-ms
-  name: Ecosystems
+  name: ecosyste.ms
   url: https://ecosyste.ms
   github: https://github.com/ecosyste-ms
   avatar: https://github.com/ecosyste-ms.png
