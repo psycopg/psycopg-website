@@ -72,6 +72,13 @@
   style: square
   tier: bronze
 
+- key: cel
+  name: Codeur·euses en Liberté
+  url: https://www.codeureusesenliberte.fr/
+  avatar: https://gitlab.com/CodeursEnLiberte/fondations/-/raw/main/assets/logo/CELogo@1x.png
+  style: square
+  tier: bronze
+
 - key: intevation
   name: Intevation
   url: https://intevation.de
