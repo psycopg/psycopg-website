@@ -256,11 +256,11 @@ Project sponsorship
     creation of the most advanced adapter between the two systems, `please
     consider becoming a sponsor`__. Thank you!
 
-    .. __: https://github.com/sponsors/dvarrazzo/
+    .. __: https://github.com/sponsors/psycopg/
 
     .. raw:: html
 
-        <iframe src="https://github.com/sponsors/dvarrazzo/button"
+        <iframe src="https://github.com/sponsors/psycopg/button"
             title="Sponsor the project" style="border: 0"
             width="116" height="35">
         </iframe>
