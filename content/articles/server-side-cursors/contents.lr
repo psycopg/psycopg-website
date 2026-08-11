@@ -1,0 +1,169 @@
+title: Row-by-row streaming with server-side cursors
+---
+pub_date: 2026-08-12
+---
+author: Daniele Varrazzo
+---
+_discoverable: yes
+---
+tags:
+
+psycopg3
+development
+recipe
+---
+body:
+
+One of the most common mistakes when working with large datasets in PostgreSQL
+is fetching everything into memory at once. It is the path of least
+resistance: you write your query, call ``fetchall()``, and iterate over the
+results. For small datasets this is fine. For large ones, you will quickly
+find your application consuming far more memory than it needs to.
+
+.. CUT-HERE
+
+Even after closing the cursor, Python’s memory allocator might hold on the
+memory used longer than expected; a long-running service might end up with a
+large memory footprint in a server. So this is usually a condition you will
+want to avoid.
+
+Psycopg offers a cleaner solution: `server-side cursors`__, which allow you to
+stream results from the database row by row, keeping your memory footprint
+small and predictable regardless of how large the result set is. Server-side
+cursors are available in both Psycopg 2 and Psycopg 3.
+
+.. __: https://www.psycopg.org/psycopg3/docs/advanced/cursors.html#server-side-cursors
+
+
+How it works
+------------
+
+When you execute a query normally, PostgreSQL runs it, assembles the full
+result set, and sends it to the client. With a `server-side cursor`__,
+PostgreSQL instead keeps the result set on the server and sends rows to the
+client in batches as they are requested. This means your Python process only
+ever holds a small number of rows in memory at any one time. Giving the cursor
+a name is what tells Psycopg to use a server-side cursor rather than a
+client-side one.
+
+.. __: https://www.postgresql.org/docs/current/sql-declare.html
+
+.. code:: python
+
+    import psycopg
+
+    with psycopg.connect("dbname=mydb") as conn:
+        with conn.cursor(name="my_cursor") as cur:
+            cur.execute("SELECT * FROM very_large_table")
+            for row in cur:
+                process(row)
+
+Everything else looks identical to a normal cursor: you can iterate over it,
+call `fetchone()`__, or call `fetchmany(n)`__ to retrieve a specific number of
+rows at a time.
+
+.. __: https://www.psycopg.org/psycopg3/docs/api/cursors.html#psycopg.Cursor.fetchone
+.. __: https://www.psycopg.org/psycopg3/docs/api/cursors.html#psycopg.Cursor.fetchmany
+
+In Psycopg 3, server-side cursors are exposed through the `ServerCursor
+class`__, which may also be instantiated directly. In Psycopg 2 only the name
+parameter can be used.
+
+.. __: https://www.psycopg.org/psycopg3/docs/api/cursors.html#psycopg.ServerCursor
+
+
+Controlling batch size
+----------------------
+
+By default, Psycopg 3 fetches rows in batches of 100 when iterating over a
+server-side cursor. You can control this with the `itersize attribute`__:
+
+.. __: https://www.psycopg.org/psycopg3/docs/api/cursors.html#psycopg.ServerCursor.itersize
+
+.. code:: python
+
+    with conn.cursor(name="my_cursor") as cur:
+        cur.itersize = 2000
+        cur.execute("SELECT * FROM very_large_table")
+        for row in cur:
+            process(row)
+
+Larger batch sizes reduce the number of round-trips to the database but
+increase memory usage per batch. The right value depends on the size of your
+rows and your application's memory constraints. For most use cases the default
+of 100 is a reasonable starting point.
+
+``itersize`` only affects the iteration on the cursor using for. Other methods
+such as ``fetchone()``, and ``fetchmany(n)`` will fetch exactly the number of
+rows requested.
+
+
+Using server-side cursors with async
+------------------------------------
+
+Psycopg 3's async support extends naturally to server-side cursors, making it
+straightforward to stream large result sets in an async context without
+blocking:
+
+.. code:: python
+
+    import psycopg
+
+    async with await psycopg.AsyncConnection.connect("dbname=mydb") as conn:
+        async with conn.cursor(name="my_cursor") as cur:
+            await cur.execute("SELECT * FROM very_large_table")
+            async for row in cur:
+                await process(row)
+
+The API is deliberately symmetric with the synchronous version. Just add the
+await keyword where needed.
+
+
+A practical example: exporting large datasets
+---------------------------------------------
+
+A common real-world use case is exporting data to a file. Without server-side
+cursors, exporting a table with millions of rows means loading all of them
+into memory before you can write a single line. With streaming, you can write
+rows to disk as they arrive:
+
+.. code:: python
+
+    import csv
+    import psycopg
+
+    with psycopg.connect("dbname=mydb") as conn:
+        with conn.cursor(name="export_cursor") as cur:
+            cur.execute("SELECT id, name, email FROM users ORDER BY id")
+            with open("users.csv", "w", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(["id", "name", "email"])
+                for row in cur:
+                    writer.writerow(row)
+
+This will happily export a table of any size while using only a few kilobytes
+of memory for the current batch of rows.
+
+
+Things to be aware of
+---------------------
+
+Server-side cursors require an open transaction for their lifetime. Psycopg 3
+handles this automatically, but it is worth knowing that this transaction
+exists and must be kept open on the server as long as the cursor is used. For
+long-running exports or processing jobs this is usually fine, but be mindful
+of holding transactions open unnecessarily in high-concurrency environments.
+
+
+Summary
+-------
+
+Server-side cursors are one of those features that you may not need every day,
+but when you do need them: processing exports, running aggregations over large
+tables, streaming data to downstream systems, they make a significant
+difference. The API is clean, the behaviour is predictable, and the memory
+savings for large datasets are substantial.
+
+If you find Psycopg useful in your work, please consider `sponsoring the
+project <https://github.com/sponsors/psycopg/>`_ to help ensure its continued
+development.
