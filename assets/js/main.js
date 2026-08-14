@@ -94,6 +94,21 @@ window.addEventListener("pageshow", (e) => {
   }
 });
 
+// Copy-to-clipboard for the sponsors page email
+document.querySelectorAll(".sponsors-page__copy").forEach((btn) => {
+  const label = btn.textContent;
+  btn.addEventListener("click", () => {
+    navigator.clipboard.writeText(btn.dataset.copy).then(() => {
+      btn.textContent = "Copied!";
+      btn.classList.add("is-copied");
+      setTimeout(() => {
+        btn.textContent = label;
+        btn.classList.remove("is-copied");
+      }, 1500);
+    });
+  });
+});
+
 // Make the header logo disappear scrolling down.
 const headerLogo = document.querySelector('.header-logo');
 const hero = document.querySelector('.hero__content');
