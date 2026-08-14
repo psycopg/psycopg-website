@@ -1828,13 +1828,15 @@ main.page .sponsors-page__heading {
 
 .sponsors-page__intro {
   color: var(--text-muted);
-  font-size: 1.05rem;
-  line-height: 1.8;
-  max-width: 720px;
+  font-size: 0.95rem;
 }
 
 .sponsors-page__intro p {
   margin-bottom: 1rem;
+}
+
+.sponsors-page__intro p:last-child {
+  margin-bottom: 0;
 }
 
 .sponsors-page__intro a {
@@ -1866,7 +1868,49 @@ main.page .sponsors-page__heading {
 }
 
 .sponsors-page__cta {
-  margin-top: 1.75rem;
+  margin: 1.75rem 0;
+}
+
+.sponsors-page__note {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.sponsors-page__copy {
+  font: inherit;
+  color: var(--yellow);
+  background: none;
+  border: none;
+  padding: 0 0 2px;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.15s;
+}
+
+.sponsors-page__copy::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--yellow);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.sponsors-page__copy:hover {
+  color: var(--text);
+}
+
+.sponsors-page__copy:hover::after {
+  transform: scaleX(1);
+}
+
+.sponsors-page__copy.is-copied::after {
+  transform: scaleX(1);
 }
 
 /* ── Sponsor wall ───────────────────────────────────────────────── */
