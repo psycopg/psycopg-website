@@ -477,6 +477,15 @@ ul[role="list"] {
   flex-wrap: nowrap;
   width: max-content;
   animation: sponsor-scroll 55s linear infinite;
+  /* Held at its start position (spotlight sponsors visible center-right)
+     until the section scrolls into view - see the [data-reveal] handling
+     in main.js, which adds .is-visible at that point. Without this, the
+     track would already be mid-scroll by the time the user sees it. */
+  animation-play-state: paused;
+}
+
+.landing .sponsors.is-visible .sponsors__track {
+  animation-play-state: running;
 }
 
 .landing .sponsors__strip:hover .sponsors__track {
@@ -1975,7 +1984,7 @@ main.page .sponsors-page__heading {
   text-decoration: none;
 }
 
-.sponsor-wall__item:hover img {
+.sponsor-wall .sponsor-wall__item:hover img {
   filter: grayscale(0%);
   transform: scale(1.05);
 }
@@ -1988,9 +1997,24 @@ main.page .sponsors-page__heading {
    width so a long sponsor name can never widen the item past its logo -
    otherwise the logo gets re-centered in the wider box and drifts out of
    alignment with the other logos in the row. */
+.sponsor-wall__group--platinum .sponsor-wall__item img {
+  width: 220px;
+  height: 220px;
+  filter: grayscale(0%);
+  box-shadow:
+    0 0 0 3px var(--yellow),
+    0 10px 30px rgba(245, 200, 0, 0.35);
+}
+.sponsor-wall__group--platinum .sponsor-wall__item {
+  font-size: 1rem;
+}
+.sponsor-wall__group--platinum .sponsor-wall__name {
+  max-width: 220px;
+}
 .sponsor-wall__group--gold .sponsor-wall__item img {
   width: 176px;
   height: 176px;
+  filter: grayscale(10%);
 }
 .sponsor-wall__group--gold .sponsor-wall__item {
   font-size: 0.95rem;
@@ -2001,6 +2025,7 @@ main.page .sponsors-page__heading {
 .sponsor-wall__group--silver .sponsor-wall__item img {
   width: 112px;
   height: 112px;
+  filter: grayscale(30%);
 }
 .sponsor-wall__group--silver .sponsor-wall__item {
   font-size: 0.85rem;
@@ -2011,6 +2036,7 @@ main.page .sponsors-page__heading {
 .sponsor-wall__group--bronze .sponsor-wall__item img {
   width: 72px;
   height: 72px;
+  filter: grayscale(55%);
 }
 .sponsor-wall__group--bronze .sponsor-wall__item {
   font-size: 0.78rem;
