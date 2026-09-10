@@ -8,10 +8,26 @@
 # github: GitHub profile URL (used for avatar refresh, data lookup, etc.)
 # avatar: image URL to download
 # style:  round (default) | square - square for org/product logos
-# tier:   gold | silver | bronze | backer  (drives the display size on the
-#         sponsors page; gold/silver/bronze show a logo, backer shows the name)
+# tier:   platinum | gold | silver | bronze | backer  (drives the display size
+#         on the sponsors page; platinum/gold/silver/bronze show a logo,
+#         backer shows the name)
 # past:   true for former sponsors - shown on the sponsors page (merged in as a
 #         thank-you) but kept out of the homepage carousel
+# spotlight: true for sponsors that are internationally recognizable brands,
+#         independent of their sponsorship tier - these are clustered a few
+#         slots into the homepage carousel (see SPOTLIGHT_LEAD in
+#         tools/update_sponsors.py) so they land center-right of the first
+#         frame a visitor sees, instead of wherever tier order put them
+
+# ── Platinum ─────────────────────────────────────────────────────────
+- key: aws
+  name: AWS
+  url: https://aws.amazon.com/
+  github: https://github.com/aws
+  avatar: /img/sponsors/aws.png  # committed logo
+  style: square
+  tier: platinum
+  spotlight: true
 
 # ── Gold ─────────────────────────────────────────────────────────────
 - key: command-prompt
@@ -55,6 +71,7 @@
   avatar: https://avatars.githubusercontent.com/u/1396951?v=4
   style: round
   tier: bronze
+  spotlight: true
 
 - key: yougov
   name: YouGov
@@ -63,6 +80,7 @@
   avatar: https://avatars.githubusercontent.com/u/378494?v=4
   style: round
   tier: bronze
+  spotlight: true
 
 - key: dalibo
   name: Dalibo

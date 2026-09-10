@@ -43,6 +43,7 @@ WALL_INDENT = "      "
 # avatar (sized down gold -> bronze via CSS); backers are listed by name only.
 # The `supporter` tier is intentionally absent: those get the GitHub badge only.
 TIERS = [
+    {"key": "platinum", "label": "Platinum sponsors", "logo": True},
     {"key": "gold", "label": "Gold sponsors", "logo": True},
     {"key": "silver", "label": "Silver sponsors", "logo": True},
     {"key": "bronze", "label": "Bronze sponsors", "logo": True},
@@ -115,6 +116,24 @@ def sponsor_item(s: dict, *, hidden: bool = False) -> str:
         f"{name_span}"
         f"\n{INDENT}</a>"
     )
+
+
+# How many non-spotlight items lead the carousel before the spotlight block.
+# The marquee starts paused at translateX(0) until scrolled into view (see
+# style.css), so this also sets how far right the spotlight sponsors sit in
+# that first frame - further right means more scroll time before they exit
+# on the left, so the visitor gets a longer look at them.
+SPOTLIGHT_LEAD = 6
+
+
+def order_for_carousel(current: list) -> list:
+    """Cluster `spotlight: true` sponsors a few slots into the carousel so
+    the most internationally recognizable names sit center-right of the
+    first frame the visitor sees, rather than wherever tier order put them."""
+    spotlight = [s for s in current if s.get("spotlight")]
+    rest = [s for s in current if not s.get("spotlight")]
+    lead = min(SPOTLIGHT_LEAD, len(rest))
+    return rest[:lead] + spotlight + rest[lead:]
 
 
 def build_block(sponsors: list) -> str:
@@ -206,9 +225,10 @@ def main() -> None:
             path.unlink()
             print(f"  removed {path.name}")
 
-    # Homepage carousel: current sponsors only (past ones are kept off it).
+    # Homepage carousel: current sponsors only (past ones are kept off it),
+    # reordered so spotlight sponsors land center-right of the first frame.
     current = [s for s in sponsors if not s.get("past")]
-    replace_between(HOMEPAGE, START, END, build_block(current))
+    replace_between(HOMEPAGE, START, END, build_block(order_for_carousel(current)))
     print(f"Updated {len(current)} sponsors in {HOMEPAGE.relative_to(ROOT)}")
 
     # Sponsor wall: everyone, grouped by tier.
