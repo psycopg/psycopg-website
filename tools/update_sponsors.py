@@ -2,7 +2,8 @@
 """
 Regenerate the sponsor listings from sponsors.yaml:
 
-  * the scrolling carousel in templates/homepage.html (current sponsors only),
+  * the scrolling carousel in templates/homepage.html (current sponsors only,
+    excluding backers with no `avatar`),
   * the tiered sponsor wall in templates/sponsors.html (all sponsors, grouped
     by tier; past sponsors are merged in as a thank-you).
 
@@ -54,11 +55,17 @@ TIERS = [
 LOGO_TIERS = {t["key"] for t in TIERS if t["logo"]}
 
 
+def in_carousel(s: dict) -> bool:
+    """The homepage carousel lists current sponsors only. A (backer) sponsor
+    with no `avatar` is kept off it too, as there is no logo to show."""
+    return not s.get("past") and bool(s.get("avatar"))
+
+
 def needs_avatar(s: dict) -> bool:
     """An avatar is only used if the sponsor is shown with a logo somewhere:
-    in a logo tier on the sponsors page, or in the homepage carousel (which
-    lists current sponsors only). Name-only past backers need no image."""
-    return s.get("tier") in LOGO_TIERS or not s.get("past")
+    in a logo tier on the sponsors page, or in the homepage carousel.
+    Name-only backers off the carousel need no image."""
+    return s.get("tier") in LOGO_TIERS or in_carousel(s)
 
 MIME_EXT = {
     "image/jpeg": ".jpeg",
@@ -225,9 +232,9 @@ def main() -> None:
             path.unlink()
             print(f"  removed {path.name}")
 
-    # Homepage carousel: current sponsors only (past ones are kept off it),
-    # reordered so spotlight sponsors land center-right of the first frame.
-    current = [s for s in sponsors if not s.get("past")]
+    # Homepage carousel: current sponsors with a logo (past ones are kept off
+    # it), reordered so spotlight sponsors land center-right of the first frame.
+    current = [s for s in sponsors if in_carousel(s)]
     replace_between(HOMEPAGE, START, END, build_block(order_for_carousel(current)))
     print(f"Updated {len(current)} sponsors in {HOMEPAGE.relative_to(ROOT)}")
 

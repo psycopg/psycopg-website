@@ -221,6 +221,11 @@
   style: round
   tier: backer
 
+- key: prospex
+  name: Prospex
+  url: https://prospex.ch
+  tier: backer
+
 - key: svenne-krap
   name: Svenne Krap
   url: http://www.svenne.dk
