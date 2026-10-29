@@ -69,6 +69,10 @@ requestAnimationFrame(() => {
 
 // Page fade-out on same-origin navigation
 document.addEventListener("click", (e) => {
+  // Leave ctrl/cmd/shift/alt-click and non-primary buttons to the browser
+  // (open in new tab/window, download...).
+  if (e.defaultPrevented || e.button !== 0) return;
+  if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
   const a = e.target.closest("a[href]");
   if (!a) return;
   const href = a.getAttribute("href");
