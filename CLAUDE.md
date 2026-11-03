@@ -70,7 +70,7 @@ the markers, regenerate instead:
   (current platinum/gold/silver/bronze sponsors only, per `CAROUSEL_TIERS`; backers
   are on `/sponsors/` only; carousel is duplicated for a seamless loop).
 - `templates/sponsors.html` — `<!-- SPONSOR-WALL-START -->` … `<!-- SPONSOR-WALL-END -->`
-  (everyone, grouped by tier; past sponsors merged in as a thank-you).
+  (all current sponsors, grouped by tier).
 
 Avatars are downloaded to `assets/img/sponsors/{key}.ext` on first run; a leading-`/`
 `avatar:` is treated as an already-committed local path. Unused images are pruned.
@@ -88,8 +88,8 @@ Names are HTML-escaped in the generated markup.
 - `tier` — `gold` | `silver` | `bronze` (shown with a logo, sized down by tier via
   CSS) | `backer` (name only). A `supporter` tier, if present, is intentionally not
   rendered (GitHub badge only).
-- `past` — `true` for former sponsors: shown on `/sponsors/` but kept off the
-  homepage carousel.
+- `past` — `true` for former sponsors: kept in `sponsors.yaml` for the record, but
+  not displayed anywhere (their avatars are pruned).
 
 Sponsor styling lives in `assets/css/style.css` (`.sponsor-item*` for the homepage
 carousel, `.sponsor-wall__*` for the `/sponsors/` page). `square` sponsors get the

@@ -2,10 +2,13 @@
 """
 Regenerate the sponsor listings from sponsors.yaml:
 
-  * the scrolling carousel in templates/homepage.html (current sponsors only,
-    excluding backers with no `avatar`),
-  * the tiered sponsor wall in templates/sponsors.html (all sponsors, grouped
-    by tier; past sponsors are merged in as a thank-you).
+  * the scrolling carousel in templates/homepage.html (current bronze-and-up
+    sponsors only),
+  * the tiered sponsor wall in templates/sponsors.html (all current sponsors,
+    grouped by tier).
+
+Past sponsors (`past: true`) are kept in sponsors.yaml for the record but are
+not displayed anywhere.
 
 Avatars are downloaded into assets/img/sponsors/ on first run; existing files
 are skipped.
@@ -54,11 +57,15 @@ TIERS = [
 # Tiers whose sponsors are shown with a logo/avatar on the sponsors page.
 LOGO_TIERS = {t["key"] for t in TIERS if t["logo"]}
 
+# Tiers whose sponsors are shown in the homepage carousel (bronze and up).
+# Backers are listed on the sponsors page only.
+CAROUSEL_TIERS = {"platinum", "gold", "silver", "bronze"}
+
 
 def in_carousel(s: dict) -> bool:
-    """The homepage carousel lists current sponsors only. A (backer) sponsor
-    with no `avatar` is kept off it too, as there is no logo to show."""
-    return not s.get("past") and bool(s.get("avatar"))
+    """The homepage carousel lists sponsors of the top tiers only, and only
+    if they have a logo to show."""
+    return s.get("tier") in CAROUSEL_TIERS and bool(s.get("avatar"))
 
 
 def needs_avatar(s: dict) -> bool:
@@ -217,14 +224,18 @@ def replace_between(path: Path, start: str, end: str, block: str) -> None:
 def main() -> None:
     redownload = "--redownload" in sys.argv
 
-    sponsors = yaml.safe_load(SPONSORS_FILE.read_text())
+    # Past sponsors are not displayed anywhere.
+    sponsors = [
+        s for s in yaml.safe_load(SPONSORS_FILE.read_text()) if not s.get("past")
+    ]
 
     print(f"Downloading avatars into {IMG_DIR.relative_to(ROOT)} ...")
     for s in sponsors:
         if needs_avatar(s):
             s["local"] = download_avatar(s["key"], s["avatar"], redownload=redownload)
 
-    # Remove images no longer needed (dropped sponsors, or name-only backers).
+    # Remove images no longer needed (dropped or past sponsors, or name-only
+    # backers).
     # Only touches flat files; leaves subdirectories (e.g. top/) alone.
     active_keys = {s["key"] for s in sponsors if needs_avatar(s)}
     for path in IMG_DIR.iterdir():
@@ -232,13 +243,13 @@ def main() -> None:
             path.unlink()
             print(f"  removed {path.name}")
 
-    # Homepage carousel: current sponsors with a logo (past ones are kept off
-    # it), reordered so spotlight sponsors land center-right of the first frame.
+    # Homepage carousel: top-tier sponsors with a logo, reordered so spotlight
+    # sponsors land center-right of the first frame.
     current = [s for s in sponsors if in_carousel(s)]
     replace_between(HOMEPAGE, START, END, build_block(order_for_carousel(current)))
     print(f"Updated {len(current)} sponsors in {HOMEPAGE.relative_to(ROOT)}")
 
-    # Sponsor wall: everyone, grouped by tier.
+    # Sponsor wall: all current sponsors, grouped by tier.
     replace_between(SPONSORS_PAGE, WALL_START, WALL_END, build_wall(sponsors))
     print(f"Updated {len(sponsors)} sponsors in {SPONSORS_PAGE.relative_to(ROOT)}")
 
