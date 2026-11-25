@@ -2,6 +2,11 @@
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+// Seasonal Santa hat on the hero logo: December only (`?xmas` forces it on for previews)
+if (new Date().getMonth() === 11 || new URLSearchParams(location.search).has("xmas")) {
+  document.documentElement.classList.add("is-december");
+}
+
 // Mobile nav toggle
 const nav = document.querySelector(".nav");
 const toggle = document.querySelector(".nav__toggle");

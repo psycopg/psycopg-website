@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80">
+  <!-- Seasonal Santa hat, shown on the hero logo during December (see main.js) -->
+  <defs>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0403a"/>
+      <stop offset="1" stop-color="#b3141b"/>
+    </linearGradient>
+    <radialGradient id="fur" cx="0.4" cy="0.35" r="0.75">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dcdfe4"/>
+    </radialGradient>
+  </defs>
+  <!-- hat body, tip flopping over to the right -->
+  <path fill="url(#red)" d="M14 62 C 17 36, 33 11, 56 8 C 74 6, 87 18, 89 36 C 82 27, 73 24, 67 27 C 71 39, 74 51, 77 62 Z"/>
+  <!-- fold shading -->
+  <path fill="#9c0f16" opacity="0.45" d="M67 27 C 73 24, 82 27, 89 36 C 84 22, 72 16, 62 20 Z"/>
+  <!-- fur band -->
+  <rect x="7" y="55" width="77" height="17" rx="8.5" fill="url(#fur)"/>
+  <!-- pompom -->
+  <circle cx="88" cy="39" r="9" fill="url(#fur)"/>
+</svg>

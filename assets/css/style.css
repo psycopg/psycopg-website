@@ -423,6 +423,9 @@ ul[role="list"] {
 }
 
 .hero__title {
+  --logo-size: clamp(45px, 17vw, 150px);
+  --logo-top: clamp(5px, 2vw, 15px);
+  position: relative;
   font-size: clamp(2.5rem, 14vw, 8rem);
   font-weight: 800;
   line-height: 1;
@@ -432,8 +435,22 @@ ul[role="list"] {
   padding-left: clamp(55px, 20vw, 180px);
   background-image: url("../img/logo.png");
   background-repeat: no-repeat;
-  background-size: clamp(45px, 17vw, 150px) clamp(45px, 17vw, 150px);
-  background-position: 0px clamp(5px, 2vw, 15px);
+  background-size: var(--logo-size) var(--logo-size);
+  background-position: 0px var(--logo-top);
+}
+
+/* Seasonal Santa hat on the hero logo. The `is-december` class is set on
+   <html> by main.js during December only (1 Dec - 31 Dec, every year). */
+.is-december .hero__title::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--logo-size) * 0.3);
+  top: calc(var(--logo-top) - var(--logo-size) * 0.24);
+  width: calc(var(--logo-size) * 0.66);
+  height: calc(var(--logo-size) * 0.528);
+  background: url("../img/santa-hat.svg") no-repeat center / contain;
+  transform: rotate(15deg);
+  pointer-events: none;
 }
 
 .hero__subtitle {
